@@ -1,0 +1,13 @@
+name: Package Tests
+
+on: [push]
+
+jobs:
+  test-macos-latest:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check Swift version
+      run: swift --version
+    - name: Run tests
+      run: swift test
