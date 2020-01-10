@@ -1,0 +1,116 @@
+//===----------------------------------------------------------------------===//
+//
+// This source file is part of the Currency open source project
+//
+// Copyright (c) 2020 Currency project authors
+// Licensed under MIT License
+//
+// See LICENSE.txt for license information
+// See CONTRIBUTORS.txt for the list of Currency project authors
+//
+// SPDX-License-Identifier: MIT
+//
+//===----------------------------------------------------------------------===//
+
+import struct Foundation.Decimal
+
+/// A generator class that supports lookup of ISO 4217 currencies by their alphabetic and numeric codes.
+public final class CurrencyMint {
+  public init() { }
+  
+  /// Attempts to find the appropriate currency type that matches the provided code and intialize it.
+  /// - Paramter code: The alphabetic ISO 4217 code to search for.
+  /// - Returns: An instance of a `Money` type that matches the provided `code`, with a `.zero` amount. Otherwise `nil`.
+  public func make(alphabeticCode code: String) -> Money? {
+    return self.make(alphabeticCode: code, amount: .zero)
+  }
+
+  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  /// - Parameters:
+  ///     - code: The alphabetic ISO 4217 code to search for.
+  ///     - amount: The amount the instance should be set to.
+  /// - Returns: An instance of a `Money` type that matches the provided `code`, with the appropriate value. Otherwise `nil`.
+  public func make(alphabeticCode code: String, amount: Decimal) -> Money? {
+    guard let currencyType = CurrencyMint.lookup(byAlphaCode: code) else { return nil }
+    return currencyType.init(amount)
+  }
+  
+  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  ///
+  /// See `CurrencyMetadata.minorUnits`.
+  /// - Parameters:
+  ///     - code: The alphabetic ISO 4217 code to search for.
+  ///     - minorUnits: The amount the instance should be set to, in the scale of it's smallest unit.
+  /// - Returns: An instance of a `Money` type that matches the provided `code`, with the appropriate value. Otherwise `nil`.
+  public func make(alphabeticCode code: String, minorUnits: Int) -> Money? {
+    guard let currencyType = CurrencyMint.lookup(byAlphaCode: code) else { return nil }
+    return currencyType.init(minorUnits: minorUnits)
+  }
+  
+  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  /// - Parameter code: The numeric ISO 4217 code to search for.
+  /// - Returns: An instance of a `Money` type that matches the provided `code`, with a `.zero` amount. Otherwise `nil`.
+  public func make(numericCode code: UInt16) -> Money? {
+    return self.make(numericCode: code, amount: .zero)
+  }
+  
+  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  /// - Parameters:
+  ///     - code: The numeric ISO 4217 code to search for.
+  ///     - amount: The amount the instance should be set to.
+  /// - Returns: An instance of a `Money` type that matches the provided `code`, with the appropriate value. Otherwise `nil`.
+  public func make(numericCode code: UInt16, amount: Decimal) -> Money? {
+    guard let currencyType = CurrencyMint.lookup(byNumCode: code) else { return nil }
+    return currencyType.init(amount)
+  }
+  
+  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  ///
+  /// See `CurrencyMetadata.minorUnits`.
+  /// - Parameters:
+  ///     - code: The numeric ISO 4217 code to search for.
+  ///     - minorUnits: The amount the instance should be set to, in the scale of it's smallest unit.
+  /// - Returns: An instance of a `Money` type that matches the provided `code`, with the appropriate value. Otherwise `nil`.
+  public func make(numericCode code: UInt16, minorUnits: Int) -> Money? {
+    guard let currencyType = CurrencyMint.lookup(byNumCode: code) else { return nil }
+    return currencyType.init(minorUnits: minorUnits)
+  }
+}
+
+% warning = "Contents following this line are automatically generated, and should not be edited."
+// ${warning}
+
+%{ import csv }%
+% with open('../../Resources/ISO4217.csv') as file:
+  % reader = csv.DictReader(file)
+
+extension CurrencyMint {
+  fileprivate static func lookup(byAlphaCode code: String) -> Money.Type? {
+    switch code {
+  % for row in reader:
+    % alphaCode = row["Ccy"]
+    % if alphaCode:
+    case "${alphaCode}": return ${alphaCode}.self
+    %end
+  %end
+    default: return nil
+    }
+  }
+  
+  fileprivate static func lookup(byNumCode code: UInt16) -> Money.Type? {
+    switch code {
+  % file.seek(0)
+  % next(reader)
+  % for row in reader:
+    %{
+    alphaCode = row["Ccy"]
+    numCode = row["CcyNbr"]
+    }%
+    case ${numCode}: return ${alphaCode}.self
+  %end
+    default: return nil
+    }
+  }
+}
+
+%end
