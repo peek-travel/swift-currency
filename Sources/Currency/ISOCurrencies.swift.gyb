@@ -46,11 +46,11 @@ public struct ${alphaCode}: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return ${numCode} }
   public static var minorUnits: UInt8 { return ${minorUnit} }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
     %end

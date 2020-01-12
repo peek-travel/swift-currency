@@ -26,22 +26,22 @@ import Foundation
 ///
 /// Floating point values are notorious for having precision variance, even when they are equivalent within the precision range a developer desires.
 ///
-/// To overcome this, all equality checks between two given Money values by default will use the rounded `amount`.
+/// To overcome this, all equality checks between two given Money values by default will use the `roundedAmount`.
 public protocol Money {
   /// The ISO 4217 information about this money's currency.
   var currency: CurrencyMetadata.Type { get }
 
   /// The exact amount of money being represented.
-  /// - Note: This is likely to be more precise than necessary, so it is recommended to prefer use of `amount` which uses "bankers" rounding.
-  var rawAmount: Decimal { get }
+  /// - Note: This is likely to be more precise than necessary, so it is recommended to use `roundedAmount` which uses "bankers" rounding.
+  var exactAmount: Decimal { get }
 
   /// The "bankers" rounded amount of money being represented.
   ///
-  /// The `rawAmount` will be rounded to the significant digits as defined by the `currency.minorUnits`.
+  /// The `exactAmount` will be rounded to the significant digits as defined by the `currency.minorUnits`.
   ///
   /// See `CurrencyMetadata.minorUnits` and `Foundation.Decimal.RoundingMode.bankers`.
-  /// - Note: This is usually the desired value to work with, as it is as precise as usually needed.
-  var amount: Decimal { get }
+  /// - Note: This is usually the desired value to work with, as `exactAmount` could be more precise than needed.
+  var roundedAmount: Decimal { get }
   
   /// Initializes a representation of the provided amount.
   /// - Parameter amount: The exact amount this instance should represent.
@@ -57,7 +57,7 @@ fileprivate func round(_ amount: Decimal, to scale: UInt8) -> Decimal {
 }
 
 extension Money {
-  public var amount: Decimal { return round(self.rawAmount, to: self.currency.minorUnits) }
+  public var roundedAmount: Decimal { return round(self.exactAmount, to: self.currency.minorUnits) }
 }
 
 extension Money where Self: CurrencyMetadata {
@@ -84,19 +84,19 @@ extension Money {
 
 extension Money {
   public static func +(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.rawAmount + rhs.rawAmount)
+    return .init(lhs.exactAmount + rhs.exactAmount)
   }
   
   public static func -(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.rawAmount - rhs.rawAmount)
+    return .init(lhs.exactAmount - rhs.exactAmount)
   }
   
   public static func *(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.rawAmount * rhs.rawAmount)
+    return .init(lhs.exactAmount * rhs.exactAmount)
   }
   
   public static func /(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.rawAmount / rhs.rawAmount)
+    return .init(lhs.exactAmount / rhs.exactAmount)
   }
   
   public static func +=(lhs: inout Self, rhs: Self) { lhs = lhs + rhs }
@@ -105,19 +105,19 @@ extension Money {
   public static func /=(lhs: inout Self, rhs: Self) { lhs = lhs / rhs }
   
   public static func +(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.rawAmount + rhs)
+    return .init(lhs.exactAmount + rhs)
   }
   
   public static func -(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.rawAmount - rhs)
+    return .init(lhs.exactAmount - rhs)
   }
   
   public static func *(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.rawAmount * rhs)
+    return .init(lhs.exactAmount * rhs)
   }
   
   public static func /(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.rawAmount / rhs)
+    return .init(lhs.exactAmount / rhs)
   }
   
   public static func +=(lhs: inout Self, rhs: Decimal) { lhs = lhs + rhs }
@@ -131,29 +131,31 @@ extension Money {
 extension Money {
   public static func ==<M: Money>(lhs: Self, rhs: M) -> Bool {
     guard lhs.currency.alphabeticCode == rhs.currency.alphabeticCode else { return false }
-    return lhs.amount == rhs.amount
+    return lhs.roundedAmount == rhs.roundedAmount
   }
   
-  /// Checks if the current `amount` is equivalent  to the provided decimal, after rounding.
+  /// Checks if the current rounded amount is equivalent to the provided value.
   ///
-  /// As floating point type precisions can vary, doing exact comparisons to raw `amount` values has a high degree of false negatives.
+  /// As floating point type precisions can vary, doing exact comparisons to `exactAmount` values can result in false negatives.
+  ///
   /// To get around this, the provided `other` amount will be rounded to the same precision as the `minorUnits` of the Money's currency using the "banker" mode.
   ///
-  /// See `Money.amount`.
-  /// - Parameter other: The other amount to "bankers' round, then compare against.
+  /// See `Money.roundedAmount`.
+  /// - Parameter other: The other amount to compare against, after "bankers" rounding it.
   /// - Returns: `true` if the rounded values are equal, otherwise `false`.
   public func isEqual(to other: Decimal) -> Bool {
-    return self.amount == round(other, to: self.currency.minorUnits)
+    return self.roundedAmount == round(other, to: self.currency.minorUnits)
   }
   
-  /// Checks if the current `amount` is equivalent  to the provided decimal, after rounding.
+  /// Checks if the current rounded amount is equivalent to the other instance's.
   ///
-  /// As floating point type precisions can vary, doing exact comparisons to raw `amount` values has a high degree of false negatives.
-  /// To get around this, the `amount` values will be compared, rather than `rawValues`.
+  /// As floating point type precisions can vary, doing exact comparisons to `exactAmount` values can result in false negatives.
   ///
-  /// See `Money.amount`.
-  /// - Parameter other: The other money to check if the amounts are equal.
-  /// - Returns: `true` if the amounts are equal, otherwise `false`.
+  /// To get around this, the `roundedAmount` values will be compared.
+  ///
+  /// See `Money.roundedAmount`.
+  /// - Parameter other: The other money to check if the rounded amounts are equal.
+  /// - Returns: `true` if the rounded amounts are equal, otherwise `false`.
   public func isEqual<M: Money>(to other: M) -> Bool { return self == other }
 }
 
@@ -161,17 +163,17 @@ extension Money {
 
 extension Money {
   public static func <(lhs: Self, rhs: Self) -> Bool {
-    return lhs.amount < rhs.amount
+    return lhs.exactAmount < rhs.exactAmount
   }
 }
 
 // MARK: Hashable
 
 extension Money {
-  public var hashValue: Int { return self.rawAmount.hashValue }
+  public var hashValue: Int { return self.exactAmount.hashValue }
   
   public func hash(into hasher: inout Hasher) {
-    hasher.combine(self.rawAmount)
+    hasher.combine(self.exactAmount)
   }
 }
 
@@ -196,7 +198,7 @@ extension Money {
 // MARK: CustomStringCovertible
 
 extension Money {
-  public var description: String { return "\(self.amount.description) \(self.currency.alphabeticCode)" }
+  public var description: String { return "\(self.roundedAmount.description) \(self.currency.alphabeticCode)" }
 }
 
 // MARK: String Interpolation
@@ -235,6 +237,6 @@ extension String.StringInterpolation {
     withFormatter formatter: NumberFormatter,
     nilDescription nilValue: String = "nil"
   ) {
-    self.appendInterpolation(formatter.string(from: NSDecimalNumber(decimal: money.amount)) ?? nilValue)
+    self.appendInterpolation(formatter.string(from: NSDecimalNumber(decimal: money.roundedAmount)) ?? nilValue)
   }
 }

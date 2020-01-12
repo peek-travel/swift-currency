@@ -35,11 +35,11 @@ public struct AED: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 784 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Afghani (AFN).
@@ -49,11 +49,11 @@ public struct AFN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 971 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Lek (ALL).
@@ -63,11 +63,11 @@ public struct ALL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 8 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Armenian Dram (AMD).
@@ -77,11 +77,11 @@ public struct AMD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 51 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Netherlands Antillean Guilder (ANG).
@@ -91,11 +91,11 @@ public struct ANG: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 532 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Kwanza (AOA).
@@ -105,11 +105,11 @@ public struct AOA: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 973 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Argentine Peso (ARS).
@@ -119,11 +119,11 @@ public struct ARS: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 32 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Australian Dollar (AUD).
@@ -133,11 +133,11 @@ public struct AUD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 36 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Aruban Florin (AWG).
@@ -147,11 +147,11 @@ public struct AWG: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 533 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Azerbaijan Manat (AZN).
@@ -161,11 +161,11 @@ public struct AZN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 944 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Convertible Mark (BAM).
@@ -175,11 +175,11 @@ public struct BAM: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 977 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Barbados Dollar (BBD).
@@ -189,11 +189,11 @@ public struct BBD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 52 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Taka (BDT).
@@ -203,11 +203,11 @@ public struct BDT: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 50 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Bulgarian Lev (BGN).
@@ -217,11 +217,11 @@ public struct BGN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 975 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Bahraini Dinar (BHD).
@@ -231,11 +231,11 @@ public struct BHD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 48 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Burundi Franc (BIF).
@@ -245,11 +245,11 @@ public struct BIF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 108 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Bermudian Dollar (BMD).
@@ -259,11 +259,11 @@ public struct BMD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 60 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Brunei Dollar (BND).
@@ -273,11 +273,11 @@ public struct BND: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 96 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Boliviano (BOB).
@@ -287,11 +287,11 @@ public struct BOB: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 68 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Brazilian Real (BRL).
@@ -301,11 +301,11 @@ public struct BRL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 986 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Bahamian Dollar (BSD).
@@ -315,11 +315,11 @@ public struct BSD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 44 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Ngultrum (BTN).
@@ -329,11 +329,11 @@ public struct BTN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 64 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Pula (BWP).
@@ -343,11 +343,11 @@ public struct BWP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 72 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Belarusian Ruble (BYN).
@@ -357,11 +357,11 @@ public struct BYN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 933 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Belize Dollar (BZD).
@@ -371,11 +371,11 @@ public struct BZD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 84 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Canadian Dollar (CAD).
@@ -385,11 +385,11 @@ public struct CAD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 124 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Congolese Franc (CDF).
@@ -399,11 +399,11 @@ public struct CDF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 976 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Swiss Franc (CHF).
@@ -413,11 +413,11 @@ public struct CHF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 756 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Chilean Peso (CLP).
@@ -427,11 +427,11 @@ public struct CLP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 152 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Yuan Renminbi (CNY).
@@ -441,11 +441,11 @@ public struct CNY: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 156 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Colombian Peso (COP).
@@ -455,11 +455,11 @@ public struct COP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 170 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Costa Rican Colon (CRC).
@@ -469,11 +469,11 @@ public struct CRC: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 188 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Peso Convertible (CUC).
@@ -483,11 +483,11 @@ public struct CUC: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 931 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Cuban Peso (CUP).
@@ -497,11 +497,11 @@ public struct CUP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 192 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Cabo Verde Escudo (CVE).
@@ -511,11 +511,11 @@ public struct CVE: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 132 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Czech Koruna (CZK).
@@ -525,11 +525,11 @@ public struct CZK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 203 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Djibouti Franc (DJF).
@@ -539,11 +539,11 @@ public struct DJF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 262 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Danish Krone (DKK).
@@ -553,11 +553,11 @@ public struct DKK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 208 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Dominican Peso (DOP).
@@ -567,11 +567,11 @@ public struct DOP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 214 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Algerian Dinar (DZD).
@@ -581,11 +581,11 @@ public struct DZD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 12 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Egyptian Pound (EGP).
@@ -595,11 +595,11 @@ public struct EGP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 818 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Nakfa (ERN).
@@ -609,11 +609,11 @@ public struct ERN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 232 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Ethiopian Birr (ETB).
@@ -623,11 +623,11 @@ public struct ETB: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 230 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Euro (EUR).
@@ -637,11 +637,11 @@ public struct EUR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 978 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Fiji Dollar (FJD).
@@ -651,11 +651,11 @@ public struct FJD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 242 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Falkland Islands Pound (FKP).
@@ -665,11 +665,11 @@ public struct FKP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 238 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Pound Sterling (GBP).
@@ -679,11 +679,11 @@ public struct GBP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 826 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Lari (GEL).
@@ -693,11 +693,11 @@ public struct GEL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 981 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Ghana Cedi (GHS).
@@ -707,11 +707,11 @@ public struct GHS: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 936 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Gibraltar Pound (GIP).
@@ -721,11 +721,11 @@ public struct GIP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 292 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Dalasi (GMD).
@@ -735,11 +735,11 @@ public struct GMD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 270 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Guinean Franc (GNF).
@@ -749,11 +749,11 @@ public struct GNF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 324 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Quetzal (GTQ).
@@ -763,11 +763,11 @@ public struct GTQ: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 320 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Guyana Dollar (GYD).
@@ -777,11 +777,11 @@ public struct GYD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 328 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Hong Kong Dollar (HKD).
@@ -791,11 +791,11 @@ public struct HKD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 344 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Lempira (HNL).
@@ -805,11 +805,11 @@ public struct HNL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 340 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Kuna (HRK).
@@ -819,11 +819,11 @@ public struct HRK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 191 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Gourde (HTG).
@@ -833,11 +833,11 @@ public struct HTG: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 332 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Forint (HUF).
@@ -847,11 +847,11 @@ public struct HUF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 348 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Rupiah (IDR).
@@ -861,11 +861,11 @@ public struct IDR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 360 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The New Israeli Sheqel (ILS).
@@ -875,11 +875,11 @@ public struct ILS: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 376 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Indian Rupee (INR).
@@ -889,11 +889,11 @@ public struct INR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 356 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Iraqi Dinar (IQD).
@@ -903,11 +903,11 @@ public struct IQD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 368 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Iranian Rial (IRR).
@@ -917,11 +917,11 @@ public struct IRR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 364 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Iceland Krona (ISK).
@@ -931,11 +931,11 @@ public struct ISK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 352 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Jamaican Dollar (JMD).
@@ -945,11 +945,11 @@ public struct JMD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 388 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Jordanian Dinar (JOD).
@@ -959,11 +959,11 @@ public struct JOD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 400 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Yen (JPY).
@@ -973,11 +973,11 @@ public struct JPY: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 392 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Kenyan Shilling (KES).
@@ -987,11 +987,11 @@ public struct KES: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 404 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Som (KGS).
@@ -1001,11 +1001,11 @@ public struct KGS: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 417 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Riel (KHR).
@@ -1015,11 +1015,11 @@ public struct KHR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 116 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Comorian Franc (KMF).
@@ -1029,11 +1029,11 @@ public struct KMF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 174 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The North Korean Won (KPW).
@@ -1043,11 +1043,11 @@ public struct KPW: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 408 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Won (KRW).
@@ -1057,11 +1057,11 @@ public struct KRW: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 410 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Kuwaiti Dinar (KWD).
@@ -1071,11 +1071,11 @@ public struct KWD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 414 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Cayman Islands Dollar (KYD).
@@ -1085,11 +1085,11 @@ public struct KYD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 136 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Tenge (KZT).
@@ -1099,11 +1099,11 @@ public struct KZT: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 398 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Lao Kip (LAK).
@@ -1113,11 +1113,11 @@ public struct LAK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 418 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Lebanese Pound (LBP).
@@ -1127,11 +1127,11 @@ public struct LBP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 422 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Sri Lanka Rupee (LKR).
@@ -1141,11 +1141,11 @@ public struct LKR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 144 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Liberian Dollar (LRD).
@@ -1155,11 +1155,11 @@ public struct LRD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 430 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Loti (LSL).
@@ -1169,11 +1169,11 @@ public struct LSL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 426 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Libyan Dinar (LYD).
@@ -1183,11 +1183,11 @@ public struct LYD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 434 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Moroccan Dirham (MAD).
@@ -1197,11 +1197,11 @@ public struct MAD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 504 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Moldovan Leu (MDL).
@@ -1211,11 +1211,11 @@ public struct MDL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 498 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Malagasy Ariary (MGA).
@@ -1225,11 +1225,11 @@ public struct MGA: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 969 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Denar (MKD).
@@ -1239,11 +1239,11 @@ public struct MKD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 807 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Kyat (MMK).
@@ -1253,11 +1253,11 @@ public struct MMK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 104 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Tugrik (MNT).
@@ -1267,11 +1267,11 @@ public struct MNT: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 496 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Pataca (MOP).
@@ -1281,11 +1281,11 @@ public struct MOP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 446 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Ouguiya (MRU).
@@ -1295,11 +1295,11 @@ public struct MRU: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 929 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Mauritius Rupee (MUR).
@@ -1309,11 +1309,11 @@ public struct MUR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 480 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Rufiyaa (MVR).
@@ -1323,11 +1323,11 @@ public struct MVR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 462 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Malawi Kwacha (MWK).
@@ -1337,11 +1337,11 @@ public struct MWK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 454 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Mexican Peso (MXN).
@@ -1351,11 +1351,11 @@ public struct MXN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 484 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Malaysian Ringgit (MYR).
@@ -1365,11 +1365,11 @@ public struct MYR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 458 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Mozambique Metical (MZN).
@@ -1379,11 +1379,11 @@ public struct MZN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 943 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Namibia Dollar (NAD).
@@ -1393,11 +1393,11 @@ public struct NAD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 516 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Naira (NGN).
@@ -1407,11 +1407,11 @@ public struct NGN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 566 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Cordoba Oro (NIO).
@@ -1421,11 +1421,11 @@ public struct NIO: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 558 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Norwegian Krone (NOK).
@@ -1435,11 +1435,11 @@ public struct NOK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 578 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Nepalese Rupee (NPR).
@@ -1449,11 +1449,11 @@ public struct NPR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 524 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The New Zealand Dollar (NZD).
@@ -1463,11 +1463,11 @@ public struct NZD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 554 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Rial Omani (OMR).
@@ -1477,11 +1477,11 @@ public struct OMR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 512 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Balboa (PAB).
@@ -1491,11 +1491,11 @@ public struct PAB: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 590 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Sol (PEN).
@@ -1505,11 +1505,11 @@ public struct PEN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 604 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Kina (PGK).
@@ -1519,11 +1519,11 @@ public struct PGK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 598 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Philippine Peso (PHP).
@@ -1533,11 +1533,11 @@ public struct PHP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 608 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Pakistan Rupee (PKR).
@@ -1547,11 +1547,11 @@ public struct PKR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 586 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Zloty (PLN).
@@ -1561,11 +1561,11 @@ public struct PLN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 985 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Guarani (PYG).
@@ -1575,11 +1575,11 @@ public struct PYG: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 600 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Qatari Rial (QAR).
@@ -1589,11 +1589,11 @@ public struct QAR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 634 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Romanian Leu (RON).
@@ -1603,11 +1603,11 @@ public struct RON: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 946 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Serbian Dinar (RSD).
@@ -1617,11 +1617,11 @@ public struct RSD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 941 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Russian Ruble (RUB).
@@ -1631,11 +1631,11 @@ public struct RUB: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 643 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Rwanda Franc (RWF).
@@ -1645,11 +1645,11 @@ public struct RWF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 646 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Saudi Riyal (SAR).
@@ -1659,11 +1659,11 @@ public struct SAR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 682 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Solomon Islands Dollar (SBD).
@@ -1673,11 +1673,11 @@ public struct SBD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 90 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Seychelles Rupee (SCR).
@@ -1687,11 +1687,11 @@ public struct SCR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 690 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Sudanese Pound (SDG).
@@ -1701,11 +1701,11 @@ public struct SDG: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 938 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Swedish Krona (SEK).
@@ -1715,11 +1715,11 @@ public struct SEK: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 752 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Singapore Dollar (SGD).
@@ -1729,11 +1729,11 @@ public struct SGD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 702 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Saint Helena Pound (SHP).
@@ -1743,11 +1743,11 @@ public struct SHP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 654 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Leone (SLL).
@@ -1757,11 +1757,11 @@ public struct SLL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 694 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Somali Shilling (SOS).
@@ -1771,11 +1771,11 @@ public struct SOS: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 706 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Surinam Dollar (SRD).
@@ -1785,11 +1785,11 @@ public struct SRD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 968 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The South Sudanese Pound (SSP).
@@ -1799,11 +1799,11 @@ public struct SSP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 728 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Dobra (STN).
@@ -1813,11 +1813,11 @@ public struct STN: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 930 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The El Salvador Colon (SVC).
@@ -1827,11 +1827,11 @@ public struct SVC: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 222 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Syrian Pound (SYP).
@@ -1841,11 +1841,11 @@ public struct SYP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 760 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Lilangeni (SZL).
@@ -1855,11 +1855,11 @@ public struct SZL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 748 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Baht (THB).
@@ -1869,11 +1869,11 @@ public struct THB: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 764 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Somoni (TJS).
@@ -1883,11 +1883,11 @@ public struct TJS: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 972 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Turkmenistan New Manat (TMT).
@@ -1897,11 +1897,11 @@ public struct TMT: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 934 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Tunisian Dinar (TND).
@@ -1911,11 +1911,11 @@ public struct TND: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 788 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Pa’anga (TOP).
@@ -1925,11 +1925,11 @@ public struct TOP: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 776 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Turkish Lira (TRY).
@@ -1939,11 +1939,11 @@ public struct TRY: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 949 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Trinidad and Tobago Dollar (TTD).
@@ -1953,11 +1953,11 @@ public struct TTD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 780 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The New Taiwan Dollar (TWD).
@@ -1967,11 +1967,11 @@ public struct TWD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 901 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Tanzanian Shilling (TZS).
@@ -1981,11 +1981,11 @@ public struct TZS: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 834 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Hryvnia (UAH).
@@ -1995,11 +1995,11 @@ public struct UAH: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 980 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Uganda Shilling (UGX).
@@ -2009,11 +2009,11 @@ public struct UGX: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 800 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The US Dollar (USD).
@@ -2023,11 +2023,11 @@ public struct USD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 840 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Peso Uruguayo (UYU).
@@ -2037,11 +2037,11 @@ public struct UYU: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 858 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Unidad Previsional (UYW).
@@ -2051,11 +2051,11 @@ public struct UYW: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 927 }
   public static var minorUnits: UInt8 { return 4 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Uzbekistan Sum (UZS).
@@ -2065,11 +2065,11 @@ public struct UZS: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 860 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Bolívar Soberano (VES).
@@ -2079,11 +2079,11 @@ public struct VES: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 928 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Dong (VND).
@@ -2093,11 +2093,11 @@ public struct VND: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 704 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Vatu (VUV).
@@ -2107,11 +2107,11 @@ public struct VUV: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 548 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Tala (WST).
@@ -2121,11 +2121,11 @@ public struct WST: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 882 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The CFA Franc BEAC (XAF).
@@ -2135,11 +2135,11 @@ public struct XAF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 950 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The East Caribbean Dollar (XCD).
@@ -2149,11 +2149,11 @@ public struct XCD: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 951 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The CFA Franc BCEAO (XOF).
@@ -2163,11 +2163,11 @@ public struct XOF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 952 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The CFP Franc (XPF).
@@ -2177,11 +2177,11 @@ public struct XPF: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 953 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Yemeni Rial (YER).
@@ -2191,11 +2191,11 @@ public struct YER: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 886 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Rand (ZAR).
@@ -2205,11 +2205,11 @@ public struct ZAR: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 710 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Zambian Kwacha (ZMW).
@@ -2219,11 +2219,11 @@ public struct ZMW: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 967 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 
 /// The Zimbabwe Dollar (ZWL).
@@ -2233,10 +2233,10 @@ public struct ZWL: _MoneyUmbrellaProtocol {
   public static var numericCode: UInt16 { return 932 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var rawAmount: Decimal { return self._rawAmount }
+  public var exactAmount: Decimal { return self._amount }
   
-  public init(_ amount: Decimal) { self._rawAmount = amount }
+  public init(_ amount: Decimal) { self._amount = amount }
   
-  private let _rawAmount: Decimal
+  private let _amount: Decimal
 }
 

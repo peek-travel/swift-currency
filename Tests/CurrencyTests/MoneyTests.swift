@@ -21,12 +21,12 @@ final class MoneyTests: XCTestCase {
   }
   
   func testInit() {
-    XCTAssertEqual(USD(30.23).amount, 30.23)
-    XCTAssertEqual(JPY(100.23).amount, 100)
+    XCTAssertEqual(USD(30.23).roundedAmount, 30.23)
+    XCTAssertEqual(JPY(100.23).roundedAmount, 100)
     
     let gbp = GBP(02838.29808)
-    XCTAssertEqual(gbp.amount, 2838.3)
-    XCTAssertEqual(gbp.rawAmount, 2838.29808)
+    XCTAssertEqual(gbp.roundedAmount, 2838.3)
+    XCTAssertEqual(gbp.exactAmount, 2838.29808)
   }
   
   func testMinorUnits() {
@@ -50,11 +50,11 @@ final class MoneyTests: XCTestCase {
   
   func testHashable() {
     let usd = USD(30.23)
-    XCTAssertEqual(usd.hashValue, usd.rawAmount.hashValue)
+    XCTAssertEqual(usd.hashValue, usd.exactAmount.hashValue)
     
     var hasher = Hasher()
     hasher.combine(usd)
-    XCTAssertEqual(hasher.finalize(), usd.rawAmount.hashValue)
+    XCTAssertEqual(hasher.finalize(), usd.exactAmount.hashValue)
   }
   
   func testAddition() {
@@ -95,14 +95,14 @@ final class MoneyTests: XCTestCase {
 
     var second = USD(32.12)
     second /= USD(45)
-    XCTAssertEqual(second.amount, 0.71)
+    XCTAssertEqual(second.roundedAmount, 0.71)
 
     let third = USD(75.98)
     XCTAssertEqual(third / Decimal(2), 37.99)
 
     var fourth = USD(0982.738)
     fourth /= Decimal(7.7)
-    XCTAssertEqual(fourth.amount, 127.63)
+    XCTAssertEqual(fourth.roundedAmount, 127.63)
   }
   
   func testMultiplication() {
@@ -111,14 +111,14 @@ final class MoneyTests: XCTestCase {
 
     var second = USD(32.12)
     second *= USD(45)
-    XCTAssertEqual(second.amount, 1445.4)
+    XCTAssertEqual(second.roundedAmount, 1445.4)
 
     let third = USD(75.98)
     XCTAssertEqual(third * Decimal(2), 151.96)
     
     var fourth = USD(0982.738)
     fourth *= Decimal(7.7)
-    XCTAssertEqual(fourth.amount, 7567.08)
+    XCTAssertEqual(fourth.roundedAmount, 7567.08)
   }
   
   func testDescription() {
