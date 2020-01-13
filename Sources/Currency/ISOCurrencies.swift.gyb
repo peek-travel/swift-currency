@@ -1,0 +1,58 @@
+//===----------------------------------------------------------------------===//
+//
+// This source file is part of the Currency open source project
+//
+// Copyright (c) 2020 Currency project authors
+// Licensed under MIT License
+//
+// See LICENSE.txt for license information
+// See CONTRIBUTORS.txt for the list of Currency project authors
+//
+// SPDX-License-Identifier: MIT
+//
+//===----------------------------------------------------------------------===//
+
+import struct Foundation.Decimal
+
+/// This is a "private" protocol for conforming all ISO 4217 money types to a list of different protocols.
+/// - Warning: Do not conform any type to this protocol, nor use it as a type constraint.
+///
+/// Breaking changes to this **will** be allowed outside of major semver changes.
+public protocol _MoneyUmbrellaProtocol: Money, CurrencyMetadata,
+  Comparable, Hashable,
+  ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral,
+  AdditiveArithmetic { }
+
+% warning = "Contents following this line are automatically generated, and should not be edited."
+// ${warning}
+
+// MARK: -
+// MARK: ISO 4217 Currencies
+
+%{ import csv }%
+% with open('../../Resources/ISO4217.csv') as file:
+  % for row in csv.DictReader(file):
+    %{
+    alphaCode = row["Ccy"]
+    numCode = row["CcyNbr"]
+    name = row["CcyNm"]
+    minorUnit = row["CcyMnrUnts"]
+    }%
+    % if alphaCode and numCode and numCode.isdigit() and name and minorUnit and minorUnit.isdigit():
+/// The ${name} (${alphaCode}).
+public struct ${alphaCode}: _MoneyUmbrellaProtocol {
+  public static var name: String { return "${name}" }
+  public static var alphabeticCode: String { return "${alphaCode}" }
+  public static var numericCode: UInt16 { return ${numCode} }
+  public static var minorUnits: UInt8 { return ${minorUnit} }
+  
+  public var exactAmount: Decimal { return self._amount }
+  
+  public init(_ amount: Decimal) { self._amount = amount }
+  
+  private let _amount: Decimal
+}
+
+    %end
+  %end
+%end
