@@ -143,7 +143,7 @@ final class MoneyTests: XCTestCase {
   func testStringInterpolation_customFormatter() {
     let pounds = GBP(14928.018)
     let formatter = NumberFormatter()
-    formatter.currencyCode = pounds.currency.alphabeticCode
+    formatter.currencyCode = pounds.metadata.alphabeticCode
     formatter.numberStyle = .currency
     formatter.currencyGroupingSeparator = " "
     formatter.currencyDecimalSeparator = "'"
