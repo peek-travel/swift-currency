@@ -1,0 +1,13 @@
+name: 3rd Party Dependency Managers
+
+on: [push]
+
+jobs:
+  carthage:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check Carthage version
+      run: carthage version
+    - name: Run Carthage build
+      run: carthage build --no-skip-current
