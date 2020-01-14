@@ -29,7 +29,7 @@ import Foundation
 /// To overcome this, all equality checks between two given Money values by default will use the `roundedAmount`.
 public protocol Money {
   /// The ISO 4217 information about this money's currency.
-  var currency: CurrencyMetadata.Type { get }
+  static var metadata: CurrencyMetadata.Type { get }
 
   /// The exact amount of money being represented.
   /// - Note: This is likely to be more precise than necessary, so it is recommended to use `roundedAmount` which uses "bankers" rounding.
@@ -37,7 +37,7 @@ public protocol Money {
 
   /// The "bankers" rounded amount of money being represented.
   ///
-  /// The `exactAmount` will be rounded to the significant digits as defined by the `currency.minorUnits`.
+  /// The `exactAmount` will be rounded to the significant digits as defined by the currency's "minorUnits".
   ///
   /// See `CurrencyMetadata.minorUnits` and `Foundation.Decimal.RoundingMode.bankers`.
   /// - Note: This is usually the desired value to work with, as `exactAmount` could be more precise than needed.
@@ -57,11 +57,13 @@ fileprivate func round(_ amount: Decimal, to scale: UInt8) -> Decimal {
 }
 
 extension Money {
-  public var roundedAmount: Decimal { return round(self.exactAmount, to: self.currency.minorUnits) }
+  /// The ISO 4217 information about this money's currency.
+  public var metadata: CurrencyMetadata.Type { return Self.metadata }
+  public var roundedAmount: Decimal { return round(self.exactAmount, to: Self.metadata.minorUnits) }
 }
 
 extension Money where Self: CurrencyMetadata {
-  public var currency: CurrencyMetadata.Type { return Self.self }
+  public static var metadata: CurrencyMetadata.Type { return Self.self }
 }
 
 extension Money {
@@ -73,7 +75,7 @@ extension Money {
   /// - Parameter minorUnits: The amount of the smallest units in the currency to initialize with.
   public init(minorUnits: Int) {
     self.init(.zero)
-    let minorUnitsScale = Int16(self.currency.minorUnits) * -1
+    let minorUnitsScale = Int16(Self.metadata.minorUnits) * -1
     let scaledTotal = NSDecimalNumber(value: minorUnits).multiplying(byPowerOf10: minorUnitsScale)
     self = .init(scaledTotal.decimalValue)
   }
@@ -130,7 +132,7 @@ extension Money {
 
 extension Money {
   public static func ==<M: Money>(lhs: Self, rhs: M) -> Bool {
-    guard lhs.currency.alphabeticCode == rhs.currency.alphabeticCode else { return false }
+    guard Self.metadata.alphabeticCode == M.metadata.alphabeticCode else { return false }
     return lhs.roundedAmount == rhs.roundedAmount
   }
   
@@ -138,13 +140,13 @@ extension Money {
   ///
   /// As floating point type precisions can vary, doing exact comparisons to `exactAmount` values can result in false negatives.
   ///
-  /// To get around this, the provided `other` amount will be rounded to the same precision as the `minorUnits` of the Money's currency using the "banker" mode.
+  /// To get around this, the provided `other` amount will be rounded to the same precision as the "minorUnits" of the Money's currency using the "banker" mode.
   ///
   /// See `Money.roundedAmount`.
   /// - Parameter other: The other amount to compare against, after "bankers" rounding it.
   /// - Returns: `true` if the rounded values are equal, otherwise `false`.
   public func isEqual(to other: Decimal) -> Bool {
-    return self.roundedAmount == round(other, to: self.currency.minorUnits)
+    return self.roundedAmount == round(other, to: Self.metadata.minorUnits)
   }
   
   /// Checks if the current rounded amount is equivalent to the other instance's.
@@ -198,7 +200,7 @@ extension Money {
 // MARK: CustomStringCovertible
 
 extension Money {
-  public var description: String { return "\(self.roundedAmount.description) \(self.currency.alphabeticCode)" }
+  public var description: String { return "\(self.roundedAmount.description) \(Self.metadata.alphabeticCode)" }
 }
 
 // MARK: String Interpolation
@@ -228,7 +230,7 @@ extension String.StringInterpolation {
     let formatter = NumberFormatter()
     formatter.numberStyle = .currency
     formatter.locale = locale
-    formatter.currencyCode = money.currency.alphabeticCode
+    formatter.currencyCode = money.metadata.alphabeticCode
     self.appendInterpolation(money, withFormatter: formatter, nilDescription: nilValue)
   }
   
