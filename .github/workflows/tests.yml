@@ -3,7 +3,7 @@ name: Package Tests
 on: [push]
 
 jobs:
-  test-macos-latest:
+  macos-latest:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v1
