@@ -14,7 +14,7 @@
 
 import Foundation
 
-/// A generic representation of money, with a single `Foundation.Decimal` value holding the exact value of money.
+/// A type-erased representation of a currency, with a single `Foundation.Decimal` holding the exact value.
 ///
 /// Conforming types will also provide `CurrencyMetadata` to access specific ISO 4217 information, such as the alphabetic code and "minor units".
 ///
@@ -26,9 +26,9 @@ import Foundation
 ///
 /// Floating point values are notorious for having precision variance, even when they are equivalent within the precision range a developer desires.
 ///
-/// To overcome this, all equality checks between two given Money values by default will use the `roundedAmount`.
-public protocol Money {
-  /// The ISO 4217 information about this money's currency.
+/// To overcome this, all equality checks between two given currencies will use the `roundedAmount` by default.
+public protocol AnyCurrency {
+  /// The ISO 4217 information about this currency.
   static var metadata: CurrencyMetadata.Type { get }
 
   /// The exact amount of money being represented.
@@ -56,17 +56,17 @@ fileprivate func round(_ amount: Decimal, to scale: UInt8) -> Decimal {
   return result
 }
 
-extension Money {
-  /// The ISO 4217 information about this money's currency.
+extension AnyCurrency {
+  /// The ISO 4217 information about this currency.
   public var metadata: CurrencyMetadata.Type { return Self.metadata }
   public var roundedAmount: Decimal { return round(self.exactAmount, to: Self.metadata.minorUnits) }
 }
 
-extension Money where Self: CurrencyMetadata {
+extension AnyCurrency where Self: CurrencyMetadata {
   public static var metadata: CurrencyMetadata.Type { return Self.self }
 }
 
-extension Money {
+extension AnyCurrency {
   /// Initializes a currency value from it's smallest unit.
   ///
   /// For example, the USD has cents, which are 1/100 of 1 USD. Calling `USD(minorUnits: 100)` will create a value of `1.0`.
@@ -84,7 +84,7 @@ extension Money {
 // MARK: -
 // MARK: Arithmetic
 
-extension Money {
+extension AnyCurrency {
   public static func +(lhs: Self, rhs: Self) -> Self {
     return .init(lhs.exactAmount + rhs.exactAmount)
   }
@@ -130,8 +130,8 @@ extension Money {
 
 // MARK: Equatable
 
-extension Money {
-  public static func ==<M: Money>(lhs: Self, rhs: M) -> Bool {
+extension AnyCurrency {
+  public static func ==<M: AnyCurrency>(lhs: Self, rhs: M) -> Bool {
     guard Self.metadata.alphabeticCode == M.metadata.alphabeticCode else { return false }
     return lhs.roundedAmount == rhs.roundedAmount
   }
@@ -140,9 +140,9 @@ extension Money {
   ///
   /// As floating point type precisions can vary, doing exact comparisons to `exactAmount` values can result in false negatives.
   ///
-  /// To get around this, the provided `other` amount will be rounded to the same precision as the "minorUnits" of the Money's currency using the "banker" mode.
+  /// To get around this, the provided `other` amount will be rounded to the same precision as the currency's "minorUnits" using the "bankers" mode.
   ///
-  /// See `Money.roundedAmount`.
+  /// See `AnyCurrency.roundedAmount` and `Foundation.Decimal.RoundingMode.bankers`.
   /// - Parameter other: The other amount to compare against, after "bankers" rounding it.
   /// - Returns: `true` if the rounded values are equal, otherwise `false`.
   public func isEqual(to other: Decimal) -> Bool {
@@ -155,15 +155,15 @@ extension Money {
   ///
   /// To get around this, the `roundedAmount` values will be compared.
   ///
-  /// See `Money.roundedAmount`.
-  /// - Parameter other: The other money to check if the rounded amounts are equal.
-  /// - Returns: `true` if the rounded amounts are equal, otherwise `false`.
-  public func isEqual<M: Money>(to other: M) -> Bool { return self == other }
+  /// See `AnyCurrency.roundedAmount`.
+  /// - Parameter other: The other currency value to check if the rounded amounts are equal.
+  /// - Returns: `true` if the currencies are the same type, and the rounded amounts are equal. Otherwise, `false`.
+  public func isEqual<M: AnyCurrency>(to other: M) -> Bool { return self == other }
 }
 
 // MARK: Comparable
 
-extension Money {
+extension AnyCurrency {
   public static func <(lhs: Self, rhs: Self) -> Bool {
     return lhs.exactAmount < rhs.exactAmount
   }
@@ -171,7 +171,7 @@ extension Money {
 
 // MARK: Hashable
 
-extension Money {
+extension AnyCurrency {
   public var hashValue: Int { return self.exactAmount.hashValue }
   
   public func hash(into hasher: inout Hasher) {
@@ -182,7 +182,7 @@ extension Money {
 // MARK: -
 // MARK: ExpressibleByIntegerLiteral
 
-extension Money {
+extension AnyCurrency {
   public init(integerLiteral value: Int) {
     self.init(Decimal(integerLiteral: value))
   }
@@ -190,7 +190,7 @@ extension Money {
 
 // MARK: ExpressibleByFloatLiteral
 
-extension Money {
+extension AnyCurrency {
   public init(floatLiteral value: Double) {
     self.init(Decimal(floatLiteral: value))
   }
@@ -199,7 +199,7 @@ extension Money {
 // MARK: -
 // MARK: CustomStringCovertible
 
-extension Money {
+extension AnyCurrency {
   public var description: String { return "\(self.roundedAmount.description) \(Self.metadata.alphabeticCode)" }
 }
 
@@ -212,7 +212,7 @@ extension Money {
 
 extension String.StringInterpolation {
   public mutating func appendInterpolation(
-    _ money: Optional<Money>,
+    _ money: Optional<AnyCurrency>,
     forLocale locale: Locale = .current,
     nilDescription nilValue: String = "nil"
   ) {
@@ -223,7 +223,7 @@ extension String.StringInterpolation {
   }
   
   public mutating func appendInterpolation(
-    _ money: Money,
+    _ money: AnyCurrency,
     forLocale locale: Locale = .current,
     nilDescription nilValue: String = "nil"
   ) {
@@ -235,7 +235,7 @@ extension String.StringInterpolation {
   }
   
   public mutating func appendInterpolation(
-    _ money: Money,
+    _ money: AnyCurrency,
     withFormatter formatter: NumberFormatter,
     nilDescription nilValue: String = "nil"
   ) {

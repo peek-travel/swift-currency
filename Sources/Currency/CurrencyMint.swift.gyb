@@ -18,60 +18,60 @@ import struct Foundation.Decimal
 public final class CurrencyMint {
   public init() { }
   
-  /// Attempts to find the appropriate currency type that matches the provided code and intialize it.
+  /// Attempts to find the appropriate currency type that matches the provided alphabetic code and intialize it.
   /// - Paramter code: The alphabetic ISO 4217 code to search for.
-  /// - Returns: An instance of a `Money` type that matches the provided `code`, with a `.zero` amount. Otherwise `nil`.
-  public func make(alphabeticCode code: String) -> Money? {
+  /// - Returns: An instance of a currency that matches the provided `code`, with a `.zero` amount. Otherwise `nil`.
+  public func make(alphabeticCode code: String) -> AnyCurrency? {
     return self.make(alphabeticCode: code, amount: .zero)
   }
 
-  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  /// Attempts to find the appropriate currency type that matches the provided alphabetic code and initialize it.
   /// - Parameters:
   ///     - code: The alphabetic ISO 4217 code to search for.
   ///     - amount: The amount the instance should be set to.
-  /// - Returns: An instance of a `Money` type that matches the provided `code`, with the appropriate value. Otherwise `nil`.
-  public func make(alphabeticCode code: String, amount: Decimal) -> Money? {
+  /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
+  public func make(alphabeticCode code: String, amount: Decimal) -> AnyCurrency? {
     guard let currencyType = CurrencyMint.lookup(byAlphaCode: code) else { return nil }
     return currencyType.init(amount)
   }
   
-  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  /// Attempts to find the appropriate currency type that matches the provided alphabetic code and initialize it.
   ///
   /// See `CurrencyMetadata.minorUnits`.
   /// - Parameters:
   ///     - code: The alphabetic ISO 4217 code to search for.
   ///     - minorUnits: The amount the instance should be set to, in the scale of it's smallest unit.
-  /// - Returns: An instance of a `Money` type that matches the provided `code`, with the appropriate value. Otherwise `nil`.
-  public func make(alphabeticCode code: String, minorUnits: Int) -> Money? {
+  /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
+  public func make(alphabeticCode code: String, minorUnits: Int) -> AnyCurrency? {
     guard let currencyType = CurrencyMint.lookup(byAlphaCode: code) else { return nil }
     return currencyType.init(minorUnits: minorUnits)
   }
   
-  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  /// Attempts to find the appropriate currency type that matches the provided numeric code and initialize it.
   /// - Parameter code: The numeric ISO 4217 code to search for.
-  /// - Returns: An instance of a `Money` type that matches the provided `code`, with a `.zero` amount. Otherwise `nil`.
-  public func make(numericCode code: UInt16) -> Money? {
+  /// - Returns: An instance of a currency that matches the provided `code`, with a `.zero` amount. Otherwise `nil`.
+  public func make(numericCode code: UInt16) -> AnyCurrency? {
     return self.make(numericCode: code, amount: .zero)
   }
   
-  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  /// Attempts to find the appropriate currency type that matches the provided numeric code and initialize it.
   /// - Parameters:
   ///     - code: The numeric ISO 4217 code to search for.
   ///     - amount: The amount the instance should be set to.
-  /// - Returns: An instance of a `Money` type that matches the provided `code`, with the appropriate value. Otherwise `nil`.
-  public func make(numericCode code: UInt16, amount: Decimal) -> Money? {
+  /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
+  public func make(numericCode code: UInt16, amount: Decimal) -> AnyCurrency? {
     guard let currencyType = CurrencyMint.lookup(byNumCode: code) else { return nil }
     return currencyType.init(amount)
   }
   
-  /// Attempts to find the appropriate currency type that matches the provided code and initialize it.
+  /// Attempts to find the appropriate currency type that matches the provided numeric code and initialize it.
   ///
   /// See `CurrencyMetadata.minorUnits`.
   /// - Parameters:
   ///     - code: The numeric ISO 4217 code to search for.
   ///     - minorUnits: The amount the instance should be set to, in the scale of it's smallest unit.
-  /// - Returns: An instance of a `Money` type that matches the provided `code`, with the appropriate value. Otherwise `nil`.
-  public func make(numericCode code: UInt16, minorUnits: Int) -> Money? {
+  /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
+  public func make(numericCode code: UInt16, minorUnits: Int) -> AnyCurrency? {
     guard let currencyType = CurrencyMint.lookup(byNumCode: code) else { return nil }
     return currencyType.init(minorUnits: minorUnits)
   }
@@ -85,7 +85,7 @@ public final class CurrencyMint {
   % reader = csv.DictReader(file)
 
 extension CurrencyMint {
-  fileprivate static func lookup(byAlphaCode code: String) -> Money.Type? {
+  fileprivate static func lookup(byAlphaCode code: String) -> AnyCurrency.Type? {
     switch code {
   % for row in reader:
     % alphaCode = row["Ccy"]
@@ -97,7 +97,7 @@ extension CurrencyMint {
     }
   }
   
-  fileprivate static func lookup(byNumCode code: UInt16) -> Money.Type? {
+  fileprivate static func lookup(byNumCode code: UInt16) -> AnyCurrency.Type? {
     switch code {
   % file.seek(0)
   % next(reader)
