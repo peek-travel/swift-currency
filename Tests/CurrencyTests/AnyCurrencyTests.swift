@@ -15,7 +15,7 @@
 import Currency
 import XCTest
 
-final class MoneyTests: XCTestCase {
+final class AnyCurrencyTests: XCTestCase {
   override func setUp() {
     UserDefaults.standard.set(["en_US"], forKey: "AppleLanguages")
   }

@@ -14,11 +14,11 @@
 
 import struct Foundation.Decimal
 
-/// This is a "private" protocol for conforming all ISO 4217 money types to a list of different protocols.
+/// This is a "private" protocol for conforming all ISO 4217 defined currencies to a list of different protocols.
 /// - Warning: Do not conform any type to this protocol, nor use it as a type constraint.
 ///
 /// Breaking changes to this **will** be allowed outside of major semver changes.
-public protocol _MoneyUmbrellaProtocol: Money, CurrencyMetadata,
+public protocol _CurrencyImplementation: AnyCurrency, CurrencyMetadata,
   Comparable, Hashable,
   ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral,
   AdditiveArithmetic { }
@@ -40,7 +40,7 @@ public protocol _MoneyUmbrellaProtocol: Money, CurrencyMetadata,
     }%
     % if alphaCode and numCode and numCode.isdigit() and name and minorUnit and minorUnit.isdigit():
 /// The ${name} (${alphaCode}).
-public struct ${alphaCode}: _MoneyUmbrellaProtocol {
+public struct ${alphaCode}: _CurrencyImplementation {
   public static var name: String { return "${name}" }
   public static var alphabeticCode: String { return "${alphaCode}" }
   public static var numericCode: UInt16 { return ${numCode} }
