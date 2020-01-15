@@ -159,3 +159,19 @@ final class AnyCurrencyTests: XCTestCase {
     XCTAssertEqual("\(pounds)", "£398.98")
   }
 }
+
+// MARK: -
+// MARK: Sequence<AnyCurrency>
+
+extension AnyCurrencyTests {
+  func testSequenceSum() {
+    let amounts = [USD(30.47), -107.8239, 1_203.9832, -504.3982]
+    XCTAssertEqual(amounts.sum().roundedAmount, 622.23)
+  }
+  
+  func testSequenceSum_withPredicate() {
+    let amounts: [USD] = [304.98, 19.02, 30.21]
+    let sumTotal = amounts.sum(where: { $0.roundedAmount > 20 })
+    XCTAssertEqual(sumTotal.roundedAmount, 335.19)
+  }
+}
