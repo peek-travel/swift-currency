@@ -21,17 +21,32 @@ final class AnyCurrencyTests: XCTestCase {
   }
   
   func testInit() {
-    XCTAssertEqual(USD(30.23).roundedAmount, 30.23)
-    XCTAssertEqual(JPY(100.23).roundedAmount, 100)
+    XCTAssertEqual(USD(30.23).amount, 30.23)
+    XCTAssertEqual(JPY(100.23).amount, 100)
     
     let gbp = GBP(02838.29808)
-    XCTAssertEqual(gbp.roundedAmount, 2838.3)
-    XCTAssertEqual(gbp.exactAmount, 2838.29808)
+    XCTAssertEqual(gbp.amount, 2838.3)
+    XCTAssertEqual(gbp.minorUnits, 283830)
   }
   
   func testMinorUnits() {
-    XCTAssertTrue(GBP(minorUnits: 300).isEqual(to: 3.0))
-    XCTAssertTrue(JPY(minorUnits: 39820).isEqual(to: 39820))
+    let gbp = GBP(exactly: 300)
+    XCTAssertTrue(gbp.isEqual(to: 3.0))
+    XCTAssertEqual(gbp.minorUnits, 300)
+    
+    let jpy = JPY(exactly: 39820)
+    XCTAssertTrue(jpy.isEqual(to: 39820))
+    XCTAssertEqual(jpy.minorUnits, 39820)
+  }
+  
+  func testNegative() {
+    let gbp = GBP(exactly: -300)
+    XCTAssertTrue(gbp.isEqual(to: -3.0))
+    XCTAssertEqual(gbp.minorUnits, -300)
+    
+    let jpy = JPY(exactly: -39820)
+    XCTAssertTrue(jpy.isEqual(to: -39820))
+    XCTAssertEqual(jpy.minorUnits, -39820)
   }
   
   func testEquatable() {
@@ -50,11 +65,11 @@ final class AnyCurrencyTests: XCTestCase {
   
   func testHashable() {
     let usd = USD(30.23)
-    XCTAssertEqual(usd.hashValue, usd.exactAmount.hashValue)
+    XCTAssertEqual(usd.hashValue, usd.minorUnits.hashValue)
     
     var hasher = Hasher()
     hasher.combine(usd)
-    XCTAssertEqual(hasher.finalize(), usd.exactAmount.hashValue)
+    XCTAssertEqual(hasher.finalize(), usd.minorUnits.hashValue)
   }
   
   func testAddition() {
@@ -95,14 +110,14 @@ final class AnyCurrencyTests: XCTestCase {
 
     var second = USD(32.12)
     second /= USD(45)
-    XCTAssertEqual(second.roundedAmount, 0.71)
+    XCTAssertEqual(second.amount, 0.71)
 
     let third = USD(75.98)
     XCTAssertEqual(third / Decimal(2), 37.99)
 
     var fourth = USD(0982.738)
     fourth /= Decimal(7.7)
-    XCTAssertEqual(fourth.roundedAmount, 127.63)
+    XCTAssertEqual(fourth.amount, 127.63)
   }
   
   func testMultiplication() {
@@ -111,14 +126,14 @@ final class AnyCurrencyTests: XCTestCase {
 
     var second = USD(32.12)
     second *= USD(45)
-    XCTAssertEqual(second.roundedAmount, 1445.4)
+    XCTAssertEqual(second.amount, 1445.4)
 
     let third = USD(75.98)
     XCTAssertEqual(third * Decimal(2), 151.96)
     
     var fourth = USD(0982.738)
     fourth *= Decimal(7.7)
-    XCTAssertEqual(fourth.roundedAmount, 7567.08)
+    XCTAssertEqual(fourth.amount, 7567.1)
   }
   
   func testDescription() {
@@ -161,17 +176,85 @@ final class AnyCurrencyTests: XCTestCase {
 }
 
 // MARK: -
+// MARK: Common Calculations
+
+extension Sequence where Element: AnyCurrency {
+  func applyingRate(_ rate: Decimal) -> [Element] {
+    return self.reduce(into: [Element]()) { $0.append($1 + ($1 * rate)) }
+  }
+  
+  func sum(_ transform: (Element) -> Element) -> Element {
+    return self.reduce(into: [Element](), { $0.append(transform($1)) })
+      .sum()
+  }
+}
+
+extension AnyCurrencyTests {
+  func testSampleUSDCalculations() {
+    /*
+      original price    taxes (9%)        result
+      3.00              0.27              3.27
+      2.99              0.2691 => 0.27    3.2591 => 3.26
+      5.98              0.5382 => 0.54    6.5182 => 6.52
+      ===               ===               ===
+      11.97             1.0773 => 1.08    13.0473 => 13.05
+     */
+    let prices: [USD] = [
+      3.00,
+      2.99,
+      5.98
+    ]
+    
+    let subtotal = prices.sum()
+    XCTAssertEqual(subtotal, 11.97)
+    
+    let taxes = prices.sum { $0 * Decimal(0.09) }
+    XCTAssertEqual(taxes, 1.08)
+    XCTAssertEqual(subtotal * Decimal(0.09), 1.08)
+    
+    XCTAssertEqual(subtotal + taxes, 13.05)
+    XCTAssertEqual(prices.applyingRate(0.09).sum(), 13.05)
+    
+    /* .228735
+      original price    discount (15%)    discount price    taxes (9%)        result
+      3.00              0.45              2.55              0.2295 => 0.23    2.7795 => 2.78
+      2.99              0.4485 => 0.45    2.5415 => 2.54    0.2286 => 0.23    2.7701 => 2.77
+      5.98              0.897  => 0.90    5.083  => 5.08    0.4575 => 0.46    5.5405 => 5.54
+      ===               ===               ===               ===               ===
+      11.97             1.7955 => 1.80    10.1745 => 10.17  0.9156 => 0.92    11.0901 => 11.09
+     */
+    
+    let discount = prices.sum { $0 * Decimal(0.15) }
+    XCTAssertEqual(discount, 1.80)
+    let discountPrices = prices.applyingRate(-0.15)
+    XCTAssertEqual(discountPrices.sum(), 10.17)
+    
+    let discountTaxes = discountPrices.sum { $0 * Decimal(0.09) }
+    XCTAssertEqual(discountTaxes, 0.92)
+    
+    let discountTotal = discountPrices.applyingRate(0.09).sum()
+    XCTAssertEqual(discountTotal, 11.09)
+    
+    let chained = prices
+      .applyingRate(-0.15) // discount
+      .applyingRate(0.09) // taxes
+      .sum()
+    XCTAssertEqual(chained, discountTotal)
+  }
+}
+
+// MARK: -
 // MARK: Sequence<AnyCurrency>
 
 extension AnyCurrencyTests {
   func testSequenceSum() {
     let amounts = [USD(30.47), -107.8239, 1_203.9832, -504.3982]
-    XCTAssertEqual(amounts.sum().roundedAmount, 622.23)
+    XCTAssertEqual(amounts.sum().amount, 622.23)
   }
   
   func testSequenceSum_withPredicate() {
     let amounts: [USD] = [304.98, 19.02, 30.21]
-    let sumTotal = amounts.sum(where: { $0.roundedAmount > 20 })
-    XCTAssertEqual(sumTotal.roundedAmount, 335.19)
+    let sumTotal = amounts.sum(where: { $0.amount > 20 })
+    XCTAssertEqual(sumTotal.amount, 335.19)
   }
 }
