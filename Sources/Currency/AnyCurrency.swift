@@ -14,52 +14,63 @@
 
 import Foundation
 
-/// A type-erased representation of a currency, with a single `Foundation.Decimal` holding the exact value.
+/// A type-erased representation of a currency.
 ///
 /// Conforming types will also provide `CurrencyMetadata` to access specific ISO 4217 information, such as the alphabetic code and "minor units".
 ///
+/// **Value Storage**
+///
+/// All currencies have a "minorUnits" scale, as defined by their `CurrencyMetadata` that determine their precision when represented as a `Foundation.Decimal`.
+///
+/// This "minorUnits" scale is the value that is stored within the currency for use in arithmetic and value comparisons.
+///
 /// **Initialization**
 ///
-/// As `Foundation.Decimal` has different precision to `BinaryFloatingPoint`, precision will be lost when initializing using float literals.
-///
-/// **Equality Comparisons**
-///
-/// Floating point values are notorious for having precision variance, even when they are equivalent within the precision range a developer desires.
-///
-/// To overcome this, all equality checks between two given currencies will use the `roundedAmount` by default.
+/// All values will be "bankers" rounded before being stored within the value. So a value of `USD(1.982)` will be stored as `1.98`.
 public protocol AnyCurrency {
   /// The ISO 4217 information about this currency.
   static var metadata: CurrencyMetadata.Type { get }
-
-  /// The exact amount of money being represented.
-  /// - Note: This is likely to be more precise than necessary, so it is recommended to use `roundedAmount` which uses "bankers" rounding.
-  var exactAmount: Decimal { get }
-
-  /// The "bankers" rounded amount of money being represented.
+  
+  /// The amount represented as a whole number of the currency's "minorUnits".
   ///
-  /// The `exactAmount` will be rounded to the significant digits as defined by the currency's "minorUnits".
+  /// For example, as the USD uses 1/100 for its minor unit, with the value `USD(1.0)`, `minorUnits` will be the value `100`.
+  ///
+  /// See `CurrencyMetadata.minorUnits` and `Foundation.RoundingMode.bankers`.
+  /// - Note: All equality comparisons will use this value.
+  var minorUnits: Int64 { get }
+  
+  /// The amount of money being represented.
+  var amount: Decimal { get }
+  
+  /// Initializes a currency to the exact value of it's smallest unit.
+  ///
+  /// For example, the USD has cents, which are 1/100 of 1 USD. Calling `USD(minorUnits: 100)` will create a value of `1.0`.
+  ///
+  /// See `CurrencyMetadata.minorUnits`.
+  /// - Parameter minorUnits: The amount of the smallest units in the currency to initialize with.
+  init(exactly minorUnits: Int64)
+  /// Initializes a representation of the provided amount after "bankers" rounding the value
+  ///
+  /// The rounding pecision is defined by the currency's "minorUnits".
   ///
   /// See `CurrencyMetadata.minorUnits` and `Foundation.Decimal.RoundingMode.bankers`.
-  /// - Note: This is usually the desired value to work with, as `exactAmount` could be more precise than needed.
-  var roundedAmount: Decimal { get }
-  
-  /// Initializes a representation of the provided amount.
   /// - Parameter amount: The exact amount this instance should represent.
   init(_ amount: Decimal)
 }
 
 // MARK: Computed Properties
 
-fileprivate func round(_ amount: Decimal, to scale: UInt8) -> Decimal {
-  var result = Decimal.zero
-  withUnsafePointer(to: amount) { NSDecimalRound(&result, $0, Int(scale), .bankers) }
-  return result
-}
-
 extension AnyCurrency {
   /// The ISO 4217 information about this currency.
   public var metadata: CurrencyMetadata.Type { return Self.metadata }
-  public var roundedAmount: Decimal { return round(self.exactAmount, to: Self.metadata.minorUnits) }
+  
+  public var amount: Decimal {
+    return .init(minorUnits) * .init(
+      sign: .plus,
+      exponent: -Int(Self.metadata.minorUnits),
+      significand: 1
+    )
+  }
 }
 
 extension AnyCurrency where Self: CurrencyMetadata {
@@ -67,17 +78,16 @@ extension AnyCurrency where Self: CurrencyMetadata {
 }
 
 extension AnyCurrency {
-  /// Initializes a currency value from it's smallest unit.
-  ///
-  /// For example, the USD has cents, which are 1/100 of 1 USD. Calling `USD(minorUnits: 100)` will create a value of `1.0`.
-  ///
-  /// See `CurrencyMetadata.minorUnits`.
-  /// - Parameter minorUnits: The amount of the smallest units in the currency to initialize with.
-  public init(minorUnits: Int) {
-    self.init(.zero)
-    let minorUnitsScale = Int16(Self.metadata.minorUnits) * -1
-    let scaledTotal = NSDecimalNumber(value: minorUnits).multiplying(byPowerOf10: minorUnitsScale)
-    self = .init(scaledTotal.decimalValue)
+  public init(_ amount: Decimal) {
+    var sourceAmount = amount
+    var roundedAmount = Decimal.zero
+    NSDecimalRound(&roundedAmount, &sourceAmount, .init(Self.metadata.minorUnits), .bankers)
+    let scaledAmount = roundedAmount * Decimal(
+      sign: .plus,
+      exponent: .init(Self.metadata.minorUnits),
+      significand: 1
+    )
+    self.init(exactly: NSDecimalNumber(decimal: scaledAmount).int64Value)
   }
 }
 
@@ -86,19 +96,19 @@ extension AnyCurrency {
 
 extension AnyCurrency {
   public static func +(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.exactAmount + rhs.exactAmount)
+    return .init(exactly: lhs.minorUnits + rhs.minorUnits)
   }
   
   public static func -(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.exactAmount - rhs.exactAmount)
+    return .init(exactly: lhs.minorUnits - rhs.minorUnits)
   }
   
   public static func *(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.exactAmount * rhs.exactAmount)
+    return .init(lhs.amount * rhs.amount)
   }
   
   public static func /(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.exactAmount / rhs.exactAmount)
+    return .init(lhs.amount / rhs.amount)
   }
   
   public static func +=(lhs: inout Self, rhs: Self) { lhs = lhs + rhs }
@@ -107,19 +117,19 @@ extension AnyCurrency {
   public static func /=(lhs: inout Self, rhs: Self) { lhs = lhs / rhs }
   
   public static func +(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.exactAmount + rhs)
+    return .init(lhs.amount + rhs)
   }
   
   public static func -(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.exactAmount - rhs)
+    return .init(lhs.amount - rhs)
   }
   
   public static func *(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.exactAmount * rhs)
+    return .init(lhs.amount * rhs)
   }
   
   public static func /(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.exactAmount / rhs)
+    return .init(lhs.amount / rhs)
   }
   
   public static func +=(lhs: inout Self, rhs: Decimal) { lhs = lhs + rhs }
@@ -133,10 +143,10 @@ extension AnyCurrency {
 extension AnyCurrency {
   public static func ==<M: AnyCurrency>(lhs: Self, rhs: M) -> Bool {
     guard Self.metadata.alphabeticCode == M.metadata.alphabeticCode else { return false }
-    return lhs.roundedAmount == rhs.roundedAmount
+    return lhs.minorUnits == rhs.minorUnits
   }
   
-  /// Checks if the current rounded amount is equivalent to the provided value.
+  /// Checks if the current  amount is equivalent to the provided value.
   ///
   /// As floating point type precisions can vary, doing exact comparisons to `exactAmount` values can result in false negatives.
   ///
@@ -146,7 +156,7 @@ extension AnyCurrency {
   /// - Parameter other: The other amount to compare against, after "bankers" rounding it.
   /// - Returns: `true` if the rounded values are equal, otherwise `false`.
   public func isEqual(to other: Decimal) -> Bool {
-    return self.roundedAmount == round(other, to: Self.metadata.minorUnits)
+    return self == Self(other)
   }
   
   /// Checks if the current rounded amount is equivalent to the other instance's.
@@ -165,17 +175,17 @@ extension AnyCurrency {
 
 extension AnyCurrency {
   public static func <(lhs: Self, rhs: Self) -> Bool {
-    return lhs.exactAmount < rhs.exactAmount
+    return lhs.minorUnits < rhs.minorUnits
   }
 }
 
 // MARK: Hashable
 
 extension AnyCurrency {
-  public var hashValue: Int { return self.exactAmount.hashValue }
+  public var hashValue: Int { return self.minorUnits.hashValue }
   
   public func hash(into hasher: inout Hasher) {
-    hasher.combine(self.exactAmount)
+    hasher.combine(self.minorUnits)
   }
 }
 
@@ -183,8 +193,8 @@ extension AnyCurrency {
 // MARK: ExpressibleByIntegerLiteral
 
 extension AnyCurrency {
-  public init(integerLiteral value: Int) {
-    self.init(Decimal(integerLiteral: value))
+  public init(integerLiteral value: Int64) {
+    self.init(Decimal(value))
   }
 }
 
@@ -200,7 +210,7 @@ extension AnyCurrency {
 // MARK: CustomStringCovertible
 
 extension AnyCurrency {
-  public var description: String { return "\(self.roundedAmount.description) \(Self.metadata.alphabeticCode)" }
+  public var description: String { return "\(self.amount.description) \(Self.metadata.alphabeticCode)" }
 }
 
 // MARK: String Interpolation
@@ -239,6 +249,6 @@ extension String.StringInterpolation {
     withFormatter formatter: NumberFormatter,
     nilDescription nilValue: String = "nil"
   ) {
-    self.appendInterpolation(formatter.string(from: NSDecimalNumber(decimal: money.roundedAmount)) ?? nilValue)
+    self.appendInterpolation(formatter.string(from: NSDecimalNumber(decimal: money.amount)) ?? nilValue)
   }
 }

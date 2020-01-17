@@ -35,11 +35,11 @@ public struct AED: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 784 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Afghani (AFN).
@@ -49,11 +49,11 @@ public struct AFN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 971 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Lek (ALL).
@@ -63,11 +63,11 @@ public struct ALL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 8 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Armenian Dram (AMD).
@@ -77,11 +77,11 @@ public struct AMD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 51 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Netherlands Antillean Guilder (ANG).
@@ -91,11 +91,11 @@ public struct ANG: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 532 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Kwanza (AOA).
@@ -105,11 +105,11 @@ public struct AOA: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 973 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Argentine Peso (ARS).
@@ -119,11 +119,11 @@ public struct ARS: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 32 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Australian Dollar (AUD).
@@ -133,11 +133,11 @@ public struct AUD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 36 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Aruban Florin (AWG).
@@ -147,11 +147,11 @@ public struct AWG: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 533 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Azerbaijan Manat (AZN).
@@ -161,11 +161,11 @@ public struct AZN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 944 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Convertible Mark (BAM).
@@ -175,11 +175,11 @@ public struct BAM: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 977 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Barbados Dollar (BBD).
@@ -189,11 +189,11 @@ public struct BBD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 52 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Taka (BDT).
@@ -203,11 +203,11 @@ public struct BDT: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 50 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Bulgarian Lev (BGN).
@@ -217,11 +217,11 @@ public struct BGN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 975 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Bahraini Dinar (BHD).
@@ -231,11 +231,11 @@ public struct BHD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 48 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Burundi Franc (BIF).
@@ -245,11 +245,11 @@ public struct BIF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 108 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Bermudian Dollar (BMD).
@@ -259,11 +259,11 @@ public struct BMD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 60 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Brunei Dollar (BND).
@@ -273,11 +273,11 @@ public struct BND: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 96 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Boliviano (BOB).
@@ -287,11 +287,11 @@ public struct BOB: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 68 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Brazilian Real (BRL).
@@ -301,11 +301,11 @@ public struct BRL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 986 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Bahamian Dollar (BSD).
@@ -315,11 +315,11 @@ public struct BSD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 44 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Ngultrum (BTN).
@@ -329,11 +329,11 @@ public struct BTN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 64 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Pula (BWP).
@@ -343,11 +343,11 @@ public struct BWP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 72 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Belarusian Ruble (BYN).
@@ -357,11 +357,11 @@ public struct BYN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 933 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Belize Dollar (BZD).
@@ -371,11 +371,11 @@ public struct BZD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 84 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Canadian Dollar (CAD).
@@ -385,11 +385,11 @@ public struct CAD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 124 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Congolese Franc (CDF).
@@ -399,11 +399,11 @@ public struct CDF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 976 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Swiss Franc (CHF).
@@ -413,11 +413,11 @@ public struct CHF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 756 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Chilean Peso (CLP).
@@ -427,11 +427,11 @@ public struct CLP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 152 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Yuan Renminbi (CNY).
@@ -441,11 +441,11 @@ public struct CNY: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 156 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Colombian Peso (COP).
@@ -455,11 +455,11 @@ public struct COP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 170 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Costa Rican Colon (CRC).
@@ -469,11 +469,11 @@ public struct CRC: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 188 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Peso Convertible (CUC).
@@ -483,11 +483,11 @@ public struct CUC: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 931 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Cuban Peso (CUP).
@@ -497,11 +497,11 @@ public struct CUP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 192 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Cabo Verde Escudo (CVE).
@@ -511,11 +511,11 @@ public struct CVE: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 132 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Czech Koruna (CZK).
@@ -525,11 +525,11 @@ public struct CZK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 203 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Djibouti Franc (DJF).
@@ -539,11 +539,11 @@ public struct DJF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 262 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Danish Krone (DKK).
@@ -553,11 +553,11 @@ public struct DKK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 208 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Dominican Peso (DOP).
@@ -567,11 +567,11 @@ public struct DOP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 214 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Algerian Dinar (DZD).
@@ -581,11 +581,11 @@ public struct DZD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 12 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Egyptian Pound (EGP).
@@ -595,11 +595,11 @@ public struct EGP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 818 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Nakfa (ERN).
@@ -609,11 +609,11 @@ public struct ERN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 232 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Ethiopian Birr (ETB).
@@ -623,11 +623,11 @@ public struct ETB: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 230 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Euro (EUR).
@@ -637,11 +637,11 @@ public struct EUR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 978 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Fiji Dollar (FJD).
@@ -651,11 +651,11 @@ public struct FJD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 242 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Falkland Islands Pound (FKP).
@@ -665,11 +665,11 @@ public struct FKP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 238 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Pound Sterling (GBP).
@@ -679,11 +679,11 @@ public struct GBP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 826 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Lari (GEL).
@@ -693,11 +693,11 @@ public struct GEL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 981 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Ghana Cedi (GHS).
@@ -707,11 +707,11 @@ public struct GHS: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 936 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Gibraltar Pound (GIP).
@@ -721,11 +721,11 @@ public struct GIP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 292 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Dalasi (GMD).
@@ -735,11 +735,11 @@ public struct GMD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 270 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Guinean Franc (GNF).
@@ -749,11 +749,11 @@ public struct GNF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 324 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Quetzal (GTQ).
@@ -763,11 +763,11 @@ public struct GTQ: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 320 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Guyana Dollar (GYD).
@@ -777,11 +777,11 @@ public struct GYD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 328 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Hong Kong Dollar (HKD).
@@ -791,11 +791,11 @@ public struct HKD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 344 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Lempira (HNL).
@@ -805,11 +805,11 @@ public struct HNL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 340 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Kuna (HRK).
@@ -819,11 +819,11 @@ public struct HRK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 191 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Gourde (HTG).
@@ -833,11 +833,11 @@ public struct HTG: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 332 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Forint (HUF).
@@ -847,11 +847,11 @@ public struct HUF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 348 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Rupiah (IDR).
@@ -861,11 +861,11 @@ public struct IDR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 360 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The New Israeli Sheqel (ILS).
@@ -875,11 +875,11 @@ public struct ILS: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 376 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Indian Rupee (INR).
@@ -889,11 +889,11 @@ public struct INR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 356 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Iraqi Dinar (IQD).
@@ -903,11 +903,11 @@ public struct IQD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 368 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Iranian Rial (IRR).
@@ -917,11 +917,11 @@ public struct IRR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 364 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Iceland Krona (ISK).
@@ -931,11 +931,11 @@ public struct ISK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 352 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Jamaican Dollar (JMD).
@@ -945,11 +945,11 @@ public struct JMD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 388 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Jordanian Dinar (JOD).
@@ -959,11 +959,11 @@ public struct JOD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 400 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Yen (JPY).
@@ -973,11 +973,11 @@ public struct JPY: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 392 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Kenyan Shilling (KES).
@@ -987,11 +987,11 @@ public struct KES: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 404 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Som (KGS).
@@ -1001,11 +1001,11 @@ public struct KGS: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 417 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Riel (KHR).
@@ -1015,11 +1015,11 @@ public struct KHR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 116 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Comorian Franc (KMF).
@@ -1029,11 +1029,11 @@ public struct KMF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 174 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The North Korean Won (KPW).
@@ -1043,11 +1043,11 @@ public struct KPW: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 408 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Won (KRW).
@@ -1057,11 +1057,11 @@ public struct KRW: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 410 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Kuwaiti Dinar (KWD).
@@ -1071,11 +1071,11 @@ public struct KWD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 414 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Cayman Islands Dollar (KYD).
@@ -1085,11 +1085,11 @@ public struct KYD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 136 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Tenge (KZT).
@@ -1099,11 +1099,11 @@ public struct KZT: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 398 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Lao Kip (LAK).
@@ -1113,11 +1113,11 @@ public struct LAK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 418 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Lebanese Pound (LBP).
@@ -1127,11 +1127,11 @@ public struct LBP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 422 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Sri Lanka Rupee (LKR).
@@ -1141,11 +1141,11 @@ public struct LKR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 144 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Liberian Dollar (LRD).
@@ -1155,11 +1155,11 @@ public struct LRD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 430 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Loti (LSL).
@@ -1169,11 +1169,11 @@ public struct LSL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 426 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Libyan Dinar (LYD).
@@ -1183,11 +1183,11 @@ public struct LYD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 434 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Moroccan Dirham (MAD).
@@ -1197,11 +1197,11 @@ public struct MAD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 504 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Moldovan Leu (MDL).
@@ -1211,11 +1211,11 @@ public struct MDL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 498 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Malagasy Ariary (MGA).
@@ -1225,11 +1225,11 @@ public struct MGA: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 969 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Denar (MKD).
@@ -1239,11 +1239,11 @@ public struct MKD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 807 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Kyat (MMK).
@@ -1253,11 +1253,11 @@ public struct MMK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 104 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Tugrik (MNT).
@@ -1267,11 +1267,11 @@ public struct MNT: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 496 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Pataca (MOP).
@@ -1281,11 +1281,11 @@ public struct MOP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 446 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Ouguiya (MRU).
@@ -1295,11 +1295,11 @@ public struct MRU: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 929 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Mauritius Rupee (MUR).
@@ -1309,11 +1309,11 @@ public struct MUR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 480 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Rufiyaa (MVR).
@@ -1323,11 +1323,11 @@ public struct MVR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 462 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Malawi Kwacha (MWK).
@@ -1337,11 +1337,11 @@ public struct MWK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 454 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Mexican Peso (MXN).
@@ -1351,11 +1351,11 @@ public struct MXN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 484 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Malaysian Ringgit (MYR).
@@ -1365,11 +1365,11 @@ public struct MYR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 458 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Mozambique Metical (MZN).
@@ -1379,11 +1379,11 @@ public struct MZN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 943 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Namibia Dollar (NAD).
@@ -1393,11 +1393,11 @@ public struct NAD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 516 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Naira (NGN).
@@ -1407,11 +1407,11 @@ public struct NGN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 566 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Cordoba Oro (NIO).
@@ -1421,11 +1421,11 @@ public struct NIO: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 558 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Norwegian Krone (NOK).
@@ -1435,11 +1435,11 @@ public struct NOK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 578 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Nepalese Rupee (NPR).
@@ -1449,11 +1449,11 @@ public struct NPR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 524 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The New Zealand Dollar (NZD).
@@ -1463,11 +1463,11 @@ public struct NZD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 554 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Rial Omani (OMR).
@@ -1477,11 +1477,11 @@ public struct OMR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 512 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Balboa (PAB).
@@ -1491,11 +1491,11 @@ public struct PAB: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 590 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Sol (PEN).
@@ -1505,11 +1505,11 @@ public struct PEN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 604 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Kina (PGK).
@@ -1519,11 +1519,11 @@ public struct PGK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 598 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Philippine Peso (PHP).
@@ -1533,11 +1533,11 @@ public struct PHP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 608 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Pakistan Rupee (PKR).
@@ -1547,11 +1547,11 @@ public struct PKR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 586 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Zloty (PLN).
@@ -1561,11 +1561,11 @@ public struct PLN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 985 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Guarani (PYG).
@@ -1575,11 +1575,11 @@ public struct PYG: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 600 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Qatari Rial (QAR).
@@ -1589,11 +1589,11 @@ public struct QAR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 634 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Romanian Leu (RON).
@@ -1603,11 +1603,11 @@ public struct RON: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 946 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Serbian Dinar (RSD).
@@ -1617,11 +1617,11 @@ public struct RSD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 941 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Russian Ruble (RUB).
@@ -1631,11 +1631,11 @@ public struct RUB: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 643 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Rwanda Franc (RWF).
@@ -1645,11 +1645,11 @@ public struct RWF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 646 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Saudi Riyal (SAR).
@@ -1659,11 +1659,11 @@ public struct SAR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 682 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Solomon Islands Dollar (SBD).
@@ -1673,11 +1673,11 @@ public struct SBD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 90 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Seychelles Rupee (SCR).
@@ -1687,11 +1687,11 @@ public struct SCR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 690 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Sudanese Pound (SDG).
@@ -1701,11 +1701,11 @@ public struct SDG: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 938 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Swedish Krona (SEK).
@@ -1715,11 +1715,11 @@ public struct SEK: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 752 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Singapore Dollar (SGD).
@@ -1729,11 +1729,11 @@ public struct SGD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 702 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Saint Helena Pound (SHP).
@@ -1743,11 +1743,11 @@ public struct SHP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 654 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Leone (SLL).
@@ -1757,11 +1757,11 @@ public struct SLL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 694 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Somali Shilling (SOS).
@@ -1771,11 +1771,11 @@ public struct SOS: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 706 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Surinam Dollar (SRD).
@@ -1785,11 +1785,11 @@ public struct SRD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 968 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The South Sudanese Pound (SSP).
@@ -1799,11 +1799,11 @@ public struct SSP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 728 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Dobra (STN).
@@ -1813,11 +1813,11 @@ public struct STN: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 930 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The El Salvador Colon (SVC).
@@ -1827,11 +1827,11 @@ public struct SVC: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 222 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Syrian Pound (SYP).
@@ -1841,11 +1841,11 @@ public struct SYP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 760 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Lilangeni (SZL).
@@ -1855,11 +1855,11 @@ public struct SZL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 748 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Baht (THB).
@@ -1869,11 +1869,11 @@ public struct THB: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 764 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Somoni (TJS).
@@ -1883,11 +1883,11 @@ public struct TJS: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 972 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Turkmenistan New Manat (TMT).
@@ -1897,11 +1897,11 @@ public struct TMT: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 934 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Tunisian Dinar (TND).
@@ -1911,11 +1911,11 @@ public struct TND: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 788 }
   public static var minorUnits: UInt8 { return 3 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Pa’anga (TOP).
@@ -1925,11 +1925,11 @@ public struct TOP: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 776 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Turkish Lira (TRY).
@@ -1939,11 +1939,11 @@ public struct TRY: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 949 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Trinidad and Tobago Dollar (TTD).
@@ -1953,11 +1953,11 @@ public struct TTD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 780 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The New Taiwan Dollar (TWD).
@@ -1967,11 +1967,11 @@ public struct TWD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 901 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Tanzanian Shilling (TZS).
@@ -1981,11 +1981,11 @@ public struct TZS: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 834 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Hryvnia (UAH).
@@ -1995,11 +1995,11 @@ public struct UAH: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 980 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Uganda Shilling (UGX).
@@ -2009,11 +2009,11 @@ public struct UGX: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 800 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The US Dollar (USD).
@@ -2023,11 +2023,11 @@ public struct USD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 840 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Peso Uruguayo (UYU).
@@ -2037,11 +2037,11 @@ public struct UYU: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 858 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Unidad Previsional (UYW).
@@ -2051,11 +2051,11 @@ public struct UYW: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 927 }
   public static var minorUnits: UInt8 { return 4 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Uzbekistan Sum (UZS).
@@ -2065,11 +2065,11 @@ public struct UZS: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 860 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Bolívar Soberano (VES).
@@ -2079,11 +2079,11 @@ public struct VES: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 928 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Dong (VND).
@@ -2093,11 +2093,11 @@ public struct VND: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 704 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Vatu (VUV).
@@ -2107,11 +2107,11 @@ public struct VUV: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 548 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Tala (WST).
@@ -2121,11 +2121,11 @@ public struct WST: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 882 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The CFA Franc BEAC (XAF).
@@ -2135,11 +2135,11 @@ public struct XAF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 950 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The East Caribbean Dollar (XCD).
@@ -2149,11 +2149,11 @@ public struct XCD: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 951 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The CFA Franc BCEAO (XOF).
@@ -2163,11 +2163,11 @@ public struct XOF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 952 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The CFP Franc (XPF).
@@ -2177,11 +2177,11 @@ public struct XPF: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 953 }
   public static var minorUnits: UInt8 { return 0 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Yemeni Rial (YER).
@@ -2191,11 +2191,11 @@ public struct YER: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 886 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Rand (ZAR).
@@ -2205,11 +2205,11 @@ public struct ZAR: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 710 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Zambian Kwacha (ZMW).
@@ -2219,11 +2219,11 @@ public struct ZMW: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 967 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
 /// The Zimbabwe Dollar (ZWL).
@@ -2233,10 +2233,10 @@ public struct ZWL: _CurrencyImplementation {
   public static var numericCode: UInt16 { return 932 }
   public static var minorUnits: UInt8 { return 2 }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 

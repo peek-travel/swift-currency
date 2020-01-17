@@ -46,11 +46,11 @@ public struct ${alphaCode}: _CurrencyImplementation {
   public static var numericCode: UInt16 { return ${numCode} }
   public static var minorUnits: UInt8 { return ${minorUnit} }
   
-  public var exactAmount: Decimal { return self._amount }
+  public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(_ amount: Decimal) { self._amount = amount }
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
   
-  private let _amount: Decimal
+  private let _minorUnits: Int64
 }
 
     %end

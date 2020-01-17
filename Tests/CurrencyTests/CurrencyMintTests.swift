@@ -19,17 +19,17 @@ final class CurrencyMintTests: XCTestCase {
   func testLookupByString_passes() {
     let mint = CurrencyMint()
     let pounds = mint.make(alphabeticCode: "GBP")
-    XCTAssertEqual(pounds?.roundedAmount, .zero)
+    XCTAssertEqual(pounds?.amount, .zero)
   }
   
   func testLookupByString_withAmount() {
     let mint = CurrencyMint()
     
     let yen = mint.make(alphabeticCode: "JPY", amount: 302.98)
-    XCTAssertEqual(yen?.roundedAmount, 303)
+    XCTAssertEqual(yen?.amount, 303)
     
     let usd = mint.make(alphabeticCode: "USD", minorUnits: 549)
-    XCTAssertEqual(usd?.roundedAmount, 5.49)
+    XCTAssertEqual(usd?.amount, 5.49)
   }
   
   func testLookupByString_fails() {
@@ -41,17 +41,17 @@ final class CurrencyMintTests: XCTestCase {
   func testLookupByNum_passes() {
     let mint = CurrencyMint()
     let euros = mint.make(numericCode: 978)
-    XCTAssertEqual(euros?.roundedAmount, .zero)
+    XCTAssertEqual(euros?.amount, .zero)
   }
   
   func testLookupByNum_withAmount() {
     let mint = CurrencyMint()
     
     let pesos = mint.make(numericCode: 484, amount: 3098.9823)
-    XCTAssertEqual(pesos?.roundedAmount, 3098.98)
+    XCTAssertEqual(pesos?.amount, 3098.98)
     
     let omanis = mint.make(numericCode: 512, minorUnits: 198239)
-    XCTAssertEqual(omanis?.roundedAmount, 198.239)
+    XCTAssertEqual(omanis?.amount, 198.239)
   }
   
   func testLookupByNum_fails() {
