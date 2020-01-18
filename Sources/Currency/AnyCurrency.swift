@@ -71,6 +71,14 @@ extension AnyCurrency {
       significand: 1
     )
   }
+
+  /// The current value with it's sign reversed.
+  ///
+  /// For example:
+  ///
+  ///     USD(3.40).inverse == USD(-3.40)
+  ///
+  public var inverseAmount: Self { return .init(exactly: self.minorUnits * -1) }
 }
 
 extension AnyCurrency where Self: CurrencyMetadata {
