@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		D838378B23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */; };
+		D893657D23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */; };
+		D893657F23D294850006FAE1 /* AnyCurrency+Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */; };
 		OBJ_31 /* AnyCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AnyCurrency.swift */; };
 		OBJ_32 /* CurrencyMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CurrencyMetadata.swift */; };
 		OBJ_33 /* CurrencyMint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* CurrencyMint.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnyCurrency+Sequence.swift"; sourceTree = "<group>"; };
+		D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrencyAlgorithmsTests.swift; sourceTree = "<group>"; };
+		D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCurrency+Algorithms.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* CurrencyMint.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = CurrencyMint.swift.gyb; sourceTree = "<group>"; };
 		OBJ_11 /* AnyCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrency.swift; sourceTree = "<group>"; };
 		OBJ_12 /* CurrencyMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyMetadata.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				OBJ_17 /* AnyCurrencyTests.swift */,
 				OBJ_18 /* CurrencyMintTests.swift */,
 				OBJ_19 /* XCTestManifests.swift */,
+				D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */,
 			);
 			name = CurrencyTests;
 			path = Tests/CurrencyTests;
@@ -147,6 +152,7 @@
 				OBJ_12 /* CurrencyMetadata.swift */,
 				OBJ_13 /* CurrencyMint.swift */,
 				OBJ_14 /* ISOCurrencies.swift */,
+				D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */,
 			);
 			name = Currency;
 			path = Sources/Currency;
@@ -239,6 +245,7 @@
 				OBJ_31 /* AnyCurrency.swift in Sources */,
 				OBJ_32 /* CurrencyMetadata.swift in Sources */,
 				D838378B23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift in Sources */,
+				D893657F23D294850006FAE1 /* AnyCurrency+Algorithms.swift in Sources */,
 				OBJ_33 /* CurrencyMint.swift in Sources */,
 				OBJ_34 /* ISOCurrencies.swift in Sources */,
 			);
@@ -249,6 +256,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_41 /* AnyCurrencyTests.swift in Sources */,
+				D893657D23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift in Sources */,
 				OBJ_42 /* CurrencyMintTests.swift in Sources */,
 				OBJ_43 /* XCTestManifests.swift in Sources */,
 			);
