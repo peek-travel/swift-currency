@@ -1,0 +1,48 @@
+
+                            The SwiftCurrency Project
+                            =========================
+
+Please visit the SwiftCurrency web site for more information:
+
+  * https://github.com/peek-travel/swift-currency
+
+Copyright 2020 The SwiftCurrency Project
+
+The SwiftCurrency Project licenses this file to you under the MIT License, (the "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at:
+
+  https://opensource.org/licenses/MIT
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+
+Also, please refer to each LICENSE.<component>.txt file, which is located in
+the 'license' directory of the distribution file, for the license terms of the
+components that this product depends on.
+
+-------------------------------------------------------------------------------
+
+This product was heavily influenced by implementations from Flight-School/Money and danthorpe/Money projects.
+
+    * danthorpe/Money
+      * LICENSE (MIT)
+        * https://github.com/danthorpe/Money/blob/f44c868dfbeefd612511f2b3a75e6de1bd959ff7/LICENSE
+      * HOMEPAGE:
+        * https://github.com/danthorpe/Money/tree/f44c868dfbeefd612511f2b3a75e6de1bd959ff7
+    * Flight-School/Money
+      * LICENSE (MIT)
+        * https://github.com/Flight-School/Money/blob/7f7bb1aee8367376bac34ff08f9b2b732bf553e3/LICENSE.md
+      * HOMEPAGE:
+        * https://github.com/Flight-School/Money/tree/7f7bb1aee8367376bac34ff08f9b2b732bf553e3
+
+---
+
+This product contains the derivations of various scripts from Apple's SwiftNIO.
+
+  * LICENSE (Apache License 2.0):
+    * https://github.com/apple/swift-nio/blob/master/LICENSE.txt
+  * HOMEPAGE:
+    * https://github.com/apple/swift-nio
