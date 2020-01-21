@@ -14,6 +14,8 @@
 
 import Foundation
 
+// MARK: Sum
+
 extension Sequence where Element: AnyCurrency {
   /// Returns the sum total of all amounts in the sequence.
   ///
@@ -45,5 +47,25 @@ extension Sequence where Element: AnyCurrency {
   /// - Returns:A currency value representing the sum total of all the amounts in the sequence that satisfies `predicate`.
   public func sum(where predicate: (Element) throws -> Bool) rethrows -> Element {
     return try self.filter(predicate).sum()
+  }
+  
+  /// Returns the sum total of amounts in the sequence after applying the provided transform.
+  ///
+  /// Rather than doing a `.map(_:)` and then `.sum()`, the `sum` result will be calculated inline while applying the transformations.
+  ///
+  /// For example, you may want to calculate what the total taxes would be from a sequence of individual prices:
+  ///
+  ///     let prices: [USD] = [3.00, 2.99, 5.98]
+  ///     // apply a 9% tax rate to each price and calculate the sum
+  ///     let totalTaxes = prices.sum { $0 * Decimal(0.09) }
+  ///     // totalTaxes == USD(1.08)
+  ///
+  /// - Complexity: O(*n*), where *n* is the length of the sequence.
+  /// - Parameter transform: A mapping closure. `transform` accepts an element of this sequence as its parameter
+  /// and returns a transformed value of the same type.
+  /// - Returns: A currency value representing the sum total of all the transformed amounts in the sequence.
+  @inlinable
+  public func sum(_ transform: (Element) throws -> (Element)) rethrows -> Element {
+    return try self.reduce(into: .init(.zero)) { $0 += try transform($1) }
   }
 }
