@@ -3,7 +3,7 @@ name: Package Tests
 on: [push]
 
 jobs:
-  macos-latest:
+  macos-latest-5_1:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v1
@@ -11,3 +11,18 @@ jobs:
       run: swift --version
     - name: Run tests
       run: swift test
+
+  macos-latest-5_0:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Swiftenv
+      run: brew install kylef/formulae/swiftenv
+    - name: Set Swift version
+      run: |
+        swiftenv install 5.0.3
+        swiftenv global 5.0.3
+    - name: Check Swift version
+      run: ~/.swiftenv/shims/swift --version
+    - name: Run tests
+      run: ~/.swiftenv/shims/swift test
