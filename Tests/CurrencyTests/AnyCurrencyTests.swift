@@ -182,11 +182,6 @@ extension Sequence where Element: AnyCurrency {
   func applyingRate(_ rate: Decimal) -> [Element] {
     return self.reduce(into: [Element]()) { $0.append($1 + ($1 * rate)) }
   }
-  
-  func sum(_ transform: (Element) -> Element) -> Element {
-    return self.reduce(into: [Element](), { $0.append(transform($1)) })
-      .sum()
-  }
 }
 
 extension AnyCurrencyTests {
