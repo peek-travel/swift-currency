@@ -154,28 +154,25 @@ extension AnyCurrency {
     return lhs.minorUnits == rhs.minorUnits
   }
   
-  /// Checks if the current  amount is equivalent to the provided value.
+  /// Checks if the current amount is equivalent to the provided value.
   ///
-  /// As floating point type precisions can vary, doing exact comparisons to `exactAmount` values can result in false negatives.
+  /// As floating point type precisions can vary, doing exact comparisons to between two `Decimal` values can result in false negatives when the currencies
+  /// are effectively the same value when compared up to their "minorUnits".
   ///
   /// To get around this, the provided `other` amount will be rounded to the same precision as the currency's "minorUnits" using the "bankers" mode.
   ///
-  /// See `AnyCurrency.roundedAmount` and `Foundation.Decimal.RoundingMode.bankers`.
+  /// For example, `USD(30.30)` is effectively equivalent to `Decimal(30.30001)`, so `USD(30.30).isEqual(to: 30.30001)` will be `true`.
+  ///
+  /// See `AnyCurrency.amount` and `Foundation.Decimal.RoundingMode.bankers`.
   /// - Parameter other: The other amount to compare against, after "bankers" rounding it.
   /// - Returns: `true` if the rounded values are equal, otherwise `false`.
   public func isEqual(to other: Decimal) -> Bool {
     return self == Self(other)
   }
   
-  /// Checks if the current rounded amount is equivalent to the other instance's.
-  ///
-  /// As floating point type precisions can vary, doing exact comparisons to `exactAmount` values can result in false negatives.
-  ///
-  /// To get around this, the `roundedAmount` values will be compared.
-  ///
-  /// See `AnyCurrency.roundedAmount`.
-  /// - Parameter other: The other currency value to check if the rounded amounts are equal.
-  /// - Returns: `true` if the currencies are the same type, and the rounded amounts are equal. Otherwise, `false`.
+  /// Checks if the current amount is equivalent to the other instance's.
+  /// - Parameter other: The other currency value to check if the amounts are equal.
+  /// - Returns: `true` if the currencies are the same type and the amounts are equal. Otherwise, `false`.
   public func isEqual<M: AnyCurrency>(to other: M) -> Bool { return self == other }
 }
 
