@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		D814C41723D68385007D4037 /* CurrencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D814C41623D68385007D4037 /* CurrencyProtocol.swift */; };
 		D838378B23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */; };
 		D893657D23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */; };
 		D893657F23D294850006FAE1 /* AnyCurrency+Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D814C41623D68385007D4037 /* CurrencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyProtocol.swift; sourceTree = "<group>"; };
 		D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnyCurrency+Sequence.swift"; sourceTree = "<group>"; };
 		D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrencyAlgorithmsTests.swift; sourceTree = "<group>"; };
 		D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCurrency+Algorithms.swift"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				OBJ_13 /* CurrencyMint.swift */,
 				OBJ_14 /* ISOCurrencies.swift */,
 				D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */,
+				D814C41623D68385007D4037 /* CurrencyProtocol.swift */,
 			);
 			name = Currency;
 			path = Sources/Currency;
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				D814C41723D68385007D4037 /* CurrencyProtocol.swift in Sources */,
 				OBJ_31 /* AnyCurrency.swift in Sources */,
 				OBJ_32 /* CurrencyMetadata.swift in Sources */,
 				D838378B23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift in Sources */,
