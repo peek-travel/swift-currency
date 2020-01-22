@@ -81,7 +81,7 @@ public final class CurrencyMint {
 
 
 extension CurrencyMint {
-  fileprivate static func lookup(byAlphaCode code: String) -> AnyCurrency.Type? {
+  public static func lookup(byAlphaCode code: String) -> AnyCurrency.Type? {
     switch code {
     case "AED": return AED.self
     case "AFN": return AFN.self
@@ -245,7 +245,7 @@ extension CurrencyMint {
     }
   }
   
-  fileprivate static func lookup(byNumCode code: UInt16) -> AnyCurrency.Type? {
+  public static func lookup(byNumCode code: UInt16) -> AnyCurrency.Type? {
     switch code {
     case 784: return AED.self
     case 971: return AFN.self
