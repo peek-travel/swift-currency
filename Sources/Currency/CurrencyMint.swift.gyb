@@ -85,7 +85,7 @@ public final class CurrencyMint {
   % reader = csv.DictReader(file)
 
 extension CurrencyMint {
-  fileprivate static func lookup(byAlphaCode code: String) -> AnyCurrency.Type? {
+  public static func lookup(byAlphaCode code: String) -> AnyCurrency.Type? {
     switch code {
   % for row in reader:
     % alphaCode = row["Ccy"]
@@ -97,7 +97,7 @@ extension CurrencyMint {
     }
   }
   
-  fileprivate static func lookup(byNumCode code: UInt16) -> AnyCurrency.Type? {
+  public static func lookup(byNumCode code: UInt16) -> AnyCurrency.Type? {
     switch code {
   % file.seek(0)
   % next(reader)
