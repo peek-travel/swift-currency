@@ -28,7 +28,11 @@
     minorUnit = row["CcyMnrUnts"]
     }%
     % if alphaCode and numCode and numCode.isdigit() and name and minorUnit and minorUnit.isdigit():
+      % if alphaCode == "XXX":
+/// "${name}" (${alphaCode}); as defined by ISO 4217 for transactions that involve no currency.
+      % else:
 /// The ${name} (${alphaCode}) currency, as defined by ISO 4217.
+      % end
 public struct ${alphaCode}: CurrencyProtocol, CurrencyMetadata {
   public static var name: String { return "${name}" }
   public static var alphabeticCode: String { return "${alphaCode}" }

@@ -2229,3 +2229,17 @@ public struct ZWL: CurrencyProtocol, CurrencyMetadata {
   private let _minorUnits: Int64
 }
 
+/// "No currency" (XXX); as defined by ISO 4217 for transactions that involve no currency.
+public struct XXX: CurrencyProtocol, CurrencyMetadata {
+  public static var name: String { return "No currency" }
+  public static var alphabeticCode: String { return "XXX" }
+  public static var numericCode: UInt16 { return 999 }
+  public static var minorUnits: UInt8 { return 2 }
+  
+  public var minorUnits: Int64 { return self._minorUnits }
+  
+  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  
+  private let _minorUnits: Int64
+}
+
