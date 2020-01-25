@@ -241,6 +241,7 @@ extension CurrencyMint {
     case "ZAR": return ZAR.self
     case "ZMW": return ZMW.self
     case "ZWL": return ZWL.self
+    case "XXX": return XXX.self
     default: return nil
     }
   }
@@ -405,6 +406,7 @@ extension CurrencyMint {
     case 710: return ZAR.self
     case 967: return ZMW.self
     case 932: return ZWL.self
+    case 999: return XXX.self
     default: return nil
     }
   }
