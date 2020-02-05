@@ -26,3 +26,77 @@ jobs:
       run: ~/.swiftenv/shims/swift --version
     - name: Run tests
       run: ~/.swiftenv/shims/swift test
+
+  ubuntu-bionic-5_0:
+    container:
+      image: swift:5.0-bionic
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: swift test
+  
+  ubuntu-bionic-5_1:
+    container:
+      image: swift:5.1-bionic
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: swift test
+
+  ubuntu-bionic-5_2:
+    container:
+      image: swiftlang/swift:nightly-5.2-bionic
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: swift test
+
+  ubuntu-bionic-latest:
+    container:
+      image: swiftlang/swift:nightly-bionic
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      continue-on-error: true
+      run: swift test
+  
+  ubuntu-xenial-5_0:
+    container:
+      image: swift:5.0-xenial
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: swift test
+  
+  ubuntu-xenial-5_1:
+    container:
+      image: swift:5.1-xenial
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: swift test
+
+  ubuntu-xenial-5_2:
+    container:
+      image: swiftlang/swift:nightly-5.2-xenial
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: swift test
+
+  ubuntu-xenial-latest:
+    container:
+      image: swiftlang/swift:nightly-xenial
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      continue-on-error: true
+      run: swift test
