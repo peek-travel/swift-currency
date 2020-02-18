@@ -33,7 +33,11 @@ public struct OpaqueCurrency: AnyCurrency,
   internal let value: AnyCurrency
   
   public init(exactly minorUnits: Int64) {
-    preconditionFailure("\(Self.self).init(exactly:) should never be called directly.")
+    preconditionFailure("\(Self.self).\(#function) should never be called directly.")
+  }
+  
+  public init(_ amount: Decimal) {
+    preconditionFailure("\(Self.self).\(#function) should never be called directly.")
   }
   
   /// Creates an `OpaqueCurrency` from a given value.
