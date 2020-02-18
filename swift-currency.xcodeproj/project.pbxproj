@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		03FF5C5423FC039E008E0624 /* UnknownCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FF5C5323FC039E008E0624 /* UnknownCurrency.swift */; };
 		D814C41723D68385007D4037 /* CurrencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D814C41623D68385007D4037 /* CurrencyProtocol.swift */; };
 		D838378B23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */; };
 		D893657D23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03FF5C5323FC039E008E0624 /* UnknownCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownCurrency.swift; sourceTree = "<group>"; };
 		D814C41623D68385007D4037 /* CurrencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyProtocol.swift; sourceTree = "<group>"; };
 		D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnyCurrency+Sequence.swift"; sourceTree = "<group>"; };
 		D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrencyAlgorithmsTests.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				OBJ_14 /* ISOCurrencies.swift */,
 				D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */,
 				D814C41623D68385007D4037 /* CurrencyProtocol.swift */,
+				03FF5C5323FC039E008E0624 /* UnknownCurrency.swift */,
 			);
 			name = Currency;
 			path = Sources/Currency;
@@ -275,6 +278,7 @@
 				D838378B23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift in Sources */,
 				D893657F23D294850006FAE1 /* AnyCurrency+Algorithms.swift in Sources */,
 				OBJ_33 /* CurrencyMint.swift in Sources */,
+				03FF5C5423FC039E008E0624 /* UnknownCurrency.swift in Sources */,
 				OBJ_34 /* ISOCurrencies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,7 +21,7 @@ public final class CurrencyMint {
   /// Attempts to find the appropriate currency type that matches the provided alphabetic code and intialize it.
   /// - Paramter code: The alphabetic ISO 4217 code to search for.
   /// - Returns: An instance of a currency that matches the provided `code`, with a `.zero` amount. Otherwise `nil`.
-  public func make(alphabeticCode code: String) -> AnyCurrency? {
+  public func make(alphabeticCode code: String) -> OpaqueCurrency? {
     return self.make(alphabeticCode: code, minorUnits: .zero)
   }
 
@@ -30,9 +30,9 @@ public final class CurrencyMint {
   ///     - code: The alphabetic ISO 4217 code to search for.
   ///     - amount: The amount the instance should be set to.
   /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
-  public func make(alphabeticCode code: String, amount: Decimal) -> AnyCurrency? {
+  public func make(alphabeticCode code: String, amount: Decimal) -> OpaqueCurrency? {
     guard let currencyType = CurrencyMint.lookup(byAlphaCode: code) else { return nil }
-    return currencyType.init(amount)
+    return .init(wrapping: currencyType.init(amount))
   }
   
   /// Attempts to find the appropriate currency type that matches the provided alphabetic code and initialize it.
@@ -42,15 +42,15 @@ public final class CurrencyMint {
   ///     - code: The alphabetic ISO 4217 code to search for.
   ///     - minorUnits: The amount the instance should be set to, in the scale of it's smallest unit.
   /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
-  public func make(alphabeticCode code: String, minorUnits: Int64) -> AnyCurrency? {
+  public func make(alphabeticCode code: String, minorUnits: Int64) -> OpaqueCurrency? {
     guard let currencyType = CurrencyMint.lookup(byAlphaCode: code) else { return nil }
-    return currencyType.init(exactly: minorUnits)
+    return .init(wrapping: currencyType.init(exactly: minorUnits))
   }
   
   /// Attempts to find the appropriate currency type that matches the provided numeric code and initialize it.
   /// - Parameter code: The numeric ISO 4217 code to search for.
   /// - Returns: An instance of a currency that matches the provided `code`, with a `.zero` amount. Otherwise `nil`.
-  public func make(numericCode code: UInt16) -> AnyCurrency? {
+  public func make(numericCode code: UInt16) -> OpaqueCurrency? {
     return self.make(numericCode: code, minorUnits: .zero)
   }
   
@@ -59,9 +59,9 @@ public final class CurrencyMint {
   ///     - code: The numeric ISO 4217 code to search for.
   ///     - amount: The amount the instance should be set to.
   /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
-  public func make(numericCode code: UInt16, amount: Decimal) -> AnyCurrency? {
+  public func make(numericCode code: UInt16, amount: Decimal) -> OpaqueCurrency? {
     guard let currencyType = CurrencyMint.lookup(byNumCode: code) else { return nil }
-    return currencyType.init(amount)
+    return .init(wrapping: currencyType.init(amount))
   }
   
   /// Attempts to find the appropriate currency type that matches the provided numeric code and initialize it.
@@ -71,9 +71,9 @@ public final class CurrencyMint {
   ///     - code: The numeric ISO 4217 code to search for.
   ///     - minorUnits: The amount the instance should be set to, in the scale of it's smallest unit.
   /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
-  public func make(numericCode code: UInt16, minorUnits: Int64) -> AnyCurrency? {
+  public func make(numericCode code: UInt16, minorUnits: Int64) -> OpaqueCurrency? {
     guard let currencyType = CurrencyMint.lookup(byNumCode: code) else { return nil }
-    return currencyType.init(exactly: minorUnits)
+    return .init(wrapping: currencyType.init(exactly: minorUnits))
   }
 }
 

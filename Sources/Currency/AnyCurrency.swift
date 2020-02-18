@@ -29,7 +29,7 @@ import Foundation
 /// All values will be "bankers" rounded before being stored within the value. So a value of `USD(1.982)` will be stored as `1.98`.
 public protocol AnyCurrency {
   /// The ISO 4217 information about this currency.
-  static var metadata: CurrencyMetadata.Type { get }
+  var metadata: CurrencyMetadata.Type { get }
   
   /// The amount represented as a whole number of the currency's "minorUnits".
   ///
@@ -61,13 +61,10 @@ public protocol AnyCurrency {
 // MARK: Computed Properties
 
 extension AnyCurrency {
-  /// The ISO 4217 information about this currency.
-  public var metadata: CurrencyMetadata.Type { return Self.metadata }
-  
   public var amount: Decimal {
     return .init(minorUnits) * .init(
       sign: .plus,
-      exponent: -Int(Self.metadata.minorUnits),
+      exponent: -Int(self.metadata.minorUnits),
       significand: 1
     )
   }
@@ -82,20 +79,23 @@ extension AnyCurrency {
 }
 
 extension AnyCurrency where Self: CurrencyMetadata {
-  public static var metadata: CurrencyMetadata.Type { return Self.self }
+  public var metadata: CurrencyMetadata.Type { return Self.self }
 }
 
 extension AnyCurrency {
   public init(_ amount: Decimal) {
+    self.init(exactly: 0)
+    
     var sourceAmount = amount
     var roundedAmount = Decimal.zero
-    NSDecimalRound(&roundedAmount, &sourceAmount, .init(Self.metadata.minorUnits), .bankers)
+    NSDecimalRound(&roundedAmount, &sourceAmount, .init(self.metadata.minorUnits), .bankers)
     let scaledAmount = roundedAmount * Decimal(
       sign: .plus,
-      exponent: .init(Self.metadata.minorUnits),
+      exponent: .init(self.metadata.minorUnits),
       significand: 1
     )
-    self.init(exactly: NSDecimalNumber(decimal: scaledAmount).int64Value)
+    
+    self = .init(exactly: NSDecimalNumber(decimal: scaledAmount).int64Value)
   }
 }
 
@@ -150,7 +150,7 @@ extension AnyCurrency {
 
 extension AnyCurrency {
   public static func ==<M: AnyCurrency>(lhs: Self, rhs: M) -> Bool {
-    guard Self.metadata.alphabeticCode == M.metadata.alphabeticCode else { return false }
+    guard lhs.metadata.alphabeticCode == rhs.metadata.alphabeticCode else { return false }
     return lhs.minorUnits == rhs.minorUnits
   }
   
@@ -215,7 +215,7 @@ extension AnyCurrency {
 // MARK: CustomStringCovertible
 
 extension AnyCurrency {
-  public var description: String { return "\(self.amount.description) \(Self.metadata.alphabeticCode)" }
+  public var description: String { return "\(self.amount.description) \(self.metadata.alphabeticCode)" }
 }
 
 // MARK: String Interpolation
