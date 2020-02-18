@@ -79,13 +79,6 @@ final class AnyCurrencyTests: XCTestCase {
     var second = USD(32.12)
     second += 45
     XCTAssertEqual(second, 77.12)
-
-    let third = USD(75.98)
-    XCTAssertEqual(third + Decimal(2), 77.98)
-
-    var fourth = USD(1098.23)
-    fourth += Decimal(10.98)
-    XCTAssertEqual(fourth, 1109.21)
   }
 
   func testSubtraction() {
@@ -95,13 +88,6 @@ final class AnyCurrencyTests: XCTestCase {
     var second = USD(32.12)
     second -= 45
     XCTAssertEqual(second, -12.88)
-
-    let third = USD(75.98)
-    XCTAssertEqual(third - Decimal(2), 73.98)
-
-    var fourth = USD(100.45)
-    fourth -= Decimal(50.30)
-    XCTAssertEqual(fourth, 50.15)
   }
 
   func testDivision() {
@@ -111,13 +97,6 @@ final class AnyCurrencyTests: XCTestCase {
     var second = USD(32.12)
     second /= USD(45)
     XCTAssertEqual(second.amount, 0.71)
-
-    let third = USD(75.98)
-    XCTAssertEqual(third / Decimal(2), 37.99)
-
-    var fourth = USD(0982.738)
-    fourth /= Decimal(7.7)
-    XCTAssertEqual(fourth.amount, 127.63)
   }
   
   func testMultiplication() {
@@ -127,13 +106,6 @@ final class AnyCurrencyTests: XCTestCase {
     var second = USD(32.12)
     second *= USD(45)
     XCTAssertEqual(second.amount, 1445.4)
-
-    let third = USD(75.98)
-    XCTAssertEqual(third * Decimal(2), 151.96)
-    
-    var fourth = USD(0982.738)
-    fourth *= Decimal(7.7)
-    XCTAssertEqual(fourth.amount, 7567.1)
   }
   
   func testDescription() {
@@ -180,7 +152,10 @@ final class AnyCurrencyTests: XCTestCase {
 
 extension Sequence where Element: AnyCurrency {
   func applyingRate(_ rate: Decimal) -> [Element] {
-    return self.reduce(into: [Element]()) { $0.append($1 + ($1 * rate)) }
+    return self.reduce(into: [Element]()) {
+      let value = Element($1.amount + ($1.amount * rate))
+      $0.append(value)
+    }
   }
 }
 
@@ -203,9 +178,9 @@ extension AnyCurrencyTests {
     let subtotal = prices.sum()
     XCTAssertEqual(subtotal, 11.97)
     
-    let taxes = prices.sum { $0 * Decimal(0.09) }
+    let taxes = prices.sum { $0 * 0.09 }
     XCTAssertEqual(taxes, 1.08)
-    XCTAssertEqual(subtotal * Decimal(0.09), 1.08)
+    XCTAssertEqual(subtotal * 0.09, 1.08)
     
     XCTAssertEqual(subtotal + taxes, 13.05)
     XCTAssertEqual(prices.applyingRate(0.09).sum(), 13.05)
@@ -219,12 +194,12 @@ extension AnyCurrencyTests {
       11.97             1.7955 => 1.80    10.1745 => 10.17  0.9156 => 0.92    11.0901 => 11.09
      */
     
-    let discount = prices.sum { $0 * Decimal(0.15) }
+    let discount = prices.sum { $0 * 0.15 }
     XCTAssertEqual(discount, 1.80)
     let discountPrices = prices.applyingRate(-0.15)
     XCTAssertEqual(discountPrices.sum(), 10.17)
     
-    let discountTaxes = discountPrices.sum { $0 * Decimal(0.09) }
+    let discountTaxes = discountPrices.sum { $0 * 0.09 }
     XCTAssertEqual(discountTaxes, 0.92)
     
     let discountTotal = discountPrices.applyingRate(0.09).sum()

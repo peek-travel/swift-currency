@@ -12,6 +12,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+import Foundation
+
 /// A wrapper around an `AnyCurrency` existential.
 ///
 /// An `OpaqueCurrency` is to be used to represent `AnyCurrency` existentials in generic contexts, where protocol self-conformance
@@ -19,11 +21,16 @@
 ///
 /// e.g. You have an `AnyCurrency` existential that you want to pass to a generic method that accepts `T: AnyCurrency`.
 /// - Important: Initializing an `OpaqueCurrency` using any initializer other than `init(wrapping:)` is an illegal operation.
-public struct OpaqueCurrency: CurrencyProtocol {
+public struct OpaqueCurrency: AnyCurrency,
+  Comparable, Hashable,
+  CustomStringConvertible
+{
   public var metadata: CurrencyMetadata.Type { return self.value.metadata }
   public var minorUnits: Int64 { return self.value.minorUnits }
   
-  private let value: AnyCurrency
+  internal var wrappedType: AnyCurrency.Type { return type(of: self.value) }
+  
+  internal let value: AnyCurrency
   
   public init(exactly minorUnits: Int64) {
     preconditionFailure("\(Self.self).init(exactly:) should never be called directly.")
@@ -38,5 +45,33 @@ public struct OpaqueCurrency: CurrencyProtocol {
   public init?(wrapping value: AnyCurrency?) {
     guard let value = value else { return nil }
     self.init(wrapping: value)
+  }
+}
+
+// MARK: Specialized Arithmetic
+
+extension OpaqueCurrency {
+  public static func +(lhs: Self, rhs: Self) -> Self {
+    precondition(lhs.metadata == rhs.metadata, "Cannot use two different wrapped currencies!")
+    let value = lhs.wrappedType.init(exactly: lhs.minorUnits + rhs.minorUnits)
+    return .init(wrapping: value)
+  }
+  
+  public static func -(lhs: Self, rhs: Self) -> Self {
+    precondition(lhs.metadata == rhs.metadata, "Cannot use two different wrapped currencies!")
+    let value = lhs.wrappedType.init(exactly: lhs.minorUnits - rhs.minorUnits)
+    return .init(wrapping: value)
+  }
+  
+  public static func *(lhs: Self, rhs: Self) -> Self {
+    precondition(lhs.metadata == rhs.metadata, "Cannot use two different wrapped currencies!")
+    let value = lhs.wrappedType.init(lhs.amount * rhs.amount)
+    return .init(wrapping: value)
+  }
+  
+  public static func /(lhs: Self, rhs: Self) -> Self {
+    precondition(lhs.metadata == rhs.metadata, "Cannot use two different wrapped currencies!")
+    let value = lhs.wrappedType.init(lhs.amount / rhs.amount)
+    return .init(wrapping: value)
   }
 }

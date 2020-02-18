@@ -123,27 +123,6 @@ extension AnyCurrency {
   public static func -=(lhs: inout Self, rhs: Self) { lhs = lhs - rhs }
   public static func *=(lhs: inout Self, rhs: Self) { lhs = lhs * rhs }
   public static func /=(lhs: inout Self, rhs: Self) { lhs = lhs / rhs }
-  
-  public static func +(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.amount + rhs)
-  }
-  
-  public static func -(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.amount - rhs)
-  }
-  
-  public static func *(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.amount * rhs)
-  }
-  
-  public static func /(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.amount / rhs)
-  }
-  
-  public static func +=(lhs: inout Self, rhs: Decimal) { lhs = lhs + rhs }
-  public static func -=(lhs: inout Self, rhs: Decimal) { lhs = lhs - rhs }
-  public static func *=(lhs: inout Self, rhs: Decimal) { lhs = lhs * rhs }
-  public static func /=(lhs: inout Self, rhs: Decimal) { lhs = lhs / rhs }
 }
 
 // MARK: Equatable
@@ -194,24 +173,6 @@ extension AnyCurrency {
   }
 }
 
-// MARK: -
-// MARK: ExpressibleByIntegerLiteral
-
-extension AnyCurrency {
-  public init(integerLiteral value: Int64) {
-    self.init(Decimal(value))
-  }
-}
-
-// MARK: ExpressibleByFloatLiteral
-
-extension AnyCurrency {
-  public init(floatLiteral value: Double) {
-    self.init(Decimal(floatLiteral: value))
-  }
-}
-
-// MARK: -
 // MARK: CustomStringCovertible
 
 extension AnyCurrency {
