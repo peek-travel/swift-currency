@@ -68,17 +68,23 @@ extension AnyCurrencyAlgorithmsTests {
   private func run_distributedEvenlyTest<Currency: AnyCurrency & Equatable>(
     sourceAmount: Currency,
     numParts count: Int,
-    expectedResults: [Currency]
+    expectedResults: [Currency],
+    file: StaticString = #file,
+    line: UInt = #line
   ) {
     guard count == expectedResults.count else {
-      return XCTFail("Inconsistent desire: Asked for \(count) parts, but expect \(expectedResults.count) results")
+      return XCTFail(
+        "Inconsistent desire: Asked for \(count) parts, but expect \(expectedResults.count) results",
+        file: file, line: line
+      )
     }
     let actualResults = sourceAmount.distributedEvenly(intoParts: count)
-    XCTAssertEqual(actualResults, expectedResults)
-    XCTAssertEqual(sourceAmount, expectedResults.sum())
+    XCTAssertEqual(actualResults, expectedResults, file: file, line: line)
+    XCTAssertEqual(sourceAmount, expectedResults.sum(), file: file, line: line)
     XCTAssertEqual(
       sourceAmount.inverseAmount.distributedEvenly(intoParts: count),
-      expectedResults.map({ $0.inverseAmount })
+      expectedResults.map({ $0.inverseAmount }),
+      file: file, line: line
     )
   }
 }
@@ -147,13 +153,18 @@ extension AnyCurrencyAlgorithmsTests {
   private func run_distributedProportionallyTest<Currency: AnyCurrency & Equatable>(
     sourceAmount: Currency,
     originalValues: [Currency],
-    expectedValues: [Currency]
+    expectedValues: [Currency],
+    file: StaticString = #file,
+    line: UInt = #line
   ) {
     guard originalValues.count == expectedValues.count else {
-      return XCTFail("Inconsistent desire: Provided \(originalValues.count) values, but expect \(expectedValues.count) results")
+      return XCTFail(
+        "Inconsistent desire: Provided \(originalValues.count) values, but expect \(expectedValues.count) results",
+        file: file, line: line
+      )
     }
     let actualResults = sourceAmount.distributedProportionally(between: originalValues)
-    XCTAssertEqual(actualResults, expectedValues)
-    XCTAssertEqual(sourceAmount, actualResults.sum())
+    XCTAssertEqual(actualResults, expectedValues, file: file, line: line)
+    XCTAssertEqual(sourceAmount, actualResults.sum(), file: file, line: line)
   }
 }

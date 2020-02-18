@@ -134,7 +134,9 @@
 				OBJ_24 /* Carthage */,
 				OBJ_25 /* README.md */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
