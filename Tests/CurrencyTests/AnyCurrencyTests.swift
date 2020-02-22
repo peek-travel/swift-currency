@@ -30,21 +30,21 @@ final class AnyCurrencyTests: XCTestCase {
   }
   
   func testMinorUnits() {
-    let gbp = GBP(exactly: 300)
+    let gbp = GBP(minorUnits: 300)
     XCTAssertTrue(gbp.isEqual(to: 3.0))
     XCTAssertEqual(gbp.minorUnits, 300)
     
-    let jpy = JPY(exactly: 39820)
+    let jpy = JPY(minorUnits: 39820)
     XCTAssertTrue(jpy.isEqual(to: 39820))
     XCTAssertEqual(jpy.minorUnits, 39820)
   }
   
   func testNegative() {
-    let gbp = GBP(exactly: -300)
+    let gbp = GBP(minorUnits: -300)
     XCTAssertTrue(gbp.isEqual(to: -3.0))
     XCTAssertEqual(gbp.minorUnits, -300)
     
-    let jpy = JPY(exactly: -39820)
+    let jpy = JPY(minorUnits: -39820)
     XCTAssertTrue(jpy.isEqual(to: -39820))
     XCTAssertEqual(jpy.minorUnits, -39820)
   }

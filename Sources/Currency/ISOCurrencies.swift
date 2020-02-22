@@ -26,7 +26,7 @@ public struct AED: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -40,7 +40,7 @@ public struct AFN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -54,7 +54,7 @@ public struct ALL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -68,7 +68,7 @@ public struct AMD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -82,7 +82,7 @@ public struct ANG: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -96,7 +96,7 @@ public struct AOA: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -110,7 +110,7 @@ public struct ARS: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -124,7 +124,7 @@ public struct AUD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -138,7 +138,7 @@ public struct AWG: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -152,7 +152,7 @@ public struct AZN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -166,7 +166,7 @@ public struct BAM: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -180,7 +180,7 @@ public struct BBD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -194,7 +194,7 @@ public struct BDT: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -208,7 +208,7 @@ public struct BGN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -222,7 +222,7 @@ public struct BHD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -236,7 +236,7 @@ public struct BIF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -250,7 +250,7 @@ public struct BMD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -264,7 +264,7 @@ public struct BND: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -278,7 +278,7 @@ public struct BOB: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -292,7 +292,7 @@ public struct BRL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -306,7 +306,7 @@ public struct BSD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -320,7 +320,7 @@ public struct BTN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -334,7 +334,7 @@ public struct BWP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -348,7 +348,7 @@ public struct BYN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -362,7 +362,7 @@ public struct BZD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -376,7 +376,7 @@ public struct CAD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -390,7 +390,7 @@ public struct CDF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -404,7 +404,7 @@ public struct CHF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -418,7 +418,7 @@ public struct CLP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -432,7 +432,7 @@ public struct CNY: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -446,7 +446,7 @@ public struct COP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -460,7 +460,7 @@ public struct CRC: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -474,7 +474,7 @@ public struct CUC: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -488,7 +488,7 @@ public struct CUP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -502,7 +502,7 @@ public struct CVE: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -516,7 +516,7 @@ public struct CZK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -530,7 +530,7 @@ public struct DJF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -544,7 +544,7 @@ public struct DKK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -558,7 +558,7 @@ public struct DOP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -572,7 +572,7 @@ public struct DZD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -586,7 +586,7 @@ public struct EGP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -600,7 +600,7 @@ public struct ERN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -614,7 +614,7 @@ public struct ETB: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -628,7 +628,7 @@ public struct EUR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -642,7 +642,7 @@ public struct FJD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -656,7 +656,7 @@ public struct FKP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -670,7 +670,7 @@ public struct GBP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -684,7 +684,7 @@ public struct GEL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -698,7 +698,7 @@ public struct GHS: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -712,7 +712,7 @@ public struct GIP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -726,7 +726,7 @@ public struct GMD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -740,7 +740,7 @@ public struct GNF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -754,7 +754,7 @@ public struct GTQ: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -768,7 +768,7 @@ public struct GYD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -782,7 +782,7 @@ public struct HKD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -796,7 +796,7 @@ public struct HNL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -810,7 +810,7 @@ public struct HRK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -824,7 +824,7 @@ public struct HTG: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -838,7 +838,7 @@ public struct HUF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -852,7 +852,7 @@ public struct IDR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -866,7 +866,7 @@ public struct ILS: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -880,7 +880,7 @@ public struct INR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -894,7 +894,7 @@ public struct IQD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -908,7 +908,7 @@ public struct IRR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -922,7 +922,7 @@ public struct ISK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -936,7 +936,7 @@ public struct JMD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -950,7 +950,7 @@ public struct JOD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -964,7 +964,7 @@ public struct JPY: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -978,7 +978,7 @@ public struct KES: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -992,7 +992,7 @@ public struct KGS: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1006,7 +1006,7 @@ public struct KHR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1020,7 +1020,7 @@ public struct KMF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1034,7 +1034,7 @@ public struct KPW: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1048,7 +1048,7 @@ public struct KRW: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1062,7 +1062,7 @@ public struct KWD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1076,7 +1076,7 @@ public struct KYD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1090,7 +1090,7 @@ public struct KZT: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1104,7 +1104,7 @@ public struct LAK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1118,7 +1118,7 @@ public struct LBP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1132,7 +1132,7 @@ public struct LKR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1146,7 +1146,7 @@ public struct LRD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1160,7 +1160,7 @@ public struct LSL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1174,7 +1174,7 @@ public struct LYD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1188,7 +1188,7 @@ public struct MAD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1202,7 +1202,7 @@ public struct MDL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1216,7 +1216,7 @@ public struct MGA: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1230,7 +1230,7 @@ public struct MKD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1244,7 +1244,7 @@ public struct MMK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1258,7 +1258,7 @@ public struct MNT: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1272,7 +1272,7 @@ public struct MOP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1286,7 +1286,7 @@ public struct MRU: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1300,7 +1300,7 @@ public struct MUR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1314,7 +1314,7 @@ public struct MVR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1328,7 +1328,7 @@ public struct MWK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1342,7 +1342,7 @@ public struct MXN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1356,7 +1356,7 @@ public struct MYR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1370,7 +1370,7 @@ public struct MZN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1384,7 +1384,7 @@ public struct NAD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1398,7 +1398,7 @@ public struct NGN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1412,7 +1412,7 @@ public struct NIO: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1426,7 +1426,7 @@ public struct NOK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1440,7 +1440,7 @@ public struct NPR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1454,7 +1454,7 @@ public struct NZD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1468,7 +1468,7 @@ public struct OMR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1482,7 +1482,7 @@ public struct PAB: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1496,7 +1496,7 @@ public struct PEN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1510,7 +1510,7 @@ public struct PGK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1524,7 +1524,7 @@ public struct PHP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1538,7 +1538,7 @@ public struct PKR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1552,7 +1552,7 @@ public struct PLN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1566,7 +1566,7 @@ public struct PYG: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1580,7 +1580,7 @@ public struct QAR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1594,7 +1594,7 @@ public struct RON: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1608,7 +1608,7 @@ public struct RSD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1622,7 +1622,7 @@ public struct RUB: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1636,7 +1636,7 @@ public struct RWF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1650,7 +1650,7 @@ public struct SAR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1664,7 +1664,7 @@ public struct SBD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1678,7 +1678,7 @@ public struct SCR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1692,7 +1692,7 @@ public struct SDG: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1706,7 +1706,7 @@ public struct SEK: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1720,7 +1720,7 @@ public struct SGD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1734,7 +1734,7 @@ public struct SHP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1748,7 +1748,7 @@ public struct SLL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1762,7 +1762,7 @@ public struct SOS: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1776,7 +1776,7 @@ public struct SRD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1790,7 +1790,7 @@ public struct SSP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1804,7 +1804,7 @@ public struct STN: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1818,7 +1818,7 @@ public struct SVC: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1832,7 +1832,7 @@ public struct SYP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1846,7 +1846,7 @@ public struct SZL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1860,7 +1860,7 @@ public struct THB: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1874,7 +1874,7 @@ public struct TJS: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1888,7 +1888,7 @@ public struct TMT: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1902,7 +1902,7 @@ public struct TND: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1916,7 +1916,7 @@ public struct TOP: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1930,7 +1930,7 @@ public struct TRY: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1944,7 +1944,7 @@ public struct TTD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1958,7 +1958,7 @@ public struct TWD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1972,7 +1972,7 @@ public struct TZS: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -1986,7 +1986,7 @@ public struct UAH: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2000,7 +2000,7 @@ public struct UGX: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2014,7 +2014,7 @@ public struct USD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2028,7 +2028,7 @@ public struct UYU: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2042,7 +2042,7 @@ public struct UYW: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2056,7 +2056,7 @@ public struct UZS: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2070,7 +2070,7 @@ public struct VES: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2084,7 +2084,7 @@ public struct VND: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2098,7 +2098,7 @@ public struct VUV: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2112,7 +2112,7 @@ public struct WST: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2126,7 +2126,7 @@ public struct XAF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2140,7 +2140,7 @@ public struct XCD: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2154,7 +2154,7 @@ public struct XOF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2168,7 +2168,7 @@ public struct XPF: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2182,7 +2182,7 @@ public struct YER: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2196,7 +2196,7 @@ public struct ZAR: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2210,7 +2210,7 @@ public struct ZMW: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2224,7 +2224,7 @@ public struct ZWL: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }
@@ -2238,7 +2238,7 @@ public struct XXX: CurrencyProtocol, CurrencyMetadata {
   
   public var minorUnits: Int64 { return self._minorUnits }
   
-  public init(exactly minorUnits: Int64) { self._minorUnits = minorUnits }
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
   
   private let _minorUnits: Int64
 }

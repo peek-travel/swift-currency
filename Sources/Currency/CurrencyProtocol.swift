@@ -12,14 +12,40 @@
 //
 //===----------------------------------------------------------------------===//
 
-/// Represents a type that acts as a currency.
+import struct Foundation.Decimal
+
+/// A representation of a value in a specific currency.
 ///
-/// Any `CurrencyProtocol` type behaves exactly like an `AnyCurrency` type, while also providing other capabilities such as
-/// `Comparable`, `Hashable`, etc.
+/// When a value instance needs to be used outside of a generic context, the `AnyCurrency` protocol can be used as an existential.
 ///
-/// This is the type to work with in most generic cases, as `AnyCurrency` is a type-erasure protocol when existentials are needed.
+/// `CurrencyProtocol` provides the same functionality of `AnyCurrency`,
+/// in addition to `Comparable`, `Hashable`, `ExpressibleByIntegerLiteral` and `ExpressibleByFloatLiteral`.
 public protocol CurrencyProtocol: AnyCurrency,
   Comparable, Hashable,
-  ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral,
-  AdditiveArithmetic
+  AdditiveArithmetic,
+  ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral
 { }
+
+// MARK: Default Implementations
+
+extension CurrencyProtocol {
+  public init(floatLiteral value: Double) {
+    self.init(scalingAndRounding: Decimal(value))
+  }
+
+  public init(integerLiteral value: Int64) {
+    self.init(scalingAndRounding: Decimal(value))
+  }
+}
+
+// MARK: AnyCurrency Implementation Overrides
+
+extension CurrencyProtocol {
+  public static var zero: Self { return Self(minorUnits: 0) }
+
+  // https://bugs.swift.org/browse/SR-12128
+  #if swift(>=5.2)
+  public static func +=(lhs: inout Self, rhs: Self) { lhs = lhs + rhs }
+  public static func -=(lhs: inout Self, rhs: Self) { lhs = lhs - rhs }
+  #endif
+}

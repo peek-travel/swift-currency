@@ -32,7 +32,7 @@ public final class CurrencyMint {
   /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
   public func make(alphabeticCode code: String, amount: Decimal) -> AnyCurrency? {
     guard let currencyType = CurrencyMint.lookup(byAlphaCode: code) else { return nil }
-    return currencyType.init(amount)
+    return currencyType.init(amount: amount)
   }
   
   /// Attempts to find the appropriate currency type that matches the provided alphabetic code and initialize it.
@@ -44,7 +44,7 @@ public final class CurrencyMint {
   /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
   public func make(alphabeticCode code: String, minorUnits: Int64) -> AnyCurrency? {
     guard let currencyType = CurrencyMint.lookup(byAlphaCode: code) else { return nil }
-    return currencyType.init(exactly: minorUnits)
+    return currencyType.init(minorUnits: minorUnits)
   }
   
   /// Attempts to find the appropriate currency type that matches the provided numeric code and initialize it.
@@ -61,7 +61,7 @@ public final class CurrencyMint {
   /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
   public func make(numericCode code: UInt16, amount: Decimal) -> AnyCurrency? {
     guard let currencyType = CurrencyMint.lookup(byNumCode: code) else { return nil }
-    return currencyType.init(amount)
+    return currencyType.init(amount: amount)
   }
   
   /// Attempts to find the appropriate currency type that matches the provided numeric code and initialize it.
@@ -73,7 +73,7 @@ public final class CurrencyMint {
   /// - Returns: An instance of a currency that matches the provided `code`, with the appropriate value. Otherwise `nil`.
   public func make(numericCode code: UInt16, minorUnits: Int64) -> AnyCurrency? {
     guard let currencyType = CurrencyMint.lookup(byNumCode: code) else { return nil }
-    return currencyType.init(exactly: minorUnits)
+    return currencyType.init(minorUnits: minorUnits)
   }
 }
 

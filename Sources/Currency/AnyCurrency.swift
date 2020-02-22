@@ -14,246 +14,196 @@
 
 import Foundation
 
-/// A type-erased representation of a currency.
+/// A representation of a value in a specific currency that can be used as an existential.
 ///
-/// Conforming types will also provide `CurrencyMetadata` to access specific ISO 4217 information, such as the alphabetic code and "minor units".
+/// In most cases, it's preferable to work with currencies in their `CurrencyProtocol` generic form.
 ///
-/// **Value Storage**
+/// **Value Representation**
 ///
 /// All currencies have a "minorUnits" scale, as defined by their `CurrencyMetadata` that determine their precision when represented as a `Foundation.Decimal`.
 ///
-/// This "minorUnits" scale is the value that is stored within the currency for use in arithmetic and value comparisons.
+/// For example, as the USD uses 1/100 for its minor unit, with the value `USD(1.0)`, `minorUnits` will be the value `100`.
 ///
-/// **Initialization**
+/// _Equality comparisons and most arithmetic operations use this value._
 ///
-/// All values will be "bankers" rounded before being stored within the value. So a value of `USD(1.982)` will be stored as `1.98`.
-public protocol AnyCurrency {
+/// **Floating Point Initialization**
+///
+/// All floating point type values provided to initializers will be "bankers" rounded to their `CurrencyMetadata.minorUnits` scale before being stored in memory.
+public protocol AnyCurrency:
+  CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible
+{
   /// The ISO 4217 information about this currency.
   static var metadata: CurrencyMetadata.Type { get }
-  
+
   /// The amount represented as a whole number of the currency's "minorUnits".
+  /// See `CurrencyMetadata.minorUnits` and `Foundation.RoundingMode.bankers`.
+  var minorUnits: Int64 { get }
+
+  /// The `bankers` rounded amount of money being represented, as defined by the currency.
   ///
-  /// For example, as the USD uses 1/100 for its minor unit, with the value `USD(1.0)`, `minorUnits` will be the value `100`.
+  /// For example:
+  ///
+  ///     let usd = USD(10.007)
+  ///     let yen = JPY(100.9)
+  ///     let dinar = KWD(100.0019)
+  ///     print(usd, yen, dinar)
+  ///     // "USD(10.01), JPY(101), KWD(100.002)
   ///
   /// See `CurrencyMetadata.minorUnits` and `Foundation.RoundingMode.bankers`.
-  /// - Note: All equality comparisons will use this value.
-  var minorUnits: Int64 { get }
-  
-  /// The amount of money being represented.
   var amount: Decimal { get }
-  
-  /// Initializes a currency to the exact value of it's smallest unit.
+
+  /// Creates a representation of the provided amount as the currency's exact smallest unit.
   ///
   /// For example, the USD has cents, which are 1/100 of 1 USD. Calling `USD(minorUnits: 100)` will create a value of `1.0`.
   ///
   /// See `CurrencyMetadata.minorUnits`.
-  /// - Parameter minorUnits: The amount of the smallest units in the currency to initialize with.
-  init(exactly minorUnits: Int64)
-  /// Initializes a representation of the provided amount after "bankers" rounding the value
+  /// - Parameter minorUnits: The exact amount of the smallest units in the currency to represent.
+  init<T: BinaryInteger>(minorUnits: T)
+
+  /// Creates a representation of the provided amount in the desired currency, if it can be represented.
   ///
-  /// The rounding pecision is defined by the currency's "minorUnits".
+  /// The value will be "bankers" rounded, to the precision as defined by the currency's "minorUnits" metadata.
   ///
   /// See `CurrencyMetadata.minorUnits` and `Foundation.Decimal.RoundingMode.bankers`.
-  /// - Parameter amount: The exact amount this instance should represent.
-  init(_ amount: Decimal)
+  /// - Parameter amount: The amount this instance should represent, after "bankers" rounding. If this value is `NaN`, then initialization will fail.
+  init?(amount: Decimal)
 }
 
-// MARK: Computed Properties
+// MARK: Helpers
 
 extension AnyCurrency {
-  /// The ISO 4217 information about this currency.
-  public var metadata: CurrencyMetadata.Type { return Self.metadata }
-  
+  internal init(scalingAndRounding value: Decimal) {
+    let result = value.roundedAndScaled(to: Self.metadata.minorUnits)
+    self.init(minorUnits: result.int64Value)
+  }
+}
+
+// MARK: Default Implementations
+
+extension AnyCurrency {
   public var amount: Decimal {
-    return .init(minorUnits) * .init(
-      sign: .plus,
-      exponent: -Int(Self.metadata.minorUnits),
-      significand: 1
-    )
+    return Decimal(minorUnits).scaled(to: .init(Self.metadata.minorUnits), inverse: true)
   }
 
-  /// The current value with it's sign reversed.
-  ///
-  /// For example:
-  ///
-  ///     USD(3.40).inverse == USD(-3.40)
-  ///
-  public var inverseAmount: Self { return .init(exactly: self.minorUnits * -1) }
+  public init?(amount: Decimal) {
+    switch amount {
+    case .nan, .quietNaN: return nil
+    default: self.init(scalingAndRounding: amount)
+    }
+  }
+
+  public static func ==(lhs: Self, rhs: Self) -> Bool {
+    return lhs.minorUnits == rhs.minorUnits
+  }
+
+  public static func <(lhs: Self, rhs: Self) -> Bool {
+    return lhs.minorUnits < rhs.minorUnits
+  }
+
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(self.minorUnits)
+  }
 }
 
 extension AnyCurrency where Self: CurrencyMetadata {
   public static var metadata: CurrencyMetadata.Type { return Self.self }
 }
 
-extension AnyCurrency {
-  public init(_ amount: Decimal) {
-    var sourceAmount = amount
-    var roundedAmount = Decimal.zero
-    NSDecimalRound(&roundedAmount, &sourceAmount, .init(Self.metadata.minorUnits), .bankers)
-    let scaledAmount = roundedAmount * Decimal(
-      sign: .plus,
-      exponent: .init(Self.metadata.minorUnits),
-      significand: 1
-    )
-    self.init(exactly: NSDecimalNumber(decimal: scaledAmount).int64Value)
-  }
-}
-
-// MARK: -
 // MARK: Arithmetic
 
 extension AnyCurrency {
+  public static var zero: Self { return Self(minorUnits: 0) }
+
   public static func +(lhs: Self, rhs: Self) -> Self {
-    return .init(exactly: lhs.minorUnits + rhs.minorUnits)
+    return .init(minorUnits: lhs.minorUnits + rhs.minorUnits)
   }
-  
+
   public static func -(lhs: Self, rhs: Self) -> Self {
-    return .init(exactly: lhs.minorUnits - rhs.minorUnits)
+    return .init(minorUnits: lhs.minorUnits - rhs.minorUnits)
   }
-  
+
   public static func *(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.amount * rhs.amount)
+    return Self(scalingAndRounding: lhs.amount * rhs.amount)
   }
-  
+
   public static func /(lhs: Self, rhs: Self) -> Self {
-    return .init(lhs.amount / rhs.amount)
+    return Self(scalingAndRounding: lhs.amount / rhs.amount)
   }
-  
+
   public static func +=(lhs: inout Self, rhs: Self) { lhs = lhs + rhs }
   public static func -=(lhs: inout Self, rhs: Self) { lhs = lhs - rhs }
   public static func *=(lhs: inout Self, rhs: Self) { lhs = lhs * rhs }
   public static func /=(lhs: inout Self, rhs: Self) { lhs = lhs / rhs }
-  
-  public static func +(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.amount + rhs)
-  }
-  
-  public static func -(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.amount - rhs)
-  }
-  
-  public static func *(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.amount * rhs)
-  }
-  
-  public static func /(lhs: Self, rhs: Decimal) -> Self {
-    return .init(lhs.amount / rhs)
-  }
-  
-  public static func +=(lhs: inout Self, rhs: Decimal) { lhs = lhs + rhs }
-  public static func -=(lhs: inout Self, rhs: Decimal) { lhs = lhs - rhs }
-  public static func *=(lhs: inout Self, rhs: Decimal) { lhs = lhs * rhs }
-  public static func /=(lhs: inout Self, rhs: Decimal) { lhs = lhs / rhs }
-}
 
-// MARK: Equatable
-
-extension AnyCurrency {
-  public static func ==<M: AnyCurrency>(lhs: Self, rhs: M) -> Bool {
-    guard Self.metadata.alphabeticCode == M.metadata.alphabeticCode else { return false }
-    return lhs.minorUnits == rhs.minorUnits
-  }
-  
-  /// Checks if the current amount is equivalent to the provided value.
+  /// Returns the current value as its additive inverse.
   ///
-  /// As floating point type precisions can vary, doing exact comparisons to between two `Decimal` values can result in false negatives when the currencies
-  /// are effectively the same value when compared up to their "minorUnits".
+  /// The following example uses the `negated()` method to negate the currency value:
   ///
-  /// To get around this, the provided `other` amount will be rounded to the same precision as the currency's "minorUnits" using the "bankers" mode.
+  ///     let negativeAmount = USD(3.40).negated()
+  ///     // negativeAmount == USD(-3.40)
   ///
-  /// For example, `USD(30.30)` is effectively equivalent to `Decimal(30.30001)`, so `USD(30.30).isEqual(to: 30.30001)` will be `true`.
+  /// - Note: The minimum value of fixed-width integer types cannot be represented when negated, as it causes an integer overflow.
+  /// e.g. `Int8.min` is `-128` while `Int8.max` is `127`.
   ///
-  /// See `AnyCurrency.amount` and `Foundation.Decimal.RoundingMode.bankers`.
-  /// - Parameter other: The other amount to compare against, after "bankers" rounding it.
-  /// - Returns: `true` if the rounded values are equal, otherwise `false`.
-  public func isEqual(to other: Decimal) -> Bool {
-    return self == Self(other)
-  }
-  
-  /// Checks if the current amount is equivalent to the other instance's.
-  /// - Parameter other: The other currency value to check if the amounts are equal.
-  /// - Returns: `true` if the currencies are the same type and the amounts are equal. Otherwise, `false`.
-  public func isEqual<M: AnyCurrency>(to other: M) -> Bool { return self == other }
-}
-
-// MARK: Comparable
-
-extension AnyCurrency {
-  public static func <(lhs: Self, rhs: Self) -> Bool {
-    return lhs.minorUnits < rhs.minorUnits
+  /// If the resulting value is not representable within an `Int64`, then the value will be clamped to `Int64.max` to avoid integer overflow.
+  ///
+  /// For example:
+  ///
+  ///     let negationOverflow = USD(minorUnits: Int64.min).negated()
+  ///     // negationOverflow == USD(minorUnits: Int64.max)
+  /// - Complexity: O(1)
+  public func negated() -> Self {
+    // overflow of integer by flipping the sign can only happen when going from negative to positive
+    // this is because any valid positive value can be represented as its negative inverse - but the inverse is not true
+    // Int8.min == -128, while Int8.max == 127
+    let result = self.minorUnits.multipliedReportingOverflow(by: -1)
+    return .init(minorUnits: result.overflow ? Int64.max : result.partialValue)
   }
 }
 
-// MARK: Hashable
+// MARK: String Representation
 
-extension AnyCurrency {
-  public var hashValue: Int { return self.minorUnits.hashValue }
-  
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(self.minorUnits)
-  }
-}
-
-// MARK: -
-// MARK: ExpressibleByIntegerLiteral
-
-extension AnyCurrency {
-  public init(integerLiteral value: Int64) {
-    self.init(Decimal(value))
-  }
-}
-
-// MARK: ExpressibleByFloatLiteral
-
-extension AnyCurrency {
-  public init(floatLiteral value: Double) {
-    self.init(Decimal(floatLiteral: value))
-  }
-}
-
-// MARK: -
-// MARK: CustomStringCovertible
+// price.description                  3000.98 USD
+// price.debugDescription         USD(3000.98)
+// price.playgroundDescription    USD(3000.98)
+// "\(localize: price)"                       $3,000.98
+// "\(localize: price, withFormatter: ...)"   $3,000.98
+// "\(localize: price, forLocale: .current)"  $3,000.98
 
 extension AnyCurrency {
   public var description: String { return "\(self.amount.description) \(Self.metadata.alphabeticCode)" }
+  public var debugDescription: String { return "\(Self.metadata.alphabeticCode)(\(self.amount.description))"}
+  public var playgroundDescription: Any { return self.debugDescription }
 }
 
-// MARK: String Interpolation
-
-// "\(price, withFormatter: ...)"   $3,000.98
-// "\(price.description)"             3000.98 USD
-// "\(price, forLocale: .current)"  $3,000.98
-// "\(price)"                       $3,000.98
-
 extension String.StringInterpolation {
-  public mutating func appendInterpolation(
-    _ money: Optional<AnyCurrency>,
+  public mutating func appendInterpolation<Currency: AnyCurrency>(
+    localize value: Currency?,
     forLocale locale: Locale = .current,
     nilDescription nilValue: String = "nil"
   ) {
-    switch money {
-    case .none: self.appendInterpolation(nilValue)
-    case let .some(value): self.appendInterpolation(value, forLocale: locale, nilDescription: nilValue)
-    }
-  }
-  
-  public mutating func appendInterpolation(
-    _ money: AnyCurrency,
-    forLocale locale: Locale = .current,
-    nilDescription nilValue: String = "nil"
-  ) {
+    guard case let .some(value) = value else { return nilValue.write(to: &self) }
+
     let formatter = NumberFormatter()
     formatter.numberStyle = .currency
     formatter.locale = locale
-    formatter.currencyCode = money.metadata.alphabeticCode
-    self.appendInterpolation(money, withFormatter: formatter, nilDescription: nilValue)
+    formatter.currencyCode = Currency.metadata.alphabeticCode
+
+    self.appendInterpolation(localize: value, withFormatter: formatter, nilDescription: nilValue)
   }
-  
-  public mutating func appendInterpolation(
-    _ money: AnyCurrency,
+
+  public mutating func appendInterpolation<Currency: AnyCurrency>(
+    localize value: Currency?,
     withFormatter formatter: NumberFormatter,
     nilDescription nilValue: String = "nil"
   ) {
-    self.appendInterpolation(formatter.string(from: NSDecimalNumber(decimal: money.amount)) ?? nilValue)
+    guard case let .some(value) = value else { return nilValue.write(to: &self) }
+
+    guard let localizedString = formatter.string(from: value.amount as NSDecimalNumber) else {
+      nilValue.write(to: &self)
+      return
+    }
+
+    localizedString.write(to: &self)
   }
 }
