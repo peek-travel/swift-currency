@@ -17,6 +17,22 @@ import XCTest
 
 public final class AnyCurrencyAlgorithmsTests: XCTestCase { }
 
+// MARK: Sequence<AnyCurrency>
+
+extension AnyCurrencyAlgorithmsTests {
+  func testSequenceSum() {
+    let amounts = [USD(30.47), -107.8239, 1_203.9832, -504.3982]
+    XCTAssertEqual(amounts.sum().amount, 622.23)
+  }
+  
+  func testSequenceSum_withPredicate() {
+    let amounts: [USD] = [304.98, 19.02, 30.21]
+    let sumTotal = amounts.sum(where: { $0.amount > 20 })
+    XCTAssertEqual(sumTotal.amount, 335.19)
+  }
+}
+
+
 // MARK: Distributed Evenly
 
 extension AnyCurrencyAlgorithmsTests {
@@ -25,7 +41,7 @@ extension AnyCurrencyAlgorithmsTests {
     XCTAssertEqual(amount.distributedEvenly(intoParts: 3), [5.01, 5, 5])
     XCTAssertEqual(amount.distributedEvenly(intoParts: 0), [])
     XCTAssertEqual(amount.distributedEvenly(intoParts: -1), [])
-    XCTAssertEqual(amount.inverseAmount.distributedEvenly(intoParts: 4), [-3.76, -3.75, -3.75, -3.75])
+    XCTAssertEqual(amount.negated().distributedEvenly(intoParts: 4), [-3.76, -3.75, -3.75, -3.75])
   }
 
   // minorUnits == 2
@@ -82,8 +98,8 @@ extension AnyCurrencyAlgorithmsTests {
     XCTAssertEqual(actualResults, expectedResults, file: file, line: line)
     XCTAssertEqual(sourceAmount, expectedResults.sum(), file: file, line: line)
     XCTAssertEqual(
-      sourceAmount.inverseAmount.distributedEvenly(intoParts: count),
-      expectedResults.map({ $0.inverseAmount }),
+      sourceAmount.negated().distributedEvenly(intoParts: count),
+      expectedResults.map({ $0.negated() }),
       file: file, line: line
     )
   }
@@ -96,7 +112,7 @@ extension AnyCurrencyAlgorithmsTests {
     let amount = USD(10)
     XCTAssertEqual(amount.distributedProportionally(between: [2.5, 2.5]), [5, 5])
     XCTAssertEqual(amount.distributedProportionally(between: []), [])
-    XCTAssertEqual(amount.inverseAmount.distributedProportionally(between: [5, 8.25]), [-3.77, -6.23])
+    XCTAssertEqual(amount.negated().distributedProportionally(between: [5, 8.25]), [-3.77, -6.23])
   }
   
   // minorUnits == 2
@@ -151,12 +167,13 @@ extension AnyCurrencyAlgorithmsTests {
   }
   
   private func run_distributedProportionallyTest<Currency: AnyCurrency & Equatable>(
-    sourceAmount: Currency,
+    sourceAmount: Currency?,
     originalValues: [Currency],
     expectedValues: [Currency],
     file: StaticString = #file,
     line: UInt = #line
   ) {
+    guard let sourceAmount = sourceAmount else { return XCTFail("sourceAmount is nil!", file: file, line: line) }
     guard originalValues.count == expectedValues.count else {
       return XCTFail(
         "Inconsistent desire: Provided \(originalValues.count) values, but expect \(expectedValues.count) results",

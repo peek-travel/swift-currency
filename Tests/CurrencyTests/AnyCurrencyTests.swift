@@ -12,49 +12,67 @@
 //
 //===----------------------------------------------------------------------===//
 
-import Currency
+@testable import Currency
 import XCTest
 
 final class AnyCurrencyTests: XCTestCase {
   override func setUp() {
     UserDefaults.standard.set(["en_US"], forKey: "AppleLanguages")
   }
-  
-  func testInit() {
-    XCTAssertEqual(USD(30.23).amount, 30.23)
-    XCTAssertEqual(JPY(100.23).amount, 100)
-    
-    let gbp = GBP(02838.29808)
-    XCTAssertEqual(gbp.amount, 2838.3)
-    XCTAssertEqual(gbp.minorUnits, 283830)
+}
+
+// MARK: Initialization
+
+extension AnyCurrencyTests {
+  func testDecimalInit() {
+    _assertCurrencyValue(USD(30.23), equalsAmount: 30.23, equalsMinorUnits: 3023)
+    _assertCurrencyValue(USD(-208.001), equalsAmount: -208.00, equalsMinorUnits: -20800)
+
+    _assertCurrencyValue(JPY(100.23), equalsAmount: 100, equalsMinorUnits: 100)
+    _assertCurrencyValue(JPY(-39820), equalsAmount: -39820, equalsMinorUnits: -39820)
+
+    _assertCurrencyValue(KWD(02838.29708), equalsAmount: 2838.297, equalsMinorUnits: 2838297)
+    _assertCurrencyValue(KWD(-300.87), equalsAmount: -300.87, equalsMinorUnits: -300870)
   }
-  
-  func testMinorUnits() {
-    let gbp = GBP(minorUnits: 300)
-    XCTAssertTrue(gbp.isEqual(to: 3.0))
-    XCTAssertEqual(gbp.minorUnits, 300)
-    
-    let jpy = JPY(minorUnits: 39820)
-    XCTAssertTrue(jpy.isEqual(to: 39820))
-    XCTAssertEqual(jpy.minorUnits, 39820)
+
+  func testNaNInit() {
+    XCTAssertNil(USD(amount: .nan))
+    XCTAssertNil(JPY(amount: .quietNaN))
   }
-  
-  func testNegative() {
-    let gbp = GBP(minorUnits: -300)
-    XCTAssertTrue(gbp.isEqual(to: -3.0))
-    XCTAssertEqual(gbp.minorUnits, -300)
-    
-    let jpy = JPY(minorUnits: -39820)
-    XCTAssertTrue(jpy.isEqual(to: -39820))
-    XCTAssertEqual(jpy.minorUnits, -39820)
+
+  func testMinorUnitInit() {
+    _assertCurrencyValue(USD(minorUnits: 300), equalsAmount: 3, equalsMinorUnits: 300)
+    _assertCurrencyValue(USD(minorUnits: -39820), equalsAmount: -398.2, equalsMinorUnits: -39820)
+
+    _assertCurrencyValue(JPY(minorUnits: 2838), equalsAmount: 2838, equalsMinorUnits: 2838)
+    _assertCurrencyValue(JPY(minorUnits: -300), equalsAmount: -300, equalsMinorUnits: -300)
+
+    _assertCurrencyValue(KWD(minorUnits: 2838297), equalsAmount: 2838.297, equalsMinorUnits: 2838297)
+    _assertCurrencyValue(KWD(minorUnits: -300877), equalsAmount: -300.877, equalsMinorUnits: -300877)
   }
-  
+
+  private func _assertCurrencyValue<Currency: CurrencyProtocol>(
+    _ value: Currency?,
+    equalsAmount expectedAmount: Decimal,
+    equalsMinorUnits expectedMinorUnits: Int64,
+    file: StaticString = #file,
+    line: UInt = #line) {
+    guard let value = value else { return XCTFail("Nil value found", file: file, line: line) }
+    XCTAssertEqual(value.minorUnits, expectedMinorUnits, file: file, line: line)
+    XCTAssertEqual(value.amount, expectedAmount, file: file, line: line)
+  }
+}
+
+// MARK: -
+// MARK: Protocol Conformances
+
+extension AnyCurrencyTests {
   func testEquatable() {
     let first = USD(30.23)
-    XCTAssertTrue(first == USD(30.23))
-    XCTAssertTrue(first.isEqual(to: 30.23))
-    XCTAssertFalse(first.isEqual(to: JPY(300)))
-    XCTAssertFalse(first == GBP(107.982))
+    XCTAssertEqual(first, USD(30.23))
+    XCTAssertEqual(first, USD(30.226))
+    XCTAssertNotEqual(first, USD(30.235))
+    XCTAssertNotEqual(first, USD(30.225))
   }
     
   func testComparable() {
@@ -71,7 +89,64 @@ final class AnyCurrencyTests: XCTestCase {
     hasher.combine(usd)
     XCTAssertEqual(hasher.finalize(), usd.minorUnits.hashValue)
   }
-  
+}
+
+// MARK: -
+// MARK: String Representations
+
+extension AnyCurrencyTests {
+  func testReflectionRepresentation() {
+    let str = String(reflecting: USD(30.02))
+    XCTAssertEqual(str, "USD(30.02)")
+  }
+
+  func testDescriptionRepresentations() {
+    let yen = JPY(400.98)
+    XCTAssertEqual(yen.description, "401 JPY")
+    XCTAssertEqual("\(yen)", yen.description)
+
+    let usd = USD(300.8)
+    XCTAssertEqual(usd.description, "300.8 USD")
+    XCTAssertEqual(usd.debugDescription, "USD(300.8)")
+    XCTAssertEqual(usd.playgroundDescription as? String, usd.debugDescription)
+  }
+
+  func testStringInterpolation_defaultFormatter() {
+    XCTAssertEqual("\(localize: USD(4321.389))", "$4,321.39")
+    XCTAssertEqual("\(localize: JPY(400.9))", "¥401")
+  }
+
+  func testStringInterpolation_customLocale() {
+    let pounds = GBP(14928.789)
+    XCTAssertEqual("\(localize: pounds, forLocale: .init(identifier: "en_UK"))", "£14,928.79")
+    XCTAssertEqual("\(localize: pounds, forLocale: .init(identifier: "de_DE"))", "14.928,79 £")
+  }
+
+  func testStringInterpolation_customFormatter() {
+    let pounds = GBP(14928.018)
+    let formatter = NumberFormatter()
+    formatter.currencyCode = GBP.metadata.alphabeticCode
+    formatter.numberStyle = .currency
+    formatter.currencyGroupingSeparator = " "
+    formatter.currencyDecimalSeparator = "'"
+    XCTAssertEqual("\(localize: pounds, withFormatter: formatter)", "£14 928'02")
+  }
+
+  func testStringInterpolation_optional() {
+    var pounds = Optional<GBP>.none
+    XCTAssertEqual("\(localize: pounds)", "nil")
+    XCTAssertEqual("\(localize: pounds, nilDescription: "N/A")", "N/A")
+
+    pounds = .init(398.983)
+    XCTAssertEqual("\(localize: pounds)", "£398.98")
+  }
+}
+
+// MARK: -
+
+// MARK: Basic Arithmetic
+
+extension AnyCurrencyTests {
   func testAddition() {
     let first = USD(300.12)
     XCTAssertEqual(first + 30, 330.12)
@@ -79,13 +154,6 @@ final class AnyCurrencyTests: XCTestCase {
     var second = USD(32.12)
     second += 45
     XCTAssertEqual(second, 77.12)
-
-    let third = USD(75.98)
-    XCTAssertEqual(third + Decimal(2), 77.98)
-
-    var fourth = USD(1098.23)
-    fourth += Decimal(10.98)
-    XCTAssertEqual(fourth, 1109.21)
   }
 
   func testSubtraction() {
@@ -95,13 +163,6 @@ final class AnyCurrencyTests: XCTestCase {
     var second = USD(32.12)
     second -= 45
     XCTAssertEqual(second, -12.88)
-
-    let third = USD(75.98)
-    XCTAssertEqual(third - Decimal(2), 73.98)
-
-    var fourth = USD(100.45)
-    fourth -= Decimal(50.30)
-    XCTAssertEqual(fourth, 50.15)
   }
 
   func testDivision() {
@@ -111,13 +172,6 @@ final class AnyCurrencyTests: XCTestCase {
     var second = USD(32.12)
     second /= USD(45)
     XCTAssertEqual(second.amount, 0.71)
-
-    let third = USD(75.98)
-    XCTAssertEqual(third / Decimal(2), 37.99)
-
-    var fourth = USD(0982.738)
-    fourth /= Decimal(7.7)
-    XCTAssertEqual(fourth.amount, 127.63)
   }
   
   func testMultiplication() {
@@ -127,60 +181,31 @@ final class AnyCurrencyTests: XCTestCase {
     var second = USD(32.12)
     second *= USD(45)
     XCTAssertEqual(second.amount, 1445.4)
+  }
 
-    let third = USD(75.98)
-    XCTAssertEqual(third * Decimal(2), 151.96)
-    
-    var fourth = USD(0982.738)
-    fourth *= Decimal(7.7)
-    XCTAssertEqual(fourth.amount, 7567.1)
-  }
-  
-  func testDescription() {
-    XCTAssertEqual(USD(300.8).description, "300.8 USD")
-    XCTAssertEqual(JPY(400.98).description, "401 JPY")
-  }
-  
-  func testStringInterpolation_description() {
-    XCTAssertEqual("\(USD(300.8).description)", "300.8 USD")
-  }
-  
-  func testStringInterpolation_defaultFormatter() {
-    XCTAssertEqual("\(USD(4321.389))", "$4,321.39")
-  }
-  
-  func testStringInterpolation_customLocale() {
-    let pounds = GBP(14928.789)
-    XCTAssertEqual("\(pounds, forLocale: .init(identifier: "en_UK"))", "£14,928.79")
-    XCTAssertEqual("\(pounds, forLocale: .init(identifier: "de_DE"))", "14.928,79 £")
-  }
-  
-  func testStringInterpolation_customFormatter() {
-    let pounds = GBP(14928.018)
-    let formatter = NumberFormatter()
-    formatter.currencyCode = pounds.metadata.alphabeticCode
-    formatter.numberStyle = .currency
-    formatter.currencyGroupingSeparator = " "
-    formatter.currencyDecimalSeparator = "'"
-    XCTAssertEqual("\(pounds, withFormatter: formatter)", "£14 928'02")
-  }
-  
-  func testStringInterpolation_optional() {
-    var pounds = Optional<GBP>.none
-    XCTAssertEqual("\(pounds)", "nil")
-    XCTAssertEqual("\(pounds, nilDescription: "N/A")", "N/A")
-    
-    pounds = .init(398.983)
-    XCTAssertEqual("\(pounds)", "£398.98")
+  func testNegation() {
+    let min = USD(minorUnits: Int8.min)
+    XCTAssertEqual(min.minorUnits, -128)
+    XCTAssertEqual(min.negated().minorUnits, 128)
+
+    let max = KWD(minorUnits: Int8.max)
+    XCTAssertEqual(max.minorUnits, 127)
+    XCTAssertEqual(max.negated().minorUnits, -127)
+
+    let yen = JPY(minorUnits: 30)
+    XCTAssertEqual(yen.minorUnits, 30)
+    XCTAssertEqual(yen.negated().minorUnits, -30)
   }
 }
 
-// MARK: -
-// MARK: Common Calculations
+// MARK: Advanced Calculations
 
 extension Sequence where Element: AnyCurrency {
   func applyingRate(_ rate: Decimal) -> [Element] {
-    return self.reduce(into: [Element]()) { $0.append($1 + ($1 * rate)) }
+    return self.reduce(into: [Element]()) { result, next in
+      let newElement = next + Element(scalingAndRounding: next.amount * rate)
+      result.append(newElement)
+    }
   }
 }
 
@@ -203,9 +228,9 @@ extension AnyCurrencyTests {
     let subtotal = prices.sum()
     XCTAssertEqual(subtotal, 11.97)
     
-    let taxes = prices.sum { $0 * Decimal(0.09) }
+    let taxes = prices.sum { $0 * 0.09 }
     XCTAssertEqual(taxes, 1.08)
-    XCTAssertEqual(subtotal * Decimal(0.09), 1.08)
+    XCTAssertEqual(subtotal * 0.09, 1.08)
     
     XCTAssertEqual(subtotal + taxes, 13.05)
     XCTAssertEqual(prices.applyingRate(0.09).sum(), 13.05)
@@ -219,12 +244,12 @@ extension AnyCurrencyTests {
       11.97             1.7955 => 1.80    10.1745 => 10.17  0.9156 => 0.92    11.0901 => 11.09
      */
     
-    let discount = prices.sum { $0 * Decimal(0.15) }
+    let discount = prices.sum { $0 * 0.15 }
     XCTAssertEqual(discount, 1.80)
     let discountPrices = prices.applyingRate(-0.15)
     XCTAssertEqual(discountPrices.sum(), 10.17)
     
-    let discountTaxes = discountPrices.sum { $0 * Decimal(0.09) }
+    let discountTaxes = discountPrices.sum { $0 * 0.09 }
     XCTAssertEqual(discountTaxes, 0.92)
     
     let discountTotal = discountPrices.applyingRate(0.09).sum()
@@ -235,21 +260,5 @@ extension AnyCurrencyTests {
       .applyingRate(0.09) // taxes
       .sum()
     XCTAssertEqual(chained, discountTotal)
-  }
-}
-
-// MARK: -
-// MARK: Sequence<AnyCurrency>
-
-extension AnyCurrencyTests {
-  func testSequenceSum() {
-    let amounts = [USD(30.47), -107.8239, 1_203.9832, -504.3982]
-    XCTAssertEqual(amounts.sum().amount, 622.23)
-  }
-  
-  func testSequenceSum_withPredicate() {
-    let amounts: [USD] = [304.98, 19.02, 30.21]
-    let sumTotal = amounts.sum(where: { $0.amount > 20 })
-    XCTAssertEqual(sumTotal.amount, 335.19)
   }
 }
