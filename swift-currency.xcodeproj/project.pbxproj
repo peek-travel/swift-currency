@@ -106,9 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_17 /* AnyCurrencyTests.swift */,
+				D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */,
 				OBJ_18 /* CurrencyMintTests.swift */,
 				OBJ_19 /* XCTestManifests.swift */,
-				D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */,
 			);
 			name = CurrencyTests;
 			path = Tests/CurrencyTests;
@@ -149,15 +149,15 @@
 		OBJ_8 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* ISOCurrencies.swift.gyb */,
-				OBJ_10 /* CurrencyMint.swift.gyb */,
 				OBJ_11 /* AnyCurrency.swift */,
+				D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */,
 				D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */,
 				OBJ_12 /* CurrencyMetadata.swift */,
+				OBJ_10 /* CurrencyMint.swift.gyb */,
 				OBJ_13 /* CurrencyMint.swift */,
-				OBJ_14 /* ISOCurrencies.swift */,
-				D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */,
 				D814C41623D68385007D4037 /* CurrencyProtocol.swift */,
+				OBJ_9 /* ISOCurrencies.swift.gyb */,
+				OBJ_14 /* ISOCurrencies.swift */,
 			);
 			name = Currency;
 			path = Sources/Currency;
