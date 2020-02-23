@@ -199,10 +199,17 @@ extension String.StringInterpolation {
   ) {
     guard case let .some(value) = value else { return nilValue.write(to: &self) }
 
+    #if swift(<5.1)
+    guard let localizedString = formatter.string(from: NSDecimalNumber(decimal: value.amount)) else {
+      nilValue.write(to: &self)
+      return
+    }
+    #else
     guard let localizedString = formatter.string(from: value.amount as NSDecimalNumber) else {
       nilValue.write(to: &self)
       return
     }
+    #endif
 
     localizedString.write(to: &self)
   }

@@ -15,7 +15,11 @@
 import Foundation
 
 extension Decimal {
+  #if swift(<5.1)
+  internal var int64Value: Int64 { return NSDecimalNumber(decimal: self).int64Value }
+  #else
   internal var int64Value: Int64 { return (self as NSNumber).int64Value }
+  #endif
 
   internal func roundedAndScaled(to unitScale: UInt8) -> Decimal {
     let scale = Int(unitScale)
