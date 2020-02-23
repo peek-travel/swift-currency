@@ -146,7 +146,7 @@ extension AnyCurrencyTests {
     XCTAssertEqual("\(localize: yen, forLocale: .init(identifier: "el"))", expectedGreekYen)
 
     let dinar = KWD(100.9289)
-    #if swift(<5.2)
+    #if swift(<5.2) && os(Linux)
     let expectedIrishDinar = "KWD100.929"
     #else
     let expectedIrishDinar = "KWD 100.929"
