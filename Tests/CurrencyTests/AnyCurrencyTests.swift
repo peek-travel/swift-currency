@@ -121,7 +121,7 @@ extension AnyCurrencyTests {
     #endif
     XCTAssertEqual("\(localize: KWD(301.9823))", expectedDinar)
 
-    #if swift(<5.1)
+    #if swift(<5.1) && os(Linux)
     let expectedYen = "¥401.00"
     #else
     let expectedYen = "¥401"
