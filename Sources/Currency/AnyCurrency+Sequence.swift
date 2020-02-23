@@ -29,11 +29,10 @@ extension Sequence where Element: AnyCurrency {
   /// If the sequence has no elements, you will receive a currency with a value of "0".
   /// - Complexity: O(*n*) , where *n* is the length of the sequence.
   /// - Returns: A currency value representing the sum total of all the amounts in the sequence.
-  @inlinable
   public func sum() -> Element {
-    return self.reduce(into: .init(.zero), { $0 += $1 })
+    return self.reduce(into: .zero, +=)
   }
-  
+
   /// Returns the sum total of all amounts in the sequence that satify the given predicate.
   /// For example:
   ///
@@ -48,12 +47,12 @@ extension Sequence where Element: AnyCurrency {
   /// - Returns: A currency value representing the sum total of all the amounts `isIncluded` allowed.
   @inlinable
   public func sum(where isIncluded: (Element) throws -> Bool) rethrows -> Element {
-    return try self.reduce(into: Element(0)) { result, next in
+    return try self.reduce(into: .zero) { result, next in
       guard try isIncluded(next) else { return }
       result += next
     }
   }
-  
+
   /// Returns the sum total of amounts in the sequence after applying the provided transform.
   ///
   /// Rather than doing a `.map(_:)` and then `.sum()`, the `sum` result will be calculated inline while applying the transformations.
@@ -71,6 +70,6 @@ extension Sequence where Element: AnyCurrency {
   /// - Returns: A currency value representing the sum total of all the transformed amounts in the sequence.
   @inlinable
   public func sum(_ transform: (Element) throws -> (Element)) rethrows -> Element {
-    return try self.reduce(into: .init(.zero)) { $0 += try transform($1) }
+    return try self.reduce(into: .zero) { $0 += try transform($1) }
   }
 }

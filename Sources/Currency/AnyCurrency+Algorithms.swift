@@ -32,12 +32,12 @@ extension AnyCurrency {
     let fraction = units / count
     let remainder = Int(abs(units) % count)
     
-    var results: [Self] = .init(repeating: Self(exactly: 0), count: numParts)
+    var results: [Self] = .init(repeating: .zero, count: numParts)
     for index in 0..<remainder {
-      results[index] = Self(exactly: fraction + units.signum())
+      results[index] = Self(minorUnits: fraction + units.signum())
     }
     for index in remainder..<numParts {
-      results[index] = Self(exactly: fraction)
+      results[index] = Self(minorUnits: fraction)
     }
     
     return results
@@ -62,15 +62,17 @@ extension AnyCurrency {
   ///
   /// In this case, it is more appropriate to call `distributedEvenly(intoParts:)`.
   ///
-  /// - Complexity: O(2*n*), where *n* is the number of `originalValues`.
+  /// - Complexity: O(*n*), where *n* is the number of `originalValues`.
   /// - Parameter originalValues: A collection of values that should be scaled proportionally so that their sum equals this currency's amount.
   /// - Returns: A collection of currency values that are scaled proportionally from an original value whose sum equals this currency's amount.
-  public func distributedProportionally<C: Collection>(
-    between originalValues: C
-  ) -> [Self] where C.Element == Self {
+  public func distributedProportionally<T>(
+    between originalValues: T
+  ) -> [Self]
+    where T: Collection, T.Element == Self
+  {
     guard originalValues.count > 0 else { return [] }
     
-    var results: [Self] = .init(repeating: Self(0), count: originalValues.count)
+    var results: [Self] = .init(repeating: .zero, count: originalValues.count)
     
     let desiredTotalUnits = self.minorUnits
     guard desiredTotalUnits != 0 else { return results }
@@ -83,14 +85,14 @@ extension AnyCurrency {
       defer { index += 1 }
 
       let proportion = Decimal(value.minorUnits) / .init(originalTotalUnits)
-      let newValue = Self(proportion * self.amount)
+      let newValue = Self(scalingAndRounding: self.amount * proportion)
 
       defer { currentTotalUnits += newValue.minorUnits }
 
       results[index] = newValue
     }
 
-    results[originalValues.count - 1] = Self(exactly: desiredTotalUnits - currentTotalUnits)
+    results[originalValues.count - 1] = Self(minorUnits: desiredTotalUnits - currentTotalUnits)
     
     return results
   }
