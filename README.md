@@ -59,6 +59,10 @@ dependencies: [
 
 To install with [Carthage](https://github.com/Carthage/Carthage), just add the line `gh "https://github.com/peek-travel/swift-currency" ~> 1.0.0` to your **Cartfile**.
 
+## Documentation
+
+The API docs for the latest tagged release are always available at [peek-travel.github.io/swift-currency](https://peek-travel.github.io/swift-currency).
+
 ## Questions
 
 For bugs or feature requests, file a new [issue](https://gitlab.com/mordil/swift-redi-stack/issues).
