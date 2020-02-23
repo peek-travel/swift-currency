@@ -39,7 +39,7 @@ receive regular unit testing.
 
 | Platform | Swift 5 | 5.1 | 5.2 | Trunk |
 |:---------|:-------:|:---:|:---:|:-----:|
-| macOS Latest          | ✅ | ✅ | | |
+| macOS Latest          | ✅ | ✅ | ✅ | |
 | Ubuntu 18.04 (Bionic) | ✅ | ✅ | ✅ | ✅ |
 | Ubuntu 16.04 (Xenial) | ✅ | ✅ | ✅ | ✅ |
 
