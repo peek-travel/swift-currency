@@ -14,7 +14,7 @@ jobs:
     - name: Generate report
       run: |
         xcrun llvm-cov show \
-          .build/x86_64-apple-macosx/debug/swift-currencyPackageTests.xctest/Contents/MacOS/swift-currencyPackageTests \
+          .build/x86_64-apple-macosx/debug/currencyPackageTests.xctest/Contents/MacOS/currencyPackageTests \
           -instr-profile=".build/x86_64-apple-macosx/debug/codecov/default.profdata" \
           -ignore-filename-regex="(.build|Tests|ISOCurrencies)" > coverage.txt
     - name: Upload report
