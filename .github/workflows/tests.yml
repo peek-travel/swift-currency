@@ -27,6 +27,18 @@ jobs:
     - name: Run tests
       run: swift test
 
+  macos-latest-5_2:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check Swift version
+      run: |
+        sudo xcode-select -s /Applications/Xcode_11.4_beta.app/
+        export TOOLCHAINS=swift
+        swift --version
+    - name: Run tests
+      run: swift test
+
   ubuntu-bionic-5_0:
     container:
       image: swift:5.0-bionic
