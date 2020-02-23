@@ -36,8 +36,8 @@ receive regular unit testing.
 | Platform | Swift 5 | 5.1 | 5.2 | Trunk |
 |:---------|:-------:|:---:|:---:|:-----:|
 | macOS Latest | :white_check_mark: | :white_check_mark: | | |
-| Ubuntu 18.04 (Bionic) | | | | |
-| Ubuntu 16.04 (Xenial) | | | | |
+| Ubuntu 18.04 (Bionic) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Ubuntu 16.04 (Xenial) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 ## Installing
 
