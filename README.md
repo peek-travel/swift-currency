@@ -1,9 +1,12 @@
 # Swift Currency
 
-[![codecov](https://codecov.io/gh/peek-travel/swift-currency/branch/master/graph/badge.svg)](https://codecov.io/gh/peek-travel/swift-currency)
-[![Package Tests](https://github.com/peek-travel/swift-currency/workflows/Package%20Tests/badge.svg)](https://github.com/peek-travel/swift-currency/actions?query=workflow%3A%22Package+Tests%22)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/peek-travel/swift-currency/blob/master/LICENSE.txt)
 [![Swift 5+](https://img.shields.io/badge/Swift-5.0+-orange.svg)](https://swift.org)
+
+[![Package Tests](https://github.com/peek-travel/swift-currency/workflows/Package%20Tests/badge.svg)](https://github.com/peek-travel/swift-currency/actions?query=workflow%3A%22Package+Tests%22)
+[![codecov](https://codecov.io/gh/peek-travel/swift-currency/branch/master/graph/badge.svg)](https://codecov.io/gh/peek-travel/swift-currency)
+
+[![Documentation](https://peek-travel.github.io/swift-currency/badge.svg)](https://peek-travel.github.io/swift-currency)
 
 ## Introduction
 
