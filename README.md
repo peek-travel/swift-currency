@@ -7,6 +7,7 @@
 [![codecov](https://codecov.io/gh/peek-travel/swift-currency/branch/master/graph/badge.svg)](https://codecov.io/gh/peek-travel/swift-currency)
 
 [![Documentation](https://peek-travel.github.io/swift-currency/badge.svg)](https://peek-travel.github.io/swift-currency)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f17c8f5d598f61ee1a63/maintainability)](https://codeclimate.com/github/peek-travel/swift-currency/maintainability)
 
 ## Introduction
 
