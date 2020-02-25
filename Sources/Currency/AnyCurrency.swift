@@ -30,7 +30,8 @@ import Foundation
 ///
 /// All floating point type values provided to initializers will be "bankers" rounded to their `CurrencyMetadata.minorUnits` scale before being stored in memory.
 public protocol AnyCurrency:
-  CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible
+  CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible,
+  CustomLeafReflectable
 {
   /// The ISO 4217 information about this currency.
   static var metadata: CurrencyMetadata.Type { get }
@@ -85,6 +86,13 @@ extension AnyCurrency {
     return Decimal(minorUnits).scaled(to: .init(Self.metadata.minorUnits), inverse: true)
   }
 
+  public var customMirror: Mirror {
+    return .init(self, children: [
+      "minorUnits": self.minorUnits,
+      "metadata": Self.metadata
+    ])
+  }
+
   public init?(amount: Decimal) {
     switch amount {
     case .nan, .quietNaN: return nil
@@ -107,6 +115,18 @@ extension AnyCurrency {
 
 extension AnyCurrency where Self: CurrencyMetadata {
   public static var metadata: CurrencyMetadata.Type { return Self.self }
+
+  public var customMirror: Mirror {
+    return .init(self, children: [
+      "minorUnits": self.minorUnits,
+      "metadata": (
+        name: Self.name,
+        alphabeticCode: Self.alphabeticCode,
+        numericCode: Self.numericCode,
+        minorUnits: Self.minorUnits
+      )
+    ])
+  }
 }
 
 // MARK: Arithmetic
