@@ -214,20 +214,20 @@ extension AnyCurrencyTests {
 
   func testDivision() {
     let first = USD(300.12)
-    XCTAssertEqual(first / USD(30), 10)
+    XCTAssertEqual(first / USD(30.198), 9.94)
 
     var second = USD(32.12)
-    second /= USD(45)
+    second /= USD(45.2)
     XCTAssertEqual(second.amount, 0.71)
   }
   
   func testMultiplication() {
     let first = USD(300.12)
-    XCTAssertEqual(first * USD(30), 9003.6)
+    XCTAssertEqual(first * USD(0.309), 93.04)
 
     var second = USD(32.12)
-    second *= USD(45)
-    XCTAssertEqual(second.amount, 1445.4)
+    second *= USD(45.2)
+    XCTAssertEqual(second.amount, 1451.82)
   }
 
   func testNegation() {
