@@ -123,11 +123,14 @@ extension AnyCurrency {
   }
 
   public static func *(lhs: Self, rhs: Self) -> Self {
-    return Self(scalingAndRounding: lhs.amount * rhs.amount)
+    let result = Double(lhs.minorUnits * rhs.minorUnits) / pow(10, Double(Self.metadata.minorUnits))
+    return .init(minorUnits: Int64(result.rounded(.toNearestOrEven)))
   }
 
   public static func /(lhs: Self, rhs: Self) -> Self {
-    return Self(scalingAndRounding: lhs.amount / rhs.amount)
+    let quotent = Double(lhs.minorUnits) / .init(rhs.minorUnits)
+    let result = quotent * pow(10, Double(Self.metadata.minorUnits))
+    return .init(minorUnits: Int64(result.rounded(.toNearestOrEven)))
   }
 
   public static func +=(lhs: inout Self, rhs: Self) { lhs = lhs + rhs }
