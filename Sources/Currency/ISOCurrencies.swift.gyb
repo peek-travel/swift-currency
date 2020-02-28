@@ -29,7 +29,13 @@
     }%
     % if alphaCode and numCode and numCode.isdigit() and name and minorUnit and minorUnit.isdigit():
       % if alphaCode == "XXX":
-/// "${name}" (${alphaCode}); as defined by ISO 4217 for transactions that involve no currency.
+/// The currency to represent a transaction where no currency was involved; as defined by ISO 4217.
+///
+/// As ISO 4217 does not specify a minor unit for XXX, the value of `0` is used.
+      % elif alphaCode == "XTS":
+/// The currency suitable for testing; as defined by ISO 4217.
+///
+/// As ISO 4217 does not specify a minor unit for XTS, the value of `1` is used for validating rounding errors.
       % else:
 /// The ${name} (${alphaCode}) currency, as defined by ISO 4217.
       % end

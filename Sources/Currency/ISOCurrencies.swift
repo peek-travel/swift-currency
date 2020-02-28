@@ -2229,7 +2229,25 @@ public struct ZWL: CurrencyProtocol, CurrencyMetadata {
   private let _minorUnits: Int64
 }
 
-/// "No currency" (XXX); as defined by ISO 4217 for transactions that involve no currency.
+/// The currency suitable for testing; as defined by ISO 4217.
+///
+/// As ISO 4217 does not specify a minor unit for XTS, the value of `1` is used for validating rounding errors.
+public struct XTS: CurrencyProtocol, CurrencyMetadata {
+  public static var name: String { return "Code reserved for testing" }
+  public static var alphabeticCode: String { return "XTS" }
+  public static var numericCode: UInt16 { return 963 }
+  public static var minorUnits: UInt8 { return 1 }
+  
+  public var minorUnits: Int64 { return self._minorUnits }
+  
+  public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
+  
+  private let _minorUnits: Int64
+}
+
+/// The currency to represent a transaction where no currency was involved; as defined by ISO 4217.
+///
+/// As ISO 4217 does not specify a minor unit for XXX, the value of `0` is used.
 public struct XXX: CurrencyProtocol, CurrencyMetadata {
   public static var name: String { return "No currency" }
   public static var alphabeticCode: String { return "XXX" }
