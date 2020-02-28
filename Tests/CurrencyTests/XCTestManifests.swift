@@ -50,6 +50,8 @@ extension CurrencyMintTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__CurrencyMintTests = [
+        ("testDefaultCurrency", testDefaultCurrency),
+        ("testFallbackLookup", testFallbackLookup),
         ("testLookupByNum_fails", testLookupByNum_fails),
         ("testLookupByNum_passes", testLookupByNum_passes),
         ("testLookupByNum_withAmount", testLookupByNum_withAmount),

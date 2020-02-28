@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0318F9AB2409DD130017B010 /* CurrencyMint+ISOCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0318F9AA2409DD120017B010 /* CurrencyMint+ISOCurrencies.swift */; };
 		03AE0FB82401E5BA00A76C38 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE0FB72401E5BA00A76C38 /* Decimal.swift */; };
 		D814C41723D68385007D4037 /* CurrencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D814C41623D68385007D4037 /* CurrencyProtocol.swift */; };
 		D838378B23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */; };
@@ -55,12 +56,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0318F9AA2409DD120017B010 /* CurrencyMint+ISOCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CurrencyMint+ISOCurrencies.swift"; sourceTree = "<group>"; };
 		03AE0FB72401E5BA00A76C38 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		D814C41623D68385007D4037 /* CurrencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyProtocol.swift; sourceTree = "<group>"; };
 		D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnyCurrency+Sequence.swift"; sourceTree = "<group>"; };
 		D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrencyAlgorithmsTests.swift; sourceTree = "<group>"; };
 		D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCurrency+Algorithms.swift"; sourceTree = "<group>"; };
-		OBJ_10 /* CurrencyMint.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = CurrencyMint.swift.gyb; sourceTree = "<group>"; };
+		OBJ_10 /* CurrencyMint+ISOCurrencies.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CurrencyMint+ISOCurrencies.swift.gyb"; sourceTree = "<group>"; };
 		OBJ_11 /* AnyCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrency.swift; sourceTree = "<group>"; };
 		OBJ_12 /* CurrencyMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyMetadata.swift; sourceTree = "<group>"; };
 		OBJ_13 /* CurrencyMint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyMint.swift; sourceTree = "<group>"; };
@@ -164,7 +166,8 @@
 				D893657E23D294850006FAE1 /* AnyCurrency+Algorithms.swift */,
 				D838378A23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift */,
 				OBJ_12 /* CurrencyMetadata.swift */,
-				OBJ_10 /* CurrencyMint.swift.gyb */,
+				OBJ_10 /* CurrencyMint+ISOCurrencies.swift.gyb */,
+				0318F9AA2409DD120017B010 /* CurrencyMint+ISOCurrencies.swift */,
 				OBJ_13 /* CurrencyMint.swift */,
 				D814C41623D68385007D4037 /* CurrencyProtocol.swift */,
 				OBJ_9 /* ISOCurrencies.swift.gyb */,
@@ -283,6 +286,7 @@
 				D814C41723D68385007D4037 /* CurrencyProtocol.swift in Sources */,
 				OBJ_31 /* AnyCurrency.swift in Sources */,
 				OBJ_32 /* CurrencyMetadata.swift in Sources */,
+				0318F9AB2409DD130017B010 /* CurrencyMint+ISOCurrencies.swift in Sources */,
 				D838378B23CEBF2D0017B4D2 /* AnyCurrency+Sequence.swift in Sources */,
 				D893657F23D294850006FAE1 /* AnyCurrency+Algorithms.swift in Sources */,
 				OBJ_33 /* CurrencyMint.swift in Sources */,
