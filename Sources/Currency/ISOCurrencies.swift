@@ -2252,7 +2252,7 @@ public struct XXX: CurrencyProtocol, CurrencyMetadata {
   public static var name: String { return "No currency" }
   public static var alphabeticCode: String { return "XXX" }
   public static var numericCode: UInt16 { return 999 }
-  public static var minorUnits: UInt8 { return 2 }
+  public static var minorUnits: UInt8 { return 0 }
   
   public var minorUnits: Int64 { return self._minorUnits }
   
