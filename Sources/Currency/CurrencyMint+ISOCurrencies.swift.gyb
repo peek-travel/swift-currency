@@ -1,0 +1,54 @@
+//===----------------------------------------------------------------------===//
+//
+// This source file is part of the SwiftCurrency open source project
+//
+// Copyright (c) 2020 SwiftCurrency project authors
+// Licensed under MIT License
+//
+// See LICENSE.txt for license information
+// See CONTRIBUTORS.txt for the list of SwiftCurrency project authors
+//
+// SPDX-License-Identifier: MIT
+//
+//===----------------------------------------------------------------------===//
+
+// WARNING: This file's contents are automatically generated. Any edits to the `.swift` file will be overwritten.
+
+// MARK: Lookup by Alpha
+
+%{ import csv }%
+% with open('../../Resources/ISO4217.csv') as file:
+  % reader = csv.DictReader(file)
+extension CurrencyMint {
+  internal static func lookup(byAlphaCode code: String) -> AnyCurrency.Type? {
+    switch code {
+  % for row in reader:
+    % alphaCode = row["Ccy"]
+    % if alphaCode:
+    case "${alphaCode}": return ${alphaCode}.self
+    %end
+  %end
+    default: return nil
+    }
+  }
+}
+
+// MARK: Lookup by Numeric
+
+extension CurrencyMint {
+  internal static func lookup(byNumCode code: UInt16) -> AnyCurrency.Type? {
+    switch code {
+  % file.seek(0)
+  % next(reader)
+  % for row in reader:
+    %{
+    alphaCode = row["Ccy"]
+    numCode = row["CcyNbr"]
+    }%
+    case ${numCode}: return ${alphaCode}.self
+  %end
+    default: return nil
+    }
+  }
+}
+%end
