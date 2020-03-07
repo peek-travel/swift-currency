@@ -131,8 +131,8 @@ extension AnyCurrencyTests {
 
   func testStringInterpolation_customLocale() {
     let pounds = GBP(14928.789)
-    XCTAssertEqual("\(localize: pounds, forLocale: .init(identifier: "en_UK"))", "£14,928.79")
-    XCTAssertEqual("\(localize: pounds, forLocale: .init(identifier: "de_DE"))", "14.928,79 £")
+    XCTAssertEqual("\(localize: pounds, for: .init(identifier: "en_UK"))", "£14,928.79")
+    XCTAssertEqual("\(localize: pounds, for: .init(identifier: "de_DE"))", "14.928,79 £")
 
     let yen = JPY(400.9)
     #if swift(<5.1) && os(Linux)
@@ -142,8 +142,10 @@ extension AnyCurrencyTests {
     let expectedFrenchYen = "401 JPY"
     let expectedGreekYen = "401 JP¥"
     #endif
-    XCTAssertEqual("\(localize: yen, forLocale: .init(identifier: "fr"))", expectedFrenchYen)
-    XCTAssertEqual("\(localize: yen, forLocale: .init(identifier: "el"))", expectedGreekYen)
+    let frenchLocale = Locale(identifier: "fr")
+    XCTAssertEqual("\(localize: yen, for: frenchLocale)", expectedFrenchYen)
+    XCTAssertEqual(yen.localizedString(for: frenchLocale), expectedFrenchYen)
+    XCTAssertEqual("\(localize: yen, for: .init(identifier: "el"))", expectedGreekYen)
 
     let dinar = KWD(100.9289)
     #if swift(<5.2) && os(Linux)
@@ -151,8 +153,8 @@ extension AnyCurrencyTests {
     #else
     let expectedIrishDinar = "KWD 100.929"
     #endif
-    XCTAssertEqual("\(localize: dinar, forLocale: .init(identifier: "ga"))", expectedIrishDinar)
-    XCTAssertEqual("\(localize: dinar, forLocale: .init(identifier: "hr"))", "100,929 KWD")
+    XCTAssertEqual("\(localize: dinar, for: .init(identifier: "ga"))", expectedIrishDinar)
+    XCTAssertEqual("\(localize: dinar, for: .init(identifier: "hr"))", "100,929 KWD")
   }
 
   func testStringInterpolation_customFormatter() {
@@ -163,11 +165,13 @@ extension AnyCurrencyTests {
 
     let pounds = GBP(14928.018)
     formatter.currencyCode = GBP.alphabeticCode
-    XCTAssertEqual("\(localize: pounds, withFormatter: formatter)", "£14 928'02")
+    XCTAssertEqual("\(localize: pounds, with: formatter)", "£14 928'02")
 
+    let expectedYenResult = "¥4 001"
     let yen = JPY(4000.9)
     formatter.currencyCode = JPY.alphabeticCode
-    XCTAssertEqual("\(localize: yen, withFormatter: formatter)", "¥4 001")
+    XCTAssertEqual("\(localize: yen, with: formatter)", expectedYenResult)
+    XCTAssertEqual(yen.localizedString(using: formatter), expectedYenResult)
 
     let dinar = KWD(92.0299)
     formatter.currencyCode = KWD.alphabeticCode
@@ -176,7 +180,7 @@ extension AnyCurrencyTests {
     #else
     let expectedDinar = "KWD 92'030"
     #endif
-    XCTAssertEqual("\(localize: dinar, withFormatter: formatter)", expectedDinar)
+    XCTAssertEqual("\(localize: dinar, with: formatter)", expectedDinar)
   }
 
   func testStringInterpolation_optional() {
