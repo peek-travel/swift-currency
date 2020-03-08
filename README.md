@@ -28,7 +28,7 @@ let gbp = GBP(109.23)
 print(usd + gbp) // compile error
 
 let jpy: JPY = 399 // JPY(399)
-print("The total cost is \(localize: JPY, forLocale: .init(identifier: "fr_FR")).)
+print("The total cost is \(localize: JPY, for: .init(identifier: "fr_FR")).)
 // "The total cost is 399 JPY."
 ```
 
