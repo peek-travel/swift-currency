@@ -13,7 +13,7 @@
 
 Swift Currency provides type-safe representations of [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currencies in Swift.
 
-It provides many conveniences for working with currencies, such as literal representations, string interpolation, and algorithms.
+It provides many conveniences for working with currencies, such as literal representations, string interpolation, and mathematics.
 
 ```swift
 import Currency
@@ -31,6 +31,8 @@ let jpy: JPY = 399 // JPY(399)
 print("The total cost is \(localize: JPY, forLocale: .init(identifier: "fr_FR")).)
 // "The total cost is 399 JPY."
 ```
+
+> _For more detailed examples, see the [usage guide](./docs/Usage.md)._
 
 ## Language and Platform Test Matrix
 
@@ -62,6 +64,8 @@ To install with [Carthage](https://github.com/Carthage/Carthage), just add the l
 ## Documentation
 
 The API docs for the latest tagged release are always available at [peek-travel.github.io/swift-currency](https://peek-travel.github.io/swift-currency).
+
+For "how to use" guides, and additional information about the project, [see the documentation](./docs).
 
 ## Questions
 
