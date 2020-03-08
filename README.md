@@ -19,17 +19,25 @@ It provides many conveniences for working with currencies, such as literal repre
 import Currency
 import Foundation
 
-let usd = USD(30.01)
-print(usd) // $30.01 if locale is en_US
-print(usd.distributedEvenly(intoParts: 6))
+let dollars = USD(30.01)
+print(dollars)
+// 30.01 USD
+print(dollars * 2)
+// 60.02 USD
+print(dollars.distributedEvenly(intoParts: 6))
 // [USD(1.68), USD(1.68), USD(1.68), USD(1.67), USD(1.67), USD(1.67)]
 
-let gbp = GBP(109.23)
-print(usd + gbp) // compile error
+let pounds = GBP(109.23)
+print(dollars + pounds)
+// compile error
 
-let jpy: JPY = 399 // JPY(399)
-print("The total cost is \(localize: JPY, for: .init(identifier: "fr_FR")).)
-// "The total cost is 399 JPY."
+let jpy: JPY = 399
+print("The total price is \(jpy.localizedString()).")
+// "The total price is ¥399.", assuming `Foundation.Locale.current` is "en_US"
+
+let euro = EUR(29.09)
+print("Der Gesamtpreis beträgt \(localize: euro, for: .init(identifier: "de_DE")).")
+// "Der Gesamtpreis beträgt 29,09 €."
 ```
 
 > _For more detailed examples, see the [usage guide](./docs/Usage.md)._
