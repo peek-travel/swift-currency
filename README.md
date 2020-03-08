@@ -53,13 +53,13 @@ The preferred installation method is with [SPM](https://swift.org/getting-starte
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/peek-travel/swift-currency", from: "1.0.0")
+    .package(url: "https://github.com/peek-travel/swift-currency", from: "0.6.0")
 ]
 ```
 
 ### Carthage
 
-To install with [Carthage](https://github.com/Carthage/Carthage), just add the line `gh "https://github.com/peek-travel/swift-currency" ~> 1.0.0` to your **Cartfile**.
+To install with [Carthage](https://github.com/Carthage/Carthage), just add the line `gh "https://github.com/peek-travel/swift-currency" ~> 0.6.0` to your **Cartfile**.
 
 ## Documentation
 
