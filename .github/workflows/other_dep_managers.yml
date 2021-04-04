@@ -7,8 +7,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Install gyb
-      run: brew install nshipster/formulae/swift-gyb
     - name: Check Carthage version
       run: carthage version
     - name: Run Carthage build
