@@ -1,6 +1,6 @@
 name: Package Tests
 
-on: [push]
+on: pull_request
 
 jobs:
   macos-latest-5_0:
