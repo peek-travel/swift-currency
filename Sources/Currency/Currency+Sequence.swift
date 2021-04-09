@@ -16,7 +16,7 @@ import Foundation
 
 // MARK: Sum
 
-extension Sequence where Element: AnyCurrency {
+extension Sequence where Element: Currency {
   /// Returns the sum total of all amounts in the sequence.
   ///
   /// For example:

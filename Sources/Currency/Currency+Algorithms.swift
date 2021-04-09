@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2020 SwiftCurrency project authors
+// Copyright (c) 2020-2021 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -16,19 +16,24 @@ import Foundation
 
 // MARK: Value Distribution
 
-extension AnyCurrency {
+extension Currency {
   /// Distributes the current amount into a set number of parts as evenly as possible.
   /// - Note: Passing a negative or `0` value will result in an empty result.
   /// - Complexity: O(*n*), where *n* is the `numParts`.
-  /// - Parameter numParts: The count of new values the single value should be distributed between as evenly as possible.
+  /// - Parameters:
+  ///   - numParts: The count of new values the single value should be distributed between as evenly as possible.
+  ///   - roundingMode: The rounding mode to use in calculations. The default value is `kCurrencyDefaultRoundingMode`.
   /// - Returns: A collection of currency values with their share of the amount distribution.
-  public func distributedEvenly(intoParts numParts: Int) -> [Self] {
+  public func distributedEvenly(
+    intoParts numParts: Int,
+    usingRoundingMode roundingMode: Decimal.RoundingMode = kCurrencyDefaultRoundingMode
+  ) -> [Self] {
     guard numParts > 0 else { return [] }
 
     let count = Int64(numParts)
     
     // courtesy of https://codereview.stackexchange.com/a/221221
-    let units = self.minorUnits
+    let units = self.minorUnits(roundedUsing: roundingMode)
     let fraction = units / count
     let remainder = Int(abs(units) % count)
     
@@ -63,21 +68,27 @@ extension AnyCurrency {
   /// In this case, it is more appropriate to call `distributedEvenly(intoParts:)`.
   ///
   /// - Complexity: O(*n*), where *n* is the number of `originalValues`.
-  /// - Parameter originalValues: A collection of values that should be scaled proportionally so that their sum equals this currency's amount.
+  /// - Parameters:
+  ///   - originalValues: A collection of values that should be scaled proportionally so that their sum equals this currency's amount.
+  ///   - roundingMode: The rounding mode to use in calculations. The default value is `kCurrencyDefaultRoundingMode`.
   /// - Returns: A collection of currency values that are scaled proportionally from an original value whose sum equals this currency's amount.
-  public func distributedProportionally<T>(
-    between originalValues: T
+  @inlinable
+  public func distributedProportionally<T: Collection>(
+    between originalValues: T,
+    usingRoundingMode roundingMode: Decimal.RoundingMode = kCurrencyDefaultRoundingMode
   ) -> [Self]
-    where T: Collection, T.Element == Self
+    where T.Element == Self
   {
     guard originalValues.count > 0 else { return [] }
     
     var results: [Self] = .init(repeating: .zero, count: originalValues.count)
     
-    let desiredTotalUnits = self.minorUnits
+    let desiredTotalUnits = self.minorUnits(roundedUsing: roundingMode)
     guard desiredTotalUnits != 0 else { return results }
     
-    let originalTotalUnits = originalValues.sum().minorUnits
+    let originalTotalUnits = originalValues
+      .sum()
+      .minorUnits(roundedUsing: roundingMode)
 
     var currentTotalUnits: Int64 = 0
     var index = 0
@@ -85,7 +96,8 @@ extension AnyCurrency {
       defer { index += 1 }
 
       let proportion = Decimal(value.minorUnits) / .init(originalTotalUnits)
-      let newValue = Self(scalingAndRounding: self.amount * proportion)
+      let amount = self.rawValue * proportion
+      let newValue = Self(exactly: amount.rounded(to: self.metadata.minorUnits, using: roundingMode))
 
       defer { currentTotalUnits += newValue.minorUnits }
 

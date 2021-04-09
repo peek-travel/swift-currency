@@ -36,8 +36,10 @@ extension AnyCurrencyTests {
   }
 
   func testNaNInit() {
-    XCTAssertNil(USD(amount: .nan))
-    XCTAssertNil(JPY(amount: .quietNaN))
+    XCTAssertNil(USD(rawValue: .nan))
+    XCTAssertNil(JPY(rawValue: .quietNaN))
+    XCTAssertNotNil(USD(rawValue: -1))
+    XCTAssertNotNil(JPY(rawValue: 1))
   }
 
   func testMinorUnitInit() {
@@ -51,15 +53,15 @@ extension AnyCurrencyTests {
     _assertCurrencyValue(KWD(minorUnits: -300877), equalsAmount: -300.877, equalsMinorUnits: -300877)
   }
 
-  private func _assertCurrencyValue<Currency: CurrencyProtocol>(
-    _ value: Currency?,
+  private func _assertCurrencyValue<M: Currency>(
+    _ value: M?,
     equalsAmount expectedAmount: Decimal,
     equalsMinorUnits expectedMinorUnits: Int64,
     file: StaticString = #file,
     line: UInt = #line) {
     guard let value = value else { return XCTFail("Nil value found", file: file, line: line) }
     XCTAssertEqual(value.minorUnits, expectedMinorUnits, file: file, line: line)
-    XCTAssertEqual(value.amount, expectedAmount, file: file, line: line)
+    XCTAssertEqual(value.roundedAmount, expectedAmount, file: file, line: line)
   }
 }
 
@@ -72,7 +74,7 @@ extension AnyCurrencyTests {
     XCTAssertEqual(first, USD(30.23))
     XCTAssertEqual(first, USD(30.226))
     XCTAssertNotEqual(first, USD(30.235))
-    XCTAssertNotEqual(first, USD(30.225))
+    XCTAssertNotEqual(first, USD(30.221))
   }
     
   func testComparable() {
@@ -83,8 +85,6 @@ extension AnyCurrencyTests {
   
   func testHashable() {
     let usd = USD(30.23)
-    XCTAssertEqual(usd.hashValue, usd.minorUnits.hashValue)
-    
     var hasher = Hasher()
     hasher.combine(usd)
     XCTAssertEqual(hasher.finalize(), usd.minorUnits.hashValue)
@@ -222,16 +222,16 @@ extension AnyCurrencyTests {
 
     var second = USD(32.12)
     second /= USD(45.2)
-    XCTAssertEqual(second.amount, 0.71)
+    XCTAssertEqual(second.roundedAmount, 0.71)
   }
   
   func testMultiplication() {
     let first = USD(300.12)
-    XCTAssertEqual(first * USD(0.309), 93.04)
+    XCTAssertEqual(first * USD(0.309), 92.74)
 
     var second = USD(32.12)
     second *= USD(45.2)
-    XCTAssertEqual(second.amount, 1451.82)
+    XCTAssertEqual(second.roundedAmount, 1451.82)
   }
 
   func testNegation() {
@@ -251,10 +251,10 @@ extension AnyCurrencyTests {
 
 // MARK: Advanced Calculations
 
-extension Sequence where Element: AnyCurrency {
+extension Sequence where Element: Currency {
   func applyingRate(_ rate: Decimal) -> [Element] {
     return self.reduce(into: [Element]()) { result, next in
-      let newElement = next + Element(scalingAndRounding: next.amount * rate)
+      let newElement = next + Element(exactly: next.roundedAmount * rate)
       result.append(newElement)
     }
   }

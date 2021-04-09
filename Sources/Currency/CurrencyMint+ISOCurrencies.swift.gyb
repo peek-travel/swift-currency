@@ -19,25 +19,25 @@
 %{ import csv }%
 % with open('../../Resources/ISO4217.csv') as file:
   % reader = csv.DictReader(file)
-extension CurrencyMint {
-  internal static func lookup(byAlphaCode code: String) -> AnyCurrency.Type? {
-    switch code {
+//extension CurrencyMint {
+  //internal static func lookup(byAlphaCode code: String) -> AnyCurrency.Type? {
+    //switch code {
   % for row in reader:
     % alphaCode = row["Ccy"]
     % if alphaCode:
-    case "${alphaCode}": return ${alphaCode}.self
+    //case "${alphaCode}": return ${alphaCode}.self
     %end
   %end
-    default: return nil
-    }
-  }
-}
+    //default: return nil
+    //}
+  //}
+//}
 
 // MARK: Lookup by Numeric
 
-extension CurrencyMint {
-  internal static func lookup(byNumCode code: UInt16) -> AnyCurrency.Type? {
-    switch code {
+//extension CurrencyMint {
+  //internal static func lookup(byNumCode code: UInt16) -> AnyCurrency.Type? {
+    //switch code {
   % file.seek(0)
   % next(reader)
   % for row in reader:
@@ -45,10 +45,10 @@ extension CurrencyMint {
     alphaCode = row["Ccy"]
     numCode = row["CcyNbr"]
     }%
-    case ${numCode}: return ${alphaCode}.self
+    //case ${numCode}: return ${alphaCode}.self
   %end
-    default: return nil
-    }
-  }
-}
+    //default: return nil
+    //}
+  //}
+//}
 %end

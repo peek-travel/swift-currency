@@ -22,13 +22,13 @@ public final class AnyCurrencyAlgorithmsTests: XCTestCase { }
 extension AnyCurrencyAlgorithmsTests {
   func testSequenceSum() {
     let amounts = [USD(30.47), -107.8239, 1_203.9832, -504.3982]
-    XCTAssertEqual(amounts.sum().amount, 622.23)
+    XCTAssertEqual(amounts.sum().roundedAmount, 622.23)
   }
   
   func testSequenceSum_withPredicate() {
     let amounts: [USD] = [304.98, 19.02, 30.21]
-    let sumTotal = amounts.sum(where: { $0.amount > 20 })
-    XCTAssertEqual(sumTotal.amount, 335.19)
+    let sumTotal = amounts.sum(where: { $0.roundedAmount > 20 })
+    XCTAssertEqual(sumTotal.roundedAmount, 335.19)
   }
 }
 
@@ -81,10 +81,10 @@ extension AnyCurrencyAlgorithmsTests {
     )
   }
   
-  private func run_distributedEvenlyTest<Currency: AnyCurrency & Equatable>(
-    sourceAmount: Currency,
+  private func run_distributedEvenlyTest<M: Currency>(
+    sourceAmount: M,
     numParts count: Int,
-    expectedResults: [Currency],
+    expectedResults: [M],
     file: StaticString = #file,
     line: UInt = #line
   ) {
@@ -166,10 +166,10 @@ extension AnyCurrencyAlgorithmsTests {
     )
   }
   
-  private func run_distributedProportionallyTest<Currency: AnyCurrency & Equatable>(
-    sourceAmount: Currency?,
-    originalValues: [Currency],
-    expectedValues: [Currency],
+  private func run_distributedProportionallyTest<M: Currency>(
+    sourceAmount: M?,
+    originalValues: [M],
+    expectedValues: [M],
     file: StaticString = #file,
     line: UInt = #line
   ) {
