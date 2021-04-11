@@ -17,6 +17,8 @@
 
 import Foundation
 
+public protocol ISOCurrency: CurrencyRepresentableAsMinorUnits, CurrencyMetadata { }
+
 %{ import csv }%
 % with open('../../Resources/ISO4217.csv') as file:
   % for row in csv.DictReader(file):
@@ -38,7 +40,7 @@ import Foundation
       % else:
 /// The ${name} (${alphaCode}) currency, as defined by ISO 4217.
       % end
-public struct ${alphaCode}: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
+public struct ${alphaCode}: ISOCurrency {
   public static var name: String { return "${name}" }
   public static var alphabeticCode: String { return "${alphaCode}" }
   public static var numericCode: UInt16 { return ${numCode} }

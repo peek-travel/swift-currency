@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol RepresentableAsCurrencyMinorUnits: Currency {
+public protocol CurrencyRepresentableAsMinorUnits: Currency {
   /// The `bankers` rounded amount as it can be represented in the currency's "minor Units".
   /// For example:
   ///
@@ -33,7 +33,7 @@ public protocol RepresentableAsCurrencyMinorUnits: Currency {
   func minorUnits(roundedUsing mode: Decimal.RoundingMode) -> Int64
 }
 
-extension RepresentableAsCurrencyMinorUnits {
+extension CurrencyRepresentableAsMinorUnits {
   @inlinable
   public init<T: BinaryInteger>(minorUnits: T) {
     let amount = Decimal(Int64(minorUnits)) * .init(

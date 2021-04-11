@@ -53,7 +53,7 @@ extension CurrencyTests {
     _assertCurrencyValue(KWD(minorUnits: -300877), equalsAmount: -300.877, equalsMinorUnits: -300877)
   }
 
-  private func _assertCurrencyValue<T: RepresentableAsCurrencyMinorUnits>(
+  private func _assertCurrencyValue<T: CurrencyRepresentableAsMinorUnits>(
     _ value: T?,
     equalsAmount expectedAmount: Decimal,
     equalsMinorUnits expectedMinorUnits: Int64,

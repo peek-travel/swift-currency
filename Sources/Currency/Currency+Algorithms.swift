@@ -16,7 +16,7 @@ import Foundation
 
 // MARK: Value Distribution
 
-extension Currency where Self: RepresentableAsCurrencyMinorUnits {
+extension Currency where Self: CurrencyRepresentableAsMinorUnits {
   /// Distributes the current amount into a set number of parts as evenly as possible.
   /// - Note: Passing a negative or `0` value will result in an empty result.
   /// - Complexity: O(*n*), where *n* is the `numParts`.

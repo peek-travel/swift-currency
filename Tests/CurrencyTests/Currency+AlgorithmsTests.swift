@@ -81,7 +81,7 @@ extension CurrencyAlgorithmsTests {
     )
   }
   
-  private func run_distributedEvenlyTest<T: RepresentableAsCurrencyMinorUnits>(
+  private func run_distributedEvenlyTest<T: CurrencyRepresentableAsMinorUnits>(
     sourceAmount: T,
     numParts count: Int,
     expectedResults: [T],
@@ -166,7 +166,7 @@ extension CurrencyAlgorithmsTests {
     )
   }
   
-  private func run_distributedProportionallyTest<T: RepresentableAsCurrencyMinorUnits>(
+  private func run_distributedProportionallyTest<T: CurrencyRepresentableAsMinorUnits>(
     sourceAmount: T?,
     originalValues: [T],
     expectedValues: [T],
