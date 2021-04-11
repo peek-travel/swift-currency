@@ -312,4 +312,79 @@ extension CurrencyTests {
       .sum()
     XCTAssertEqual(chained, discountTotal)
   }
+
+  func testExampleHotelBooking() {
+    /*
+                        Decimal      |    USD (bankers rounding at each step)
+     Base Price:        199.98       |                      199.98
+     ----
+     6% Discount:        11.9988     |     11.9988    =>     12.00
+     Running Total:     187.9812     |    187.9812    =>    187.98
+     ----
+     9% Tax:             16.918308   |     16.9182    =>     16.92
+     Running Total:     204.899508   |    204.899508  =>    204.90
+     ----
+     Franchise fee:       5.68       |                        5.68
+     Running Total:     210.579508   |    210.579508  =>    210.58
+     ----
+     Total (7 days)   1,474.056556   |  1,474.056556  =>  1,474.06
+     ----
+     10% Commission     147.4056556  |    147.4056556 =>    147.41
+     Grand Total      1,621.4622116  |  1,621.4622116 =>  1,621.46
+     */
+    let roomDailyRate = USD(199.98)
+    let discountRate = Decimal(0.06)
+    let taxRate = Decimal(0.09)
+    let flatFranchiseFee = USD(5.68)
+
+    var runningDailyTotal = roomDailyRate
+
+    // apply discount
+    let discount = USD(rawValue: roomDailyRate.rawValue * discountRate)!
+    XCTAssertEqual(discount, 12)
+    XCTAssertEqual(discount.rawValue.description, "11.9988")
+    runningDailyTotal -= discount
+    XCTAssertEqual(runningDailyTotal, 187.98)
+    XCTAssertEqual(runningDailyTotal.rawValue.description, "187.9812")
+
+    // apply taxes
+    let taxes = USD(rawValue: runningDailyTotal.rawValue * taxRate)!
+    XCTAssertEqual(taxes, 16.92)
+    XCTAssertEqual(taxes.rawValue.description, "16.918308")
+    runningDailyTotal += taxes
+    XCTAssertEqual(runningDailyTotal, 204.90)
+    XCTAssertEqual(runningDailyTotal.rawValue.description, "204.899508")
+
+    // apply flat fee
+    runningDailyTotal += flatFranchiseFee
+    XCTAssertEqual(runningDailyTotal, 210.58)
+    XCTAssertEqual(runningDailyTotal.rawValue.description, "210.579508")
+
+    // calculate week total
+    let weekRateTotal = USD(rawValue: runningDailyTotal.rawValue * 7)!
+    XCTAssertEqual(weekRateTotal, 1_474.06)
+    XCTAssertEqual(weekRateTotal.rawValue.description, "1474.056556")
+
+    // calculate commission
+    let commission = USD(rawValue: weekRateTotal.rawValue * 0.10)!
+    XCTAssertEqual(commission, 147.41)
+    XCTAssertEqual(commission.rawValue.description, "147.4056556")
+
+    let totalPrice = weekRateTotal + commission
+    XCTAssertEqual(totalPrice, 1_621.46)
+    XCTAssertEqual(totalPrice.rawValue.description, "1621.4622116")
+
+    // Decimal validation
+    let expectedResult: Decimal = {
+      let basePrice = roomDailyRate.rawValue
+      let discount = basePrice * 0.06
+      let tax = (basePrice - discount) * 0.09
+      let dayPrice = basePrice - discount + tax + 5.68
+      let weekPrice = dayPrice * 7
+      let commission = weekPrice * 0.10
+      return weekPrice + commission
+    }()
+    XCTAssertEqual(expectedResult, 1_621.4622116)
+    XCTAssertEqual(USD(rawValue: expectedResult), totalPrice)
+  }
 }
