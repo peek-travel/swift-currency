@@ -23,14 +23,16 @@
 /* Begin PBXBuildFile section */
 		0318F9AB2409DD130017B010 /* CurrencyMint+ISOCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0318F9AA2409DD120017B010 /* CurrencyMint+ISOCurrencies.swift */; };
 		0320C18F262018D80000D828 /* Currency+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0320C18E262018D80000D828 /* Currency+Rounding.swift */; };
+		032B39922623AF9200067C23 /* Currency+MinorUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032B39912623AF9200067C23 /* Currency+MinorUnits.swift */; };
+		039EF3182620FDCB0049956E /* AnyCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039EF3172620FDCB0049956E /* AnyCurrency.swift */; };
 		D814C41723D68385007D4037 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D814C41623D68385007D4037 /* Currency.swift */; };
 		D838378B23CEBF2D0017B4D2 /* Currency+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D838378A23CEBF2D0017B4D2 /* Currency+Sequence.swift */; };
-		D893657D23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */; };
+		D893657D23D2944B0006FAE1 /* Currency+AlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893657C23D2944B0006FAE1 /* Currency+AlgorithmsTests.swift */; };
 		D893657F23D294850006FAE1 /* Currency+Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893657E23D294850006FAE1 /* Currency+Algorithms.swift */; };
 		OBJ_32 /* CurrencyMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CurrencyMetadata.swift */; };
 		OBJ_33 /* CurrencyMint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* CurrencyMint.swift */; };
 		OBJ_34 /* ISOCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* ISOCurrencies.swift */; };
-		OBJ_41 /* AnyCurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* AnyCurrencyTests.swift */; };
+		OBJ_41 /* CurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CurrencyTests.swift */; };
 		OBJ_42 /* CurrencyMintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* CurrencyMintTests.swift */; };
 		OBJ_43 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* XCTestManifests.swift */; };
 		OBJ_45 /* Currency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-currency::Currency::Product" /* Currency.framework */; };
@@ -57,15 +59,17 @@
 /* Begin PBXFileReference section */
 		0318F9AA2409DD120017B010 /* CurrencyMint+ISOCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CurrencyMint+ISOCurrencies.swift"; sourceTree = "<group>"; };
 		0320C18E262018D80000D828 /* Currency+Rounding.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "Currency+Rounding.swift"; sourceTree = "<group>"; tabWidth = 2; };
+		032B39912623AF9200067C23 /* Currency+MinorUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+MinorUnits.swift"; sourceTree = "<group>"; };
+		039EF3172620FDCB0049956E /* AnyCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrency.swift; sourceTree = "<group>"; };
 		D814C41623D68385007D4037 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		D838378A23CEBF2D0017B4D2 /* Currency+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Currency+Sequence.swift"; sourceTree = "<group>"; };
-		D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrencyAlgorithmsTests.swift; sourceTree = "<group>"; };
+		D893657C23D2944B0006FAE1 /* Currency+AlgorithmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+AlgorithmsTests.swift"; sourceTree = "<group>"; };
 		D893657E23D294850006FAE1 /* Currency+Algorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+Algorithms.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* CurrencyMint+ISOCurrencies.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CurrencyMint+ISOCurrencies.swift.gyb"; sourceTree = "<group>"; };
 		OBJ_12 /* CurrencyMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyMetadata.swift; sourceTree = "<group>"; };
 		OBJ_13 /* CurrencyMint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyMint.swift; sourceTree = "<group>"; };
 		OBJ_14 /* ISOCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISOCurrencies.swift; sourceTree = "<group>"; };
-		OBJ_17 /* AnyCurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCurrencyTests.swift; sourceTree = "<group>"; };
+		OBJ_17 /* CurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTests.swift; sourceTree = "<group>"; };
 		OBJ_18 /* CurrencyMintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyMintTests.swift; sourceTree = "<group>"; };
 		OBJ_19 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_23 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = SOURCE_ROOT; };
@@ -107,8 +111,8 @@
 		OBJ_16 /* CurrencyTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* AnyCurrencyTests.swift */,
-				D893657C23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift */,
+				OBJ_17 /* CurrencyTests.swift */,
+				D893657C23D2944B0006FAE1 /* Currency+AlgorithmsTests.swift */,
 				OBJ_18 /* CurrencyMintTests.swift */,
 				OBJ_19 /* XCTestManifests.swift */,
 			);
@@ -152,13 +156,15 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_12 /* CurrencyMetadata.swift */,
-				OBJ_10 /* CurrencyMint+ISOCurrencies.swift.gyb */,
-				0318F9AA2409DD120017B010 /* CurrencyMint+ISOCurrencies.swift */,
-				OBJ_13 /* CurrencyMint.swift */,
+				039EF3172620FDCB0049956E /* AnyCurrency.swift */,
 				D814C41623D68385007D4037 /* Currency.swift */,
+				032B39912623AF9200067C23 /* Currency+MinorUnits.swift */,
 				D893657E23D294850006FAE1 /* Currency+Algorithms.swift */,
 				0320C18E262018D80000D828 /* Currency+Rounding.swift */,
 				D838378A23CEBF2D0017B4D2 /* Currency+Sequence.swift */,
+				OBJ_13 /* CurrencyMint.swift */,
+				OBJ_10 /* CurrencyMint+ISOCurrencies.swift.gyb */,
+				0318F9AA2409DD120017B010 /* CurrencyMint+ISOCurrencies.swift */,
 				OBJ_9 /* ISOCurrencies.swift.gyb */,
 				OBJ_14 /* ISOCurrencies.swift */,
 			);
@@ -276,7 +282,9 @@
 				OBJ_32 /* CurrencyMetadata.swift in Sources */,
 				0318F9AB2409DD130017B010 /* CurrencyMint+ISOCurrencies.swift in Sources */,
 				D838378B23CEBF2D0017B4D2 /* Currency+Sequence.swift in Sources */,
+				032B39922623AF9200067C23 /* Currency+MinorUnits.swift in Sources */,
 				D893657F23D294850006FAE1 /* Currency+Algorithms.swift in Sources */,
+				039EF3182620FDCB0049956E /* AnyCurrency.swift in Sources */,
 				0320C18F262018D80000D828 /* Currency+Rounding.swift in Sources */,
 				OBJ_33 /* CurrencyMint.swift in Sources */,
 				OBJ_34 /* ISOCurrencies.swift in Sources */,
@@ -287,8 +295,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_41 /* AnyCurrencyTests.swift in Sources */,
-				D893657D23D2944B0006FAE1 /* AnyCurrencyAlgorithmsTests.swift in Sources */,
+				OBJ_41 /* CurrencyTests.swift in Sources */,
+				D893657D23D2944B0006FAE1 /* Currency+AlgorithmsTests.swift in Sources */,
 				OBJ_42 /* CurrencyMintTests.swift in Sources */,
 				OBJ_43 /* XCTestManifests.swift in Sources */,
 			);

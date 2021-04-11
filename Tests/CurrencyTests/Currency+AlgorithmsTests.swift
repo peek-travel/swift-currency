@@ -15,11 +15,11 @@
 import Currency
 import XCTest
 
-public final class AnyCurrencyAlgorithmsTests: XCTestCase { }
+public final class CurrencyAlgorithmsTests: XCTestCase { }
 
 // MARK: Sequence<AnyCurrency>
 
-extension AnyCurrencyAlgorithmsTests {
+extension CurrencyAlgorithmsTests {
   func testSequenceSum() {
     let amounts = [USD(30.47), -107.8239, 1_203.9832, -504.3982]
     XCTAssertEqual(amounts.sum().roundedAmount, 622.23)
@@ -35,7 +35,7 @@ extension AnyCurrencyAlgorithmsTests {
 
 // MARK: Distributed Evenly
 
-extension AnyCurrencyAlgorithmsTests {
+extension CurrencyAlgorithmsTests {
   func test_distributedEvenly() {
     let amount = USD(15.01)
     XCTAssertEqual(amount.distributedEvenly(intoParts: 3), [5.01, 5, 5])
@@ -81,10 +81,10 @@ extension AnyCurrencyAlgorithmsTests {
     )
   }
   
-  private func run_distributedEvenlyTest<M: Currency>(
-    sourceAmount: M,
+  private func run_distributedEvenlyTest<T: RepresentableAsCurrencyMinorUnits>(
+    sourceAmount: T,
     numParts count: Int,
-    expectedResults: [M],
+    expectedResults: [T],
     file: StaticString = #file,
     line: UInt = #line
   ) {
@@ -107,7 +107,7 @@ extension AnyCurrencyAlgorithmsTests {
 
 // MARK: Distributed Proportionally
 
-extension AnyCurrencyAlgorithmsTests {
+extension CurrencyAlgorithmsTests {
   func test_distributedProportionally() {
     let amount = USD(10)
     XCTAssertEqual(amount.distributedProportionally(between: [2.5, 2.5]), [5, 5])
@@ -166,10 +166,10 @@ extension AnyCurrencyAlgorithmsTests {
     )
   }
   
-  private func run_distributedProportionallyTest<M: Currency>(
-    sourceAmount: M?,
-    originalValues: [M],
-    expectedValues: [M],
+  private func run_distributedProportionallyTest<T: RepresentableAsCurrencyMinorUnits>(
+    sourceAmount: T?,
+    originalValues: [T],
+    expectedValues: [T],
     file: StaticString = #file,
     line: UInt = #line
   ) {

@@ -38,48 +38,6 @@ extension Currency where Self: CurrencyMetadata {
   public var metadata: CurrencyMetadata.Type { return Self.self }
 }
 
-// MARK: Minor Units
-
-extension Currency {
-  @inlinable
-  public init<T: BinaryInteger>(minorUnits: T) {
-    let amount = Decimal(Int64(minorUnits)) * .init(
-      sign: .plus,
-      exponent: .init(Self.zero.metadata.minorUnits) * -1,
-      significand: 1
-    )
-    self.init(exactly: amount)
-  }
-
-  /// The `plain` rounded amount as it can be represented in the currency's "minor Units".
-  /// For example:
-  ///
-  ///     let usd = USD(10.007).minorUnits
-  ///     // usd == 1_001
-  ///
-  ///     let yen = JPY(100.9).minorUnits
-  ///     // yen == 101
-  ///
-  ///     let dinar = KWD(100.0019).minorUnits
-  ///     // dinar == 100_002
-  ///
-  /// See `CurrencyMetadata.minorUnits` and `kCurrencyDefaultRoundingMode`.
-  public var minorUnits: Int64 { return self.minorUnits(roundedUsing: kCurrencyDefaultRoundingMode) }
-
-  /// The rounded amount as it can be represented in the currency's "minor units", using the desired rounding mode.
-  ///
-  /// See `Foundation.Decimal.RoundingMode`
-  /// - Parameter mode: The rounding mode to use.
-  public func minorUnits(roundedUsing mode: Decimal.RoundingMode) -> Int64 {
-    let scaledAmount = self.roundedAmount(using: mode) * Decimal(
-      sign: .plus,
-      exponent: .init(self.metadata.minorUnits),
-      significand: 1
-    )
-    return NSDecimalNumber(decimal: scaledAmount).int64Value
-  }
-}
-
 // MARK: RawRepresentable
 extension Currency {
   public init?(rawValue: Decimal) {
@@ -93,7 +51,7 @@ extension Currency {
 // MARK: Equatable, Comparable, Hashable
 extension Currency {
   public static func ==(lhs: Self, rhs: Self) -> Bool {
-    return lhs.minorUnits == rhs.minorUnits
+    return lhs.roundedAmount == rhs.roundedAmount
   }
 
   public static func <(lhs: Self, rhs: Self) -> Bool {
@@ -101,7 +59,7 @@ extension Currency {
   }
 
   public func hash(into hasher: inout Hasher) {
-    hasher.combine(self.minorUnits)
+    hasher.combine(self.roundedAmount)
   }
 }
 

@@ -17,7 +17,7 @@
 import Foundation
 
 /// The UAE Dirham (AED) currency, as defined by ISO 4217.
-public struct AED: Currency, CurrencyMetadata {
+public struct AED: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "UAE Dirham" }
   public static var alphabeticCode: String { return "AED" }
   public static var numericCode: UInt16 { return 784 }
@@ -29,7 +29,7 @@ public struct AED: Currency, CurrencyMetadata {
 }
 
 /// The Afghani (AFN) currency, as defined by ISO 4217.
-public struct AFN: Currency, CurrencyMetadata {
+public struct AFN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Afghani" }
   public static var alphabeticCode: String { return "AFN" }
   public static var numericCode: UInt16 { return 971 }
@@ -41,7 +41,7 @@ public struct AFN: Currency, CurrencyMetadata {
 }
 
 /// The Lek (ALL) currency, as defined by ISO 4217.
-public struct ALL: Currency, CurrencyMetadata {
+public struct ALL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Lek" }
   public static var alphabeticCode: String { return "ALL" }
   public static var numericCode: UInt16 { return 8 }
@@ -53,7 +53,7 @@ public struct ALL: Currency, CurrencyMetadata {
 }
 
 /// The Armenian Dram (AMD) currency, as defined by ISO 4217.
-public struct AMD: Currency, CurrencyMetadata {
+public struct AMD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Armenian Dram" }
   public static var alphabeticCode: String { return "AMD" }
   public static var numericCode: UInt16 { return 51 }
@@ -65,7 +65,7 @@ public struct AMD: Currency, CurrencyMetadata {
 }
 
 /// The Netherlands Antillean Guilder (ANG) currency, as defined by ISO 4217.
-public struct ANG: Currency, CurrencyMetadata {
+public struct ANG: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Netherlands Antillean Guilder" }
   public static var alphabeticCode: String { return "ANG" }
   public static var numericCode: UInt16 { return 532 }
@@ -77,7 +77,7 @@ public struct ANG: Currency, CurrencyMetadata {
 }
 
 /// The Kwanza (AOA) currency, as defined by ISO 4217.
-public struct AOA: Currency, CurrencyMetadata {
+public struct AOA: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Kwanza" }
   public static var alphabeticCode: String { return "AOA" }
   public static var numericCode: UInt16 { return 973 }
@@ -89,7 +89,7 @@ public struct AOA: Currency, CurrencyMetadata {
 }
 
 /// The Argentine Peso (ARS) currency, as defined by ISO 4217.
-public struct ARS: Currency, CurrencyMetadata {
+public struct ARS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Argentine Peso" }
   public static var alphabeticCode: String { return "ARS" }
   public static var numericCode: UInt16 { return 32 }
@@ -101,7 +101,7 @@ public struct ARS: Currency, CurrencyMetadata {
 }
 
 /// The Australian Dollar (AUD) currency, as defined by ISO 4217.
-public struct AUD: Currency, CurrencyMetadata {
+public struct AUD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Australian Dollar" }
   public static var alphabeticCode: String { return "AUD" }
   public static var numericCode: UInt16 { return 36 }
@@ -113,7 +113,7 @@ public struct AUD: Currency, CurrencyMetadata {
 }
 
 /// The Aruban Florin (AWG) currency, as defined by ISO 4217.
-public struct AWG: Currency, CurrencyMetadata {
+public struct AWG: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Aruban Florin" }
   public static var alphabeticCode: String { return "AWG" }
   public static var numericCode: UInt16 { return 533 }
@@ -125,7 +125,7 @@ public struct AWG: Currency, CurrencyMetadata {
 }
 
 /// The Azerbaijan Manat (AZN) currency, as defined by ISO 4217.
-public struct AZN: Currency, CurrencyMetadata {
+public struct AZN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Azerbaijan Manat" }
   public static var alphabeticCode: String { return "AZN" }
   public static var numericCode: UInt16 { return 944 }
@@ -137,7 +137,7 @@ public struct AZN: Currency, CurrencyMetadata {
 }
 
 /// The Convertible Mark (BAM) currency, as defined by ISO 4217.
-public struct BAM: Currency, CurrencyMetadata {
+public struct BAM: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Convertible Mark" }
   public static var alphabeticCode: String { return "BAM" }
   public static var numericCode: UInt16 { return 977 }
@@ -149,7 +149,7 @@ public struct BAM: Currency, CurrencyMetadata {
 }
 
 /// The Barbados Dollar (BBD) currency, as defined by ISO 4217.
-public struct BBD: Currency, CurrencyMetadata {
+public struct BBD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Barbados Dollar" }
   public static var alphabeticCode: String { return "BBD" }
   public static var numericCode: UInt16 { return 52 }
@@ -161,7 +161,7 @@ public struct BBD: Currency, CurrencyMetadata {
 }
 
 /// The Taka (BDT) currency, as defined by ISO 4217.
-public struct BDT: Currency, CurrencyMetadata {
+public struct BDT: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Taka" }
   public static var alphabeticCode: String { return "BDT" }
   public static var numericCode: UInt16 { return 50 }
@@ -173,7 +173,7 @@ public struct BDT: Currency, CurrencyMetadata {
 }
 
 /// The Bulgarian Lev (BGN) currency, as defined by ISO 4217.
-public struct BGN: Currency, CurrencyMetadata {
+public struct BGN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Bulgarian Lev" }
   public static var alphabeticCode: String { return "BGN" }
   public static var numericCode: UInt16 { return 975 }
@@ -185,7 +185,7 @@ public struct BGN: Currency, CurrencyMetadata {
 }
 
 /// The Bahraini Dinar (BHD) currency, as defined by ISO 4217.
-public struct BHD: Currency, CurrencyMetadata {
+public struct BHD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Bahraini Dinar" }
   public static var alphabeticCode: String { return "BHD" }
   public static var numericCode: UInt16 { return 48 }
@@ -197,7 +197,7 @@ public struct BHD: Currency, CurrencyMetadata {
 }
 
 /// The Burundi Franc (BIF) currency, as defined by ISO 4217.
-public struct BIF: Currency, CurrencyMetadata {
+public struct BIF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Burundi Franc" }
   public static var alphabeticCode: String { return "BIF" }
   public static var numericCode: UInt16 { return 108 }
@@ -209,7 +209,7 @@ public struct BIF: Currency, CurrencyMetadata {
 }
 
 /// The Bermudian Dollar (BMD) currency, as defined by ISO 4217.
-public struct BMD: Currency, CurrencyMetadata {
+public struct BMD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Bermudian Dollar" }
   public static var alphabeticCode: String { return "BMD" }
   public static var numericCode: UInt16 { return 60 }
@@ -221,7 +221,7 @@ public struct BMD: Currency, CurrencyMetadata {
 }
 
 /// The Brunei Dollar (BND) currency, as defined by ISO 4217.
-public struct BND: Currency, CurrencyMetadata {
+public struct BND: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Brunei Dollar" }
   public static var alphabeticCode: String { return "BND" }
   public static var numericCode: UInt16 { return 96 }
@@ -233,7 +233,7 @@ public struct BND: Currency, CurrencyMetadata {
 }
 
 /// The Boliviano (BOB) currency, as defined by ISO 4217.
-public struct BOB: Currency, CurrencyMetadata {
+public struct BOB: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Boliviano" }
   public static var alphabeticCode: String { return "BOB" }
   public static var numericCode: UInt16 { return 68 }
@@ -245,7 +245,7 @@ public struct BOB: Currency, CurrencyMetadata {
 }
 
 /// The Brazilian Real (BRL) currency, as defined by ISO 4217.
-public struct BRL: Currency, CurrencyMetadata {
+public struct BRL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Brazilian Real" }
   public static var alphabeticCode: String { return "BRL" }
   public static var numericCode: UInt16 { return 986 }
@@ -257,7 +257,7 @@ public struct BRL: Currency, CurrencyMetadata {
 }
 
 /// The Bahamian Dollar (BSD) currency, as defined by ISO 4217.
-public struct BSD: Currency, CurrencyMetadata {
+public struct BSD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Bahamian Dollar" }
   public static var alphabeticCode: String { return "BSD" }
   public static var numericCode: UInt16 { return 44 }
@@ -269,7 +269,7 @@ public struct BSD: Currency, CurrencyMetadata {
 }
 
 /// The Ngultrum (BTN) currency, as defined by ISO 4217.
-public struct BTN: Currency, CurrencyMetadata {
+public struct BTN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Ngultrum" }
   public static var alphabeticCode: String { return "BTN" }
   public static var numericCode: UInt16 { return 64 }
@@ -281,7 +281,7 @@ public struct BTN: Currency, CurrencyMetadata {
 }
 
 /// The Pula (BWP) currency, as defined by ISO 4217.
-public struct BWP: Currency, CurrencyMetadata {
+public struct BWP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Pula" }
   public static var alphabeticCode: String { return "BWP" }
   public static var numericCode: UInt16 { return 72 }
@@ -293,7 +293,7 @@ public struct BWP: Currency, CurrencyMetadata {
 }
 
 /// The Belarusian Ruble (BYN) currency, as defined by ISO 4217.
-public struct BYN: Currency, CurrencyMetadata {
+public struct BYN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Belarusian Ruble" }
   public static var alphabeticCode: String { return "BYN" }
   public static var numericCode: UInt16 { return 933 }
@@ -305,7 +305,7 @@ public struct BYN: Currency, CurrencyMetadata {
 }
 
 /// The Belize Dollar (BZD) currency, as defined by ISO 4217.
-public struct BZD: Currency, CurrencyMetadata {
+public struct BZD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Belize Dollar" }
   public static var alphabeticCode: String { return "BZD" }
   public static var numericCode: UInt16 { return 84 }
@@ -317,7 +317,7 @@ public struct BZD: Currency, CurrencyMetadata {
 }
 
 /// The Canadian Dollar (CAD) currency, as defined by ISO 4217.
-public struct CAD: Currency, CurrencyMetadata {
+public struct CAD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Canadian Dollar" }
   public static var alphabeticCode: String { return "CAD" }
   public static var numericCode: UInt16 { return 124 }
@@ -329,7 +329,7 @@ public struct CAD: Currency, CurrencyMetadata {
 }
 
 /// The Congolese Franc (CDF) currency, as defined by ISO 4217.
-public struct CDF: Currency, CurrencyMetadata {
+public struct CDF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Congolese Franc" }
   public static var alphabeticCode: String { return "CDF" }
   public static var numericCode: UInt16 { return 976 }
@@ -341,7 +341,7 @@ public struct CDF: Currency, CurrencyMetadata {
 }
 
 /// The Swiss Franc (CHF) currency, as defined by ISO 4217.
-public struct CHF: Currency, CurrencyMetadata {
+public struct CHF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Swiss Franc" }
   public static var alphabeticCode: String { return "CHF" }
   public static var numericCode: UInt16 { return 756 }
@@ -353,7 +353,7 @@ public struct CHF: Currency, CurrencyMetadata {
 }
 
 /// The Chilean Peso (CLP) currency, as defined by ISO 4217.
-public struct CLP: Currency, CurrencyMetadata {
+public struct CLP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Chilean Peso" }
   public static var alphabeticCode: String { return "CLP" }
   public static var numericCode: UInt16 { return 152 }
@@ -365,7 +365,7 @@ public struct CLP: Currency, CurrencyMetadata {
 }
 
 /// The Yuan Renminbi (CNY) currency, as defined by ISO 4217.
-public struct CNY: Currency, CurrencyMetadata {
+public struct CNY: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Yuan Renminbi" }
   public static var alphabeticCode: String { return "CNY" }
   public static var numericCode: UInt16 { return 156 }
@@ -377,7 +377,7 @@ public struct CNY: Currency, CurrencyMetadata {
 }
 
 /// The Colombian Peso (COP) currency, as defined by ISO 4217.
-public struct COP: Currency, CurrencyMetadata {
+public struct COP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Colombian Peso" }
   public static var alphabeticCode: String { return "COP" }
   public static var numericCode: UInt16 { return 170 }
@@ -389,7 +389,7 @@ public struct COP: Currency, CurrencyMetadata {
 }
 
 /// The Costa Rican Colon (CRC) currency, as defined by ISO 4217.
-public struct CRC: Currency, CurrencyMetadata {
+public struct CRC: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Costa Rican Colon" }
   public static var alphabeticCode: String { return "CRC" }
   public static var numericCode: UInt16 { return 188 }
@@ -401,7 +401,7 @@ public struct CRC: Currency, CurrencyMetadata {
 }
 
 /// The Peso Convertible (CUC) currency, as defined by ISO 4217.
-public struct CUC: Currency, CurrencyMetadata {
+public struct CUC: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Peso Convertible" }
   public static var alphabeticCode: String { return "CUC" }
   public static var numericCode: UInt16 { return 931 }
@@ -413,7 +413,7 @@ public struct CUC: Currency, CurrencyMetadata {
 }
 
 /// The Cuban Peso (CUP) currency, as defined by ISO 4217.
-public struct CUP: Currency, CurrencyMetadata {
+public struct CUP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Cuban Peso" }
   public static var alphabeticCode: String { return "CUP" }
   public static var numericCode: UInt16 { return 192 }
@@ -425,7 +425,7 @@ public struct CUP: Currency, CurrencyMetadata {
 }
 
 /// The Cabo Verde Escudo (CVE) currency, as defined by ISO 4217.
-public struct CVE: Currency, CurrencyMetadata {
+public struct CVE: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Cabo Verde Escudo" }
   public static var alphabeticCode: String { return "CVE" }
   public static var numericCode: UInt16 { return 132 }
@@ -437,7 +437,7 @@ public struct CVE: Currency, CurrencyMetadata {
 }
 
 /// The Czech Koruna (CZK) currency, as defined by ISO 4217.
-public struct CZK: Currency, CurrencyMetadata {
+public struct CZK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Czech Koruna" }
   public static var alphabeticCode: String { return "CZK" }
   public static var numericCode: UInt16 { return 203 }
@@ -449,7 +449,7 @@ public struct CZK: Currency, CurrencyMetadata {
 }
 
 /// The Djibouti Franc (DJF) currency, as defined by ISO 4217.
-public struct DJF: Currency, CurrencyMetadata {
+public struct DJF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Djibouti Franc" }
   public static var alphabeticCode: String { return "DJF" }
   public static var numericCode: UInt16 { return 262 }
@@ -461,7 +461,7 @@ public struct DJF: Currency, CurrencyMetadata {
 }
 
 /// The Danish Krone (DKK) currency, as defined by ISO 4217.
-public struct DKK: Currency, CurrencyMetadata {
+public struct DKK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Danish Krone" }
   public static var alphabeticCode: String { return "DKK" }
   public static var numericCode: UInt16 { return 208 }
@@ -473,7 +473,7 @@ public struct DKK: Currency, CurrencyMetadata {
 }
 
 /// The Dominican Peso (DOP) currency, as defined by ISO 4217.
-public struct DOP: Currency, CurrencyMetadata {
+public struct DOP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Dominican Peso" }
   public static var alphabeticCode: String { return "DOP" }
   public static var numericCode: UInt16 { return 214 }
@@ -485,7 +485,7 @@ public struct DOP: Currency, CurrencyMetadata {
 }
 
 /// The Algerian Dinar (DZD) currency, as defined by ISO 4217.
-public struct DZD: Currency, CurrencyMetadata {
+public struct DZD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Algerian Dinar" }
   public static var alphabeticCode: String { return "DZD" }
   public static var numericCode: UInt16 { return 12 }
@@ -497,7 +497,7 @@ public struct DZD: Currency, CurrencyMetadata {
 }
 
 /// The Egyptian Pound (EGP) currency, as defined by ISO 4217.
-public struct EGP: Currency, CurrencyMetadata {
+public struct EGP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Egyptian Pound" }
   public static var alphabeticCode: String { return "EGP" }
   public static var numericCode: UInt16 { return 818 }
@@ -509,7 +509,7 @@ public struct EGP: Currency, CurrencyMetadata {
 }
 
 /// The Nakfa (ERN) currency, as defined by ISO 4217.
-public struct ERN: Currency, CurrencyMetadata {
+public struct ERN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Nakfa" }
   public static var alphabeticCode: String { return "ERN" }
   public static var numericCode: UInt16 { return 232 }
@@ -521,7 +521,7 @@ public struct ERN: Currency, CurrencyMetadata {
 }
 
 /// The Ethiopian Birr (ETB) currency, as defined by ISO 4217.
-public struct ETB: Currency, CurrencyMetadata {
+public struct ETB: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Ethiopian Birr" }
   public static var alphabeticCode: String { return "ETB" }
   public static var numericCode: UInt16 { return 230 }
@@ -533,7 +533,7 @@ public struct ETB: Currency, CurrencyMetadata {
 }
 
 /// The Euro (EUR) currency, as defined by ISO 4217.
-public struct EUR: Currency, CurrencyMetadata {
+public struct EUR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Euro" }
   public static var alphabeticCode: String { return "EUR" }
   public static var numericCode: UInt16 { return 978 }
@@ -545,7 +545,7 @@ public struct EUR: Currency, CurrencyMetadata {
 }
 
 /// The Fiji Dollar (FJD) currency, as defined by ISO 4217.
-public struct FJD: Currency, CurrencyMetadata {
+public struct FJD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Fiji Dollar" }
   public static var alphabeticCode: String { return "FJD" }
   public static var numericCode: UInt16 { return 242 }
@@ -557,7 +557,7 @@ public struct FJD: Currency, CurrencyMetadata {
 }
 
 /// The Falkland Islands Pound (FKP) currency, as defined by ISO 4217.
-public struct FKP: Currency, CurrencyMetadata {
+public struct FKP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Falkland Islands Pound" }
   public static var alphabeticCode: String { return "FKP" }
   public static var numericCode: UInt16 { return 238 }
@@ -569,7 +569,7 @@ public struct FKP: Currency, CurrencyMetadata {
 }
 
 /// The Pound Sterling (GBP) currency, as defined by ISO 4217.
-public struct GBP: Currency, CurrencyMetadata {
+public struct GBP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Pound Sterling" }
   public static var alphabeticCode: String { return "GBP" }
   public static var numericCode: UInt16 { return 826 }
@@ -581,7 +581,7 @@ public struct GBP: Currency, CurrencyMetadata {
 }
 
 /// The Lari (GEL) currency, as defined by ISO 4217.
-public struct GEL: Currency, CurrencyMetadata {
+public struct GEL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Lari" }
   public static var alphabeticCode: String { return "GEL" }
   public static var numericCode: UInt16 { return 981 }
@@ -593,7 +593,7 @@ public struct GEL: Currency, CurrencyMetadata {
 }
 
 /// The Ghana Cedi (GHS) currency, as defined by ISO 4217.
-public struct GHS: Currency, CurrencyMetadata {
+public struct GHS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Ghana Cedi" }
   public static var alphabeticCode: String { return "GHS" }
   public static var numericCode: UInt16 { return 936 }
@@ -605,7 +605,7 @@ public struct GHS: Currency, CurrencyMetadata {
 }
 
 /// The Gibraltar Pound (GIP) currency, as defined by ISO 4217.
-public struct GIP: Currency, CurrencyMetadata {
+public struct GIP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Gibraltar Pound" }
   public static var alphabeticCode: String { return "GIP" }
   public static var numericCode: UInt16 { return 292 }
@@ -617,7 +617,7 @@ public struct GIP: Currency, CurrencyMetadata {
 }
 
 /// The Dalasi (GMD) currency, as defined by ISO 4217.
-public struct GMD: Currency, CurrencyMetadata {
+public struct GMD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Dalasi" }
   public static var alphabeticCode: String { return "GMD" }
   public static var numericCode: UInt16 { return 270 }
@@ -629,7 +629,7 @@ public struct GMD: Currency, CurrencyMetadata {
 }
 
 /// The Guinean Franc (GNF) currency, as defined by ISO 4217.
-public struct GNF: Currency, CurrencyMetadata {
+public struct GNF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Guinean Franc" }
   public static var alphabeticCode: String { return "GNF" }
   public static var numericCode: UInt16 { return 324 }
@@ -641,7 +641,7 @@ public struct GNF: Currency, CurrencyMetadata {
 }
 
 /// The Quetzal (GTQ) currency, as defined by ISO 4217.
-public struct GTQ: Currency, CurrencyMetadata {
+public struct GTQ: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Quetzal" }
   public static var alphabeticCode: String { return "GTQ" }
   public static var numericCode: UInt16 { return 320 }
@@ -653,7 +653,7 @@ public struct GTQ: Currency, CurrencyMetadata {
 }
 
 /// The Guyana Dollar (GYD) currency, as defined by ISO 4217.
-public struct GYD: Currency, CurrencyMetadata {
+public struct GYD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Guyana Dollar" }
   public static var alphabeticCode: String { return "GYD" }
   public static var numericCode: UInt16 { return 328 }
@@ -665,7 +665,7 @@ public struct GYD: Currency, CurrencyMetadata {
 }
 
 /// The Hong Kong Dollar (HKD) currency, as defined by ISO 4217.
-public struct HKD: Currency, CurrencyMetadata {
+public struct HKD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Hong Kong Dollar" }
   public static var alphabeticCode: String { return "HKD" }
   public static var numericCode: UInt16 { return 344 }
@@ -677,7 +677,7 @@ public struct HKD: Currency, CurrencyMetadata {
 }
 
 /// The Lempira (HNL) currency, as defined by ISO 4217.
-public struct HNL: Currency, CurrencyMetadata {
+public struct HNL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Lempira" }
   public static var alphabeticCode: String { return "HNL" }
   public static var numericCode: UInt16 { return 340 }
@@ -689,7 +689,7 @@ public struct HNL: Currency, CurrencyMetadata {
 }
 
 /// The Kuna (HRK) currency, as defined by ISO 4217.
-public struct HRK: Currency, CurrencyMetadata {
+public struct HRK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Kuna" }
   public static var alphabeticCode: String { return "HRK" }
   public static var numericCode: UInt16 { return 191 }
@@ -701,7 +701,7 @@ public struct HRK: Currency, CurrencyMetadata {
 }
 
 /// The Gourde (HTG) currency, as defined by ISO 4217.
-public struct HTG: Currency, CurrencyMetadata {
+public struct HTG: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Gourde" }
   public static var alphabeticCode: String { return "HTG" }
   public static var numericCode: UInt16 { return 332 }
@@ -713,7 +713,7 @@ public struct HTG: Currency, CurrencyMetadata {
 }
 
 /// The Forint (HUF) currency, as defined by ISO 4217.
-public struct HUF: Currency, CurrencyMetadata {
+public struct HUF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Forint" }
   public static var alphabeticCode: String { return "HUF" }
   public static var numericCode: UInt16 { return 348 }
@@ -725,7 +725,7 @@ public struct HUF: Currency, CurrencyMetadata {
 }
 
 /// The Rupiah (IDR) currency, as defined by ISO 4217.
-public struct IDR: Currency, CurrencyMetadata {
+public struct IDR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Rupiah" }
   public static var alphabeticCode: String { return "IDR" }
   public static var numericCode: UInt16 { return 360 }
@@ -737,7 +737,7 @@ public struct IDR: Currency, CurrencyMetadata {
 }
 
 /// The New Israeli Sheqel (ILS) currency, as defined by ISO 4217.
-public struct ILS: Currency, CurrencyMetadata {
+public struct ILS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "New Israeli Sheqel" }
   public static var alphabeticCode: String { return "ILS" }
   public static var numericCode: UInt16 { return 376 }
@@ -749,7 +749,7 @@ public struct ILS: Currency, CurrencyMetadata {
 }
 
 /// The Indian Rupee (INR) currency, as defined by ISO 4217.
-public struct INR: Currency, CurrencyMetadata {
+public struct INR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Indian Rupee" }
   public static var alphabeticCode: String { return "INR" }
   public static var numericCode: UInt16 { return 356 }
@@ -761,7 +761,7 @@ public struct INR: Currency, CurrencyMetadata {
 }
 
 /// The Iraqi Dinar (IQD) currency, as defined by ISO 4217.
-public struct IQD: Currency, CurrencyMetadata {
+public struct IQD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Iraqi Dinar" }
   public static var alphabeticCode: String { return "IQD" }
   public static var numericCode: UInt16 { return 368 }
@@ -773,7 +773,7 @@ public struct IQD: Currency, CurrencyMetadata {
 }
 
 /// The Iranian Rial (IRR) currency, as defined by ISO 4217.
-public struct IRR: Currency, CurrencyMetadata {
+public struct IRR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Iranian Rial" }
   public static var alphabeticCode: String { return "IRR" }
   public static var numericCode: UInt16 { return 364 }
@@ -785,7 +785,7 @@ public struct IRR: Currency, CurrencyMetadata {
 }
 
 /// The Iceland Krona (ISK) currency, as defined by ISO 4217.
-public struct ISK: Currency, CurrencyMetadata {
+public struct ISK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Iceland Krona" }
   public static var alphabeticCode: String { return "ISK" }
   public static var numericCode: UInt16 { return 352 }
@@ -797,7 +797,7 @@ public struct ISK: Currency, CurrencyMetadata {
 }
 
 /// The Jamaican Dollar (JMD) currency, as defined by ISO 4217.
-public struct JMD: Currency, CurrencyMetadata {
+public struct JMD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Jamaican Dollar" }
   public static var alphabeticCode: String { return "JMD" }
   public static var numericCode: UInt16 { return 388 }
@@ -809,7 +809,7 @@ public struct JMD: Currency, CurrencyMetadata {
 }
 
 /// The Jordanian Dinar (JOD) currency, as defined by ISO 4217.
-public struct JOD: Currency, CurrencyMetadata {
+public struct JOD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Jordanian Dinar" }
   public static var alphabeticCode: String { return "JOD" }
   public static var numericCode: UInt16 { return 400 }
@@ -821,7 +821,7 @@ public struct JOD: Currency, CurrencyMetadata {
 }
 
 /// The Yen (JPY) currency, as defined by ISO 4217.
-public struct JPY: Currency, CurrencyMetadata {
+public struct JPY: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Yen" }
   public static var alphabeticCode: String { return "JPY" }
   public static var numericCode: UInt16 { return 392 }
@@ -833,7 +833,7 @@ public struct JPY: Currency, CurrencyMetadata {
 }
 
 /// The Kenyan Shilling (KES) currency, as defined by ISO 4217.
-public struct KES: Currency, CurrencyMetadata {
+public struct KES: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Kenyan Shilling" }
   public static var alphabeticCode: String { return "KES" }
   public static var numericCode: UInt16 { return 404 }
@@ -845,7 +845,7 @@ public struct KES: Currency, CurrencyMetadata {
 }
 
 /// The Som (KGS) currency, as defined by ISO 4217.
-public struct KGS: Currency, CurrencyMetadata {
+public struct KGS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Som" }
   public static var alphabeticCode: String { return "KGS" }
   public static var numericCode: UInt16 { return 417 }
@@ -857,7 +857,7 @@ public struct KGS: Currency, CurrencyMetadata {
 }
 
 /// The Riel (KHR) currency, as defined by ISO 4217.
-public struct KHR: Currency, CurrencyMetadata {
+public struct KHR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Riel" }
   public static var alphabeticCode: String { return "KHR" }
   public static var numericCode: UInt16 { return 116 }
@@ -869,7 +869,7 @@ public struct KHR: Currency, CurrencyMetadata {
 }
 
 /// The Comorian Franc (KMF) currency, as defined by ISO 4217.
-public struct KMF: Currency, CurrencyMetadata {
+public struct KMF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Comorian Franc" }
   public static var alphabeticCode: String { return "KMF" }
   public static var numericCode: UInt16 { return 174 }
@@ -881,7 +881,7 @@ public struct KMF: Currency, CurrencyMetadata {
 }
 
 /// The North Korean Won (KPW) currency, as defined by ISO 4217.
-public struct KPW: Currency, CurrencyMetadata {
+public struct KPW: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "North Korean Won" }
   public static var alphabeticCode: String { return "KPW" }
   public static var numericCode: UInt16 { return 408 }
@@ -893,7 +893,7 @@ public struct KPW: Currency, CurrencyMetadata {
 }
 
 /// The Won (KRW) currency, as defined by ISO 4217.
-public struct KRW: Currency, CurrencyMetadata {
+public struct KRW: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Won" }
   public static var alphabeticCode: String { return "KRW" }
   public static var numericCode: UInt16 { return 410 }
@@ -905,7 +905,7 @@ public struct KRW: Currency, CurrencyMetadata {
 }
 
 /// The Kuwaiti Dinar (KWD) currency, as defined by ISO 4217.
-public struct KWD: Currency, CurrencyMetadata {
+public struct KWD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Kuwaiti Dinar" }
   public static var alphabeticCode: String { return "KWD" }
   public static var numericCode: UInt16 { return 414 }
@@ -917,7 +917,7 @@ public struct KWD: Currency, CurrencyMetadata {
 }
 
 /// The Cayman Islands Dollar (KYD) currency, as defined by ISO 4217.
-public struct KYD: Currency, CurrencyMetadata {
+public struct KYD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Cayman Islands Dollar" }
   public static var alphabeticCode: String { return "KYD" }
   public static var numericCode: UInt16 { return 136 }
@@ -929,7 +929,7 @@ public struct KYD: Currency, CurrencyMetadata {
 }
 
 /// The Tenge (KZT) currency, as defined by ISO 4217.
-public struct KZT: Currency, CurrencyMetadata {
+public struct KZT: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Tenge" }
   public static var alphabeticCode: String { return "KZT" }
   public static var numericCode: UInt16 { return 398 }
@@ -941,7 +941,7 @@ public struct KZT: Currency, CurrencyMetadata {
 }
 
 /// The Lao Kip (LAK) currency, as defined by ISO 4217.
-public struct LAK: Currency, CurrencyMetadata {
+public struct LAK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Lao Kip" }
   public static var alphabeticCode: String { return "LAK" }
   public static var numericCode: UInt16 { return 418 }
@@ -953,7 +953,7 @@ public struct LAK: Currency, CurrencyMetadata {
 }
 
 /// The Lebanese Pound (LBP) currency, as defined by ISO 4217.
-public struct LBP: Currency, CurrencyMetadata {
+public struct LBP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Lebanese Pound" }
   public static var alphabeticCode: String { return "LBP" }
   public static var numericCode: UInt16 { return 422 }
@@ -965,7 +965,7 @@ public struct LBP: Currency, CurrencyMetadata {
 }
 
 /// The Sri Lanka Rupee (LKR) currency, as defined by ISO 4217.
-public struct LKR: Currency, CurrencyMetadata {
+public struct LKR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Sri Lanka Rupee" }
   public static var alphabeticCode: String { return "LKR" }
   public static var numericCode: UInt16 { return 144 }
@@ -977,7 +977,7 @@ public struct LKR: Currency, CurrencyMetadata {
 }
 
 /// The Liberian Dollar (LRD) currency, as defined by ISO 4217.
-public struct LRD: Currency, CurrencyMetadata {
+public struct LRD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Liberian Dollar" }
   public static var alphabeticCode: String { return "LRD" }
   public static var numericCode: UInt16 { return 430 }
@@ -989,7 +989,7 @@ public struct LRD: Currency, CurrencyMetadata {
 }
 
 /// The Loti (LSL) currency, as defined by ISO 4217.
-public struct LSL: Currency, CurrencyMetadata {
+public struct LSL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Loti" }
   public static var alphabeticCode: String { return "LSL" }
   public static var numericCode: UInt16 { return 426 }
@@ -1001,7 +1001,7 @@ public struct LSL: Currency, CurrencyMetadata {
 }
 
 /// The Libyan Dinar (LYD) currency, as defined by ISO 4217.
-public struct LYD: Currency, CurrencyMetadata {
+public struct LYD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Libyan Dinar" }
   public static var alphabeticCode: String { return "LYD" }
   public static var numericCode: UInt16 { return 434 }
@@ -1013,7 +1013,7 @@ public struct LYD: Currency, CurrencyMetadata {
 }
 
 /// The Moroccan Dirham (MAD) currency, as defined by ISO 4217.
-public struct MAD: Currency, CurrencyMetadata {
+public struct MAD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Moroccan Dirham" }
   public static var alphabeticCode: String { return "MAD" }
   public static var numericCode: UInt16 { return 504 }
@@ -1025,7 +1025,7 @@ public struct MAD: Currency, CurrencyMetadata {
 }
 
 /// The Moldovan Leu (MDL) currency, as defined by ISO 4217.
-public struct MDL: Currency, CurrencyMetadata {
+public struct MDL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Moldovan Leu" }
   public static var alphabeticCode: String { return "MDL" }
   public static var numericCode: UInt16 { return 498 }
@@ -1037,7 +1037,7 @@ public struct MDL: Currency, CurrencyMetadata {
 }
 
 /// The Malagasy Ariary (MGA) currency, as defined by ISO 4217.
-public struct MGA: Currency, CurrencyMetadata {
+public struct MGA: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Malagasy Ariary" }
   public static var alphabeticCode: String { return "MGA" }
   public static var numericCode: UInt16 { return 969 }
@@ -1049,7 +1049,7 @@ public struct MGA: Currency, CurrencyMetadata {
 }
 
 /// The Denar (MKD) currency, as defined by ISO 4217.
-public struct MKD: Currency, CurrencyMetadata {
+public struct MKD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Denar" }
   public static var alphabeticCode: String { return "MKD" }
   public static var numericCode: UInt16 { return 807 }
@@ -1061,7 +1061,7 @@ public struct MKD: Currency, CurrencyMetadata {
 }
 
 /// The Kyat (MMK) currency, as defined by ISO 4217.
-public struct MMK: Currency, CurrencyMetadata {
+public struct MMK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Kyat" }
   public static var alphabeticCode: String { return "MMK" }
   public static var numericCode: UInt16 { return 104 }
@@ -1073,7 +1073,7 @@ public struct MMK: Currency, CurrencyMetadata {
 }
 
 /// The Tugrik (MNT) currency, as defined by ISO 4217.
-public struct MNT: Currency, CurrencyMetadata {
+public struct MNT: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Tugrik" }
   public static var alphabeticCode: String { return "MNT" }
   public static var numericCode: UInt16 { return 496 }
@@ -1085,7 +1085,7 @@ public struct MNT: Currency, CurrencyMetadata {
 }
 
 /// The Pataca (MOP) currency, as defined by ISO 4217.
-public struct MOP: Currency, CurrencyMetadata {
+public struct MOP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Pataca" }
   public static var alphabeticCode: String { return "MOP" }
   public static var numericCode: UInt16 { return 446 }
@@ -1097,7 +1097,7 @@ public struct MOP: Currency, CurrencyMetadata {
 }
 
 /// The Ouguiya (MRU) currency, as defined by ISO 4217.
-public struct MRU: Currency, CurrencyMetadata {
+public struct MRU: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Ouguiya" }
   public static var alphabeticCode: String { return "MRU" }
   public static var numericCode: UInt16 { return 929 }
@@ -1109,7 +1109,7 @@ public struct MRU: Currency, CurrencyMetadata {
 }
 
 /// The Mauritius Rupee (MUR) currency, as defined by ISO 4217.
-public struct MUR: Currency, CurrencyMetadata {
+public struct MUR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Mauritius Rupee" }
   public static var alphabeticCode: String { return "MUR" }
   public static var numericCode: UInt16 { return 480 }
@@ -1121,7 +1121,7 @@ public struct MUR: Currency, CurrencyMetadata {
 }
 
 /// The Rufiyaa (MVR) currency, as defined by ISO 4217.
-public struct MVR: Currency, CurrencyMetadata {
+public struct MVR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Rufiyaa" }
   public static var alphabeticCode: String { return "MVR" }
   public static var numericCode: UInt16 { return 462 }
@@ -1133,7 +1133,7 @@ public struct MVR: Currency, CurrencyMetadata {
 }
 
 /// The Malawi Kwacha (MWK) currency, as defined by ISO 4217.
-public struct MWK: Currency, CurrencyMetadata {
+public struct MWK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Malawi Kwacha" }
   public static var alphabeticCode: String { return "MWK" }
   public static var numericCode: UInt16 { return 454 }
@@ -1145,7 +1145,7 @@ public struct MWK: Currency, CurrencyMetadata {
 }
 
 /// The Mexican Peso (MXN) currency, as defined by ISO 4217.
-public struct MXN: Currency, CurrencyMetadata {
+public struct MXN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Mexican Peso" }
   public static var alphabeticCode: String { return "MXN" }
   public static var numericCode: UInt16 { return 484 }
@@ -1157,7 +1157,7 @@ public struct MXN: Currency, CurrencyMetadata {
 }
 
 /// The Malaysian Ringgit (MYR) currency, as defined by ISO 4217.
-public struct MYR: Currency, CurrencyMetadata {
+public struct MYR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Malaysian Ringgit" }
   public static var alphabeticCode: String { return "MYR" }
   public static var numericCode: UInt16 { return 458 }
@@ -1169,7 +1169,7 @@ public struct MYR: Currency, CurrencyMetadata {
 }
 
 /// The Mozambique Metical (MZN) currency, as defined by ISO 4217.
-public struct MZN: Currency, CurrencyMetadata {
+public struct MZN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Mozambique Metical" }
   public static var alphabeticCode: String { return "MZN" }
   public static var numericCode: UInt16 { return 943 }
@@ -1181,7 +1181,7 @@ public struct MZN: Currency, CurrencyMetadata {
 }
 
 /// The Namibia Dollar (NAD) currency, as defined by ISO 4217.
-public struct NAD: Currency, CurrencyMetadata {
+public struct NAD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Namibia Dollar" }
   public static var alphabeticCode: String { return "NAD" }
   public static var numericCode: UInt16 { return 516 }
@@ -1193,7 +1193,7 @@ public struct NAD: Currency, CurrencyMetadata {
 }
 
 /// The Naira (NGN) currency, as defined by ISO 4217.
-public struct NGN: Currency, CurrencyMetadata {
+public struct NGN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Naira" }
   public static var alphabeticCode: String { return "NGN" }
   public static var numericCode: UInt16 { return 566 }
@@ -1205,7 +1205,7 @@ public struct NGN: Currency, CurrencyMetadata {
 }
 
 /// The Cordoba Oro (NIO) currency, as defined by ISO 4217.
-public struct NIO: Currency, CurrencyMetadata {
+public struct NIO: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Cordoba Oro" }
   public static var alphabeticCode: String { return "NIO" }
   public static var numericCode: UInt16 { return 558 }
@@ -1217,7 +1217,7 @@ public struct NIO: Currency, CurrencyMetadata {
 }
 
 /// The Norwegian Krone (NOK) currency, as defined by ISO 4217.
-public struct NOK: Currency, CurrencyMetadata {
+public struct NOK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Norwegian Krone" }
   public static var alphabeticCode: String { return "NOK" }
   public static var numericCode: UInt16 { return 578 }
@@ -1229,7 +1229,7 @@ public struct NOK: Currency, CurrencyMetadata {
 }
 
 /// The Nepalese Rupee (NPR) currency, as defined by ISO 4217.
-public struct NPR: Currency, CurrencyMetadata {
+public struct NPR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Nepalese Rupee" }
   public static var alphabeticCode: String { return "NPR" }
   public static var numericCode: UInt16 { return 524 }
@@ -1241,7 +1241,7 @@ public struct NPR: Currency, CurrencyMetadata {
 }
 
 /// The New Zealand Dollar (NZD) currency, as defined by ISO 4217.
-public struct NZD: Currency, CurrencyMetadata {
+public struct NZD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "New Zealand Dollar" }
   public static var alphabeticCode: String { return "NZD" }
   public static var numericCode: UInt16 { return 554 }
@@ -1253,7 +1253,7 @@ public struct NZD: Currency, CurrencyMetadata {
 }
 
 /// The Rial Omani (OMR) currency, as defined by ISO 4217.
-public struct OMR: Currency, CurrencyMetadata {
+public struct OMR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Rial Omani" }
   public static var alphabeticCode: String { return "OMR" }
   public static var numericCode: UInt16 { return 512 }
@@ -1265,7 +1265,7 @@ public struct OMR: Currency, CurrencyMetadata {
 }
 
 /// The Balboa (PAB) currency, as defined by ISO 4217.
-public struct PAB: Currency, CurrencyMetadata {
+public struct PAB: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Balboa" }
   public static var alphabeticCode: String { return "PAB" }
   public static var numericCode: UInt16 { return 590 }
@@ -1277,7 +1277,7 @@ public struct PAB: Currency, CurrencyMetadata {
 }
 
 /// The Sol (PEN) currency, as defined by ISO 4217.
-public struct PEN: Currency, CurrencyMetadata {
+public struct PEN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Sol" }
   public static var alphabeticCode: String { return "PEN" }
   public static var numericCode: UInt16 { return 604 }
@@ -1289,7 +1289,7 @@ public struct PEN: Currency, CurrencyMetadata {
 }
 
 /// The Kina (PGK) currency, as defined by ISO 4217.
-public struct PGK: Currency, CurrencyMetadata {
+public struct PGK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Kina" }
   public static var alphabeticCode: String { return "PGK" }
   public static var numericCode: UInt16 { return 598 }
@@ -1301,7 +1301,7 @@ public struct PGK: Currency, CurrencyMetadata {
 }
 
 /// The Philippine Peso (PHP) currency, as defined by ISO 4217.
-public struct PHP: Currency, CurrencyMetadata {
+public struct PHP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Philippine Peso" }
   public static var alphabeticCode: String { return "PHP" }
   public static var numericCode: UInt16 { return 608 }
@@ -1313,7 +1313,7 @@ public struct PHP: Currency, CurrencyMetadata {
 }
 
 /// The Pakistan Rupee (PKR) currency, as defined by ISO 4217.
-public struct PKR: Currency, CurrencyMetadata {
+public struct PKR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Pakistan Rupee" }
   public static var alphabeticCode: String { return "PKR" }
   public static var numericCode: UInt16 { return 586 }
@@ -1325,7 +1325,7 @@ public struct PKR: Currency, CurrencyMetadata {
 }
 
 /// The Zloty (PLN) currency, as defined by ISO 4217.
-public struct PLN: Currency, CurrencyMetadata {
+public struct PLN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Zloty" }
   public static var alphabeticCode: String { return "PLN" }
   public static var numericCode: UInt16 { return 985 }
@@ -1337,7 +1337,7 @@ public struct PLN: Currency, CurrencyMetadata {
 }
 
 /// The Guarani (PYG) currency, as defined by ISO 4217.
-public struct PYG: Currency, CurrencyMetadata {
+public struct PYG: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Guarani" }
   public static var alphabeticCode: String { return "PYG" }
   public static var numericCode: UInt16 { return 600 }
@@ -1349,7 +1349,7 @@ public struct PYG: Currency, CurrencyMetadata {
 }
 
 /// The Qatari Rial (QAR) currency, as defined by ISO 4217.
-public struct QAR: Currency, CurrencyMetadata {
+public struct QAR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Qatari Rial" }
   public static var alphabeticCode: String { return "QAR" }
   public static var numericCode: UInt16 { return 634 }
@@ -1361,7 +1361,7 @@ public struct QAR: Currency, CurrencyMetadata {
 }
 
 /// The Romanian Leu (RON) currency, as defined by ISO 4217.
-public struct RON: Currency, CurrencyMetadata {
+public struct RON: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Romanian Leu" }
   public static var alphabeticCode: String { return "RON" }
   public static var numericCode: UInt16 { return 946 }
@@ -1373,7 +1373,7 @@ public struct RON: Currency, CurrencyMetadata {
 }
 
 /// The Serbian Dinar (RSD) currency, as defined by ISO 4217.
-public struct RSD: Currency, CurrencyMetadata {
+public struct RSD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Serbian Dinar" }
   public static var alphabeticCode: String { return "RSD" }
   public static var numericCode: UInt16 { return 941 }
@@ -1385,7 +1385,7 @@ public struct RSD: Currency, CurrencyMetadata {
 }
 
 /// The Russian Ruble (RUB) currency, as defined by ISO 4217.
-public struct RUB: Currency, CurrencyMetadata {
+public struct RUB: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Russian Ruble" }
   public static var alphabeticCode: String { return "RUB" }
   public static var numericCode: UInt16 { return 643 }
@@ -1397,7 +1397,7 @@ public struct RUB: Currency, CurrencyMetadata {
 }
 
 /// The Rwanda Franc (RWF) currency, as defined by ISO 4217.
-public struct RWF: Currency, CurrencyMetadata {
+public struct RWF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Rwanda Franc" }
   public static var alphabeticCode: String { return "RWF" }
   public static var numericCode: UInt16 { return 646 }
@@ -1409,7 +1409,7 @@ public struct RWF: Currency, CurrencyMetadata {
 }
 
 /// The Saudi Riyal (SAR) currency, as defined by ISO 4217.
-public struct SAR: Currency, CurrencyMetadata {
+public struct SAR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Saudi Riyal" }
   public static var alphabeticCode: String { return "SAR" }
   public static var numericCode: UInt16 { return 682 }
@@ -1421,7 +1421,7 @@ public struct SAR: Currency, CurrencyMetadata {
 }
 
 /// The Solomon Islands Dollar (SBD) currency, as defined by ISO 4217.
-public struct SBD: Currency, CurrencyMetadata {
+public struct SBD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Solomon Islands Dollar" }
   public static var alphabeticCode: String { return "SBD" }
   public static var numericCode: UInt16 { return 90 }
@@ -1433,7 +1433,7 @@ public struct SBD: Currency, CurrencyMetadata {
 }
 
 /// The Seychelles Rupee (SCR) currency, as defined by ISO 4217.
-public struct SCR: Currency, CurrencyMetadata {
+public struct SCR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Seychelles Rupee" }
   public static var alphabeticCode: String { return "SCR" }
   public static var numericCode: UInt16 { return 690 }
@@ -1445,7 +1445,7 @@ public struct SCR: Currency, CurrencyMetadata {
 }
 
 /// The Sudanese Pound (SDG) currency, as defined by ISO 4217.
-public struct SDG: Currency, CurrencyMetadata {
+public struct SDG: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Sudanese Pound" }
   public static var alphabeticCode: String { return "SDG" }
   public static var numericCode: UInt16 { return 938 }
@@ -1457,7 +1457,7 @@ public struct SDG: Currency, CurrencyMetadata {
 }
 
 /// The Swedish Krona (SEK) currency, as defined by ISO 4217.
-public struct SEK: Currency, CurrencyMetadata {
+public struct SEK: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Swedish Krona" }
   public static var alphabeticCode: String { return "SEK" }
   public static var numericCode: UInt16 { return 752 }
@@ -1469,7 +1469,7 @@ public struct SEK: Currency, CurrencyMetadata {
 }
 
 /// The Singapore Dollar (SGD) currency, as defined by ISO 4217.
-public struct SGD: Currency, CurrencyMetadata {
+public struct SGD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Singapore Dollar" }
   public static var alphabeticCode: String { return "SGD" }
   public static var numericCode: UInt16 { return 702 }
@@ -1481,7 +1481,7 @@ public struct SGD: Currency, CurrencyMetadata {
 }
 
 /// The Saint Helena Pound (SHP) currency, as defined by ISO 4217.
-public struct SHP: Currency, CurrencyMetadata {
+public struct SHP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Saint Helena Pound" }
   public static var alphabeticCode: String { return "SHP" }
   public static var numericCode: UInt16 { return 654 }
@@ -1493,7 +1493,7 @@ public struct SHP: Currency, CurrencyMetadata {
 }
 
 /// The Leone (SLL) currency, as defined by ISO 4217.
-public struct SLL: Currency, CurrencyMetadata {
+public struct SLL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Leone" }
   public static var alphabeticCode: String { return "SLL" }
   public static var numericCode: UInt16 { return 694 }
@@ -1505,7 +1505,7 @@ public struct SLL: Currency, CurrencyMetadata {
 }
 
 /// The Somali Shilling (SOS) currency, as defined by ISO 4217.
-public struct SOS: Currency, CurrencyMetadata {
+public struct SOS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Somali Shilling" }
   public static var alphabeticCode: String { return "SOS" }
   public static var numericCode: UInt16 { return 706 }
@@ -1517,7 +1517,7 @@ public struct SOS: Currency, CurrencyMetadata {
 }
 
 /// The Surinam Dollar (SRD) currency, as defined by ISO 4217.
-public struct SRD: Currency, CurrencyMetadata {
+public struct SRD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Surinam Dollar" }
   public static var alphabeticCode: String { return "SRD" }
   public static var numericCode: UInt16 { return 968 }
@@ -1529,7 +1529,7 @@ public struct SRD: Currency, CurrencyMetadata {
 }
 
 /// The South Sudanese Pound (SSP) currency, as defined by ISO 4217.
-public struct SSP: Currency, CurrencyMetadata {
+public struct SSP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "South Sudanese Pound" }
   public static var alphabeticCode: String { return "SSP" }
   public static var numericCode: UInt16 { return 728 }
@@ -1541,7 +1541,7 @@ public struct SSP: Currency, CurrencyMetadata {
 }
 
 /// The Dobra (STN) currency, as defined by ISO 4217.
-public struct STN: Currency, CurrencyMetadata {
+public struct STN: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Dobra" }
   public static var alphabeticCode: String { return "STN" }
   public static var numericCode: UInt16 { return 930 }
@@ -1553,7 +1553,7 @@ public struct STN: Currency, CurrencyMetadata {
 }
 
 /// The El Salvador Colon (SVC) currency, as defined by ISO 4217.
-public struct SVC: Currency, CurrencyMetadata {
+public struct SVC: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "El Salvador Colon" }
   public static var alphabeticCode: String { return "SVC" }
   public static var numericCode: UInt16 { return 222 }
@@ -1565,7 +1565,7 @@ public struct SVC: Currency, CurrencyMetadata {
 }
 
 /// The Syrian Pound (SYP) currency, as defined by ISO 4217.
-public struct SYP: Currency, CurrencyMetadata {
+public struct SYP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Syrian Pound" }
   public static var alphabeticCode: String { return "SYP" }
   public static var numericCode: UInt16 { return 760 }
@@ -1577,7 +1577,7 @@ public struct SYP: Currency, CurrencyMetadata {
 }
 
 /// The Lilangeni (SZL) currency, as defined by ISO 4217.
-public struct SZL: Currency, CurrencyMetadata {
+public struct SZL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Lilangeni" }
   public static var alphabeticCode: String { return "SZL" }
   public static var numericCode: UInt16 { return 748 }
@@ -1589,7 +1589,7 @@ public struct SZL: Currency, CurrencyMetadata {
 }
 
 /// The Baht (THB) currency, as defined by ISO 4217.
-public struct THB: Currency, CurrencyMetadata {
+public struct THB: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Baht" }
   public static var alphabeticCode: String { return "THB" }
   public static var numericCode: UInt16 { return 764 }
@@ -1601,7 +1601,7 @@ public struct THB: Currency, CurrencyMetadata {
 }
 
 /// The Somoni (TJS) currency, as defined by ISO 4217.
-public struct TJS: Currency, CurrencyMetadata {
+public struct TJS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Somoni" }
   public static var alphabeticCode: String { return "TJS" }
   public static var numericCode: UInt16 { return 972 }
@@ -1613,7 +1613,7 @@ public struct TJS: Currency, CurrencyMetadata {
 }
 
 /// The Turkmenistan New Manat (TMT) currency, as defined by ISO 4217.
-public struct TMT: Currency, CurrencyMetadata {
+public struct TMT: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Turkmenistan New Manat" }
   public static var alphabeticCode: String { return "TMT" }
   public static var numericCode: UInt16 { return 934 }
@@ -1625,7 +1625,7 @@ public struct TMT: Currency, CurrencyMetadata {
 }
 
 /// The Tunisian Dinar (TND) currency, as defined by ISO 4217.
-public struct TND: Currency, CurrencyMetadata {
+public struct TND: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Tunisian Dinar" }
   public static var alphabeticCode: String { return "TND" }
   public static var numericCode: UInt16 { return 788 }
@@ -1637,7 +1637,7 @@ public struct TND: Currency, CurrencyMetadata {
 }
 
 /// The Pa’anga (TOP) currency, as defined by ISO 4217.
-public struct TOP: Currency, CurrencyMetadata {
+public struct TOP: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Pa’anga" }
   public static var alphabeticCode: String { return "TOP" }
   public static var numericCode: UInt16 { return 776 }
@@ -1649,7 +1649,7 @@ public struct TOP: Currency, CurrencyMetadata {
 }
 
 /// The Turkish Lira (TRY) currency, as defined by ISO 4217.
-public struct TRY: Currency, CurrencyMetadata {
+public struct TRY: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Turkish Lira" }
   public static var alphabeticCode: String { return "TRY" }
   public static var numericCode: UInt16 { return 949 }
@@ -1661,7 +1661,7 @@ public struct TRY: Currency, CurrencyMetadata {
 }
 
 /// The Trinidad and Tobago Dollar (TTD) currency, as defined by ISO 4217.
-public struct TTD: Currency, CurrencyMetadata {
+public struct TTD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Trinidad and Tobago Dollar" }
   public static var alphabeticCode: String { return "TTD" }
   public static var numericCode: UInt16 { return 780 }
@@ -1673,7 +1673,7 @@ public struct TTD: Currency, CurrencyMetadata {
 }
 
 /// The New Taiwan Dollar (TWD) currency, as defined by ISO 4217.
-public struct TWD: Currency, CurrencyMetadata {
+public struct TWD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "New Taiwan Dollar" }
   public static var alphabeticCode: String { return "TWD" }
   public static var numericCode: UInt16 { return 901 }
@@ -1685,7 +1685,7 @@ public struct TWD: Currency, CurrencyMetadata {
 }
 
 /// The Tanzanian Shilling (TZS) currency, as defined by ISO 4217.
-public struct TZS: Currency, CurrencyMetadata {
+public struct TZS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Tanzanian Shilling" }
   public static var alphabeticCode: String { return "TZS" }
   public static var numericCode: UInt16 { return 834 }
@@ -1697,7 +1697,7 @@ public struct TZS: Currency, CurrencyMetadata {
 }
 
 /// The Hryvnia (UAH) currency, as defined by ISO 4217.
-public struct UAH: Currency, CurrencyMetadata {
+public struct UAH: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Hryvnia" }
   public static var alphabeticCode: String { return "UAH" }
   public static var numericCode: UInt16 { return 980 }
@@ -1709,7 +1709,7 @@ public struct UAH: Currency, CurrencyMetadata {
 }
 
 /// The Uganda Shilling (UGX) currency, as defined by ISO 4217.
-public struct UGX: Currency, CurrencyMetadata {
+public struct UGX: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Uganda Shilling" }
   public static var alphabeticCode: String { return "UGX" }
   public static var numericCode: UInt16 { return 800 }
@@ -1721,7 +1721,7 @@ public struct UGX: Currency, CurrencyMetadata {
 }
 
 /// The US Dollar (USD) currency, as defined by ISO 4217.
-public struct USD: Currency, CurrencyMetadata {
+public struct USD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "US Dollar" }
   public static var alphabeticCode: String { return "USD" }
   public static var numericCode: UInt16 { return 840 }
@@ -1733,7 +1733,7 @@ public struct USD: Currency, CurrencyMetadata {
 }
 
 /// The Peso Uruguayo (UYU) currency, as defined by ISO 4217.
-public struct UYU: Currency, CurrencyMetadata {
+public struct UYU: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Peso Uruguayo" }
   public static var alphabeticCode: String { return "UYU" }
   public static var numericCode: UInt16 { return 858 }
@@ -1745,7 +1745,7 @@ public struct UYU: Currency, CurrencyMetadata {
 }
 
 /// The Unidad Previsional (UYW) currency, as defined by ISO 4217.
-public struct UYW: Currency, CurrencyMetadata {
+public struct UYW: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Unidad Previsional" }
   public static var alphabeticCode: String { return "UYW" }
   public static var numericCode: UInt16 { return 927 }
@@ -1757,7 +1757,7 @@ public struct UYW: Currency, CurrencyMetadata {
 }
 
 /// The Uzbekistan Sum (UZS) currency, as defined by ISO 4217.
-public struct UZS: Currency, CurrencyMetadata {
+public struct UZS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Uzbekistan Sum" }
   public static var alphabeticCode: String { return "UZS" }
   public static var numericCode: UInt16 { return 860 }
@@ -1769,7 +1769,7 @@ public struct UZS: Currency, CurrencyMetadata {
 }
 
 /// The Bolívar Soberano (VES) currency, as defined by ISO 4217.
-public struct VES: Currency, CurrencyMetadata {
+public struct VES: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Bolívar Soberano" }
   public static var alphabeticCode: String { return "VES" }
   public static var numericCode: UInt16 { return 928 }
@@ -1781,7 +1781,7 @@ public struct VES: Currency, CurrencyMetadata {
 }
 
 /// The Dong (VND) currency, as defined by ISO 4217.
-public struct VND: Currency, CurrencyMetadata {
+public struct VND: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Dong" }
   public static var alphabeticCode: String { return "VND" }
   public static var numericCode: UInt16 { return 704 }
@@ -1793,7 +1793,7 @@ public struct VND: Currency, CurrencyMetadata {
 }
 
 /// The Vatu (VUV) currency, as defined by ISO 4217.
-public struct VUV: Currency, CurrencyMetadata {
+public struct VUV: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Vatu" }
   public static var alphabeticCode: String { return "VUV" }
   public static var numericCode: UInt16 { return 548 }
@@ -1805,7 +1805,7 @@ public struct VUV: Currency, CurrencyMetadata {
 }
 
 /// The Tala (WST) currency, as defined by ISO 4217.
-public struct WST: Currency, CurrencyMetadata {
+public struct WST: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Tala" }
   public static var alphabeticCode: String { return "WST" }
   public static var numericCode: UInt16 { return 882 }
@@ -1817,7 +1817,7 @@ public struct WST: Currency, CurrencyMetadata {
 }
 
 /// The CFA Franc BEAC (XAF) currency, as defined by ISO 4217.
-public struct XAF: Currency, CurrencyMetadata {
+public struct XAF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "CFA Franc BEAC" }
   public static var alphabeticCode: String { return "XAF" }
   public static var numericCode: UInt16 { return 950 }
@@ -1829,7 +1829,7 @@ public struct XAF: Currency, CurrencyMetadata {
 }
 
 /// The East Caribbean Dollar (XCD) currency, as defined by ISO 4217.
-public struct XCD: Currency, CurrencyMetadata {
+public struct XCD: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "East Caribbean Dollar" }
   public static var alphabeticCode: String { return "XCD" }
   public static var numericCode: UInt16 { return 951 }
@@ -1841,7 +1841,7 @@ public struct XCD: Currency, CurrencyMetadata {
 }
 
 /// The CFA Franc BCEAO (XOF) currency, as defined by ISO 4217.
-public struct XOF: Currency, CurrencyMetadata {
+public struct XOF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "CFA Franc BCEAO" }
   public static var alphabeticCode: String { return "XOF" }
   public static var numericCode: UInt16 { return 952 }
@@ -1853,7 +1853,7 @@ public struct XOF: Currency, CurrencyMetadata {
 }
 
 /// The CFP Franc (XPF) currency, as defined by ISO 4217.
-public struct XPF: Currency, CurrencyMetadata {
+public struct XPF: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "CFP Franc" }
   public static var alphabeticCode: String { return "XPF" }
   public static var numericCode: UInt16 { return 953 }
@@ -1865,7 +1865,7 @@ public struct XPF: Currency, CurrencyMetadata {
 }
 
 /// The Yemeni Rial (YER) currency, as defined by ISO 4217.
-public struct YER: Currency, CurrencyMetadata {
+public struct YER: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Yemeni Rial" }
   public static var alphabeticCode: String { return "YER" }
   public static var numericCode: UInt16 { return 886 }
@@ -1877,7 +1877,7 @@ public struct YER: Currency, CurrencyMetadata {
 }
 
 /// The Rand (ZAR) currency, as defined by ISO 4217.
-public struct ZAR: Currency, CurrencyMetadata {
+public struct ZAR: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Rand" }
   public static var alphabeticCode: String { return "ZAR" }
   public static var numericCode: UInt16 { return 710 }
@@ -1889,7 +1889,7 @@ public struct ZAR: Currency, CurrencyMetadata {
 }
 
 /// The Zambian Kwacha (ZMW) currency, as defined by ISO 4217.
-public struct ZMW: Currency, CurrencyMetadata {
+public struct ZMW: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Zambian Kwacha" }
   public static var alphabeticCode: String { return "ZMW" }
   public static var numericCode: UInt16 { return 967 }
@@ -1901,7 +1901,7 @@ public struct ZMW: Currency, CurrencyMetadata {
 }
 
 /// The Zimbabwe Dollar (ZWL) currency, as defined by ISO 4217.
-public struct ZWL: Currency, CurrencyMetadata {
+public struct ZWL: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Zimbabwe Dollar" }
   public static var alphabeticCode: String { return "ZWL" }
   public static var numericCode: UInt16 { return 932 }
@@ -1915,7 +1915,7 @@ public struct ZWL: Currency, CurrencyMetadata {
 /// The currency suitable for testing; as defined by ISO 4217.
 ///
 /// As ISO 4217 does not specify a minor unit for XTS, the value of `1` is used for validating rounding errors.
-public struct XTS: Currency, CurrencyMetadata {
+public struct XTS: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "Code reserved for testing" }
   public static var alphabeticCode: String { return "XTS" }
   public static var numericCode: UInt16 { return 963 }
@@ -1929,7 +1929,7 @@ public struct XTS: Currency, CurrencyMetadata {
 /// The currency to represent a transaction where no currency was involved; as defined by ISO 4217.
 ///
 /// As ISO 4217 does not specify a minor unit for XXX, the value of `0` is used.
-public struct XXX: Currency, CurrencyMetadata {
+public struct XXX: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "No currency" }
   public static var alphabeticCode: String { return "XXX" }
   public static var numericCode: UInt16 { return 999 }

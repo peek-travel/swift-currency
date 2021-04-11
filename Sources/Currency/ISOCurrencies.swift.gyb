@@ -38,7 +38,7 @@ import Foundation
       % else:
 /// The ${name} (${alphaCode}) currency, as defined by ISO 4217.
       % end
-public struct ${alphaCode}: Currency, CurrencyMetadata {
+public struct ${alphaCode}: Currency, RepresentableAsCurrencyMinorUnits, CurrencyMetadata {
   public static var name: String { return "${name}" }
   public static var alphabeticCode: String { return "${alphaCode}" }
   public static var numericCode: UInt16 { return ${numCode} }

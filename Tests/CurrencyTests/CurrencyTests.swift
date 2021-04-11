@@ -15,7 +15,7 @@
 @testable import Currency
 import XCTest
 
-final class AnyCurrencyTests: XCTestCase {
+final class CurrencyTests: XCTestCase {
   override func setUp() {
     UserDefaults.standard.set(["en_US"], forKey: "AppleLanguages")
   }
@@ -23,7 +23,7 @@ final class AnyCurrencyTests: XCTestCase {
 
 // MARK: Initialization
 
-extension AnyCurrencyTests {
+extension CurrencyTests {
   func testDecimalInit() {
     _assertCurrencyValue(USD(30.23), equalsAmount: 30.23, equalsMinorUnits: 3023)
     _assertCurrencyValue(USD(-208.001), equalsAmount: -208.00, equalsMinorUnits: -20800)
@@ -53,8 +53,8 @@ extension AnyCurrencyTests {
     _assertCurrencyValue(KWD(minorUnits: -300877), equalsAmount: -300.877, equalsMinorUnits: -300877)
   }
 
-  private func _assertCurrencyValue<M: Currency>(
-    _ value: M?,
+  private func _assertCurrencyValue<T: RepresentableAsCurrencyMinorUnits>(
+    _ value: T?,
     equalsAmount expectedAmount: Decimal,
     equalsMinorUnits expectedMinorUnits: Int64,
     file: StaticString = #file,
@@ -68,7 +68,7 @@ extension AnyCurrencyTests {
 // MARK: -
 // MARK: Protocol Conformances
 
-extension AnyCurrencyTests {
+extension CurrencyTests {
   func testEquatable() {
     let first = USD(30.23)
     XCTAssertEqual(first, USD(30.23))
@@ -87,14 +87,14 @@ extension AnyCurrencyTests {
     let usd = USD(30.23)
     var hasher = Hasher()
     hasher.combine(usd)
-    XCTAssertEqual(hasher.finalize(), usd.minorUnits.hashValue)
+    XCTAssertEqual(hasher.finalize(), usd.roundedAmount.hashValue)
   }
 }
 
 // MARK: -
 // MARK: String Representations
 
-extension AnyCurrencyTests {
+extension CurrencyTests {
   func testReflectionRepresentation() {
     let str = String(reflecting: USD(30.02))
     XCTAssertEqual(str, "USD(30.02)")
@@ -197,7 +197,7 @@ extension AnyCurrencyTests {
 
 // MARK: Basic Arithmetic
 
-extension AnyCurrencyTests {
+extension CurrencyTests {
   func testAddition() {
     let first = USD(300.12)
     XCTAssertEqual(first + 30, 330.12)
@@ -260,7 +260,7 @@ extension Sequence where Element: Currency {
   }
 }
 
-extension AnyCurrencyTests {
+extension CurrencyTests {
   func testSampleUSDCalculations() {
     /*
       original price    taxes (9%)        result
