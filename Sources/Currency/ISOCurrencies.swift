@@ -16,6 +16,9 @@
 
 import Foundation
 
+/// A currency that is defined by the ISO 4217 standard.
+///
+/// Any conforming type acts as both the storage and definition of a given currency it represents.
 public protocol ISOCurrency: CurrencyRepresentableAsMinorUnits, CurrencyMetadata { }
 
 /// The UAE Dirham (AED) currency, as defined by ISO 4217.

@@ -36,10 +36,10 @@ extension CurrencyTests {
   }
 
   func testNaNInit() {
-    XCTAssertNil(USD(rawValue: .nan))
-    XCTAssertNil(JPY(rawValue: .quietNaN))
-    XCTAssertNotNil(USD(rawValue: -1))
-    XCTAssertNotNil(JPY(rawValue: 1))
+    XCTAssertNil(USD(.nan))
+    XCTAssertNil(JPY(.quietNaN))
+    XCTAssertNotNil(USD(-1))
+    XCTAssertNotNil(JPY(1))
   }
 
   func testMinorUnitInit() {
@@ -340,7 +340,7 @@ extension CurrencyTests {
     var runningDailyTotal = roomDailyRate
 
     // apply discount
-    let discount = USD(rawValue: roomDailyRate.rawValue * discountRate)!
+    let discount = USD(roomDailyRate.rawValue * discountRate)!
     XCTAssertEqual(discount, 12)
     XCTAssertEqual(discount.rawValue.description, "11.9988")
     runningDailyTotal -= discount
@@ -348,7 +348,7 @@ extension CurrencyTests {
     XCTAssertEqual(runningDailyTotal.rawValue.description, "187.9812")
 
     // apply taxes
-    let taxes = USD(rawValue: runningDailyTotal.rawValue * taxRate)!
+    let taxes = USD(runningDailyTotal.rawValue * taxRate)!
     XCTAssertEqual(taxes, 16.92)
     XCTAssertEqual(taxes.rawValue.description, "16.918308")
     runningDailyTotal += taxes
@@ -361,12 +361,12 @@ extension CurrencyTests {
     XCTAssertEqual(runningDailyTotal.rawValue.description, "210.579508")
 
     // calculate week total
-    let weekRateTotal = USD(rawValue: runningDailyTotal.rawValue * 7)!
+    let weekRateTotal = USD(runningDailyTotal.rawValue * 7)!
     XCTAssertEqual(weekRateTotal, 1_474.06)
     XCTAssertEqual(weekRateTotal.rawValue.description, "1474.056556")
 
     // calculate commission
-    let commission = USD(rawValue: weekRateTotal.rawValue * 0.10)!
+    let commission = USD(weekRateTotal.rawValue * 0.10)!
     XCTAssertEqual(commission, 147.41)
     XCTAssertEqual(commission.rawValue.description, "147.4056556")
 
@@ -385,6 +385,6 @@ extension CurrencyTests {
       return weekPrice + commission
     }()
     XCTAssertEqual(expectedResult, 1_621.4622116)
-    XCTAssertEqual(USD(rawValue: expectedResult), totalPrice)
+    XCTAssertEqual(USD(expectedResult)!, totalPrice)
   }
 }

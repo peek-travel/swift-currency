@@ -16,19 +16,22 @@ import Foundation
 
 /// A representation of a given monetary value.
 public protocol Currency:
-  RawRepresentable,
   Comparable, Hashable,
   CustomLeafReflectable,
   CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible,
   AdditiveArithmetic,
   ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral
-where RawValue == Decimal
 {
+  /// The absolute raw monetary value being represented, which may have more fractional units than the currency's "minor units".
+  ///
+  /// For example, while the USD only has a "minor units" of 2, this value could have a fractional unit of `3` when representing a value such as `2.983`.
+  var rawValue: Decimal { get }
+
   /// Creates an exact representation of the amount provided.
   ///
-  /// This initializer is highly **discouraged** from use, as the `init(rawValue:)` provides checks on the given value.
-  /// - Parameter amount: The amount to be wrapped in the currency representation.
-  init(exactly amount: Decimal)
+  /// This initializer is highly **discouraged** from use, as the `init(amount:)` provides checks on the given value.
+  /// - Parameter rawValue: The amount to be wrapped in the currency representation.
+  init(exactly: Decimal)
 
   /// The ISO 4217 information about this currency.
   var metadata: CurrencyMetadata.Type { get }
@@ -38,12 +41,12 @@ extension Currency where Self: CurrencyMetadata {
   public var metadata: CurrencyMetadata.Type { return Self.self }
 }
 
-// MARK: RawRepresentable
 extension Currency {
-  public init?(rawValue: Decimal) {
-    switch rawValue {
+  /// Create a representation of the amount provided, or `nil` if `NaN`.
+  public init?(_ amount: Decimal) {
+    switch amount {
     case .nan, .quietNaN: return nil
-    default: self.init(exactly: rawValue)
+    default: self.init(exactly: amount)
     }
   }
 }
@@ -65,7 +68,7 @@ extension Currency {
 
 // MARK: AdditiveArithmetic
 extension Currency {
-  public static var zero: Self { return .init(exactly: 0) }
+  public static var zero: Self { return Self(exactly: 0) }
 
   public static func +(lhs: Self, rhs: Self) -> Self {
     return .init(exactly: lhs.rawValue + rhs.rawValue)
@@ -231,7 +234,7 @@ extension Currency {
   public var customMirror: Mirror {
     return .init(self, children: [
       "rawValue": self.rawValue.description,
-      "plainRoundedAmound": self.roundedAmount.description,
+      "bankersRoundedAmound": self.roundedAmount.description,
       "metadata": (
         name: self.metadata.name,
         alphabeticCode: self.metadata.alphabeticCode,
