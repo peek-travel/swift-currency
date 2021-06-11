@@ -1,3 +1,11 @@
+struct SOmething<MyCurrency: Currency> {
+  init(_ value: MyCurrency) { }
+}
+
+let something = SOmething(AnyCurrency(...))
+
+let usd = USD(3.0) * 2.0
+
 //import Foundation
 //
 ///// A type-erased container for a `Currency` value.

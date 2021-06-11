@@ -31,7 +31,7 @@ public protocol Currency:
   ///
   /// This initializer is highly **discouraged** from use, as the `init(amount:)` provides checks on the given value.
   /// - Parameter rawValue: The amount to be wrapped in the currency representation.
-  init(exactly: Decimal)
+  init(exactly: Decimal, metadata: CurrencyMetadata.Type)
 
   /// The ISO 4217 information about this currency.
   var metadata: CurrencyMetadata.Type { get }
@@ -39,6 +39,10 @@ public protocol Currency:
 
 extension Currency where Self: CurrencyMetadata {
   public var metadata: CurrencyMetadata.Type { return Self.self }
+
+  public init(exactly: Decimal) {
+    self.init(exactly: exactly, metadata: Self.self)
+  }
 }
 
 extension Currency {
@@ -46,7 +50,7 @@ extension Currency {
   public init?(_ amount: Decimal) {
     switch amount {
     case .nan, .quietNaN: return nil
-    default: self.init(exactly: amount)
+    default: self.init(exactly: amount, metadata: self.metadata)
     }
   }
 }
@@ -84,8 +88,14 @@ extension Currency {
 
 // MARK: Additional Arithmetic
 extension Currency {
+  // perhaps do this generic w/ Numeric, Double, Decimal, etc. will be supported
+  // look at Numerics lib for "better" Decimal
+  // concrete overloads will be faster to compile, perhaps convert to method instead of operator
   public static func *(lhs: Self, rhs: Self) -> Self {
     return .init(exactly: lhs.rawValue * rhs.rawValue)
+  }
+  public static func *(lhs: Self, rhs: Double) -> Self {
+    return .init(exactly: lhs.rawValue * rhs)
   }
   
   public static func /(lhs: Self, rhs: Self) -> Self {
