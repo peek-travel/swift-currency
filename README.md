@@ -55,19 +55,13 @@ receive regular unit testing.
 
 ## Installing
 
-### Swift Package Manager
-
-The preferred installation method is with [SPM](https://swift.org/getting-started/#using-the-package-manager). Just add the package reference to your **Package.swift**.
+Add the package reference to your **Package.swift** to install via SwiftPM.
 
 ```swift
 dependencies: [
     .package(url: "https://github.com/peek-travel/swift-currency", from: "0.6.0")
 ]
 ```
-
-### Carthage
-
-To install with [Carthage](https://github.com/Carthage/Carthage), just add the line `gh "https://github.com/peek-travel/swift-currency" ~> 0.6.0` to your **Cartfile**.
 
 ## Documentation
 
