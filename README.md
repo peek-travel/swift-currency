@@ -65,9 +65,7 @@ dependencies: [
 
 ## Documentation
 
-The API docs for the latest tagged release are always available at [peek-travel.github.io/swift-currency](https://peek-travel.github.io/swift-currency).
-
-For "how to use" guides, and additional information about the project, [see the documentation](./docs).
+Documentation is available from the [Swift Package Index](https://swiftpackageindex.com/peek-travel/swift-currency/documentation).
 
 ## Questions
 

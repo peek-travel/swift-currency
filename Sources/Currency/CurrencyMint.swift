@@ -49,33 +49,6 @@ extension CurrencyMint {
 // MARK: CurrencyMint
 
 /// A generator object that supports creation of type-safe currencies by their alphabetic or numeric code identifiers.
-///
-/// By default, the generator only references the ISO 4217 specification of identifiers to determine which currency type to create.
-///
-///     let usd = CurrencyMint.standard.make(identifier: "USD", amount: 30.23)
-///     print(usd)
-///     // USD(30.23)
-///
-/// If it's desired to support currencies not found in the supported ISO 4217 specification,
-/// a closure that will be referenced as a fallback can be provided at initialization:
-///
-///     let mint = CurrencyMint(fallbackLookup: { identifier in
-///       guard identifier == .alphaCode("KED") else { return USD.self /* or nil */ }
-///       return KED.self // the custom currency type
-///     }
-///     let ked = mint.make(identifier: "KED")
-///     let unknownCurrency = mint.make(identifier: 666)
-///     print(ked, unknownCurrency)
-///     // KED(0), USD(0)
-///
-/// In most cases, it's desired to just provide a single fallback currency when type lookup fails:
-///
-///     let mint = CurrencyMint(defaultCurrency: USD.self)
-///     let value = mint.make(identifier: "_SL", amount: 300)
-///     print(value)
-///     // USD(300)
-///
-/// See [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html)
 public final class CurrencyMint {
   /// A closure that receives a currency identifier and finds a matching concrete currency type.
   public typealias IdentifierLookup = (CurrencyIdentifier) -> AnyCurrency.Type?
