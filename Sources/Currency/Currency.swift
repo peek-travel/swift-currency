@@ -27,8 +27,8 @@ import func Foundation.NSDecimalRound
 ///
 /// _Equality comparisons and most arithmetic operations use this value._
 public protocol Currency:
-//  CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible,
-  CustomLeafReflectable,
+  CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible,
+  CustomReflectable,
   Comparable, Hashable,
   ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral
 {
