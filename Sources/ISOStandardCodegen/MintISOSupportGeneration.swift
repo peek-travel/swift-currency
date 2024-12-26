@@ -43,7 +43,7 @@ fileprivate func makeIdentifierLookupSnippet(
     .map {
       let patternMatch = type == .numeric ? $0.identifiers.numeric.description : "\"\($0.identifiers.alphabetic)\""
 
-      return "case \(patternMatch): return \($0.identifiers.alphabetic).self"
+      return "case \(patternMatch): return _New_\($0.identifiers.alphabetic).self"
     }
     .joined(separator: "\n\t\t")
 
@@ -51,7 +51,7 @@ fileprivate func makeIdentifierLookupSnippet(
   let parameterType = type == .numeric ? "UInt16" : "String"
 
   return """
-  internal static func lookup(\(argumentName) code: \(parameterType)) -> AnyCurrency.Type? {
+  internal static func lookup(\(argumentName) code: \(parameterType)) -> (any Currency.Type)? {
   \t\tswitch code {
   \t\t\(casesSnippet)
 

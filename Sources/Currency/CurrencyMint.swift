@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2020 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -51,7 +51,7 @@ extension CurrencyMint {
 /// A generator object that supports creation of type-safe currencies by their alphabetic or numeric code identifiers.
 public final class CurrencyMint {
   /// A closure that receives a currency identifier and finds a matching concrete currency type.
-  public typealias IdentifierLookup = (CurrencyIdentifier) -> AnyCurrency.Type?
+  public typealias IdentifierLookup = (CurrencyIdentifier) -> (any Currency.Type)?
 
   /// Returns a shared currency generator that only provides ISO 4217 defined currencies.
   public static var standard: CurrencyMint { return .init() }
@@ -68,8 +68,8 @@ public final class CurrencyMint {
 
   /// Creates an instance that will always resolves the provided currency type when ISO 4217 specification lookup fails.
   /// - Parameter defaultCurrency: The default currency type to provide when a currency's identifier is not found in the ISO 4217 specification.
-  public init<T: CurrencyProtocol>(defaultCurrency: T.Type) {
-    self.fallbackLookup = { _ in return defaultCurrency }
+  public init(defaultCurrency: (some Currency).Type) {
+    self.fallbackLookup = { _ in defaultCurrency }
   }
 
   private let fallbackLookup: IdentifierLookup
@@ -83,7 +83,7 @@ extension CurrencyMint {
   ///   - identifier: The identifier of the currency to be created.
   ///   - minorUnits: The quantity of minor units the currency value should represent. The default is `0`.
   /// - Returns: An instance of a currency that matches the provided identifier with the desired amount; otherwise `nil`.
-  public func make(identifier: CurrencyIdentifier, minorUnits value: Int64 = .zero) -> AnyCurrency? {
+  public func make(identifier: CurrencyIdentifier, minorUnits value: Int64 = .zero) -> (any Currency)? {
     guard let currencyType = self.lookup(identifier) else { return nil }
     return currencyType.init(minorUnits: value)
   }
@@ -91,15 +91,15 @@ extension CurrencyMint {
   /// Creates a currency value for the provided identifier.
   /// - Parameters:
   ///   - identifier: The identifier of the currency to be created.
-  ///   - amount: The amount the currency value should represent.
+  ///   - value: The amount the currency value should represent.
   /// - Returns: An instance of a currency that matches the provided identifier with the desired amount; otherwise `nil`.
-  public func make(identifier: CurrencyIdentifier, amount value: Decimal) -> AnyCurrency? {
+  public func make(identifier: CurrencyIdentifier, exactAmount value: Decimal) -> (any Currency)? {
     guard let currencyType = self.lookup(identifier) else { return nil }
-    return currencyType.init(amount: value)
+    return currencyType.init(exactAmount: value)
   }
 
-  private func lookup(_ identifier: CurrencyIdentifier) -> AnyCurrency.Type? {
-    var typeFound: AnyCurrency.Type? = nil
+  private func lookup(_ identifier: CurrencyIdentifier) -> (any Currency.Type)? {
+    var typeFound: (any Currency.Type)? = nil
     switch identifier {
     case let .alphaCode(value): typeFound = CurrencyMint.lookup(byAlphaCode: value)
     case let .numericCode(value): typeFound = CurrencyMint.lookup(byNumCode: value)
