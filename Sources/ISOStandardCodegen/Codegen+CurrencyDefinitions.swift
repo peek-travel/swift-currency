@@ -14,18 +14,23 @@
 
 import Foundation
 
-func makeISOCurrencyDefinitionFile(at destinationURL: URL, from metadata: [CurrencyMetadata]) throws {
-  let typeDefinitions = makeTypeDefinitions(from: metadata)
-  let fileContent = makeFileContent(
-    withBody: "import struct Foundation.Decimal\n\n"
-      .appending(typeDefinitions.joined(separator: "\n\n"))
-  )
+func makeISOCurrencyDefinitionFile(at destinationURL: URL, from source: [CurrencyDefinition]) throws {
+  let typeDefinitions = makeTypeDefinitions(from: source)
+    .joined(separator: "\n\n")
+
+  let fileContent = """
+  \(makeFileHeader())
+  
+  import struct Foundation.Decimal
+  
+  \(typeDefinitions)
+  """
 
   try fileContent.write(to: destinationURL, atomically: true, encoding: .utf8)
 }
 
-private func makeTypeDefinitions(from metadata: [CurrencyMetadata]) -> [String] {
-  return metadata.map {
+private func makeTypeDefinitions(from definitions: [CurrencyDefinition]) -> [String] {
+  return definitions.map {
     definition in
 
     let summary: String = {

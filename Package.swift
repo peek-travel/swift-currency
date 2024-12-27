@@ -8,9 +8,7 @@ let package = Package(
     products: [
         .library(name: "Currency", targets: ["Currency"]),
     ],
-    dependencies: [
-      .package(url: "https://github.com/swiftcsv/SwiftCSV.git", from: "0.8.1")
-    ],
+    dependencies: [],
     targets: [
       .target(
         name: "Currency",
@@ -20,10 +18,7 @@ let package = Package(
       .testTarget(name: "CurrencyTests", dependencies: ["Currency"]),
 
       .executableTarget(
-        name: "ISOStandardCodegen",
-        dependencies: [
-          .product(name: "SwiftCSV", package: "SwiftCSV")
-        ]
+        name: "ISOStandardCodegen"
       ),
       .plugin(
         name: "ISOStandardCodegenPlugin",
