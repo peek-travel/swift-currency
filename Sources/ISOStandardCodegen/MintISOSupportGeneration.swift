@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2022 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -43,7 +43,7 @@ fileprivate func makeIdentifierLookupSnippet(
     .map {
       let patternMatch = type == .numeric ? $0.identifiers.numeric.description : "\"\($0.identifiers.alphabetic)\""
 
-      return "case \(patternMatch): return _New_\($0.identifiers.alphabetic).self"
+      return "case \(patternMatch): return \($0.identifiers.alphabetic).self"
     }
     .joined(separator: "\n\t\t")
 

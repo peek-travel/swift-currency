@@ -53,21 +53,7 @@ private func makeTypeDefinitions(from metadata: [CurrencyMetadata]) -> [String] 
 
     return """
     \(summary)
-    public struct \(definition.identifiers.alphabetic): CurrencyProtocol, CurrencyMetadata {
-      public static var name: String { "\(definition.name)" }
-      public static var alphabeticCode: String { "\(definition.identifiers.alphabetic)" }
-      public static var numericCode: UInt16 { \(definition.identifiers.numeric) }
-      public static var minorUnits: UInt8 { \(definition.minorUnits) }
-
-      public var minorUnits: Int64 { self._minorUnits }
-
-      private let _minorUnits: Int64
-
-      public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
-    }
-            
-    \(summary)
-    public struct _New_\(definition.identifiers.alphabetic): Currency, CurrencyDescriptor {
+    public struct \(definition.identifiers.alphabetic): Currency, CurrencyDescriptor {
       public static var name: String { "\(definition.name)" }
       public static var alphabeticCode: String { "\(definition.identifiers.alphabetic)" }
       public static var numericCode: UInt16 { \(definition.identifiers.numeric) }

@@ -29,23 +29,23 @@ extension CurrencyTests {
       )
     }
 
-    assertInit(amount: 30.23, for: _New_USD.self)
-    assertInit(amount: -208.001, for: _New_USD.self)
-    assertInit(amount: .nan, for: _New_USD.self)
+    assertInit(amount: 30.23, for: USD.self)
+    assertInit(amount: -208.001, for: USD.self)
+    assertInit(amount: .nan, for: USD.self)
 
-    assertInit(amount: 100.23, for: _New_JPY.self)
-    assertInit(amount: -39820, for: _New_JPY.self)
-    assertInit(amount: .nan, for: _New_JPY.self)
+    assertInit(amount: 100.23, for: JPY.self)
+    assertInit(amount: -39820, for: JPY.self)
+    assertInit(amount: .nan, for: JPY.self)
 
-    assertInit(amount: 02838.29708, for: _New_KWD.self)
-    assertInit(amount: -300.87, for: _New_KWD.self)
-    assertInit(amount: .nan, for: _New_KWD.self)
+    assertInit(amount: 02838.29708, for: KWD.self)
+    assertInit(amount: -300.87, for: KWD.self)
+    assertInit(amount: .nan, for: KWD.self)
   }
 
   func test_init_minorUnits_correctlyConvertsToDecimal() {
-    XCTAssertEqual(_New_USD(minorUnits: 100), _New_USD(exactAmount: 1.0))
-    XCTAssertEqual(_New_USD(minorUnits: 101), _New_USD(exactAmount: 1.01))
-    XCTAssertEqual(_New_USD(minorUnits: 50011), _New_USD(exactAmount: 500.11))
+    XCTAssertEqual(USD(minorUnits: 100), USD(exactAmount: 1.0))
+    XCTAssertEqual(USD(minorUnits: 101), USD(exactAmount: 1.01))
+    XCTAssertEqual(USD(minorUnits: 50011), USD(exactAmount: 500.11))
   }
 }
 
@@ -53,27 +53,27 @@ extension CurrencyTests {
 
 extension CurrencyTests {
   func test_0MinorUnits_representationIsCorrect() {
-    XCTAssertEqual(_New_JPY.zero.minorUnits, .zero)
-    XCTAssertEqual(_New_JPY(exactAmount: 10.01).minorUnits, 10)
-    XCTAssertEqual(_New_JPY(exactAmount: 100).minorUnits, 100)
+    XCTAssertEqual(JPY.zero.minorUnits, .zero)
+    XCTAssertEqual(JPY(exactAmount: 10.01).minorUnits, 10)
+    XCTAssertEqual(JPY(exactAmount: 100).minorUnits, 100)
   }
 
   func test_1MinorUnits_representationIsCorrect() {
-    XCTAssertEqual(_New_XTS.zero.minorUnits, .zero)
-    XCTAssertEqual(_New_XTS(exactAmount: 10.01).minorUnits, 100)
-    XCTAssertEqual(_New_XTS(exactAmount: 100).minorUnits, 1000)
+    XCTAssertEqual(XTS.zero.minorUnits, .zero)
+    XCTAssertEqual(XTS(exactAmount: 10.01).minorUnits, 100)
+    XCTAssertEqual(XTS(exactAmount: 100).minorUnits, 1000)
   }
 
   func test_2MinorUnits_representationIsCorrect() {
-    XCTAssertEqual(_New_USD.zero.minorUnits, .zero)
-    XCTAssertEqual(_New_USD(exactAmount: 10.01).minorUnits, 1001)
-    XCTAssertEqual(_New_USD(exactAmount: 100).minorUnits, 10000)
+    XCTAssertEqual(USD.zero.minorUnits, .zero)
+    XCTAssertEqual(USD(exactAmount: 10.01).minorUnits, 1001)
+    XCTAssertEqual(USD(exactAmount: 100).minorUnits, 10000)
   }
 
   func test_3MinorUnits_representationIsCorrect() {
-    XCTAssertEqual(_New_KWD.zero.minorUnits, .zero)
-    XCTAssertEqual(_New_KWD(exactAmount: 10.01).minorUnits, 10010)
-    XCTAssertEqual(_New_KWD(exactAmount: 100).minorUnits, 100000)
+    XCTAssertEqual(KWD.zero.minorUnits, .zero)
+    XCTAssertEqual(KWD(exactAmount: 10.01).minorUnits, 10010)
+    XCTAssertEqual(KWD(exactAmount: 100).minorUnits, 100000)
   }
 }
 
@@ -90,7 +90,7 @@ extension CurrencyTests {
   }
 
   func test_equatable_whenDifferentDescriptors_isFalse() {
-    XCTAssertFalse(_New_USD(exactAmount: .nan) == TestCurrency(exactAmount: .nan))
+    XCTAssertFalse(USD(exactAmount: .nan) == TestCurrency(exactAmount: .nan))
   }
 
   func test_equatable_whenSameDescriptors_andSameExactAmount_isTrue() {
@@ -105,8 +105,8 @@ extension CurrencyTests {
   }
 
   func test_comparable_whenDifferentDescriptors_comparesDescriptorPrimaryCode() {
-    XCTAssertTrue(TestCurrency(exactAmount: 30) < _New_USD(exactAmount: 30))
-    XCTAssertTrue(_New_KWD(exactAmount: 30) < TestCurrency(exactAmount: 30))
+    XCTAssertTrue(TestCurrency(exactAmount: 30) < USD(exactAmount: 30))
+    XCTAssertTrue(KWD(exactAmount: 30) < TestCurrency(exactAmount: 30))
   }
 
   func test_comparable_whenSameDescriptors_comparesExactAmount() {
@@ -115,7 +115,7 @@ extension CurrencyTests {
 
   func test_hashable_whenDifferentDescriptors_hasDifferentHashValues() {
     let first = self._hash_currency(TestCurrency(exactAmount: 30))
-    let second = self._hash_currency(_New_USD(exactAmount: 30))
+    let second = self._hash_currency(USD(exactAmount: 30))
 
     XCTAssertNotEqual(first, second)
   }
@@ -142,3 +142,25 @@ extension CurrencyTests {
 }
 
 // MARK: Example Usage
+
+extension CurrencyTests {
+  func test_existential_mathCompiles() {
+    let value: any Currency = USD(minorUnits: 300)
+
+    XCTAssertTrue(value is USD)
+    XCTAssertEqual(value.adding(3.5).exactAmount, 6.5)
+  }
+
+  func test_existential_isImplicitlyOpened() {
+    func someGenericContext(_ value: some Currency) -> Bool {
+      return value is USD
+    }
+    func someOtherGenericContext<C: Currency>(_ value: C) -> C {
+      return value + 3.5
+    }
+
+    let value: any Currency = USD.zero
+    XCTAssertTrue(someGenericContext(value))
+    XCTAssertEqual(someOtherGenericContext(value).exactAmount, 3.5)
+  }
+}

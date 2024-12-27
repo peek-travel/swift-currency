@@ -16,16 +16,16 @@ import Currency
 import XCTest
 
 final class CurrencyStringRepresentationTests: XCTestCase {
-  let sampleDollar = _New_USD(300.8)
-  let sampleYen    = _New_JPY(400.98)
+  let sampleDollar = USD(300.8)
+  let sampleYen    = JPY(400.98)
 }
 
 // MARK: Reflection Description
 
 extension CurrencyStringRepresentationTests {
   func test_reflectionRepresentation_includesIdentifierName() {
-    XCTAssertTrue(String(reflecting: self.sampleDollar).contains(_New_USD.alphabeticCode))
-    XCTAssertTrue(String(reflecting: self.sampleYen).contains(_New_JPY.alphabeticCode))
+    XCTAssertTrue(String(reflecting: self.sampleDollar).contains(USD.alphabeticCode))
+    XCTAssertTrue(String(reflecting: self.sampleYen).contains(JPY.alphabeticCode))
   }
 
   func test_reflectionRepresentation_includesExactAmount() {
@@ -57,7 +57,7 @@ extension CurrencyStringRepresentationTests {
         .children
         .first(where: { $0.label == "descriptor" })
     )
-    XCTAssertNotNil(child.value as? _New_USD.Type)
+    XCTAssertNotNil(child.value as? USD.Type)
   }
 }
 
@@ -65,8 +65,8 @@ extension CurrencyStringRepresentationTests {
 
 extension CurrencyStringRepresentationTests {
   func test_description_includesIdentifierName() {
-    XCTAssertTrue(self.sampleDollar.description.contains(_New_USD.alphabeticCode))
-    XCTAssertTrue(self.sampleYen.description.contains(_New_JPY.alphabeticCode))
+    XCTAssertTrue(self.sampleDollar.description.contains(USD.alphabeticCode))
+    XCTAssertTrue(self.sampleYen.description.contains(JPY.alphabeticCode))
   }
 
   func test_description_includesExactAmount() {
@@ -79,8 +79,8 @@ extension CurrencyStringRepresentationTests {
 
 extension CurrencyStringRepresentationTests {
   func test_debugDescription_includesIdentifierName() {
-    XCTAssertTrue(self.sampleDollar.debugDescription.contains(_New_USD.alphabeticCode))
-    XCTAssertTrue(self.sampleYen.debugDescription.contains(_New_JPY.alphabeticCode))
+    XCTAssertTrue(self.sampleDollar.debugDescription.contains(USD.alphabeticCode))
+    XCTAssertTrue(self.sampleYen.debugDescription.contains(JPY.alphabeticCode))
   }
 
   func test_debugDescription_includesExactAmount() {
@@ -107,27 +107,27 @@ extension CurrencyStringRepresentationTests {
 
 extension CurrencyStringRepresentationTests {
   func test_stringInterpolation_forLocale_whenNilValue_usesNilDescription_whenProvided() {
-    let value: _New_USD? = nil
+    let value: USD? = nil
     XCTAssertEqual("\(localize: value, nilDescription: #function)", #function)
   }
 
   func test_stringInterpolation_withFormatter_whenNilValue_usesNilDescription_whenProvided() {
-    let value: _New_USD? = nil
+    let value: USD? = nil
     XCTAssertEqual("\(localize: value, with: NumberFormatter(), nilDescription: #function)", #function)
   }
 
   func test_stringInterpolation_forLocale_whenNilValue_hasDefaultDescription() {
-    let value: _New_USD? = nil
+    let value: USD? = nil
     XCTAssertEqual("\(localize: value)", "nil")
   }
 
   func test_stringInterpolation_withFormatter_whenNilValue_hasDefaultDescription() {
-    let value: _New_USD? = nil
+    let value: USD? = nil
     XCTAssertEqual("\(localize: value, with: NumberFormatter())", "nil")
   }
 
   func test_stringInterpolation_forLocale_usesLocale_whenProvided() {
-    let pounds = _New_GBP(14928.789)
+    let pounds = GBP(14928.789)
     XCTAssertEqual("\(localize: pounds, for: .init(identifier: "en_UK"))", "£14,928.79")
     XCTAssertEqual("\(localize: pounds, for: .init(identifier: "de_DE"))", "14.928,79 £")
   }
@@ -138,18 +138,18 @@ extension CurrencyStringRepresentationTests {
     formatter.currencyGroupingSeparator = " "
     formatter.currencyDecimalSeparator = "'"
 
-    let pounds = _New_GBP(14928.018)
-    formatter.currencyCode = _New_GBP.alphabeticCode
+    let pounds = GBP(14928.018)
+    formatter.currencyCode = GBP.alphabeticCode
     XCTAssertEqual("\(localize: pounds, with: formatter)", "£14 928'02")
 
     let expectedYenResult = "¥4 001"
-    let yen = _New_JPY(4000.9)
-    formatter.currencyCode = _New_JPY.alphabeticCode
+    let yen = JPY(4000.9)
+    formatter.currencyCode = JPY.alphabeticCode
     XCTAssertEqual("\(localize: yen, with: formatter)", expectedYenResult)
   }
 
   func test_stringInterpolation_forLocale_usesDefaultLocale() {
-    XCTAssertEqual("\(localize: _New_USD(4321.389))", "$4,321.39")
+    XCTAssertEqual("\(localize: USD(4321.389))", "$4,321.39")
   }
 }
 
@@ -157,11 +157,11 @@ extension CurrencyStringRepresentationTests {
 
 extension CurrencyStringRepresentationTests {
   func test_localizedString_forLocale_usesDefaultLocale() {
-    XCTAssertEqual(_New_USD(4321.389).localizedString(), "$4,321.39")
+    XCTAssertEqual(USD(4321.389).localizedString(), "$4,321.39")
   }
 
   func test_localizedString_forLocale_usesProvidedLocale() {
-    let pounds = _New_GBP(14928.789)
+    let pounds = GBP(14928.789)
     XCTAssertEqual(pounds.localizedString(for: .init(identifier: "en_UK")), "£14,928.79")
     XCTAssertEqual(pounds.localizedString(for: .init(identifier: "de_DE")), "14.928,79 £")
   }
@@ -172,13 +172,13 @@ extension CurrencyStringRepresentationTests {
     formatter.currencyGroupingSeparator = " "
     formatter.currencyDecimalSeparator = "'"
 
-    let pounds = _New_GBP(14928.018)
-    formatter.currencyCode = _New_GBP.alphabeticCode
+    let pounds = GBP(14928.018)
+    formatter.currencyCode = GBP.alphabeticCode
     XCTAssertEqual(pounds.localizedString(using: formatter), "£14 928'02")
 
     let expectedYenResult = "¥4 001"
-    let yen = _New_JPY(4000.9)
-    formatter.currencyCode = _New_JPY.alphabeticCode
+    let yen = JPY(4000.9)
+    formatter.currencyCode = JPY.alphabeticCode
     XCTAssertEqual(yen.localizedString(using: formatter), expectedYenResult)
   }
 }
