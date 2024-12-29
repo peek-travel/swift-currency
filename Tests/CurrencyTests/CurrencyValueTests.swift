@@ -15,13 +15,13 @@
 import Currency
 import XCTest
 
-final class CurrencyTests: XCTestCase { }
+final class CurrencyValueTests: XCTestCase { }
 
 // MARK: Initialization
 
-extension CurrencyTests {
+extension CurrencyValueTests {
   func test_init_exactAmount_doesNotModifyValue() {
-    func assertInit(amount: Decimal, for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertInit(amount: Decimal, for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       XCTAssertEqual(
         currencyType.init(exactAmount: amount).exactAmount,
         amount,
@@ -51,7 +51,7 @@ extension CurrencyTests {
 
 // MARK: Minor Units Representation
 
-extension CurrencyTests {
+extension CurrencyValueTests {
   func test_0MinorUnits_representationIsCorrect() {
     XCTAssertEqual(JPY.zero.minorUnits, .zero)
     XCTAssertEqual(JPY(exactAmount: 10.01).minorUnits, 10)
@@ -79,8 +79,8 @@ extension CurrencyTests {
 
 // MARK: Equatable, Hashable, Comparable
 
-extension CurrencyTests {
-  struct TestCurrency: Currency, CurrencyDescriptor {
+extension CurrencyValueTests {
+  struct TestCurrency: CurrencyValue, CurrencyDescriptor {
     static var name: String = "TestCurrency"
     static var alphabeticCode: String = "TC"
     static var numericCode: UInt16 = .max
@@ -134,7 +134,7 @@ extension CurrencyTests {
     XCTAssertNotEqual(first, second)
   }
 
-  private func _hash_currency(_ currency: some Currency) -> Int {
+  private func _hash_currency(_ currency: some CurrencyValue) -> Int {
     var hasher = Hasher()
     hasher.combine(currency)
     return hasher.finalize()
@@ -143,23 +143,23 @@ extension CurrencyTests {
 
 // MARK: Example Usage
 
-extension CurrencyTests {
+extension CurrencyValueTests {
   func test_existential_mathCompiles() {
-    let value: any Currency = USD(minorUnits: 300)
+    let value: any CurrencyValue = USD(minorUnits: 300)
 
     XCTAssertTrue(value is USD)
     XCTAssertEqual(value.adding(3.5).exactAmount, 6.5)
   }
 
   func test_existential_isImplicitlyOpened() {
-    func someGenericContext(_ value: some Currency) -> Bool {
+    func someGenericContext(_ value: some CurrencyValue) -> Bool {
       return value is USD
     }
-    func someOtherGenericContext<C: Currency>(_ value: C) -> C {
+    func someOtherGenericContext<Currency: CurrencyValue>(_ value: Currency) -> Currency {
       return value + 3.5
     }
 
-    let value: any Currency = USD.zero
+    let value: any CurrencyValue = USD.zero
     XCTAssertTrue(someGenericContext(value))
     XCTAssertEqual(someOtherGenericContext(value).exactAmount, 3.5)
   }

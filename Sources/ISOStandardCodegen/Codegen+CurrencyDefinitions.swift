@@ -58,7 +58,7 @@ private func makeTypeDefinitions(from definitions: [CurrencyDefinition]) -> [Str
 
     return """
     \(summary)
-    public struct \(definition.identifiers.alphabetic): Currency, CurrencyDescriptor {
+    public struct \(definition.identifiers.alphabetic): CurrencyValue, CurrencyDescriptor {
       public static var name: String { "\(definition.name)" }
       public static var alphabeticCode: String { "\(definition.identifiers.alphabetic)" }
       public static var numericCode: UInt16 { \(definition.identifiers.numeric) }
