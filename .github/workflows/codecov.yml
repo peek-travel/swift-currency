@@ -1,26 +1,29 @@
 name: Code Coverage
 
-on: pull_request
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   codecov:
+    if: ${{ !(github.event.pull_request.draft || false) }}
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: Check Swift version
       run: swift --version
-    - name: Gather code coverage
+    - name: Run tests with code coverage
       run: swift test --enable-code-coverage
-    - name: Generate report
-      run: |
-        xcrun llvm-cov show \
-          .build/x86_64-apple-macosx/debug/currencyPackageTests.xctest/Contents/MacOS/currencyPackageTests \
-          -instr-profile=".build/x86_64-apple-macosx/debug/codecov/default.profdata" \
-          -ignore-filename-regex="(.build|Tests|ISOCurrencies)" > coverage.txt
-    - name: Upload report
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      run: |
-        bash <(curl -s https://codecov.io/bash) \
-          -J "Currency" \
-          -D ".build/debug"
+    - name: Upload code coverage
+      uses: vapor/swift-codecov-action@v0.3
+      with:
+        codecov_token: ${{ secrets.CODECOV_TOKEN }}
+        build_parameters: -c debug
