@@ -56,8 +56,17 @@ private func makeTypeDefinitions(from definitions: [CurrencyDefinition]) -> [Str
       }
     }()
 
+    let documentationFlag: String = {
+#if swift(<5.8)
+      return ""
+#else
+      return "@_documentation(visibility: private)"
+#endif
+    }()
+
     return """
     \(summary)
+    \(documentationFlag)
     public struct \(definition.identifiers.alphabetic): CurrencyValue, CurrencyDescriptor {
       public static var name: String { "\(definition.name)" }
       public static var alphabeticCode: String { "\(definition.identifiers.alphabetic)" }
