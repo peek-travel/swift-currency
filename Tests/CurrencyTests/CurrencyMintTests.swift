@@ -61,13 +61,13 @@ extension CurrencyMintTests {
   }
 
   func test_withDefaultCurrencyLookup_whenLookupFails_returnsDefaultCurrency() {
-    let mint = CurrencyMint(defaultCurrency: _New_USD.self)
+    let mint = CurrencyMint(defaultCurrency: USD.self)
 
     var money = mint.make(identifier: .fakeCurrencyAlphaCode)
-    XCTAssertTrue(money is _New_USD)
+    XCTAssertTrue(money is USD)
 
     money = mint.make(identifier: .fakeCurrencyNumericCode)
-    XCTAssertTrue(money is _New_USD)
+    XCTAssertTrue(money is USD)
   }
 }
 
@@ -78,26 +78,26 @@ extension CurrencyMintTests {
     let mint = CurrencyMint.standard
 
     let pounds = mint.make(identifier: .poundsAlphaCode, minorUnits: .zero)
-    XCTAssertTrue(pounds is _New_GBP)
+    XCTAssertTrue(pounds is GBP)
 
     let yen = mint.make(identifier: .yenNumericCode, minorUnits: 300)
-    XCTAssertTrue(yen is _New_JPY)
+    XCTAssertTrue(yen is JPY)
 
     let euros = CurrencyMint.standard.make(identifier: 978, minorUnits: .zero)
-    XCTAssertTrue(euros is _New_EUR)
+    XCTAssertTrue(euros is EUR)
   }
 
   func test_make_withAmount_returnsISOCurrency() {
     let mint = CurrencyMint.standard
 
     let pounds = mint.make(identifier: .poundsAlphaCode, exactAmount: .zero)
-    XCTAssertTrue(pounds is _New_GBP)
+    XCTAssertTrue(pounds is GBP)
 
     let yen = mint.make(identifier: .yenNumericCode, exactAmount: 192.8)
-    XCTAssertTrue(yen is _New_JPY)
+    XCTAssertTrue(yen is JPY)
 
     let euros = CurrencyMint.standard.make(identifier: 978, exactAmount: .zero)
-    XCTAssertTrue(euros is _New_EUR)
+    XCTAssertTrue(euros is EUR)
   }
 
   func test_make_withMinorUnits_matchesMinorUnits() {
@@ -127,6 +127,6 @@ extension CurrencyMint.CurrencyIdentifier {
   fileprivate static var fakeCurrencyAlphaCode: Self { "KED" } // "darseks"
   fileprivate static var fakeCurrencyNumericCode: Self { 666 }
 
-  fileprivate static var poundsAlphaCode: Self { .alphaCode(_New_GBP.alphabeticCode) }
-  fileprivate static var yenNumericCode: Self { .numericCode(_New_JPY.numericCode) }
+  fileprivate static var poundsAlphaCode: Self { .alphaCode(GBP.alphabeticCode) }
+  fileprivate static var yenNumericCode: Self { .numericCode(JPY.numericCode) }
 }

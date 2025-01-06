@@ -21,16 +21,16 @@ final class CurrencyDescriptorTests: XCTestCase { }
 
 extension CurrencyDescriptorTests {
   func test_minorUnitsCoefficient_forExactAmount_shiftsLeftByMinorUnits() {
-    XCTAssertEqual(_New_JPY.minorUnitsCoefficient(for: .exactAmount), 1)
-    XCTAssertEqual(_New_XTS.minorUnitsCoefficient(for: .exactAmount), 10)
-    XCTAssertEqual(_New_USD.minorUnitsCoefficient(for: .exactAmount), 100)
-    XCTAssertEqual(_New_KWD.minorUnitsCoefficient(for: .exactAmount), 1000)
+    XCTAssertEqual(JPY.minorUnitsCoefficient(for: .exactAmount), 1)
+    XCTAssertEqual(XTS.minorUnitsCoefficient(for: .exactAmount), 10)
+    XCTAssertEqual(USD.minorUnitsCoefficient(for: .exactAmount), 100)
+    XCTAssertEqual(KWD.minorUnitsCoefficient(for: .exactAmount), 1000)
   }
 
   func test_minorUnitsCoefficient_forMinorUnits_shiftsRightByMinorUnits() {
-    XCTAssertEqual(_New_JPY.minorUnitsCoefficient(for: .minorUnits), 1)
-    XCTAssertEqual(_New_XTS.minorUnitsCoefficient(for: .minorUnits), 0.1)
-    XCTAssertEqual(_New_USD.minorUnitsCoefficient(for: .minorUnits), 0.01)
-    XCTAssertEqual(_New_KWD.minorUnitsCoefficient(for: .minorUnits), 0.001)
+    XCTAssertEqual(JPY.minorUnitsCoefficient(for: .minorUnits), 1)
+    XCTAssertEqual(XTS.minorUnitsCoefficient(for: .minorUnits), 0.1)
+    XCTAssertEqual(USD.minorUnitsCoefficient(for: .minorUnits), 0.01)
+    XCTAssertEqual(KWD.minorUnitsCoefficient(for: .minorUnits), 0.001)
   }
 }

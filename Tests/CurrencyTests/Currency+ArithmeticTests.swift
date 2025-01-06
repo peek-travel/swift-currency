@@ -21,9 +21,9 @@ final class CurrencyArithmeticTests: XCTestCase { }
 
 extension CurrencyArithmeticTests {
   func test_zero_equalsDecimalZero() {
-    XCTAssertTrue(_New_USD.zero.exactAmount == .zero)
-    XCTAssertTrue(_New_JPY.zero.exactAmount == .zero)
-    XCTAssertTrue(_New_KWD.zero.exactAmount == .zero)
+    XCTAssertTrue(USD.zero.exactAmount == .zero)
+    XCTAssertTrue(JPY.zero.exactAmount == .zero)
+    XCTAssertTrue(KWD.zero.exactAmount == .zero)
   }
 
   func test_negated_correctlyInvertsValues() {
@@ -45,9 +45,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertNegationIsCorrect(for: _New_USD.self)
-    assertNegationIsCorrect(for: _New_JPY.self)
-    assertNegationIsCorrect(for: _New_KWD.self)
+    assertNegationIsCorrect(for: USD.self)
+    assertNegationIsCorrect(for: JPY.self)
+    assertNegationIsCorrect(for: KWD.self)
   }
 }
 
@@ -82,9 +82,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertAdditionIsCorrect(for: _New_USD.self)
-    assertAdditionIsCorrect(for: _New_JPY.self)
-    assertAdditionIsCorrect(for: _New_KWD.self)
+    assertAdditionIsCorrect(for: USD.self)
+    assertAdditionIsCorrect(for: JPY.self)
+    assertAdditionIsCorrect(for: KWD.self)
   }
 
   func test_addition_withBinaryInteger_isCorrect() {
@@ -115,9 +115,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertAdditionIsCorrect(for: _New_USD.self)
-    assertAdditionIsCorrect(for: _New_JPY.self)
-    assertAdditionIsCorrect(for: _New_KWD.self)
+    assertAdditionIsCorrect(for: USD.self)
+    assertAdditionIsCorrect(for: JPY.self)
+    assertAdditionIsCorrect(for: KWD.self)
   }
 
   func test_addition_withDecimal_isCorrect() {
@@ -148,9 +148,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertAdditionIsCorrect(for: _New_USD.self)
-    assertAdditionIsCorrect(for: _New_JPY.self)
-    assertAdditionIsCorrect(for: _New_KWD.self)
+    assertAdditionIsCorrect(for: USD.self)
+    assertAdditionIsCorrect(for: JPY.self)
+    assertAdditionIsCorrect(for: KWD.self)
   }
 }
 
@@ -185,9 +185,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertSubtractionIsCorrect(for: _New_USD.self)
-    assertSubtractionIsCorrect(for: _New_JPY.self)
-    assertSubtractionIsCorrect(for: _New_KWD.self)
+    assertSubtractionIsCorrect(for: USD.self)
+    assertSubtractionIsCorrect(for: JPY.self)
+    assertSubtractionIsCorrect(for: KWD.self)
   }
 
   func test_subtraction_withBinaryInteger_isCorrect() {
@@ -218,9 +218,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertSubtractionIsCorrect(for: _New_USD.self)
-    assertSubtractionIsCorrect(for: _New_JPY.self)
-    assertSubtractionIsCorrect(for: _New_KWD.self)
+    assertSubtractionIsCorrect(for: USD.self)
+    assertSubtractionIsCorrect(for: JPY.self)
+    assertSubtractionIsCorrect(for: KWD.self)
   }
 
   func test_subtraction_withDecimal_isCorrect() {
@@ -251,9 +251,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertSubtractionIsCorrect(for: _New_USD.self)
-    assertSubtractionIsCorrect(for: _New_JPY.self)
-    assertSubtractionIsCorrect(for: _New_KWD.self)
+    assertSubtractionIsCorrect(for: USD.self)
+    assertSubtractionIsCorrect(for: JPY.self)
+    assertSubtractionIsCorrect(for: KWD.self)
   }
 }
 
@@ -288,9 +288,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertMultiplicationIsCorrect(for: _New_USD.self)
-    assertMultiplicationIsCorrect(for: _New_JPY.self)
-    assertMultiplicationIsCorrect(for: _New_KWD.self)
+    assertMultiplicationIsCorrect(for: USD.self)
+    assertMultiplicationIsCorrect(for: JPY.self)
+    assertMultiplicationIsCorrect(for: KWD.self)
   }
 
   func test_multiplication_withDecimal_isCorrect() {
@@ -321,9 +321,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertMultiplicationIsCorrect(for: _New_USD.self)
-    assertMultiplicationIsCorrect(for: _New_JPY.self)
-    assertMultiplicationIsCorrect(for: _New_KWD.self)
+    assertMultiplicationIsCorrect(for: USD.self)
+    assertMultiplicationIsCorrect(for: JPY.self)
+    assertMultiplicationIsCorrect(for: KWD.self)
   }
 }
 
@@ -358,9 +358,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertDivisionIsCorrect(for: _New_USD.self)
-    assertDivisionIsCorrect(for: _New_JPY.self)
-    assertDivisionIsCorrect(for: _New_KWD.self)
+    assertDivisionIsCorrect(for: USD.self)
+    assertDivisionIsCorrect(for: JPY.self)
+    assertDivisionIsCorrect(for: KWD.self)
   }
 
   func test_division_withDecimal_isCorrect() {
@@ -391,9 +391,9 @@ extension CurrencyArithmeticTests {
       )
     }
 
-    assertDivisionIsCorrect(for: _New_USD.self)
-    assertDivisionIsCorrect(for: _New_JPY.self)
-    assertDivisionIsCorrect(for: _New_KWD.self)
+    assertDivisionIsCorrect(for: USD.self)
+    assertDivisionIsCorrect(for: JPY.self)
+    assertDivisionIsCorrect(for: KWD.self)
   }
 }
 
@@ -409,7 +409,7 @@ extension CurrencyArithmeticTests {
      ===               ===               ===
      11.97             1.0773 => 1.08    13.0473 => 13.05
      */
-    let prices: [_New_USD] = [
+    let prices: [USD] = [
       3.00,
       2.99,
       5.98
@@ -437,7 +437,7 @@ extension CurrencyArithmeticTests {
      ===               ===               ===                 ===                 ===
      11.97             1.7955 => 1.80    10.1745 => 10.17    0.915705 => 0.92    11.090205 => 11.09
      */
-    let prices: [_New_USD] = [
+    let prices: [USD] = [
       3.00,
       2.99,
       5.98
@@ -477,10 +477,10 @@ extension CurrencyArithmeticTests {
      10% Commission     147.4056556  |    147.406   =>    147.41
      Grand Total      1,621.4622116  |  1,621.466   =>  1,621.47
      */
-    let roomDailyRate = _New_USD(199.98)
+    let roomDailyRate = USD(199.98)
     let discountRate = Decimal(0.06)
     let taxRate = Decimal(0.09)
-    let flatFranchiseFee = _New_USD(5.68)
+    let flatFranchiseFee = USD(5.68)
 
     var runningDailyTotal = roomDailyRate
 
@@ -523,6 +523,6 @@ extension CurrencyArithmeticTests {
     }()
     XCTAssertEqual(expectedResult, 1_621.4622116)
 
-    XCTAssertEqual(totalPrice, _New_USD(exactAmount: expectedResult))
+    XCTAssertEqual(totalPrice, USD(exactAmount: expectedResult))
   }
 }

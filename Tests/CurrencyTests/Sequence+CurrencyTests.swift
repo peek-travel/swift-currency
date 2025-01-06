@@ -21,19 +21,19 @@ final class SequenceCurrencyTests: XCTestCase { }
 
 extension SequenceCurrencyTests {
   func test_sum() {
-    let amounts: [_New_USD] = [304.98, 19.02]
+    let amounts: [USD] = [304.98, 19.02]
     let sumTotal = amounts.sum()
     XCTAssertEqual(sumTotal.roundedAmount, 324)
   }
 
   func test_sum_withWhereClause() {
-    let amounts: [_New_USD] = [304.98, 9.02, 30.21]
+    let amounts: [USD] = [304.98, 9.02, 30.21]
     let sumTotal = amounts.sum(where: { $0.exactAmount > 20 })
     XCTAssertEqual(sumTotal.roundedAmount, 335.19)
   }
 
   func test_sum_withMap() {
-    let prices: [_New_USD] = [3, 2.99, 5.98]
+    let prices: [USD] = [3, 2.99, 5.98]
     let totalTaxes = prices.sum { $0 * Decimal(0.09) }
     XCTAssertEqual(totalTaxes.roundedAmount, 1.08)
   }
