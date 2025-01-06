@@ -16,7 +16,7 @@ import Foundation
 
 // MARK: Even Distribution
 
-extension Currency {
+extension CurrencyValue {
   /// Distributes the current amount into a set number of parts as evenly as possible.
   ///
   /// After splitting the amount evenly, any remainder will be given to the first value in the result collection.

@@ -16,7 +16,7 @@ import Foundation
 
 // MARK: Identity
 
-extension Currency {
+extension CurrencyValue {
   /// The zero value.
   ///
   /// Zero is the identity element for addition. For any value,
@@ -39,7 +39,7 @@ extension Currency {
 
 // MARK: Addition
 
-extension Currency {
+extension CurrencyValue {
   // perhaps convert to minor units, multiply, then convert back to decimal?
 
   public static func +(lhs: Self, rhs: Self) -> Self {
@@ -99,7 +99,7 @@ extension Currency {
 
 // MARK: Subtraction
 
-extension Currency {
+extension CurrencyValue {
   // perhaps convert to minor units, multiply, then convert back to decimal?
 
   public static func -(lhs: Self, rhs: Self) -> Self {
@@ -156,7 +156,7 @@ extension Currency {
 
 //  MARK: Multiplication
 
-extension Currency {
+extension CurrencyValue {
   // perhaps convert to minor units, multiply, then convert back to decimal?
   // let result = Double(lhs.minorUnits * rhs.minorUnits) / pow(10, Double(Self.metadata.minorUnits))
 
@@ -198,7 +198,7 @@ extension Currency {
 
 // MARK: Division
 
-extension Currency {
+extension CurrencyValue {
   // perhaps convert to minor units, multiply, then convert back to decimal?
   // let quotent = Double(lhs.minorUnits) / .init(rhs.minorUnits)
   // let result = quotent * pow(10, Double(Self.metadata.minorUnits))

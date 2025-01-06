@@ -25,7 +25,7 @@ import class Foundation.NSDecimalNumber
 
 // MARK: CustomStringConvertible
 
-extension Currency {
+extension CurrencyValue {
   public var description: String { "\(self.exactAmount) \(Self.descriptor.alphabeticCode)"}
   public var debugDescription: String {
     "\(Self.descriptor.alphabeticCode)(exact: \(self.exactAmount.description), minorUnits: \(self.minorUnits)"
@@ -61,8 +61,8 @@ extension String.StringInterpolation {
   ///   - value: The value to localize. If the value is `nil`, then the `nilDescription` will be used.
   ///   - locale: The Locale to localize the value for. The default is `.current`, ig. the runtime environment's Locale.
   ///   - nilDescription: The optional description to use when the `value` is `nil`.
-  public mutating func appendInterpolation<C: Currency>(
-    localize value: C?,
+  public mutating func appendInterpolation<Currency: CurrencyValue>(
+    localize value: Currency?,
     for locale: Locale = .current,
     nilDescription: String = "nil"
   ) {
@@ -71,7 +71,7 @@ extension String.StringInterpolation {
     let formatter = NumberFormatter()
     formatter.numberStyle = .currency
     formatter.locale = locale
-    formatter.currencyCode = C.descriptor.alphabeticCode
+    formatter.currencyCode = Currency.descriptor.alphabeticCode
 
     self.appendInterpolation(localize: value, with: formatter, nilDescription: nilDescription)
   }
@@ -101,8 +101,8 @@ extension String.StringInterpolation {
   ///   - value: The value to localize. If the value is `nil`, then the `nilDescription` will be used.
   ///   - formatter: The pre-configured formatter to use.
   ///   - nilDescription: The optional description to use when the `value` is `nil`.
-  public mutating func appendInterpolation<C: Currency>(
-    localize value: C?,
+  public mutating func appendInterpolation<Currency: CurrencyValue>(
+    localize value: Currency?,
     with formatter: NumberFormatter,
     nilDescription: String = "nil"
   ) {
@@ -117,7 +117,7 @@ extension String.StringInterpolation {
   }
 }
 
-extension Currency {
+extension CurrencyValue {
   /// Creates a string representation of the currency value, localized to a particular locale.
   ///
   ///       let usd = USD(30.03)

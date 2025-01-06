@@ -15,11 +15,11 @@
 import Currency
 import XCTest
 
-final class CurrencyArithmeticTests: XCTestCase { }
+final class CurrencyValueArithmeticTests: XCTestCase { }
 
 // MARK: Identity
 
-extension CurrencyArithmeticTests {
+extension CurrencyValueArithmeticTests {
   func test_zero_equalsDecimalZero() {
     XCTAssertTrue(USD.zero.exactAmount == .zero)
     XCTAssertTrue(JPY.zero.exactAmount == .zero)
@@ -27,7 +27,7 @@ extension CurrencyArithmeticTests {
   }
 
   func test_negated_correctlyInvertsValues() {
-    func assertNegationIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertNegationIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let positive = currencyType.init(exactAmount: 30.03)
       XCTAssertEqual(
         positive.negated(),
@@ -53,9 +53,9 @@ extension CurrencyArithmeticTests {
 
 // MARK: Addition
 
-extension CurrencyArithmeticTests {
+extension CurrencyValueArithmeticTests {
   func test_addition_withSelf_isCorrect() {
-    func assertAdditionIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertAdditionIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first + currencyType.init(exactAmount: 30.01),
@@ -88,7 +88,7 @@ extension CurrencyArithmeticTests {
   }
 
   func test_addition_withBinaryInteger_isCorrect() {
-    func assertAdditionIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertAdditionIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first + (30 as Int),
@@ -121,7 +121,7 @@ extension CurrencyArithmeticTests {
   }
 
   func test_addition_withDecimal_isCorrect() {
-    func assertAdditionIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertAdditionIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first + (30 as Decimal),
@@ -156,9 +156,9 @@ extension CurrencyArithmeticTests {
 
 // MARK: Subtraction
 
-extension CurrencyArithmeticTests {
+extension CurrencyValueArithmeticTests {
   func test_subtraction_withSelf_isCorrect() {
-    func assertSubtractionIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertSubtractionIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first - currencyType.init(exactAmount: 30.01),
@@ -191,7 +191,7 @@ extension CurrencyArithmeticTests {
   }
 
   func test_subtraction_withBinaryInteger_isCorrect() {
-    func assertSubtractionIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertSubtractionIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first - (30 as Int),
@@ -224,7 +224,7 @@ extension CurrencyArithmeticTests {
   }
 
   func test_subtraction_withDecimal_isCorrect() {
-    func assertSubtractionIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertSubtractionIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first - (30 as Decimal),
@@ -259,9 +259,9 @@ extension CurrencyArithmeticTests {
 
 // MARK: Multiplication
 
-extension CurrencyArithmeticTests {
+extension CurrencyValueArithmeticTests {
   func test_multiplication_withBinaryInteger_isCorrect() {
-    func assertMultiplicationIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertMultiplicationIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first * (3 as Int),
@@ -294,7 +294,7 @@ extension CurrencyArithmeticTests {
   }
 
   func test_multiplication_withDecimal_isCorrect() {
-    func assertMultiplicationIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertMultiplicationIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first * (5.25 as Decimal),
@@ -329,9 +329,9 @@ extension CurrencyArithmeticTests {
 
 // MARK: Division
 
-extension CurrencyArithmeticTests {
+extension CurrencyValueArithmeticTests {
   func test_division_withBinaryInteger_isCorrect() {
-    func assertDivisionIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertDivisionIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300.12)
       XCTAssertEqual(
         first / (3 as Int),
@@ -364,7 +364,7 @@ extension CurrencyArithmeticTests {
   }
 
   func test_division_withDecimal_isCorrect() {
-    func assertDivisionIsCorrect(for currencyType: (some Currency).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertDivisionIsCorrect(for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
       let first = currencyType.init(exactAmount: 300)
       XCTAssertEqual(
         first / (2.4 as Decimal),
@@ -399,7 +399,7 @@ extension CurrencyArithmeticTests {
 
 // MARK: Example Usage
 
-extension CurrencyArithmeticTests {
+extension CurrencyValueArithmeticTests {
   func test_sampleUSDTransaction_withTaxRate_isNotMissingPennies() {
     /*
      original price    taxes (9%)        result

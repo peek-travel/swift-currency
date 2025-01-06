@@ -15,11 +15,11 @@
 import Currency
 import XCTest
 
-final class CurrencyAlgorithmsTests: XCTestCase { }
+final class CurrencyValueAlgorithmsTests: XCTestCase { }
 
 // MARK: Distributed Evenly
 
-extension CurrencyAlgorithmsTests {
+extension CurrencyValueAlgorithmsTests {
   func test_distributedEvenly_with0_orNegative_NumParts_returnsEmptyResult() {
     let value = USD(5)
     XCTAssertTrue(value.distributedEvenly(intoParts: 0).isEmpty)
@@ -63,10 +63,10 @@ extension CurrencyAlgorithmsTests {
     )
   }
 
-  private func run_distributedEvenlyTest<C: Currency>(
-    for currency: C,
+  private func run_distributedEvenlyTest<Currency: CurrencyValue>(
+    for currency: Currency,
     numParts count: Int,
-    expectedResults: [C],
+    expectedResults: [Currency],
     file: StaticString = #file,
     line: UInt = #line
   ) {

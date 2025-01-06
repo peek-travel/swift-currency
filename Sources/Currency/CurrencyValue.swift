@@ -26,7 +26,7 @@ import func Foundation.NSDecimalRound
 /// For example, as the USD uses 1/100 for its minor unit, with the value `USD(1.0)`, `minorUnits` will be the value `100`.
 ///
 /// _Equality comparisons and most arithmetic operations use this value._
-public protocol Currency:
+public protocol CurrencyValue:
   CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible,
   CustomReflectable,
   Comparable, Hashable,
@@ -82,7 +82,7 @@ public protocol Currency:
 
 // MARK: Defaults
 
-extension Currency {
+extension CurrencyValue {
   public var minorUnits: CurrencyMinorUnitRepresentation {
     let scaledAmount = self.exactAmount * Self.descriptor.minorUnitsCoefficient(for: .exactAmount)
     return .init(scaledAmount.int64Value)
@@ -103,14 +103,14 @@ extension Currency {
   }
 }
 
-extension Currency where Self: CurrencyDescriptor {
+extension CurrencyValue where Self: CurrencyDescriptor {
   public static var descriptor: CurrencyDescriptor.Type { Self.self }
 }
 
 // MARK: Equatable
 
-extension Currency {
-  public static func ==<Other: Currency>(lhs: Self, rhs: Other) -> Bool {
+extension CurrencyValue {
+  public static func ==<Other: CurrencyValue>(lhs: Self, rhs: Other) -> Bool {
     guard Self.descriptor == Other.descriptor else { return false }
     return lhs.exactAmount == rhs.exactAmount
   }
@@ -118,8 +118,8 @@ extension Currency {
 
 // MARK: Comparable
 
-extension Currency {
-  public static func < <Other: Currency>(lhs: Self, rhs: Other) -> Bool {
+extension CurrencyValue {
+  public static func < <Other: CurrencyValue>(lhs: Self, rhs: Other) -> Bool {
     guard Self.descriptor == Other.descriptor else {
       return Self.descriptor.alphabeticCode < Other.descriptor.alphabeticCode
     }
@@ -129,7 +129,7 @@ extension Currency {
 
 // MARK: Hashable
 
-extension Currency {
+extension CurrencyValue {
   public func hash(into hasher: inout Hasher) {
     hasher.combine(ObjectIdentifier(Self.descriptor))
     hasher.combine(self.exactAmount)
@@ -138,7 +138,7 @@ extension Currency {
 
 // MARK: CustomReflectable
 
-extension Currency {
+extension CurrencyValue {
   public var customMirror: Mirror {
     return .init(self, children: [
       "exactAmount": self.exactAmount,
@@ -150,7 +150,7 @@ extension Currency {
 
 // MARK: Literal Representations
 
-extension Currency {
+extension CurrencyValue {
   public init(floatLiteral value: Double) {
     self.init(exactAmount: Decimal(value))
   }

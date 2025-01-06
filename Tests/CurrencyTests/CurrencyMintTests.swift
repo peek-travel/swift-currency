@@ -31,7 +31,7 @@ extension CurrencyMintTests {
   }
 
   func test_withFallbackLookup_whenLookupFails_callsFallbackLookup() {
-    struct KED: Currency, CurrencyMetadata {
+    struct KED: CurrencyValue, CurrencyMetadata {
       static var name: String { return "Klingon Darseks" }
       static var alphabeticCode: String { return "KED" }
       static var numericCode: UInt16 { return 666 }

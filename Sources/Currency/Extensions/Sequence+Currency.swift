@@ -14,7 +14,7 @@
 
 // MARK: Sum
 
-extension Sequence where Element: Currency {
+extension Sequence where Element: CurrencyValue {
   /// Returns the sum total of all amounts in the sequence.
   ///
   /// For example:

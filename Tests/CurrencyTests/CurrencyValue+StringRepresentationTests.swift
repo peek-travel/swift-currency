@@ -15,14 +15,14 @@
 import Currency
 import XCTest
 
-final class CurrencyStringRepresentationTests: XCTestCase {
+final class CurrencyValueStringRepresentationTests: XCTestCase {
   let sampleDollar = USD(300.8)
   let sampleYen    = JPY(400.98)
 }
 
 // MARK: Reflection Description
 
-extension CurrencyStringRepresentationTests {
+extension CurrencyValueStringRepresentationTests {
   func test_reflectionRepresentation_includesIdentifierName() {
     XCTAssertTrue(String(reflecting: self.sampleDollar).contains(USD.alphabeticCode))
     XCTAssertTrue(String(reflecting: self.sampleYen).contains(JPY.alphabeticCode))
@@ -63,7 +63,7 @@ extension CurrencyStringRepresentationTests {
 
 // MARK: String Description
 
-extension CurrencyStringRepresentationTests {
+extension CurrencyValueStringRepresentationTests {
   func test_description_includesIdentifierName() {
     XCTAssertTrue(self.sampleDollar.description.contains(USD.alphabeticCode))
     XCTAssertTrue(self.sampleYen.description.contains(JPY.alphabeticCode))
@@ -77,7 +77,7 @@ extension CurrencyStringRepresentationTests {
 
 // MARK: Debug Description
 
-extension CurrencyStringRepresentationTests {
+extension CurrencyValueStringRepresentationTests {
   func test_debugDescription_includesIdentifierName() {
     XCTAssertTrue(self.sampleDollar.debugDescription.contains(USD.alphabeticCode))
     XCTAssertTrue(self.sampleYen.debugDescription.contains(JPY.alphabeticCode))
@@ -96,7 +96,7 @@ extension CurrencyStringRepresentationTests {
 
 // MARK: Playground Description
 
-extension CurrencyStringRepresentationTests {
+extension CurrencyValueStringRepresentationTests {
   func test_playgroundDescription_matchesDebugDescription() {
     XCTAssertEqual(self.sampleDollar.playgroundDescription as? String, self.sampleDollar.debugDescription)
     XCTAssertEqual(self.sampleYen.playgroundDescription as? String, self.sampleYen.debugDescription)
@@ -105,7 +105,7 @@ extension CurrencyStringRepresentationTests {
 
 // MARK: String Interpolation
 
-extension CurrencyStringRepresentationTests {
+extension CurrencyValueStringRepresentationTests {
   func test_stringInterpolation_forLocale_whenNilValue_usesNilDescription_whenProvided() {
     let value: USD? = nil
     XCTAssertEqual("\(localize: value, nilDescription: #function)", #function)
@@ -155,7 +155,7 @@ extension CurrencyStringRepresentationTests {
 
 // MARK: LocalizedString
 
-extension CurrencyStringRepresentationTests {
+extension CurrencyValueStringRepresentationTests {
   func test_localizedString_forLocale_usesDefaultLocale() {
     XCTAssertEqual(USD(4321.389).localizedString(), "$4,321.39")
   }

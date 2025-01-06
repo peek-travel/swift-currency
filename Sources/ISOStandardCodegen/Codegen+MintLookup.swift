@@ -53,7 +53,7 @@ fileprivate func makeIdentifierLookupSnippet(
   let parameterType = type == .numeric ? "UInt16" : "String"
 
   return """
-  internal static func lookup(\(argumentName) code: \(parameterType)) -> (any Currency.Type)? {
+  internal static func lookup(\(argumentName) code: \(parameterType)) -> (any CurrencyValue.Type)? {
   \t\tswitch code {
   \t\t\(casesSnippet)
 
