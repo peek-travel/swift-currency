@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2022 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -16,7 +16,10 @@ import Foundation
 
 func makeISOCurrencyDefinitionFile(at destinationURL: URL, from metadata: [CurrencyMetadata]) throws {
   let typeDefinitions = makeTypeDefinitions(from: metadata)
-  let fileContent = makeFileContent(withBody: typeDefinitions.joined(separator: "\n\n"))
+  let fileContent = makeFileContent(
+    withBody: "import struct Foundation.Decimal\n\n"
+      .appending(typeDefinitions.joined(separator: "\n\n"))
+  )
 
   try fileContent.write(to: destinationURL, atomically: true, encoding: .utf8)
 }
@@ -61,6 +64,18 @@ private func makeTypeDefinitions(from metadata: [CurrencyMetadata]) -> [String] 
       private let _minorUnits: Int64
 
       public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
+    }
+            
+    \(summary)
+    public struct _New_\(definition.identifiers.alphabetic): Currency, CurrencyDescriptor {
+      public static var name: String { "\(definition.name)" }
+      public static var alphabeticCode: String { "\(definition.identifiers.alphabetic)" }
+      public static var numericCode: UInt16 { \(definition.identifiers.numeric) }
+      public static var minorUnits: UInt8 { \(definition.minorUnits) }
+
+      public let exactAmount: Decimal
+
+      public init(exactAmount: Decimal) { self.exactAmount = exactAmount }
     }
     """
   }
