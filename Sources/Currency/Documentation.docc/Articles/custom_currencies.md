@@ -1,4 +1,4 @@
-# Supporting Custom Currencies
+# Defining Custom Currencies
 
 How to support non-ISO standard currencies.
 
@@ -6,89 +6,66 @@ How to support non-ISO standard currencies.
 
 While **SwiftCurrency** is primarily focused on the ISO 4217 standard for currencies - the library is capable of supporting custom (or non-ISO standard) currencies.
 
-There are cases where custom currencies need to be supported, such as by mobile game developers who have an in-game currency that still has the same semantics of real currencies.
+> Example: Some commodities are traded in values with a higher "minor unit" precision than the backing currency.
+>
+> Looking at gasoline prices in USD, they are represented as 1/1000 of 1 Dollar, rather than 1/100.
+>
+> Using the default `USD` representation would be inappropriate.
 
 Extending **SwiftCurrency** to support additional currency types is done in two steps:
 
-1) Define a type that conforms to ``CurrencyProtocol``
-2) Create a custom instance of ``CurrencyMint`` with the ``CurrencyMint/init(fallbackLookup:)`` initializer.
+1) Define the type representing values of the currency
+2) Create a custom instance of ``CurrencyMint``
 
-> Tip: This is only necessary if you need to lookup the custom type from an identifier
+## Defining the Currency
 
-### Example
+As a baseline, your type needs to conform to ``CurrencyValue``,
+but it can optionally also conform to ``CurrencyDescriptor`` to avoid needing to define another type.
+
 ```swift
-struct KED: CurrencyProtocol, CurrencyMetadata {
-  static var name: String { return "Klingon Empire Darsek" }
-  static var alphabeticCode: String { return "KED" }
-  static var numericCode: UInt16 { return 2151 }
-  static var minorUnits: UInt8 { return 3 }
+import Foundation
 
-  let minorUnits: Int64
+struct USGas: CurrencyValue, CurrencyDescriptor {
+  public static var name: String { return "US Gas" }
+  public static var alphabeticCode: String { return "USGas" }
+  public static var numericCode: UInt16 { return 8401 } // prefixed with the USD numericCode
+  public static var minorUnits: UInt8 { return 3 }
 
-  init<T: BinaryInteger>(minorUnits: T) { self.minorUnits = .init(minorUnits) }
+  let exactAmount: Decimal
+
+  init(exactAmount: Decimal) { self.exactAmount = exactAmount }
 }
 
-let customMint = CurrencyMint(fallbackLookup: { identifier in
-  guard identifier == .alphaCode(KED.alphabeticCode) || identifier == .numericCode(KED.numericCode) else {
-    return nil
-  }
-  return KED.self
-})
-let darseks = customMint.make(identifier: "KED", amount: 312023)
-print(darseks is KED) // true
-print(darseks as? KED) // Optional<KED(312.023)>
+let chevronPrice = USGas(3.2689)
+print(chevronPrice.exactAmount) // 3.2689
+print(chevronPrice.roundedAmount) // 3.269
 ```
 
-## Understanding the Core API
+### Custom Mint Instances
 
-**SwiftCurrency** provides two protocols for working with currencies:
+> Note: Custom instances of `CurrencyMint` are only necessary if you need runtime lookup of the currency.
 
-1. ``AnyCurrency``
-    -  The basic representation of a currency, which can be used as an [existential value](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID275) of a ``CurrencyProtocol`` instance that can be passed around in place of a concrete type such as ``USD``
-1. ``CurrencyProtocol``
-    - Refines `AnyCurrency`, but with `Self` requirements as it also refines Standard Library protocols such as [`Comparable`](https://developer.apple.com/documentation/swift/comparable) and [`Hashable`](https://developer.apple.com/documentation/swift/hashable)
+All that is necessary for creating custom mints is to use the ``CurrencyMint/init(fallbackLookup:)`` initializer.
 
-Guidelines for when to use `AnyCurrency` vs `CurrencyProtocol`:
-
-1. When creating a custom currency, conform to `CurrencyProtocol`.
-1. If you need to extend _any_ currency type - use `AnyCurrency`.
-1. If you are extending types with associated types that are a Currency, such as `Array` or `Set`, use `AnyCurrency`.
-1. If your generic type constraints aren't strict enough, such as needing `Hashable` conformance for `Set` - use `CurrencyProtocol`.
-
-### Example
+The closure will be queried if the requested identifier doesn't match the ISO standard definitions,
+returning what was provided by the closure.
 
 ```swift
-// good use of CurrencyProtocol
-class ATM<Currency: CurrencyProtocol> {
-  static let denominations: Set<Currency> = {
-    /* some implementation */
+let customMint = CurrencyMint(fallbackLookup: { identifier in
+  guard
+    identifier == .alphaCode(USGas.alphabeticCode) || identifier == .numericCode(USGas.numericCode)
+  else {
+    return nil
   }
-  
-  let cashAvailable: [Currency]
-}
-struct CustomCurrency: CurrencyProtocol {
-  static var metadata: CurrencyMetadata.Type { return /* some metadata type */ }
-  private(set) var minorUnits: Int64
-  init<T: BinaryInteger>(minorUnits: T) { self.minorUnits = .init(minorUnits) }
-}
 
-// good use of AnyCurrency
-extension Set where Element: AnyCurrency {
-  /// Returns the sum total of all amounts in the sequence.
-  public func sum() -> Element {
-    return self.reduce(into: .zero, +=)
-  }
-}
-extension AnyCurrency {
-  func split(intoParts: Int) { /* implementation */ }
-}
+  return USGas.self
+})
+
+let chevronPrice = customMint.make(identifier: "USGas", exactAmount: 3.023)
+print(type(of: chevronPrice)) // (any CurrencyValue)?
+print(chevronPrice) // 3.023 USGas
 ```
 
 ## Topics
 
-### Defining Custom Currencies
-
-- ``AnyCurrency``
-- ``CurrencyProtocol``
-- ``CurrencyMetadata``
-- ``CurrencyProtocol``
+- ``CurrencyDescriptor``

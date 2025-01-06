@@ -61,6 +61,10 @@ extension String.StringInterpolation {
   ///   - value: The value to localize. If the value is `nil`, then the `nilDescription` will be used.
   ///   - locale: The Locale to localize the value for. The default is `.current`, ig. the runtime environment's Locale.
   ///   - nilDescription: The optional description to use when the `value` is `nil`.
+#if swift(<5.8)
+#else
+  @_documentation(visibility: private)
+#endif
   public mutating func appendInterpolation<Currency: CurrencyValue>(
     localize value: Currency?,
     for locale: Locale = .current,
@@ -101,6 +105,10 @@ extension String.StringInterpolation {
   ///   - value: The value to localize. If the value is `nil`, then the `nilDescription` will be used.
   ///   - formatter: The pre-configured formatter to use.
   ///   - nilDescription: The optional description to use when the `value` is `nil`.
+#if swift(<5.8)
+#else
+  @_documentation(visibility: private)
+#endif
   public mutating func appendInterpolation<Currency: CurrencyValue>(
     localize value: Currency?,
     with formatter: NumberFormatter,

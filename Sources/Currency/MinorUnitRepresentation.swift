@@ -13,8 +13,10 @@
 //===----------------------------------------------------------------------===//
 
 /// The integer used to represent a currency in it's 'minor units' form.
-/// e.g. 100 USD will be represented as `100`.
 ///
-/// Converting from minor units to its decimal form is lossless, as you can multiply or divide
-/// by the currency's `minorUnits` value.
+/// e.g. 100 USD will be represented as `100`.
+#if swift(<5.8)
+#else
+@_documentation(visibility: private)
+#endif
 public typealias CurrencyMinorUnitRepresentation = Int64
