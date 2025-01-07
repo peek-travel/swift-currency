@@ -34,7 +34,8 @@ public protocol CurrencyValue:
   AdditiveArithmetic
 {
   /// The information describing the currency.
-  static var descriptor: CurrencyDescriptor.Type { get }
+  @inlinable
+  static var descriptor: any CurrencyDescriptor.Type { get }
 
   /// The exact amount of money being represented,
   /// even if the value is fractional of what the currency uses for its minor units.
@@ -52,12 +53,20 @@ public protocol CurrencyValue:
 // MARK: Defaults
 
 extension CurrencyValue where Self: CurrencyDescriptor {
-  public static var descriptor: CurrencyDescriptor.Type { Self.self }
+  public static var descriptor: any CurrencyDescriptor.Type { Self.self }
 }
 
 // MARK: Extensions
 
 extension CurrencyValue {
+  /// The information describing the currency.
+  ///
+  /// This is primarily for use when working in type-erased contexts.
+  ///
+  /// When possible, prefer the static property ``descriptor-40dnd`` instead.
+  @inlinable
+  public var descriptor: any CurrencyDescriptor.Type { Self.descriptor }
+
   /// The amount represented as a whole number of the curreny's "minor units".
   ///
   /// For example, as the USD uses 1/100 for its minor unit,
