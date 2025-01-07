@@ -109,6 +109,7 @@ extension CurrencyValue {
 
   /// Subtracts the given other amount from the current exactAmount.
   /// - Parameter amount: The other amount to subtract.
+  @inlinable
   public mutating func subtract(_ amount: Self) {
     self -= amount
   }
@@ -128,6 +129,7 @@ extension CurrencyValue {
 
   /// Subtracts the given other amount from the current exactAmount.
   /// - Parameter amount: The other amount to subtract.
+  @inlinable
   public mutating func subtract(_ amount: some BinaryInteger) {
     self -= amount
   }
@@ -144,6 +146,7 @@ extension CurrencyValue {
 
   /// Subtracts the given other amount from the current exactAmount.
   /// - Parameter amount: The other amount to subtract.
+  @inlinable
   public mutating func subtract(_ amount: Decimal) {
     self -= amount
   }
@@ -170,6 +173,7 @@ extension CurrencyValue {
 
   /// Multiplies the current exactAmount by the given other amount.
   /// - Parameter amount: The other amount to multiply by.
+  @inlinable
   public mutating func multiply(by amount: some BinaryInteger) {
     self *= amount
   }
@@ -186,6 +190,7 @@ extension CurrencyValue {
 
   /// Multiplies the current exactAmount by the given other amount.
   /// - Parameter amount: The other amount to multiply by.
+  @inlinable
   public mutating func multiply(by amount: Decimal) {
     self *= amount
   }

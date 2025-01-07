@@ -138,6 +138,7 @@ extension CurrencyValue {
   /// - Parameters:
   ///   - locale: The Locale to localize the value for. The default is `.current`, ig. the runtime environment's Locale.
   /// - Returns: A localized String representation of the currency value.
+  @inlinable
   public func localizedString(for locale: Locale = .current) -> String {
     return "\(localize: self, for: locale)"
   }
@@ -165,6 +166,7 @@ extension CurrencyValue {
   /// - Parameters:
   ///   - formatter: The pre-configured formatter to use.
   /// - Returns: A localized String representation of the currency value.
+  @inlinable
   public func localizedString(using formatter: NumberFormatter) -> String {
     return "\(localize: self, with: formatter)"
   }
