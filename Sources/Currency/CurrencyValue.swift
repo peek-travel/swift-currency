@@ -30,7 +30,8 @@ public protocol CurrencyValue:
   CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible,
   CustomReflectable,
   Comparable, Hashable,
-  ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral
+  ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral,
+  AdditiveArithmetic
 {
   /// The information describing the currency.
   static var descriptor: CurrencyDescriptor.Type { get }
