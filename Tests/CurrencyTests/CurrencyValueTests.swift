@@ -104,11 +104,6 @@ extension CurrencyValueTests {
     XCTAssertFalse(TestCurrency(exactAmount: 30.01) == TestCurrency(exactAmount: 30.019))
   }
 
-  func test_comparable_whenDifferentDescriptors_comparesDescriptorPrimaryCode() {
-    XCTAssertTrue(TestCurrency(exactAmount: 30) < USD(exactAmount: 30))
-    XCTAssertTrue(KWD(exactAmount: 30) < TestCurrency(exactAmount: 30))
-  }
-
   func test_comparable_whenSameDescriptors_comparesExactAmount() {
     XCTAssertTrue(TestCurrency(exactAmount: 30) < TestCurrency(exactAmount: 30.01))
   }

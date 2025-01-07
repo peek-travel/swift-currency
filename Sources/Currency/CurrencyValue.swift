@@ -116,10 +116,7 @@ extension CurrencyValue {
 // MARK: Comparable
 
 extension CurrencyValue {
-  public static func < <Other: CurrencyValue>(lhs: Self, rhs: Other) -> Bool {
-    guard Self.descriptor == Other.descriptor else {
-      return Self.descriptor.alphabeticCode < Other.descriptor.alphabeticCode
-    }
+  public static func <(lhs: Self, rhs: Self) -> Bool {
     return lhs.exactAmount < rhs.exactAmount
   }
 }
