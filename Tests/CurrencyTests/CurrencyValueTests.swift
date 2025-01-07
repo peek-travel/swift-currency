@@ -17,6 +17,15 @@ import XCTest
 
 final class CurrencyValueTests: XCTestCase { }
 
+// MARK: Descriptor
+
+extension CurrencyValueTests {
+  func test_instanceDescriptor_matchesStaticDescriptor() {
+    let value: any CurrencyValue = USD(3.01)
+    XCTAssertTrue(value.descriptor == USD.descriptor)
+  }
+}
+
 // MARK: Initialization
 
 extension CurrencyValueTests {
