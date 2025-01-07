@@ -137,6 +137,7 @@ extension CurrencyValueStringRepresentationTests {
     formatter.numberStyle = .currency
     formatter.currencyGroupingSeparator = " "
     formatter.currencyDecimalSeparator = "'"
+    formatter.locale = .init(identifier: "en_US")
 
     let pounds = GBP(14928.018)
     formatter.currencyCode = GBP.alphabeticCode
@@ -149,7 +150,7 @@ extension CurrencyValueStringRepresentationTests {
   }
 
   func test_stringInterpolation_forLocale_usesDefaultLocale() {
-    XCTAssertEqual("\(localize: USD(4321.389))", "$4,321.39")
+    XCTAssertEqual("\(localize: USD(4321.389), for: Locale(identifier: "en_US"))", "$4,321.39")
   }
 }
 
@@ -157,7 +158,7 @@ extension CurrencyValueStringRepresentationTests {
 
 extension CurrencyValueStringRepresentationTests {
   func test_localizedString_forLocale_usesDefaultLocale() {
-    XCTAssertEqual(USD(4321.389).localizedString(), "$4,321.39")
+    XCTAssertEqual(USD(4321.389).localizedString(for: .init(identifier: "en_US")), "$4,321.39")
   }
 
   func test_localizedString_forLocale_usesProvidedLocale() {
@@ -174,6 +175,7 @@ extension CurrencyValueStringRepresentationTests {
 
     let pounds = GBP(14928.018)
     formatter.currencyCode = GBP.alphabeticCode
+    formatter.locale = .init(identifier: "en_US")
     XCTAssertEqual(pounds.localizedString(using: formatter), "£14 928'02")
 
     let expectedYenResult = "¥4 001"
