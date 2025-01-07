@@ -36,8 +36,6 @@ public protocol CurrencyDescriptor {
   static var minorUnits: UInt8 { get }
 }
 
-public typealias CurrencyMetadata = CurrencyDescriptor
-
 // MARK: Minor Units conversions
 
 @usableFromInline
