@@ -1,7 +1,8 @@
 # Swift Currency
 
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/peek-travel/swift-currency/blob/master/LICENSE.txt)
-![Documentation Badge](https://img.shields.io/badge/Documentation-gray?style=flat&logo=gitbook&link=https%3A%2F%2Fswiftpackageindex.com%2Fpeek-travel%2Fswift-currency%2Fmain%2Fdocumentation%2Fcurrency)
+[![Documentation Badge](https://img.shields.io/badge/Documentation-gray?style=flat&logo=gitbook)
+](https://swiftpackageindex.com/peek-travel/swift-currency/main/documentation/currency)
 
 [![Swift Compatability](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fpeek-travel%2Fswift-currency%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/peek-travel/swift-currency)
 [![Platform Compatability](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fpeek-travel%2Fswift-currency%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/peek-travel/swift-currency)
@@ -42,7 +43,7 @@ print("Der Gesamtpreis beträgt \(localize: euro, for: .init(identifier: "de_DE"
 // "Der Gesamtpreis beträgt 29,09 €."
 ```
 
-> _For more detailed examples, see the [usage guide](./docs/Usage.md)._
+> _For more detailed examples, see the [documentation](https://swiftpackageindex.com/peek-travel/swift-currency/main/documentation/currency)._
 
 ## Language and Platform Support
 
