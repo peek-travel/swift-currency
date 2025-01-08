@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Currency",
+    name: "swift-currency",
     products: [
         .library(name: "Currency", targets: ["Currency"]),
     ],
