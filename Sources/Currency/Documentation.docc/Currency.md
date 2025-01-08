@@ -1,38 +1,34 @@
 # ``Currency``
 
-Interact with and calculate values of currencies in a type-safe way.
+Interact with, and calculate values of, currencies in a type-safe, ISO 4217 compliant way.
 
 ## Overview
 
-**SwiftCurrency** aims for explicit correctness of representing currencies in their _physical_ form.
+**SwiftCurrency** provides all of the necessary details to work with any currency in terms of
+the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) standard.
 
-To accomplish this, currencies provide their "minorUnits" (a Base 10 "exponent" that defines the scale of their smallest currency unit). For example, the US Dollar's minorUnit is the "cent" which is 1/100 of 1 USD. So the exponent is `2`.
+It also automatically provides definitions for any currency defined in the ISO 4217 standard.
 
-During initialization, the currency's value is rounded to the nearest "minorUnits" before being stored in memory as a whole number of "minorUnits".
+For other common but not standard-defined currencies,
+such as "US Gas" which uses 3 decimal points, see <doc:custom_currencies>.
 
-For example, the value `USD(3.00)` is `300` "minorUnits".
+The core aim of the module is absolute correctness in storing, calculating,
+and representing currencies within their local context.
 
-If this precision is not enough, such as for representing commodities or securities, define [custom currencies](#custom-currency) to represent them.
+No currency conversions (exchanges) are possible.
 
-For example, gasoline prices in USD are represented as 1/1000 of 1 Dollar, rather than 1/100. To represent gas prices, a custom type should be defined:
+## Core Concepts
 
-```swift
-struct USGas: CurrencyProtocol {
-  public static var name: String { return "US Gas" }
-  public static var alphabeticCode: String { return "USGas" }
-  public static var numericCode: UInt16 { return 8401 } // prefixed with the USD numericCode
-  public static var minorUnits: UInt8 { return 3 }
+Decimal-based currencies all choose a set number of "places" that the decimal point is significant for
+representing the currency in physical form: it's smallest unit of measurement.
 
-  private(set) var minorUnits: Int64
+This number is extremely important for rounding and other algorithms.
 
-  init<T: BinaryInteger>(minorUnits: T) { self.minorUnits = .init(minorUnits) }
-}
+In ISO 4217 terms, this is referred to as the currency's "minor units".
 
-let chevronPrice = USGas(3.279)
-let texacoPrice = USGas(3.2689)
-print (chevronPrice, texacoPrice)
-// USGas(3.279), USGas(3.269)
-```
+> Example: The value `USD(3.00)` is `300` "minor units", as USD uses the Penny as the smallest unit at 1/100th.
+>
+> However, Japenese Yen (JPY) has a "minor unit" of 0, as their smallest unit is the Yen itself.
 
 ## Standard Library Extensions
 
@@ -41,7 +37,7 @@ Where appropriate, extensions to Standard Library types are provided for common 
 For example, `Sequence` has several overloads for calculating a sum of values:
 
 ```swift
-extension Sequence where Element: AnyCurrency {
+extension Sequence where Element: CurrencyValue {
   // essentially an alias of reduce
   public func sum() -> Element
 
@@ -53,60 +49,42 @@ extension Sequence where Element: AnyCurrency {
 }
 ```
 
-## API Limitations
+## Language Limitations
 
-The fundamental type of **SwiftCurrency** is the ``CurrencyProtocol``, which has `Self` requirements
-that makes it impossible to use outside of generic contexts.
+When dealing with concrete ``CurrencyValue`` types, such as `USD`, anything you can
+imagine with the type should work as expected.
 
-The ``AnyCurrency`` protocol was designed to support passing instances around as an [existential value](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID275),
-and is what is returned when creating an instance from a currency identifier with ``CurrencyMint``.
+However, if you are working with contexts of `any CurrencyValue` ([existential values](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types)),
+some of the API may not be available or work as expected.
 
-While this provides the ability to work outside of generic contexts,
-there's no way to get into a generic context without type casting to a known concrete currency type.
+For example, operators are unable to resolve which implementation is to be used due to the type-erased `Self`.
 
-This is known as "Protocol self-conformance", and is not yet supported in Swift.
+In that situation, instance methods are available to still provide the same functionality.
 
-For example:
+However, you are still able to pass an `any CurrencyValue` to a context expecting `some CurrencyValue`.
 
 ```swift
-struct Invoice<Currency: AnyCurrency> {
+struct Invoice<Currency: CurrencyValue> {
     let total: Currency
     init(_ total: Currency) { self.total = total }
 }
 
-let currency = CurrencyMint.standard.make(identifier: "USD", amount: 30.03)
+let currency = CurrencyMint.standard.make(identifier: "USD", exactAmount: 30.03)
 let invoice = Invoice(currency)
-// compile error:
-// Protocol type 'AnyCurrency' cannot conform to 'AnyCurrency' because only concrete types can conform to protocols
+// type(of: invoice) == Invoice<any CurrencyValue>
+
+print(invoice.total)
+// USD(30.03)
 ```
-
-Luckily, filling this gap in the language is part of the overall vision for Swift,
-as described by the [Generics Manifesto](https://github.com/apple/swift/blob/master/docs/GenericsManifesto.md#existentials).
-
-Threads discussing the progress of completing the manifesto:
-
-- [Status of generalized existentials](https://forums.swift.org/t/status-of-generalized-existentials/13982)
-- [Lifting the “Self or associated type” constraint on existentials](https://forums.swift.org/t/lifting-the-self-or-associated-type-constraint-on-existentials/18025)
-- [Self-conforming protocols](https://twitter.com/Mordil/status/1227068296807059456)
 
 ## Topics
 
-### Core API
-- ``AnyCurrency``
-- ``CurrencyProtocol``
-- ``CurrencyMetadata``
-
-### Creating Values
-
 - <doc:minting_currencies>
+- <doc:custom_currencies>
+- ``CurrencyValue``
 - ``CurrencyMint``
 
 ### Working With Values
 
 - <doc:currency_mathematics>
 - <doc:displaying_currencies>
-
-### Currency Support
-
-- <doc:custom_currencies>
-

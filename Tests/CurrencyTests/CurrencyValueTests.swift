@@ -168,3 +168,68 @@ extension CurrencyValueTests {
     XCTAssertEqual(someOtherGenericContext(value).exactAmount, 3.5)
   }
 }
+
+// MARK: Documentation Samples
+
+extension CurrencyValueTests {
+  struct USGas: CurrencyValue, CurrencyDescriptor {
+    public static var name: String { return "US Gas" }
+    public static var alphabeticCode: String { return "USGas" }
+    public static var numericCode: UInt16 { return 8401 } // prefixed with the USD numericCode
+    public static var minorUnits: UInt8 { return 3 }
+
+    let exactAmount: Decimal
+
+    init(exactAmount: Decimal) { self.exactAmount = exactAmount }
+  }
+
+  func test_customCurrenciesArticle_customCurrencyDefinition_isCorrect() {
+    let chevronPrice = USGas(3.2689)
+    XCTAssertEqual(chevronPrice.exactAmount, 3.2689)
+    XCTAssertEqual(chevronPrice.roundedAmount, 3.269)
+  }
+
+  func test_customCurrenciesArticle_customMintExample_isCorrect() {
+    let customMint = CurrencyMint(fallbackLookup: { identifier in
+      guard
+        identifier == .alphaCode(USGas.alphabeticCode.uppercased()) || identifier == .numericCode(USGas.numericCode)
+      else {
+        return nil
+      }
+
+      return USGas.self
+    })
+
+    let chevronPrice = customMint.make(identifier: "USGas", exactAmount: 3.023)
+    XCTAssertTrue(type(of: chevronPrice) == (any CurrencyValue)?.self)
+    XCTAssertEqual(chevronPrice?.description, "3.023 USGas")
+  }
+
+  func test_currencyMathematicsArticle_naiveAlgorithmExample_isCorrect() {
+    let total = USD(15.01)
+    let numPatrons = 3
+    let individualTotal = total.exactAmount / Decimal(numPatrons)
+    let splitValues: [USD] = .init(
+      repeating: .init(exactAmount: individualTotal),
+      count: numPatrons
+    )
+
+    XCTAssertEqual(splitValues.map(\.roundedAmount), [5, 5, 5])
+  }
+
+  func test_currencyMathematicsArticle_algorithmExample_isCorrect() {
+    let total = USD(15.01)
+    let splitValues = total.distributedEvenly(intoParts: 3)
+
+    XCTAssertEqual(splitValues.map(\.roundedAmount.description), ["5.01", "5", "5"])
+  }
+
+  func test_currencyValueType_floatLiteralExample_isCorrect() {
+    let incorrectValue = USD(exactAmount: 62.12)
+    XCTAssertEqual(incorrectValue.exactAmount, 62.11999999999998976)
+
+    let amount = Decimal(string: "62.12")!
+    let correctValue = USD(exactAmount: amount)
+    XCTAssertEqual(correctValue.exactAmount.description, "62.12")
+  }
+}

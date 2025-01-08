@@ -16,16 +16,7 @@ import struct Foundation.Decimal
 import class Foundation.NSDecimalNumber
 import func Foundation.NSDecimalRound
 
-/// A monetary numeric value representing a currency.
-///
-/// **Value Representation**
-///
-/// All currencies have a "minorUnits" scale, as defined by their ``CurrencyDescriptor``
-/// that determine their precision when represented as a `Foundation.Decimal`.
-///
-/// For example, as the USD uses 1/100 for its minor unit, with the value `USD(1.0)`, `minorUnits` will be the value `100`.
-///
-/// _Equality comparisons and most arithmetic operations use this value._
+/// A monetary numeric value type.
 public protocol CurrencyValue:
   CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundDisplayConvertible,
   CustomReflectable,
@@ -82,12 +73,12 @@ extension CurrencyValue {
   ///
   /// For example:
   /// ```swift
-  ///     let usd = USD(10.007)
-  ///     let yen = JPY(100.9)
-  ///     let dinar = KWD(100.0019)
+  /// let usd = USD(10.007)
+  /// let yen = JPY(100.9)
+  /// let dinar = KWD(100.0019)
   ///
-  ///     print(usd, yen, dinar)
-  ///     // "USD(10.01), JPY(101), KWD(100.002)
+  /// print(usd, yen, dinar)
+  /// // "USD(10.01), JPY(101), KWD(100.002)
   /// ```
   public var roundedAmount: Decimal { self.roundedAmount(using: .bankers) }
 

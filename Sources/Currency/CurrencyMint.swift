@@ -48,31 +48,34 @@ extension CurrencyMint {
 
 // MARK: CurrencyMint
 
-/// A generator object that supports creation of type-safe currencies by their alphabetic or numeric code identifiers.
+/// A factory object that supports creation instances of concrete currency types
+/// by their alphabetic or numeric code identifiers.
 public final class CurrencyMint {
   /// A closure that receives a currency identifier and finds a matching concrete currency type.
   public typealias IdentifierLookup = (CurrencyIdentifier) -> (any CurrencyValue.Type)?
 
   /// Returns a shared currency generator that only provides ISO 4217 defined currencies.
-  public static var standard: CurrencyMint { return .init() }
-
-  private init() {
-    self.fallbackLookup = { _ in return nil }
+  public static var standard: CurrencyMint {
+    return .init(fallbackLookup: { _ in nil })
   }
+
+  private let fallbackLookup: IdentifierLookup
 
   /// Creates an instance that will use the provided lookup closure if an identifier doesn't match the ISO 4217 specification.
   /// - Parameter fallbackLookup: An escaping closure that will be invoked when a currency's identifier is not found in the ISO 4217 specification.
   public init(fallbackLookup: @escaping IdentifierLookup) {
     self.fallbackLookup = fallbackLookup
   }
+}
 
+// MARK: Custom Initializers
+
+extension CurrencyMint {
   /// Creates an instance that will always resolves the provided currency type when ISO 4217 specification lookup fails.
   /// - Parameter defaultCurrency: The default currency type to provide when a currency's identifier is not found in the ISO 4217 specification.
-  public init(defaultCurrency: (some CurrencyValue).Type) {
-    self.fallbackLookup = { _ in defaultCurrency }
+  public convenience init(defaultCurrency: (some CurrencyValue).Type) {
+    self.init(fallbackLookup: { _ in defaultCurrency })
   }
-
-  private let fallbackLookup: IdentifierLookup
 }
 
 // MARK: Factory Methods

@@ -216,10 +216,14 @@ extension CurrencyValue {
   }
   public static func /=(lhs: inout Self, rhs: some BinaryInteger) { lhs = lhs / rhs }
 
+  /// Divides the current exactAmount by the given other amount.
+  /// - Parameter amount: The other amount to divide by.
   @inlinable
   public mutating func divide(by amount: some BinaryInteger) {
     self /= amount
   }
+  /// Divides the current exactAmount by the other amount as a new value.
+  /// - Parameter amount: The other amount to divide by.
   public func dividing(by amount: some BinaryInteger) -> Self {
     return self / amount
   }
@@ -229,10 +233,14 @@ extension CurrencyValue {
   }
   public static func /=(lhs: inout Self, rhs: Decimal) { lhs = lhs / rhs }
 
+  /// Divides the current exactAmount by the given other amount.
+  /// - Parameter amount: The other amount to divide by.
   @inlinable
   public mutating func divide(by amount: Decimal) {
     self /= amount
   }
+  /// Divides the current exactAmount by the other amount as a new value.
+  /// - Parameter amount: The other amount to divide by.
   public func dividing(by amount: Decimal) -> Self {
     return self / amount
   }
