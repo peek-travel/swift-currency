@@ -158,7 +158,12 @@ extension CurrencyValueStringRepresentationTests {
 
 extension CurrencyValueStringRepresentationTests {
   func test_localizedString_forLocale_usesDefaultLocale() {
-    XCTAssertEqual(USD(4321.389).localizedString(for: .init(identifier: "en_US")), "$4,321.39")
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    formatter.locale = .current
+    formatter.currencyCode = USD.alphabeticCode
+    let expectedOutput = formatter.string(for: Decimal(4321.389))
+    XCTAssertEqual(expectedOutput, USD(4321.389).localizedString())
   }
 
   func test_localizedString_forLocale_usesProvidedLocale() {
@@ -172,10 +177,10 @@ extension CurrencyValueStringRepresentationTests {
     formatter.numberStyle = .currency
     formatter.currencyGroupingSeparator = " "
     formatter.currencyDecimalSeparator = "'"
-
-    let pounds = GBP(14928.018)
     formatter.currencyCode = GBP.alphabeticCode
     formatter.locale = .init(identifier: "en_US")
+
+    let pounds = GBP(14928.018)
     XCTAssertEqual(pounds.localizedString(using: formatter), "£14 928'02")
 
     let expectedYenResult = "¥4 001"
