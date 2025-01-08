@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2022 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -12,7 +12,11 @@
 //
 //===----------------------------------------------------------------------===//
 
-enum ProcessingError: Error {
-  case missingContent
-  case missingArgument
-}
+/// The integer used to represent a currency in it's 'minor units' form.
+///
+/// e.g. 100 USD will be represented as `100`.
+#if swift(<5.8)
+#else
+@_documentation(visibility: private)
+#endif
+public typealias CurrencyMinorUnitRepresentation = Int64

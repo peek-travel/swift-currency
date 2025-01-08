@@ -2,116 +2,68 @@ name: Package Tests
 
 on: pull_request
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  macos-latest-5_0:
-    runs-on: macos-latest
+  macos-test:
+    if: ${{ !(github.event.pull_request.draft || false) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        swift-config:
+          - { xcode_version: "15.0.1", macos_version: 14 }
+          - { xcode_version: "15.2", macos_version: 14 }
+          - { xcode_version: "15.4", macos_version: 14 }
+          - { xcode_version: "15.4", macos_version: 15 }
+    runs-on: macos-${{ matrix.swift-config.macos_version }}
+    name: Xcode ${{ matrix.swift-config.xcode_version }} - macOS ${{ matrix.swift-config.macos_version }} Tests
     steps:
-    - uses: actions/checkout@v1
-    - name: Install Swiftenv
-      run: brew install kylef/formulae/swiftenv
-    - name: Set Swift version
-      run: |
-        swiftenv install 5.0.3
-        swiftenv global 5.0.3
-    - name: Check Swift version
-      run: ~/.swiftenv/shims/swift --version
-    - name: Run tests
-      run: ~/.swiftenv/shims/swift test
-
-  macos-latest-5_1:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: Check Swift version
       run: |
-        sudo xcode-select -s /Applications/Xcode_11.3.app/
+        sudo xcode-select -s /Applications/Xcode_${{ matrix.swift-config.xcode_version }}.app/
         export TOOLCHAINS=swift
         swift --version
     - name: Run tests
       run: swift test
 
-  macos-latest-5_2:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Check Swift version
-      run: |
-        sudo xcode-select -s /Applications/Xcode_11.4.app/
-        export TOOLCHAINS=swift
-        swift --version
-    - name: Run tests
-      run: swift test
-
-  ubuntu-bionic-5_0:
-    container:
-      image: swift:5.0-bionic
+  linux-test:
+    if: ${{ !(github.event.pull_request.draft || false) }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        swift-config:
+          - { version: "5.7", distro: amazonlinux2 }
+          - { version: "5.7", distro: jammy }
+          - { version: "5.7", distro: focal }
+          - { version: "5.7", distro: bionic }
+          - { version: "5.7", distro: centos7 }
+          - { version: "5.8", distro: amazonlinux2 }
+          - { version: "5.8", distro: rhel-ubi9 }
+          - { version: "5.8", distro: focal }
+          - { version: "5.8", distro: jammy }
+          - { version: "5.8", distro: centos7 }
+          - { version: "5.8", distro: bionic }
+          - { version: "5.9", distro: amazonlinux2 }
+          - { version: "5.9", distro: rhel-ubi9 }
+          - { version: "5.9", distro: focal }
+          - { version: "5.9", distro: jammy }
+          - { version: "5.9", distro: centos7 }
+          - { version: "5.10", distro: bookworm }
+          - { version: "5.10", distro: amazonlinux2 }
+          - { version: "5.10", distro: rhel-ubi9 }
+          - { version: "5.10", distro: noble }
+          - { version: "5.10", distro: fedora39 }
+          - { version: "5.10", distro: focal }
+          - { version: "5.10", distro: jammy }
+          - { version: "5.10", distro: mantic }
+          - { version: "5.10", distro: centos7 }
+    container: swift:${{ matrix.swift-config.version }}-${{ matrix.swift-config.distro }}
+    name: Swift ${{ matrix.swift-config.version }} - ${{ matrix.swift-config.distro }} Tests
     steps:
     - uses: actions/checkout@v1
     - name: Run tests
-      run: swift test
-  
-  ubuntu-bionic-5_1:
-    container:
-      image: swift:5.1-bionic
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run tests
-      run: swift test
-
-  ubuntu-bionic-5_2:
-    container:
-      image: swift:5.2-bionic
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run tests
-      run: swift test
-
-  ubuntu-bionic-latest:
-    container:
-      image: swiftlang/swift:nightly-bionic
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run tests
-      continue-on-error: true
-      run: swift test
-  
-  ubuntu-xenial-5_0:
-    container:
-      image: swift:5.0-xenial
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run tests
-      run: swift test
-  
-  ubuntu-xenial-5_1:
-    container:
-      image: swift:5.1-xenial
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run tests
-      run: swift test
-
-  ubuntu-xenial-5_2:
-    container:
-      image: swift:5.2-xenial
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run tests
-      run: swift test
-
-  ubuntu-xenial-latest:
-    container:
-      image: swiftlang/swift:nightly-xenial
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run tests
-      continue-on-error: true
       run: swift test

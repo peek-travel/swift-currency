@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2022 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -12,9 +12,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-import Foundation
+import struct Foundation.Calendar
+import struct Foundation.Date
 
-func makeFileContent(withBody content: String) -> String {
+func makeFileHeader() -> String {
   let currentYear = Calendar(identifier: .gregorian).component(.year, from: Date())
 
   return """
@@ -39,7 +40,5 @@ func makeFileContent(withBody content: String) -> String {
 
     Changes manually made will be lost!
   */
-
-  \(content)
   """
 }

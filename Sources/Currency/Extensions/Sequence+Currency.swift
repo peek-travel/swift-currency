@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2020 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -12,11 +12,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-import Foundation
-
 // MARK: Sum
 
-extension Sequence where Element: AnyCurrency {
+extension Sequence where Element: CurrencyValue {
   /// Returns the sum total of all amounts in the sequence.
   ///
   /// For example:

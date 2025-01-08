@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2020 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -12,8 +12,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-/// A type that provides static currency information as defined by ISO 4217.
-public protocol CurrencyMetadata {
+import struct Foundation.Decimal
+
+/// A type that provides information describing a currency in terms as defined by ISO 4217.
+public protocol CurrencyDescriptor {
   /// The name of the currency, such as "United States Dollar".
   static var name: String { get }
   /// The ISO 4217 3-digit letter currency code.
@@ -32,4 +34,22 @@ public protocol CurrencyMetadata {
   ///
   /// However, the Japanese Yen has no minor unit, so it has `0` minorUnits.
   static var minorUnits: UInt8 { get }
+}
+
+// MARK: Minor Units conversions
+
+@usableFromInline
+internal enum CurrencyMinorUnitConversionSource {
+  case minorUnits, exactAmount
+}
+
+extension CurrencyDescriptor {
+  internal static func minorUnitsCoefficient(for source: CurrencyMinorUnitConversionSource) -> Decimal {
+    let exponent: Int
+    switch source {
+    case .exactAmount: exponent = .init(Self.minorUnits)
+    case .minorUnits: exponent = -.init(Self.minorUnits)
+    }
+    return .init(sign: .plus, exponent: exponent, significand: 1)
+  }
 }

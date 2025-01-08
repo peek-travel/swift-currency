@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2022 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -14,17 +14,19 @@
 
 import Foundation
 
-func makeMintISOCurrencySupportCodeFile(at destinationURL: URL, from currencies: [CurrencyMetadata]) throws {
+func makeMintISOCurrencySupportCodeFile(at destinationURL: URL, from currencies: [CurrencyDefinition]) throws {
   let alphaLookupSnippet = makeIdentifierLookupSnippet(for: currencies, identifier: .alphabetic)
   let numericLookupSnippet = makeIdentifierLookupSnippet(for: currencies, identifier: .numeric)
 
-  let fileContent = makeFileContent(withBody: """
+  let fileContent = """
+  \(makeFileHeader())
+  
   extension CurrencyMint {
   \t\(alphaLookupSnippet)
 
   \t\(numericLookupSnippet)
   }
-  """)
+  """
 
   try fileContent.write(to: destinationURL, atomically: true, encoding: .utf8)
 }
@@ -34,7 +36,7 @@ enum Identifier {
 }
 
 fileprivate func makeIdentifierLookupSnippet(
-  for currencies: [CurrencyMetadata],
+  for currencies: [CurrencyDefinition],
   identifier type: Identifier
 ) -> String {
   let casesSnippet = currencies
@@ -51,7 +53,7 @@ fileprivate func makeIdentifierLookupSnippet(
   let parameterType = type == .numeric ? "UInt16" : "String"
 
   return """
-  internal static func lookup(\(argumentName) code: \(parameterType)) -> AnyCurrency.Type? {
+  internal static func lookup(\(argumentName) code: \(parameterType)) -> (any CurrencyValue.Type)? {
   \t\tswitch code {
   \t\t\(casesSnippet)
 
@@ -61,7 +63,7 @@ fileprivate func makeIdentifierLookupSnippet(
   """
 }
 
-extension LazySequence where Element == CurrencyMetadata {
+extension LazySequence where Element == CurrencyDefinition {
   fileprivate func sorted(by identifier: Identifier) -> [Element] {
     self.sorted(by: {
       switch identifier {

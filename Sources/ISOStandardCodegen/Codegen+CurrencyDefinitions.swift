@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2022 SwiftCurrency project authors
+// Copyright (c) 2024 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -14,15 +14,23 @@
 
 import Foundation
 
-func makeISOCurrencyDefinitionFile(at destinationURL: URL, from metadata: [CurrencyMetadata]) throws {
-  let typeDefinitions = makeTypeDefinitions(from: metadata)
-  let fileContent = makeFileContent(withBody: typeDefinitions.joined(separator: "\n\n"))
+func makeISOCurrencyDefinitionFile(at destinationURL: URL, from source: [CurrencyDefinition]) throws {
+  let typeDefinitions = makeTypeDefinitions(from: source)
+    .joined(separator: "\n\n")
+
+  let fileContent = """
+  \(makeFileHeader())
+  
+  import struct Foundation.Decimal
+  
+  \(typeDefinitions)
+  """
 
   try fileContent.write(to: destinationURL, atomically: true, encoding: .utf8)
 }
 
-private func makeTypeDefinitions(from metadata: [CurrencyMetadata]) -> [String] {
-  return metadata.map {
+private func makeTypeDefinitions(from definitions: [CurrencyDefinition]) -> [String] {
+  return definitions.map {
     definition in
 
     let summary: String = {
@@ -48,19 +56,26 @@ private func makeTypeDefinitions(from metadata: [CurrencyMetadata]) -> [String] 
       }
     }()
 
+    let documentationFlag: String = {
+#if swift(<5.8)
+      return ""
+#else
+      return "@_documentation(visibility: private)"
+#endif
+    }()
+
     return """
     \(summary)
-    public struct \(definition.identifiers.alphabetic): CurrencyProtocol, CurrencyMetadata {
+    \(documentationFlag)
+    public struct \(definition.identifiers.alphabetic): CurrencyValue, CurrencyDescriptor {
       public static var name: String { "\(definition.name)" }
       public static var alphabeticCode: String { "\(definition.identifiers.alphabetic)" }
       public static var numericCode: UInt16 { \(definition.identifiers.numeric) }
       public static var minorUnits: UInt8 { \(definition.minorUnits) }
 
-      public var minorUnits: Int64 { self._minorUnits }
+      public let exactAmount: Decimal
 
-      private let _minorUnits: Int64
-
-      public init<T: BinaryInteger>(minorUnits: T) { self._minorUnits = .init(minorUnits) }
+      public init(exactAmount: Decimal) { self.exactAmount = exactAmount }
     }
     """
   }
