@@ -150,7 +150,10 @@ extension CurrencyValueStringRepresentationTests {
   }
 
   func test_stringInterpolation_forLocale_usesDefaultLocale() {
-    XCTAssertEqual("\(localize: USD(4321.389), for: Locale(identifier: "en_US"))", "$4,321.39")
+    let formatter = self.defaultLocaleNumberFormatter
+    formatter.currencyCode = USD.alphabeticCode
+    let expectedOutput = formatter.string(for: Decimal(4321.389))
+    XCTAssertEqual("\(localize: USD(4321.389))", expectedOutput)
   }
 }
 
@@ -158,10 +161,9 @@ extension CurrencyValueStringRepresentationTests {
 
 extension CurrencyValueStringRepresentationTests {
   func test_localizedString_forLocale_usesDefaultLocale() {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .currency
-    formatter.locale = .current
+    let formatter = self.defaultLocaleNumberFormatter
     formatter.currencyCode = USD.alphabeticCode
+    
     let expectedOutput = formatter.string(for: Decimal(4321.389))
     XCTAssertEqual(expectedOutput, USD(4321.389).localizedString())
   }
@@ -187,5 +189,14 @@ extension CurrencyValueStringRepresentationTests {
     let yen = JPY(4000.9)
     formatter.currencyCode = JPY.alphabeticCode
     XCTAssertEqual(yen.localizedString(using: formatter), expectedYenResult)
+  }
+}
+
+extension CurrencyValueStringRepresentationTests {
+  private var defaultLocaleNumberFormatter: NumberFormatter {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    formatter.locale = .current
+    return formatter
   }
 }
