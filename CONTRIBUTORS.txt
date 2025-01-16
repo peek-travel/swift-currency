@@ -12,6 +12,7 @@ needs to be listed here.
 ### Contributors
 
 - Nathan Harris <nathan.harris@peek.com>
+- Santiago Carmona Gonzalez <dev.santicarmo31@gmail.com>
 - Tony Dam <tony@peek.com>
 
 **Updating this list**
