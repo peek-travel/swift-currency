@@ -60,7 +60,7 @@ Add the package reference to your **Package.swift** to install via SwiftPM.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/peek-travel/swift-currency", from: "0.6.0")
+    .package(url: "https://github.com/peek-travel/swift-currency", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
