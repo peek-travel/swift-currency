@@ -167,6 +167,24 @@ extension CurrencyValueTests {
     XCTAssertTrue(someGenericContext(value))
     XCTAssertEqual(someOtherGenericContext(value).exactAmount, 3.5)
   }
+
+  func test_cryptocurrencyDefinition_doesNotCrash() {
+    struct ETH: CurrencyValue, CurrencyDescriptor {
+      public static var name: String { "Eth" }
+      public static var alphabeticCode: String { "ETH" }
+      public static var numericCode: UInt16 { 999 }
+      public static var minorUnits: UInt8 { 18 }
+
+      let exactAmount: Decimal
+
+      init(exactAmount: Decimal) { self.exactAmount = exactAmount }
+    }
+
+    XCTAssertEqual(ETH(5.01).exactAmount, 5.01)
+
+    let value = ETH(exactAmount: Decimal(string: "0.000000000000000001")!)
+    XCTAssertEqual(value.distributedEvenly(intoParts: 1).first, value)
+  }
 }
 
 // MARK: Documentation Samples
