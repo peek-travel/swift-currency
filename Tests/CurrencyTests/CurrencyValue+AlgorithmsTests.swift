@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2024 SwiftCurrency project authors
+// Copyright (c) 2024-2025 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -67,7 +67,7 @@ extension CurrencyValueAlgorithmsTests {
     for currency: Currency,
     numParts count: Int,
     expectedResults: [Currency],
-    file: StaticString = #file,
+    file: StaticString = #filePath,
     line: UInt = #line
   ) {
     guard count == expectedResults.count else {

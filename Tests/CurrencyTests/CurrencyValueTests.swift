@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2024 SwiftCurrency project authors
+// Copyright (c) 2024-2025 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -30,7 +30,7 @@ extension CurrencyValueTests {
 
 extension CurrencyValueTests {
   func test_init_exactAmount_doesNotModifyValue() {
-    func assertInit(amount: Decimal, for currencyType: (some CurrencyValue).Type, file: StaticString = #file, line: UInt = #line) {
+    func assertInit(amount: Decimal, for currencyType: (some CurrencyValue).Type, file: StaticString = #filePath, line: UInt = #line) {
       XCTAssertEqual(
         currencyType.init(exactAmount: amount).exactAmount,
         amount,
@@ -90,10 +90,10 @@ extension CurrencyValueTests {
 
 extension CurrencyValueTests {
   struct TestCurrency: CurrencyValue, CurrencyDescriptor {
-    static var name: String = "TestCurrency"
-    static var alphabeticCode: String = "TC"
-    static var numericCode: UInt16 = .max
-    static var minorUnits: UInt8 = 2
+    static var name: String { "TestCurrency" }
+    static var alphabeticCode: String { "TC" }
+    static var numericCode: UInt16 { .max }
+    static var minorUnits: UInt8 { 2 }
 
     let exactAmount: Decimal
   }
