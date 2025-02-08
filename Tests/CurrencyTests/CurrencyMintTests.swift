@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftCurrency open source project
 //
-// Copyright (c) 2020 SwiftCurrency project authors
+// Copyright (c) 2020-2025 SwiftCurrency project authors
 // Licensed under MIT License
 //
 // See LICENSE.txt for license information
@@ -30,7 +30,7 @@ extension CurrencyMintTests {
     XCTAssertNil(darseks)
   }
 
-  func test_withFallbackLookup_whenLookupFails_callsFallbackLookup() {
+  func test_withFallbackLookup_whenLookupFails_callsFallbackLookup() async {
     struct KED: CurrencyValue, CurrencyDescriptor {
       static var name: String { return "Klingon Darseks" }
       static var alphabeticCode: String { return "KED" }
@@ -57,7 +57,13 @@ extension CurrencyMintTests {
     let d2 = mint.make(identifier: 666, minorUnits: .zero)
     XCTAssertTrue(d2 is KED)
 
-    self.waitForExpectations(timeout: 1)
+#if swift(>=5.9)
+    await self.fulfillment(of: [expectation], timeout: 1)
+#else
+    DispatchQueue.main.sync {
+      self.waitForExpectations(timeout: 1)
+    }
+#endif
   }
 
   func test_withDefaultCurrencyLookup_whenLookupFails_returnsDefaultCurrency() {
