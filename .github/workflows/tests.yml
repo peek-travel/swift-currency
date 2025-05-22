@@ -16,7 +16,11 @@ jobs:
           - { xcode_version: "15.0.1", macos_version: 14 }
           - { xcode_version: "15.2", macos_version: 14 }
           - { xcode_version: "15.4", macos_version: 14 }
+          - { xcode_version: "16.1", macos_version: 14 }
+          - { xcode_version: "16.2", macos_version: 14 }
           - { xcode_version: "15.4", macos_version: 15 }
+          - { xcode_version: "16.1", macos_version: 15 }
+          - { xcode_version: "16.3", macos_version: 15 }
     runs-on: macos-${{ matrix.swift-config.macos_version }}
     name: Xcode ${{ matrix.swift-config.xcode_version }} - macOS ${{ matrix.swift-config.macos_version }} Tests
     steps:
@@ -61,6 +65,16 @@ jobs:
           - { version: "5.10", distro: jammy }
           - { version: "5.10", distro: mantic }
           - { version: "5.10", distro: centos7 }
+          - { version: "6.0.3", distro: bookworm }
+          - { version: "6.0.3", distro: amazonlinux2 }
+          - { version: "6.0.3", distro: rhel-ubi9 }
+          - { version: "6.0.3", distro: focal }
+          - { version: "6.0.3", distro: jammy }
+          - { version: "6.1.0", distro: bookworm }
+          - { version: "6.1.0", distro: amazonlinux2 }
+          - { version: "6.1.0", distro: rhel-ubi9 }
+          - { version: "6.1.0", distro: focal }
+          - { version: "6.1.0", distro: jammy }
     container: swift:${{ matrix.swift-config.version }}-${{ matrix.swift-config.distro }}
     name: Swift ${{ matrix.swift-config.version }} - ${{ matrix.swift-config.distro }} Tests
     steps:
