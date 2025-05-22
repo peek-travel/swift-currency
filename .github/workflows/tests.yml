@@ -7,7 +7,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  macos-test:
+  macos:
     if: ${{ !(github.event.pull_request.draft || false) }}
     strategy:
       fail-fast: false
@@ -22,7 +22,7 @@ jobs:
           - { xcode_version: "16.1", macos_version: 15 }
           - { xcode_version: "16.3", macos_version: 15 }
     runs-on: macos-${{ matrix.swift-config.macos_version }}
-    name: Xcode ${{ matrix.swift-config.xcode_version }} - macOS ${{ matrix.swift-config.macos_version }} Tests
+    name: Xcode ${{ matrix.swift-config.xcode_version }} - macOS ${{ matrix.swift-config.macos_version }}
     steps:
     - uses: actions/checkout@v4
     - name: Check Swift version
@@ -33,7 +33,7 @@ jobs:
     - name: Run tests
       run: swift test
 
-  linux-test:
+  linux:
     if: ${{ !(github.event.pull_request.draft || false) }}
     runs-on: ubuntu-latest
     strategy:
@@ -76,8 +76,8 @@ jobs:
           - { version: "6.1.0", distro: focal }
           - { version: "6.1.0", distro: jammy }
     container: swift:${{ matrix.swift-config.version }}-${{ matrix.swift-config.distro }}
-    name: Swift ${{ matrix.swift-config.version }} - ${{ matrix.swift-config.distro }} Tests
+    name: Swift ${{ matrix.swift-config.version }} - ${{ matrix.swift-config.distro }}
     steps:
     - uses: actions/checkout@v1
-    - name: Run tests
+    - name: Run ${{ matrix.swift-config.version }} - ${{ matrix.swift-config.distro }} Tests
       run: swift test
